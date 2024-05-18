@@ -1,0 +1,92 @@
+package Cmd;
+// 主要用来发私包
+
+message LuckMoney
+{
+	required  string   _id         = 1; // 红包编码
+	required  uint64   chips       = 2; // 红包总额
+	required  string   bless       = 3; // 祝福
+	required  int32    status      = 4; // 领取标志 0：领取，1:待领取，2：已退回
+	required  uint64   uidSend     = 5; // 红包发送者
+	optional  uint64   uidReceive  = 6; // 红包接收者
+	optional  string   timeSend    = 7; // 发送时间
+	optional  string   timeReceive = 8; // 接收时间
+	optional  bool     bBest       = 9; // 是否最佳
+	optional  LuckMoneyBaseInfo sendInfo = 10; // 发送者基本信息
+	optional  LuckMoneyBaseInfo recvInfo = 11; // 发送者
+}
+
+// 用户基本信息-为java对接做好准备
+message LuckMoneyBaseInfo
+{
+	required uint64    uid         = 1;
+	required string    headUrl     = 2;
+	required string    nickName    = 3; 
+	required string    gender      = 4; 
+	required uint64    remainder   = 5;
+	required uint32    platId      = 6;
+	required string    subPlatId   = 7;
+}
+
+// --红包发送--
+message Pri_LuckMoneySend_C
+{
+	required  uint64   chips          = 1; // 红包总额
+	required  string   bless          = 2; // 祝福
+	optional  uint64   uidReceive     = 3; // 待接受者
+}
+
+message Pri_LuckMoneySend_S
+{
+	optional uint32    resultCode    = 1; // 返回码
+	optional string    desc          = 2; // 返回描述
+	optional uint64    remainder     = 3; // 剩余筹码
+}
+
+// --红包派送推送--
+// 服务器主动推送给需要派送的玩家
+message Pri_LuckMoneySend_Brd
+{
+	required LuckMoney luckMoney = 1; // 红包
+}
+
+// 玩家领取
+message Pri_LuckMoneyReceive_C
+{
+	required LuckMoney luckMoney = 1; // 红包
+}
+message Pri_LuckMoneyReceive_Brd
+{
+	required uint32    resultCode     = 1; // 返回码
+	required string    desc           = 2; // 返回描述
+	optional LuckMoney luckMoney      = 3; // 红包
+	optional uint64     remainder     = 4; // 领取后现有筹码
+	optional uint64     uid           = 5; // uid
+}
+
+// 查询红包记录
+message Pri_LuckMoneyRecord_C
+{
+
+}
+
+message Pri_LuckMoneyRecord_S
+{
+	repeated LuckMoney luckMoneyRev  = 1; // 领取的红包
+	repeated LuckMoney luckMoneySnd  = 2; // 发送ti红包
+	repeated LuckMoney luckMoneyRtn  = 3; // 退回的红包
+	repeated LuckMoney luckMoneyWat  = 4; // 待领取的红包
+}
+
+// 查询红包信息
+message Pri_LuckMoneyQueryOne_C
+{
+	required string _id   = 1; // 红包id
+}
+
+message Pri_LuckMoneyQueryOne_S
+{
+	required uint32    resultCode     = 1; // 返回码
+	required string    desc           = 2; // 返回描述
+	optional LuckMoney luckMoney      = 3; // 红包
+}

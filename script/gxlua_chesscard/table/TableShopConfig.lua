@@ -1,0 +1,21 @@
+-- file=道具.xlsx[商城] key=
+TableShopConfig = {
+[1]={["shopId"]=101,["shopType"]=2,["shopGoods"]={["goodId"]=6,["goodNum"]=1},["priceType"]=1,["price"]=600,["firstShopGoods"]={["goodId"]=0,["goodNum"]=0},["onShelve"]=0,["isShow"]=0,["buyNbr"]=0,["iapppayId"]=13},
+[2]={["shopId"]=102,["shopType"]=2,["shopGoods"]={["goodId"]=8,["goodNum"]=1},["priceType"]=1,["price"]=600,["firstShopGoods"]={["goodId"]=0,["goodNum"]=0},["onShelve"]=1,["isShow"]=0,["buyNbr"]=0,["iapppayId"]=14},
+[3]={["shopId"]=103,["shopType"]=2,["shopGoods"]={["goodId"]=4,["goodNum"]=1},["priceType"]=1,["price"]=300,["firstShopGoods"]={["goodId"]=0,["goodNum"]=0},["onShelve"]=0,["isShow"]=0,["buyNbr"]=0,["iapppayId"]=15},
+[4]={["shopId"]=104,["shopType"]=2,["shopGoods"]={["goodId"]=7,["goodNum"]=1},["priceType"]=2,["price"]=10000,["firstShopGoods"]={["goodId"]=0,["goodNum"]=0},["onShelve"]=1,["isShow"]=1,["buyNbr"]=0,["iapppayId"]=0},
+[5]={["shopId"]=105,["shopType"]=1,["shopGoods"]={["goodId"]=14,["goodNum"]=1},["priceType"]=1,["price"]=10,["firstShopGoods"]={["goodId"]=0,["goodNum"]=0},["onShelve"]=1,["isShow"]=1,["buyNbr"]=0,["iapppayId"]=0},
+[6]={["shopId"]=106,["shopType"]=1,["shopGoods"]={["goodId"]=15,["goodNum"]=1},["priceType"]=1,["price"]=600,["firstShopGoods"]={["goodId"]=0,["goodNum"]=0},["onShelve"]=1,["isShow"]=1,["buyNbr"]=0,["iapppayId"]=0},
+[7]={["shopId"]=107,["shopType"]=1,["shopGoods"]={["goodId"]=16,["goodNum"]=1},["priceType"]=1,["price"]=1200,["firstShopGoods"]={["goodId"]=0,["goodNum"]=0},["onShelve"]=1,["isShow"]=1,["buyNbr"]=0,["iapppayId"]=0},
+[8]={["shopId"]=108,["shopType"]=1,["shopGoods"]={["goodId"]=17,["goodNum"]=1},["priceType"]=1,["price"]=3000,["firstShopGoods"]={["goodId"]=0,["goodNum"]=0},["onShelve"]=1,["isShow"]=1,["buyNbr"]=0,["iapppayId"]=0},
+[9]={["shopId"]=109,["shopType"]=1,["shopGoods"]={["goodId"]=18,["goodNum"]=1},["priceType"]=1,["price"]=5000,["firstShopGoods"]={["goodId"]=0,["goodNum"]=0},["onShelve"]=1,["isShow"]=1,["buyNbr"]=0,["iapppayId"]=0},
+[10]={["shopId"]=110,["shopType"]=1,["shopGoods"]={["goodId"]=19,["goodNum"]=1},["priceType"]=1,["price"]=10800,["firstShopGoods"]={["goodId"]=0,["goodNum"]=0},["onShelve"]=1,["isShow"]=1,["buyNbr"]=0,["iapppayId"]=0},
+[11]={["shopId"]=111,["shopType"]=1,["shopGoods"]={["goodId"]=20,["goodNum"]=1},["priceType"]=1,["price"]=48800,["firstShopGoods"]={["goodId"]=0,["goodNum"]=0},["onShelve"]=1,["isShow"]=1,["buyNbr"]=0,["iapppayId"]=0},
+[12]={["shopId"]=112,["shopType"]=1,["shopGoods"]={["goodId"]=21,["goodNum"]=1},["priceType"]=1,["price"]=99800,["firstShopGoods"]={["goodId"]=0,["goodNum"]=0},["onShelve"]=1,["isShow"]=1,["buyNbr"]=0,["iapppayId"]=0},
+[13]={["shopId"]=113,["shopType"]=1,["shopGoods"]={["goodId"]=22,["goodNum"]=1},["priceType"]=1,["price"]=499800,["firstShopGoods"]={["goodId"]=0,["goodNum"]=0},["onShelve"]=1,["isShow"]=1,["buyNbr"]=0,["iapppayId"]=0},
+[14]={["shopId"]=114,["shopType"]=3,["shopGoods"]={["goodId"]=7,["goodNum"]=1},["priceType"]=3,["price"]=800,["firstShopGoods"]={["goodId"]=0,["goodNum"]=0},["onShelve"]=1,["isShow"]=1,["buyNbr"]=0,["iapppayId"]=0},
+[15]={["shopId"]=115,["shopType"]=3,["shopGoods"]={["goodId"]=3,["goodNum"]=1},["priceType"]=3,["price"]=1000,["firstShopGoods"]={["goodId"]=0,["goodNum"]=0},["onShelve"]=1,["isShow"]=1,["buyNbr"]=0,["iapppayId"]=0},
+[16]={["shopId"]=116,["shopType"]=3,["shopGoods"]={["goodId"]=23,["goodNum"]=1},["priceType"]=3,["price"]=9000,["firstShopGoods"]={["goodId"]=0,["goodNum"]=0},["onShelve"]=1,["isShow"]=1,["buyNbr"]=0,["iapppayId"]=0},
+[17]={["shopId"]=117,["shopType"]=3,["shopGoods"]={["goodId"]=24,["goodNum"]=1},["priceType"]=3,["price"]=70000,["firstShopGoods"]={["goodId"]=0,["goodNum"]=0},["onShelve"]=1,["isShow"]=1,["buyNbr"]=0,["iapppayId"]=0},
+[18]={["shopId"]=118,["shopType"]=3,["shopGoods"]={["goodId"]=25,["goodNum"]=1},["priceType"]=3,["price"]=100000,["firstShopGoods"]={["goodId"]=0,["goodNum"]=0},["onShelve"]=1,["isShow"]=1,["buyNbr"]=0,["iapppayId"]=0},
+}

@@ -1,0 +1,41 @@
+// gm 使用时参考
+
+//-----------------------------------大厅相关-----------------------------------------
+// 枚举 运营活动 开关类型
+enum  SwitchType 
+{
+	ALWAYS  	= 1; // 持续开或关
+	MONTHS		= 2; // 指定月份开启
+	WEEKS		= 3; // 指定周几开启  周一 至 周日 分别为 --- 1 2 3 4 5 6 7
+	DAYS 		= 4; // 指定哪天开启
+	TIMES 		= 5; // 指定时间段
+}
+
+enum OprateType  
+{
+	TURNTABLE   = 1; // 幸运大转盘
+}
+
+message Between
+{
+	required string			head		= 1;	// 开始时间	日期输入为string类型(yyyy-mm-dd/hh:mm:ss)
+	required string			tail		= 2;	// 结束时间
+}
+
+// 指定运营活动 开关 
+message OperateSwitch_C 
+{
+	required OprateType 	opAcId 		= 1;	// 指定运营活动 转盘为1
+	required SwitchType 	openType 	= 2;	// 指定开关类型
+	optional bool			isOpen 		= 3;	// 为持续状态类型时 应有该字段
+	repeated uint32 		appoint		= 4;	// 为指定 月、天、周几时 读取该字段
+	repeated Between		between 	= 5; 	// 为指定时间段内 读取该字段
+} 
+
+message OperateSwitch_S 
+{
+	required uint32 		ret 		= 1;
+	optional string			desc		= 2; 
+} 
+
+//---------------------------------------------------------------------------------

@@ -1,0 +1,61 @@
+package Cmd;
+// 幸运大转盘 运营活动相关内容
+
+message RecordLuckyTurnTable
+{
+	required string time 	= 1; // 获奖时间
+	required string goodName= 2; // 物品名称
+}
+
+// 请求转盘信息
+message GetInfoLuckyTurnTableCmd_C
+{
+
+}
+
+// 转盘信息回复
+message GetInfoLuckyTurnTableCmd_S
+{
+	required uint32 resultCode         	= 1; // 回复
+	optional string desc           		= 2; // 描述
+	optional uint32	integral			= 3; // 当前积分
+}
+
+
+// 转动转盘
+message TurnLuckyTurnTableCmd_C
+{
+
+}
+
+// 转动转盘回复
+message TurnLuckyTurnTableCmd_S
+{
+	required uint32 resultCode  = 1; // 回复
+	optional string desc        = 2; // 描述
+	optional uint32 turnId 		= 3; // 转中的哪一个
+	optional uint32 integral	= 4; // 当前积分
+	optional uint32 remainder 	= 5; // 当前筹码
+}
+
+
+// 获取获奖记录
+message GetRecordLuckyTurnTableCmd_C
+{
+
+}
+
+// 获取获奖记录回复
+message GetRecordLuckyTurnTableCmd_S
+{
+	required uint32 				resultCode  = 1; // 回复
+	optional string 				desc        = 2; // 描述
+	repeated RecordLuckyTurnTable 	records 	= 3; // 获奖记录
+}
+
+
+
+
+
+
+

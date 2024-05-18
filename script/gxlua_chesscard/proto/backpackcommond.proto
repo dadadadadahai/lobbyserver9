@@ -1,0 +1,63 @@
+package Cmd;
+
+enum BackpackSourceType
+{
+	Backpack_Source_Type_Task     	= 0; // 背包物品来自任务
+	Backpack_Source_Type_DaysTask 	= 1; // 背包物品来自每日任务
+	Backpack_Source_Type_Activity 	= 2; // 背包物品来自活动
+}
+
+
+
+// 关于背包信息获取
+message BackpackInfo
+{
+	required uint32    		goodId               = 1; // 背包物品id 
+	required uint32     	goodNum               = 2; // 物品数量
+    optional uint32         id                   = 3; //唯一id
+
+}
+// 背包信息获取
+message BackpackInfoRequestBackpackCmd_C
+{
+}
+
+message BackpackInfoReturnBackpackCmd_S
+{
+	required uint32  		resultCode            = 1; 
+	optional string       	desc                  = 2;
+	repeated BackpackInfo  	backpackList          = 3; // 背包列表
+}
+
+// 使用背包物品
+message BackpackExchangeRequestBackpackCmd_C
+{
+	required BackpackInfo  	backpackInfo          = 1; // 背包物品相关数据
+}
+
+message BackpackExchangeReturnBackpackCmd_S
+{
+	required uint32  		resultCode            = 1; 
+	optional string       	desc                  = 2;
+    optional uint32         goodId                = 3;  //使用的物品id
+	optional uint32 		surplus				  = 4; //使用成功后 该物品剩余数量
+}
+
+//服务器通知客户端获得一个新道具
+message AddItemBackpackCmd_S
+{
+   repeated BackpackInfo goodInfoList                = 1;  //物品信息 
+}
+
+//服务器通知客户端删除一个道具
+message DeleteItemBackpackCmd_S
+{
+   optional BackpackInfo goodInfo                = 1;  //物品信息 
+}
+
+//更新道具数量
+message ItemChangeBackpackCmd_S
+{
+   optional BackpackInfo goodInfo                = 1;  //物品信息 
+}
+

@@ -1,0 +1,24 @@
+package Cmd;
+
+// 赠送表情礼物
+message GiveFaceGiftCmd_C
+{
+	repeated uint64 revSet 					= 1; // 被赠送玩家uid
+	optional uint32 giftId 					= 2; // 礼物id
+	optional uint32 roomId					= 3;
+	optional uint32 costType                = 4; // nil or 0:消耗银行金币，如果是消耗携带金币
+}
+
+message GiveFaceGiftCmd_S
+{
+	optional uint32 resultCode				= 1;
+	optional string desc					= 2;
+}
+
+message GiveFaceGiftCmd_Brd
+{
+	optional uint64 uid 					= 1;	// 赠送者uid
+	optional uint32 giftId 					= 2;	// 礼物id
+	repeated uint64 userSet 				= 3;	// 被赠送玩家集合
+	optional uint32 remainder				= 4;	// 以前为当前玩家剩余金钱  -- 现在修改为 --  当前玩家剩余银行筹码
+}

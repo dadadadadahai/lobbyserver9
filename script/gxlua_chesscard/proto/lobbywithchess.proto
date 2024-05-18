@@ -1,0 +1,150 @@
+// 用于游戏服 与 大厅服务器 进行通讯的协议
+package Cmd;
+
+// 向大厅服务器 发送金币不足 警告。 暂定低于5000给警告
+message SendChipsWarnLobbyCmd_C
+{
+	required uint32 uid 		= 1;		// 玩家uid
+	required uint32 remainder	= 2; 		// 剩余筹码
+}
+
+message SendChipsWarnLobbyCmd_S
+{
+	required uint32 returnCode 	= 1;		// 是否发送成功
+	required uint32 desc		= 2; 		// 描述
+}
+
+
+// 麻将大厅使用 通知大厅当前房间解散
+message SendRemoveRoomLobbyCmd_C
+{
+	optional uint32 roomId 		= 1; // 解散房间id
+	optional uint32 uid 		= 2; // 解散房间的uid,有情况不知道roomId了,只能发uid过去大厅找
+	optional string hostTip 	= 3; // 房主小费 有则发无则不需要 结构是个数组  []{uid,nickname,integra}
+    optional string redPack     = 4; // 开房红包数据 有则发无则不需要 结构是个数组 []{uid, num}
+}
+
+
+// 麻将大厅使用 当前房间有人离开
+message SendLeaveRoomLobbyCmd_C
+{
+	optional uint32 uid 		= 1; // 玩家id
+	optional uint32 roomId 		= 2; // 房间id
+}
+
+
+// 麻将大厅使用 当前房间有人进入,请求进入房间
+message SendEnterRoomLobbyCmd_C
+{
+	optional uint32 roomId 		= 1; // 均为随机房间id号而非全局唯一id
+	optional uint32 uid 		= 2; // 玩家id
+	optional uint32 pos 		= 3; // 座位
+}
+
+// 麻将大厅使用 当前房间有人进入,请求进入房间返回所有房间信息
+message SendEnterRoomLobbyCmd_S
+{
+	optional uint32 ret 		= 1; // 返回码
+	optional uint32 desc 		= 2; // 信息
+	optional uint32 uid 		= 3; // 玩家id
+	optional uint32 roomId 		= 4; // 房间号
+}
+
+// 麻将大厅使用 通知创建房间
+message CreateRoomRoomLobbyCmd_S
+{
+	optional uint32 uid 		= 1; // 发送的玩家
+	optional uint32 roomId 		= 2; // 房间号
+	optional string roomData	= 3; // 房间数据,从大厅数据库获得globalroomdata,第一个返回即可
+	optional string userData	= 4; // 用户数据,从数据库中获得,建容保留
+	optional uint32 flag 		= 5; // 1/2/3 创建、返回、加入
+	repeated string userDataList	= 6; // 用户数据列表,从数据库中获得
+	optional uint32 winDiamond 	= 7; // 赌钻--传倍数
+	optional uint32 needDiamond = 8; // 是否扣钻--传扣钻数--练习场使用
+	optional uint32 hostType 	= 9; // 托管类型 1/2  傻瓜托管、智能托管
+	optional uint32 sendFlower 	=10; // 礼物是否收费 1
+	optional string exercise 	=11; // 当前练习场的所有数据
+}
+
+// 麻将大厅使用 通知创建房间返回
+message CreateRoomRoomLobbyCmd_C
+{
+	optional uint32 uid 		= 1; // 发送的玩家
+	optional uint32 roomId 		= 2; // 房间号
+	optional uint32 ret 		= 3; // 
+	optional string desc		= 4; // 
+	optional uint32 flag 		= 5; // 1/2/3 创建、返回、加入
+}
+
+// 麻将大厅使用 通知玩家钻石发生变化(房卡变化也通过这条协议发送)
+message UserDiamondChangeLobbyCmd_S
+{
+	optional uint32 uid 		= 1; // 解散房间的uid,有情况不知道roomId了,只能发uid过去大厅找
+	optional uint32 diamond		= 2; // 剩余钻石数
+	optional int32  change 		= 3; // 变化量
+	optional int32  card 		= 4; // 房卡
+	optional int32  cardChange 	= 5; // 房卡变化量
+}
+
+// 麻将大厅使用 通知大厅单局结算
+message UserRoundResultLobbyCmd_C
+{
+	optional uint32 roomId 		= 1; // 房间号
+	optional string detailData	= 2; // 单局统计信息{timestamp,statistics:{uid,nickname,integral}}
+}
+
+// 麻将大厅使用 请求更换房间人数
+message ChangeUserNbrLobbyCmd_CS
+{
+	optional uint32 roomId 		= 1; // 房间号
+	optional string userNbr		= 2; // 房间人数
+	optional uint32 uid 		= 3; // 请求者uid
+	optional uint32 ret 		= 4; // 
+	optional string desc		= 5; // 
+}
+
+// 麻将大厅使用 游戏服通知大厅钻石变化
+message UserDiamondWinLobbyCmd_CS
+{
+	optional uint32 uid 		= 1; // uid
+	optional uint32 typ 		= 2; // 1/2/3/4/5  钻石输赢、喇叭扣费、送花扣费、练习场扣费、比赛场输赢
+	optional int32  change		= 3; // 变化量
+	optional uint32 ret 		= 4; // 
+	optional string desc		= 5; //
+	optional uint32	needSend    = 6; // 1需要大厅发送
+}
+// 麻将大厅使用 游戏服通知大厅房卡变化,客家使用
+message UserCardChangeLobbyCmd_CS
+{
+	optional uint32 uid 		= 1; // uid
+	optional uint32 typ 		= 2; // 1 送花
+	optional int32  change		= 3; // 变化量
+	optional uint32 ret 		= 4; // 
+	optional string desc		= 5; //
+	optional uint32	needSend    = 6; // 1需要大厅发送
+}
+
+// 麻将大厅使用 游戏服通知大厅送花总数
+message UserFlowerDataLobbyCmd_CS
+{
+	optional uint32 uid 		= 1; // uid
+	optional string flowerstr	= 2; // 送花json,kv值
+}
+
+
+// 麻将大厅使用 大厅通知游戏服解散该房间
+message ActiveRemoveLobbyCmd_S
+{
+	optional uint32 roomId 		= 1; // 房间号
+}
+
+// 风驰大厅使用 让大厅发送广播
+message SendBroadLobbyCmd_C
+{
+	optional uint32 uid 		= 1; // 发送的玩家
+	optional string nickName 	= 2; // 昵称
+	optional bool 	bMan 		= 3; // 
+	optional uint32 chatPos		= 4; // 
+	optional uint32 chatType 	= 5; // 
+	optional string brdInfo 	= 6; // 广播内容
+}

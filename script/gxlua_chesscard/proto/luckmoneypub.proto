@@ -1,0 +1,120 @@
+package Cmd;
+// 主要用来发公共红包
+
+// 红包的基础信息
+message PubLuckMoneyBaseInfo
+{
+	required string   				_id         	= 1; // 红包编码
+	required uint64   				allChips    	= 2; // 红包总额
+	required uint64   				surplusChips	= 3; // 红包剩余多少钱
+	required uint64 				number			= 4; // 红包总个数
+	required uint64 				surplusNumber	= 5; // 红包剩余个数
+	required string   				bless       	= 6; // 祝福
+	optional string   				timeSend    	= 7; // 发送时间
+	optional PubLuckMoneyUserInfo 	sendInfo 		= 8; // 发送者基本信息
+	repeated PubLuckMoneyUserInfo 	getInfo 		= 9; // 领取者基本信息
+}
+
+// 用户基本信息
+message PubLuckMoneyUserInfo
+{
+	required uint64    	uid         = 1;
+	required string    	headUrl     = 2;
+	required string    	nickName    = 3; 
+	optional uint64	   	get 		= 4; // 用于表示 领取者 领取到了多少
+	optional bool		isBest 		= 5; // 最佳者 标志
+}
+
+// 领取到的红包记录信息
+message MyGetLuckMoneyPubInfo 
+{
+	required string 	_id 		= 1; // 红包id
+	required uint64    	uid         = 2; // 谁发的
+	required string    	headUrl     = 3;
+	required string    	nickName    = 4; 
+	required uint64 	get 		= 5; // 我领了多少
+	required string 	rcvTime 	= 6; // 领取的时间
+}
+
+// 发送过的红包记录信息
+message MySendLuckMoneyPubInfo 
+{
+	required string 	_id 		= 1; // 红包id
+	required string 	bless 		= 2; // 祝福（红包名字）
+	required uint64 	chips 		= 3; // 	
+}
+
+//--------------------------------------------------------------------//
+
+// 发送红包
+message SendLuckMoneyPubCmd_C
+{
+	required  uint64   	chips          	= 1; // 红包总额
+	required  uint64	number			= 2; // 红包个数
+	required  string   	bless          	= 3; // 祝福
+}
+
+message SendLuckMoneyPubCmd_S
+{
+	optional uint64    resultCode    = 1; // 返回码
+	optional string    desc          = 2; // 返回描述
+	optional uint64    remainder     = 3; // 剩余筹码
+}
+
+// 发送红包广播 
+message SendLuckMoneyPubCmd_Brd
+{
+	required string _id 		= 1; // 红包id
+	required uint64	uid			= 2; // 谁发的红包
+	required string headUrl     = 3;
+	required string nickName    = 4; 
+}
+
+
+// 玩家领取
+message GetLuckMoneyPubCmd_C
+{
+	required string	_id = 1; // 红包id
+}
+
+// 玩家领取回复
+message GetLuckMoneyPubCmd_S
+{
+	optional uint64    				resultCode    	= 1; // 返回码
+	optional string    				desc         	= 2; // 返回描述
+	optional PubLuckMoneyUserInfo 	sendInfo 		= 3; // 发送者基本信息
+	optional uint64     			get 	     	= 4; // 当前领取了多少钱
+	optional uint64     			remainder     	= 5; // 该玩家领取后 当前有多少筹码
+	optional string     			_id     		= 6; // 领取的红包id
+	optional string     			bless     		= 7; // 领取的红包名称
+}
+
+
+// 查看当前红包详情
+message GetInfoLuckMoneyPubCmd_C 
+{
+	required string _id = 1; // 红包id
+}
+
+message GetInfoLuckMoneyPubCmd_S 
+{
+	optional uint64    				resultCode    	= 1; // 返回码
+	optional string    				desc         	= 2; // 返回描述
+	repeated PubLuckMoneyUserInfo 	getInfo 		= 3; // 红包具体领取信息
+}
+
+
+// 查询红包记录
+message GetRecordLuckMoneyPubCmd_C
+{
+
+}
+
+message GetRecordLuckMoneyPubCmd_S
+{
+	repeated MyGetLuckMoneyPubInfo  luckMoneyRev  = 1; // 领取的红包
+	repeated MySendLuckMoneyPubInfo luckMoneySnd  = 2; // 发送的红包
+}
+
+
+

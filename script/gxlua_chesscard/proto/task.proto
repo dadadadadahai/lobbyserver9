@@ -1,0 +1,66 @@
+// 用于游戏任务相关 公共代码
+package Cmd;
+
+enum TaskStatus
+{
+	Task_Status_Unstart  = 0; // 任务未开始
+	Task_Status_Progress = 1; // 任务进行中
+	Task_Status_Complete = 2; // 已完成
+	Task_Status_Received = 3; // 已领取奖励
+}
+
+message TaskItem
+{
+	required uint32    	   taskId                 	= 1; // 任务id
+	required TaskStatus    taskStatus             	= 2; // 任务状态
+	required uint32        current    				= 3; // 当前完成情况
+	required uint32        goal    					= 4; // 任务目标
+	required uint32        pre			          	= 5; // 前置任务
+	required uint32        next			          	= 6; // 下一阶段任务
+	repeated RewardItem    rewardInfo 				= 7; // 任务奖励
+}
+
+message RewardItem
+{
+	optional uint32 goodId			= 1; //物品ID
+	optional uint32 goodNum			= 2; //物品数量
+}
+
+//----------------------------------------------------------------------------//
+
+//请求任务列表
+message GetTaskListTaskCmd_C
+{
+}
+
+message GetTaskListTaskCmd_S
+{
+	optional uint32  	resultCode	= 1; 
+	optional string     desc 		= 2; 
+	repeated TaskItem  	taskInfo    = 3;   
+}
+
+
+// 领取指定任务奖励
+message GetTaskRewardTaskCmd_C
+{
+	required uint32     taskId = 1;
+}
+
+message GetTaskRewardTaskCmd_S
+{
+	optional uint32     resultCode              = 1; 
+	optional string     desc                    = 2; 
+	repeated TaskItem   taskInfo                = 3;	// 领取完成后 任务列表可能有更新 重新发送任务列表
+	optional uint32     remainder               = 4;	// 领取后当前筹码
+	repeated RewardItem reward                  = 5;	// 领取的物品
+}
+
+
+// 主动通知玩家 当前可以领取奖励
+message CanGetTaskRewardTaskCmd_Brd
+{	
+}
+
+
+

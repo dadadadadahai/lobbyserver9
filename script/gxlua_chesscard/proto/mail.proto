@@ -1,0 +1,97 @@
+package Cmd;
+
+//物品信息
+message GoodInfo 
+{
+    optional uint32  goodId      = 1;   //物品id
+    optional uint32  goodNum     = 2;   //物品数量
+}
+
+//邮件信息
+message Attachment
+{
+    optional    uint32  itemId  = 1;    //物品id
+    optional    uint32  itemNum = 2;    //物品数量
+}
+
+//扩展字段
+message ExtData
+{
+    optional    uint32  uid     = 1;    //uid, 好友送礼会有这个字段
+    optional    uint32  configId  = 2;    //配表邮件id
+}
+
+message MailInfo
+{
+	optional uint64 	id         = 1; // 该邮件id 期望是 每一个邮件会有一个唯一id
+	optional string 	subject    = 2; // 标题
+	optional string 	content    = 3; // 内容
+	optional uint32 	recordTime = 4; // 发送时间
+	optional bool		isRead     = 5; // 是否已读
+    optional uint32     overtTime  = 6; // 过期时间截
+    optional uint32     mailType   = 7; // 邮件类型(1系统邮件，2好友邮件)
+    repeated Attachment attachment = 8; //附件
+    optional ExtData    extData    = 9; //附加信息 
+}
+
+// 获取邮件列表
+message GetListMailCmd_C
+{
+}
+
+// 获取邮件列表
+message GetListMailCmd_S
+{
+	required uint32 	resultCode = 1; // 返回码
+	optional string 	desc       = 2; // 描述
+	repeated MailInfo 	mailInfo   = 3; // 具体邮件
+}
+
+// 存在新邮件广播
+message NewMailCmd_Brd
+{
+}
+
+// 查看指定邮件
+message ReadMailCmd_C
+{
+	optional uint32 	id         = 1; // 查看指定邮件
+}
+
+// 查看指定邮件
+message ReadMailCmd_S
+{
+	required uint32 	resultCode = 1; // 返回码
+	optional string 	desc       = 2; // 描述
+	optional MailInfo 	mailInfo   = 3; // 具体邮件
+}
+
+// 删除指定邮件
+message DeleteMailCmd_C
+{
+	repeated uint32 	ids        = 1; // 删除指定邮件
+}
+
+// 删除指定邮件
+message DeleteMailCmd_S
+{
+	required uint32 	resultCode = 1; // 返回码
+	optional string 	desc       = 2; // 描述
+	repeated MailInfo 	mailInfo   = 3; // 如果删除了后 返回当前最新的邮件列表
+}
+
+
+//请求提取附件
+message GetAttachmentMailCmd_C
+{
+    repeated   uint32   ids         = 1; // 邮件id
+}
+
+//提取附件返回 
+message GetAttachmentMailCmd_S
+{
+    optional    uint32  id            = 1; //邮件id
+    optional    uint32  errno         = 2; // 错误码
+    optional    uint32  desc          = 3; // 描述
+    repeated    GoodInfo goodInfoList = 4; // 获得物品列表
+}
