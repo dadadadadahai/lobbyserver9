@@ -1,0 +1,7 @@
+_id
+roomInfo[]                 --场次索引
+roomInfo={
+    betindex
+    betMoney
+    bonus                    {totalTimes,lackTimes,tWinScore}
+}

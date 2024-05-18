@@ -1,0 +1,7 @@
+                    兑换金额状态表格式      withdrawcash_order
+自增长ID        玩家UID         兑换金额        提交申请时间        审核状态
+id              uid            dinheiro          times             state
+1               1005             100        yyyy-mm-dd hh:mm:ss      0
+
+
+审核状态:   0 默认状态  1 已经处理  2 提现完成

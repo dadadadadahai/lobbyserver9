@@ -1,0 +1,4 @@
+_id   用户id
+weekEndTime     周卡到期时间 没有周卡为0
+recvWeekCard    领取周卡的时间
+weekLevel       周卡等级

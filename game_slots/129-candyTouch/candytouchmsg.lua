@@ -1,0 +1,3 @@
+-- Net.CmdCandyTouchBuyFreeCmd_C= function(cmd, laccount)
+--     CandyTouch.CmdBuyFree(laccount.Id,cmd.data)
+-- end

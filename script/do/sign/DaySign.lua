@@ -1,0 +1,258 @@
+-- module('DaySign', package.seeall)
+-- Table_Name = "daysign"
+
+-- -- 道具表
+-- Table_Item = require "table/table_item_config"
+
+-- Day_Sign_Chips = 2000
+
+-- SignItem = {}
+-- SignItem[1] = "daysign"
+-- SignItem[2] = "continue"
+-- SignItem[3] = "timereward"
+-- SignItem[4] = "shareinfo"
+
+-- -- 获取玩家本文签到数据
+-- function CmdUserSignMonthInfoGet(uid)
+-- 	local date = chessutil.DateByFormatDateGet(chessutil.FormatDateGet())
+-- 	local signInfo = unilight.getdata(Table_Name, uid)
+-- 	local bUpdate = false
+-- 	if table.empty(signInfo) then
+-- 		signInfo = {
+-- 			["_id"] = uid,
+-- 		}
+-- 		bUpdate = true
+-- 	end
+-- 	local yearMonth = "YM" .. date.year..date.month
+-- 	if table.empty(signInfo[yearMonth]) then
+-- 		bUpdate = true
+-- 		signInfo[yearMonth] = {}
+-- 	end
+
+-- 	for i, v in ipairs(SignItem) do
+-- 		if signInfo[yearMonth][v] == nil then
+-- 			bUpdate = true
+-- 			signInfo[yearMonth][v] = {}
+-- 		end
+-- 	end
+
+-- 	if bUpdate then
+-- 		unilight.savedata(Table_Name, signInfo)
+-- 	end
+
+-- 	return signInfo[yearMonth]
+-- end
+
+-- -- 包装生成返回的签到总信息
+-- function CmdUserMonthSignInfoGet(monthSign, uid)
+-- 	local date = chessutil.DateByFormatDateGet(chessutil.FormatDateGet())
+-- 	if table.empty(monthSign) then
+-- 		monthSign = CmdUserSignMonthInfoGet(uid)
+-- 	end
+-- 	local continueDays = 0
+-- 	for day, chips in pairs(monthSign.daysign) do
+-- 		continueDays = continueDays + 1
+-- 	end
+
+-- 	local continue = {}
+-- 	local TableDaySignOnMonth = require"table/TableDaySignOnMonth"
+-- 	for id, cfgInfo in ipairs(TableDaySignOnMonth) do
+-- 		local bCouldReceive = false
+-- 		if cfgInfo.day <= continueDays then
+-- 			bCouldReceive = true
+-- 		end
+-- 		local bReceived = true
+-- 		if monthSign.continue[id] == nil then
+-- 			bReceived = false
+-- 		end
+-- 		local continueSignItem = {
+-- 			id = id,
+-- 			continueDay = cfgInfo.day,
+-- 			bReceived = bReceived,
+-- 			bCouldReceive = bCouldReceive,
+-- 		}
+-- 		table.insert(continue, continueSignItem)
+-- 	end
+	
+-- 	local signMonth = {}
+-- 	-- 更改为返回当月签到天数而不是签到数组
+-- 	local signMonthNum = 0
+-- 	for day, chips in pairs(monthSign.daysign) do
+-- 		table.insert(signMonth, tonumber(day))
+-- 		signMonthNum = signMonthNum + 1
+-- 	end
+	
+-- 	unilight.info(table.tostring(monthSign.daysign))
+-- 	local bTodayReceived = true
+-- 	if monthSign.daysign[tonumber(date.day)] == nil then
+-- 		bTodayReceived = false 
+-- 	end
+
+-- 	local res = {
+-- 		signMonth = signMonthNum,
+-- 		continueDays = continueDays,
+-- 		continue = continue,
+-- 		bTodayReceived = bTodayReceived,
+-- 	}
+-- 	return res
+-- end
+
+-- -- 玩家每日签到奖励
+-- function CmdUserSignDayRequest(uid, signDay)
+-- 	local date = chessutil.DateByFormatDateGet(chessutil.FormatDateGet())
+-- 	local day = tonumber(date.day)
+-- 	local monthSign = CmdUserSignMonthInfoGet(uid)
+
+-- 	-- 判断领取日期是否相同
+-- 	local continueDays = 0
+-- 	for k, v in pairs(monthSign.daysign) do
+-- 		continueDays = continueDays + 1
+-- 	end
+-- 	if continueDays + 1 ~= signDay then
+-- 		return false, monthSign, 0
+-- 	end
+-- 	local TableDaySignOnWeek = require"table/TableDaySignOnWeek"
+-- 	if monthSign.daysign[day] == nil then
+-- 		local cfgItems = TableDaySignOnWeek[signDay].itemStructDict
+-- 		-- 循环添加物品
+-- 		local signGoods = {}
+-- 		for i, v in pairs(cfgItems) do
+-- 			local goodId = v.goodId
+-- 			local goodNum = v.goodNum
+-- 			-- 物品获取调用统一接口
+-- 			local summary = BackpackMgr.GetRewardGood(uid, goodId, goodNum, Const.GOODS_SOURCE_TYPE.SIGN)
+-- 			for k, v in pairs(summary) do
+-- 				table.insert(signGoods, {goodId=k, goodNum=v})
+-- 			end
+-- 		end
+-- 		monthSign.daysign[day] = signGoods
+-- 		UpdateMonthSign(uid, monthSign)
+-- 		return true, monthSign, signGoods
+-- 	end
+-- 	return false, monthSign, 0
+-- end
+
+-- -- 玩家连续累计签到
+-- function CmdUserContinueSignRequest(uid, continueId)
+-- 	local monthSign = CmdUserSignMonthInfoGet(uid)
+-- 	if monthSign.continue[continueId] ~= nil then
+-- 		return false, monthSign, 0
+-- 	end
+-- 	local sumDays = 0
+-- 	for day, chips in pairs(monthSign.daysign) do
+-- 		sumDays = sumDays + 1
+-- 	end
+-- 	local TableDaySignOnMonth = require"table/TableDaySignOnMonth"
+-- 	local cfgInfo = TableDaySignOnMonth[continueId]
+-- 	local cfgDays = cfgInfo.day
+-- 	local cfgItems = cfgInfo.itemStructDict
+-- 	local items = {}
+-- 	if cfgDays >= sumDays then
+-- 		-- local date = chessutil.DateByFormatDateGet(chessutil.FormatDateGet())
+
+-- 		-- 循环添加物品
+-- 		for i, v in pairs(cfgItems) do
+-- 			local goodId = v.goodId
+-- 			local goodNum = v.goodNum
+-- 			-- 物品获取调用统一接口
+-- 			local summary = BackpackMgr.GetRewardGood(uid, goodId, goodNum, Const.GOODS_SOURCE_TYPE.SIGN)
+-- 			for k, v in pairs(summary) do
+-- 				table.insert(items, {goodId=k, goodNum=v})
+-- 			end
+-- 		end
+
+-- 		monthSign.continue[continueId] = items
+-- 		UpdateMonthSign(uid, monthSign)
+-- 		return true, monthSign, items
+-- 	end
+-- 	return false, monthSign, 0
+-- end
+
+-- -- 玩家登陆时倒计时时间同步
+-- function CmdUserNextTimesRequest(uid)
+-- 	local date = chessutil.DateByFormatDateGet(chessutil.FormatDateGet())
+-- 	local day = tonumber(date.day)
+-- 	local monthSign = CmdUserSignMonthInfoGet(uid)
+-- 	local yearMonth = "YM" .. date.year..date.month
+-- 	local currentTime = os.time()
+-- 	local bUpdate = false
+-- 	local bFirstLogin = false
+-- 	if monthSign.timereward[day] == nil then
+-- 		bUpdate = true
+-- 		bFirstLogin = true
+-- 		monthSign.timereward[day] = {
+-- 			dayfirstlogin = currentTime,
+-- 		}
+-- 	end
+-- 	if bFirstLogin == true then
+-- 		unilight.info("玩家今日第一次登陆")
+-- 		UpdateMonthSign(uid, monthSign)
+-- 	end
+-- 	local index  = #monthSign.timereward[day]
+-- 	if TableOnTimeRewardConfig[index+1] == nil then
+-- 		return -1 
+-- 	end
+-- 	return TableOnTimeRewardConfig[index+1].seconds
+
+-- end
+
+-- -- 玩家接时间领取金币
+-- function CmdUserTimeRewardRequest(uid)
+-- 	local date = chessutil.DateByFormatDateGet(chessutil.FormatDateGet())
+-- 	local day = tonumber(date.day)
+-- 	local monthSign = CmdUserSignMonthInfoGet(uid)
+-- 	local yearMonth = "YM" .. date.year..date.month
+-- 	local currentTime = os.time()
+-- 	local bUpdate = false
+-- 	local bFirstLogin = false
+-- 	if monthSign.timereward[day] == nil then
+-- 		bUpdate = true
+-- 		bFirstLogin = true
+-- 		monthSign.timereward[day] = {
+-- 			dayfirstlogin = currentTime,
+-- 		}
+-- 	end
+-- 	if bFirstLogin == true then
+-- 		unilight.info("玩家今日第一次登陆")
+-- 		local nextTimes  = TableOnTimeRewardConfig[1].seconds
+-- 		UpdateMonthSign(uid, monthSign)
+-- 		return false, nextTimes 
+-- 	end
+
+-- 	local lastTime = 0
+-- 	local index  = #monthSign.timereward[day]
+-- 	if index ~= 0 then
+-- 		lastTime = monthSign.timereward[day][index]
+-- 	else
+-- 		unilight.info("今日首次领取")
+-- 		lastTime = monthSign.timereward[day].dayfirstlogin 
+-- 	end
+-- 	if TableOnTimeRewardConfig[index+1] == nil then
+-- 		unilight.info("今日领取完毕")
+-- 		return false,-1 
+-- 	end
+-- 	local subTime = TableOnTimeRewardConfig[index+1].seconds
+-- 	if currentTime - lastTime < subTime then
+-- 		unilight.info("时间未到")
+-- 		return false, subTime 
+-- 	end
+-- 	local rewardChips = TableOnTimeRewardConfig[index+1].chips
+-- 	monthSign.timereward[day][index+1] = currentTime
+-- 	local nextTimes = 0 
+-- 	if TableOnTimeRewardConfig[index+2] ~= nil then
+-- 		nextTimes = TableOnTimeRewardConfig[index+2].seconds
+-- 	end
+-- 	UpdateMonthSign(uid, monthSign)
+-- 	return true, nextTimes, rewardChips, index+1 
+-- end
+
+-- function UpdateMonthSign(uid, monthSign)
+-- 	local date = chessutil.DateByFormatDateGet(chessutil.FormatDateGet())
+-- 	local yearMonth = "YM" .. date.year..date.month
+-- 	-- local updateData = {
+-- 	-- 	[yearMonth] = monthSign,
+-- 	-- }
+-- 	local updateData = unilight.getdata(Table_Name, uid)
+-- 	updateData[yearMonth] = monthSign
+-- 	unilight.update(Table_Name, uid, updateData)
+-- end

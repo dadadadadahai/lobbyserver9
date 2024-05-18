@@ -1,0 +1,14 @@
+-- Net.CmdGetBenefitInfoCmd_C=function (cmd,laccount)
+--     local res = {}
+-- 	res["do"] = "Cmd.GetBenefitInfoCmd_S"
+-- 	local uid = laccount.Id
+--     res['data'] = benefit.GetBenefitInfoCmd_C(uid,cmd.data)
+--     return res
+-- end
+-- Net.CmdRecvBenefitCmd_C=function (cmd,laccount)
+--     local res = {}
+-- 	res["do"] = "Cmd.RecvBenefitCmd_S"
+-- 	local uid = laccount.Id
+--     res['data'] = benefit.RecvBenefitCmd_C(uid,cmd.data)
+--     return res
+-- end

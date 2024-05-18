@@ -1,0 +1,4 @@
+{
+    "logAddr":"127.0.0.1:10036",
+    "mqAddr":"amqp://guest:guest@localhost:5672/"
+}

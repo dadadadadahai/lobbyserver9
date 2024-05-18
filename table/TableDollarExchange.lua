@@ -1,0 +1,23 @@
+-- file=泰国充值表.xlsx[Sheet1] key=cent
+TableDollarExchange = {
+[30]={["dollar"]=0.3,["cent"]=30,["thaiBaht"]=10,["chips"]=20000},
+[90]={["dollar"]=0.9,["cent"]=90,["thaiBaht"]=30,["chips"]=60000},
+[99]={["dollar"]=0.99,["cent"]=99,["thaiBaht"]=30,["chips"]=60000},
+[120]={["dollar"]=1.2,["cent"]=120,["thaiBaht"]=50,["chips"]=100000},
+[150]={["dollar"]=1.5,["cent"]=150,["thaiBaht"]=60,["chips"]=120000},
+[240]={["dollar"]=2.4,["cent"]=240,["thaiBaht"]=90,["chips"]=180000},
+[299]={["dollar"]=2.99,["cent"]=299,["thaiBaht"]=90,["chips"]=180000},
+[300]={["dollar"]=3.0,["cent"]=300,["thaiBaht"]=100,["chips"]=200000},
+[450]={["dollar"]=4.5,["cent"]=450,["thaiBaht"]=150,["chips"]=300000},
+[499]={["dollar"]=4.99,["cent"]=499,["thaiBaht"]=150,["chips"]=300000},
+[600]={["dollar"]=6.0,["cent"]=600,["thaiBaht"]=200,["chips"]=400000},
+[900]={["dollar"]=9.0,["cent"]=900,["thaiBaht"]=300,["chips"]=600000},
+[999]={["dollar"]=9.99,["cent"]=999,["thaiBaht"]=300,["chips"]=600000},
+[1500]={["dollar"]=15.0,["cent"]=1500,["thaiBaht"]=500,["chips"]=1000000},
+[3000]={["dollar"]=30.0,["cent"]=3000,["thaiBaht"]=1000,["chips"]=2000000},
+[4999]={["dollar"]=49.99,["cent"]=4999,["thaiBaht"]=1500,["chips"]=3000000},
+[6000]={["dollar"]=60.0,["cent"]=6000,["thaiBaht"]=2000,["chips"]=4000000},
+[9999]={["dollar"]=99.99,["cent"]=9999,["thaiBaht"]=3000,["chips"]=6000000},
+[10500]={["dollar"]=105.0,["cent"]=10500,["thaiBaht"]=3500,["chips"]=7000000},
+[15000]={["dollar"]=150.0,["cent"]=15000,["thaiBaht"]=5000,["chips"]=10000000},
+}

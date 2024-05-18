@@ -1,0 +1,8 @@
+MayanMiracle
+_id
+betindex
+betMoney
+zRandLack   下次出Z的剩余局数
+zMapInfo   下注值记录Z元素的值 {{col,row}}  map结构
+pick       free先触发pick={totalTimes,lackTimes,tWinScore}
+free       {totalTimes,lackTimes,tWinScore}

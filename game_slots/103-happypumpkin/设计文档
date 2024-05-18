@@ -1,0 +1,9 @@
+_id
+roomInfo[]                 --场次索引
+roomInfo={
+    betindex
+    betMoney
+    free                    {totalTimes,lackTimes,tWinScore}
+    cnum                    当前收集量
+    nnum                    一共需要收集量
+}

@@ -1,0 +1,11 @@
+addtime  hour=1                 --服务器时间增加1小时,支持参数列表(day天数，hour小时，min=分钟，sec秒数), 可以单独和组合使用
+addmoney type=1 num=99999       --增加货币,type:(1是金币, 2钻石), num:币货数量
+additem id=3 num=1000           --增加一个道具，itemid:道具id, num:道具数量
+getitemnum id=10001             --获得背包道具10001的数量
+addbuff id=1001 time=1000       --增加一个buff, buffid:buff表id, time: 增加的时间
+delbuff id=1001                 --删除一个bufid=1001的buff
+addexp  exp=100                 --增加人物经验100点
+addtaskpoint num=100            --增加赛季任务积分100点
+addtasknum   type=1 num=100     --增加任务进度,type=1普通任务，2.赛季任务
+buyshop id=101                  --商城物品购买,id=商城表序号
+ScoreBoardAddScore bet=1000000 type=1       --积分榜增加积分，bet：下注金额 type：1:金杯 2:银杯 3:铜杯

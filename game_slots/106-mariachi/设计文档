@@ -1,0 +1,8 @@
+_id
+roomInfo[]                 --场次索引
+roomInfo={
+    betindex
+    betMoney
+    pick                     {totalTimes,lackTimes,tWinScore,chessdata}
+    free                     {totalTimes,lackTimes,tWinScore}
+}

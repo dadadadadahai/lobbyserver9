@@ -1,0 +1,6 @@
+1、预计算队列(latestChessdata,latestEpos,result)
+2、预计算触发队列(rocksres)
+3、与计算收集队列(collectres)
+4、当前收集队列(curCollect)
+5、当前触发队列(curRocks)
+6、bonus信息

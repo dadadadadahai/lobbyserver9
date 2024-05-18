@@ -1,0 +1,246 @@
+-- 自动生成 ./excel/P-烹饪.xlsx(table_cooking_weituo)
+return {
+
+    [1] = {
+        ID = 1,
+        bilv = 0,
+        foodid = {70001, 70002, 70003, 70004, 70012},
+        guanka = 1,
+        jinbi = 1125000,
+        name = "Ham & Cheese Sandwich",
+        numlow = 1,
+        numupper = 2,
+    },
+
+    [2] = {
+        ID = 2,
+        bilv = 235,
+        foodid = {70001, 70005, 70006, 70007, 70008},
+        guanka = 1,
+        jinbi = 1125000,
+        name = "Meat Floss Sandwich",
+        numlow = 1,
+        numupper = 2,
+    },
+
+    [3] = {
+        ID = 3,
+        bilv = 0,
+        foodid = {70009, 70019, 70002, 70012, 70010, 70008},
+        guanka = 2,
+        jinbi = 1800000,
+        name = "Chicago Pizza",
+        numlow = 1,
+        numupper = 3,
+    },
+
+    [4] = {
+        ID = 4,
+        bilv = 200,
+        foodid = {70009, 70002, 70004, 70011, 70012, 70013},
+        guanka = 2,
+        jinbi = 1800000,
+        name = "Hawaiian Pizza",
+        numlow = 1,
+        numupper = 3,
+    },
+
+    [5] = {
+        ID = 5,
+        bilv = 0,
+        foodid = {70014, 70015, 70006, 70003, 70016, 70004, 70017},
+        guanka = 3,
+        jinbi = 2100000,
+        name = "Waldorf Salad",
+        numlow = 1,
+        numupper = 3,
+    },
+
+    [6] = {
+        ID = 6,
+        bilv = 0,
+        foodid = {70018, 70010, 70019, 70007, 70020, 70003},
+        guanka = 3,
+        jinbi = 2250000,
+        name = "Vegetable Salad",
+        numlow = 2,
+        numupper = 3,
+    },
+
+    [7] = {
+        ID = 7,
+        bilv = 170,
+        foodid = {70004, 70014, 70021, 70022, 70023, 70006, 70003},
+        guanka = 3,
+        jinbi = 2100000,
+        name = "Cobb Salad",
+        numlow = 1,
+        numupper = 3,
+    },
+
+    [8] = {
+        ID = 8,
+        bilv = 0,
+        foodid = {70024, 70013, 70025, 70008, 70003, 70004},
+        guanka = 4,
+        jinbi = 2250000,
+        name = "Beef Burger",
+        numlow = 2,
+        numupper = 3,
+    },
+
+    [9] = {
+        ID = 9,
+        bilv = 0,
+        foodid = {70025, 70006, 70008, 70026, 70027, 70003},
+        guanka = 4,
+        jinbi = 2250000,
+        name = "Chicken Burger",
+        numlow = 2,
+        numupper = 3,
+    },
+
+    [10] = {
+        ID = 10,
+        bilv = 140,
+        foodid = {70025, 70028, 70029, 70012, 70030, 70031},
+        guanka = 4,
+        jinbi = 2250000,
+        name = "Cheese Pork Chop Burger",
+        numlow = 2,
+        numupper = 3,
+    },
+
+    [11] = {
+        ID = 11,
+        bilv = 0,
+        foodid = {70032, 70006, 70030, 70033, 70034, 70035, 70008},
+        guanka = 5,
+        jinbi = 3150000,
+        name = "Macaron",
+        numlow = 2,
+        numupper = 4,
+    },
+
+    [12] = {
+        ID = 12,
+        bilv = 0,
+        foodid = {70009, 70028, 70020, 70030, 70006, 70035, 70036},
+        guanka = 5,
+        jinbi = 3150000,
+        name = "Donut",
+        numlow = 2,
+        numupper = 4,
+    },
+
+    [13] = {
+        ID = 13,
+        bilv = 120,
+        foodid = {70009, 70020, 70015, 70006, 70008, 70037, 70030},
+        guanka = 5,
+        jinbi = 3150000,
+        name = "Apple Pie",
+        numlow = 2,
+        numupper = 4,
+    },
+
+    [14] = {
+        ID = 14,
+        bilv = 0,
+        foodid = {70009, 70004, 70029, 70038, 70012, 70008, 70039, 70040},
+        guanka = 6,
+        jinbi = 4200000,
+        name = "Pancetta with Spaghetti Sauce",
+        numlow = 3,
+        numupper = 4,
+    },
+
+    [15] = {
+        ID = 15,
+        bilv = 0,
+        foodid = {70041, 70008, 70013, 70004, 70042, 70020, 70012, 70043},
+        guanka = 6,
+        jinbi = 4200000,
+        name = "Italian Pasta",
+        numlow = 3,
+        numupper = 4,
+    },
+
+    [16] = {
+        ID = 16,
+        bilv = 90,
+        foodid = {70043, 70021, 70038, 70013, 70044, 70042, 70035, 70020},
+        guanka = 6,
+        jinbi = 4200000,
+        name = "Pasta with Bacon & Cream",
+        numlow = 3,
+        numupper = 4,
+    },
+
+    [17] = {
+        ID = 17,
+        bilv = 0,
+        foodid = {70009, 70020, 70030, 70006, 70008, 70024, 70042, 70002},
+        guanka = 7,
+        jinbi = 4800000,
+        name = "Beef Wellington",
+        numlow = 3,
+        numupper = 5,
+    },
+
+    [18] = {
+        ID = 18,
+        bilv = 0,
+        foodid = {70045, 70046, 70047, 70007, 70008, 70020, 70040, 70009},
+        guanka = 7,
+        jinbi = 4800000,
+        name = "Buffalo Spicy Chicken Wings",
+        numlow = 3,
+        numupper = 5,
+    },
+
+    [19] = {
+        ID = 19,
+        bilv = 60,
+        foodid = {70014, 70048, 70049, 70050, 70003, 70051, 70009, 70020},
+        guanka = 7,
+        jinbi = 4800000,
+        name = "Mexican Chicken Tacos",
+        numlow = 3,
+        numupper = 5,
+    },
+
+    [20] = {
+        ID = 20,
+        bilv = 0,
+        foodid = {70052, 70013, 70010, 70051, 70062, 70012, 70008, 70020, 70042},
+        guanka = 8,
+        jinbi = 6075000,
+        name = "French Vegetable Soup",
+        numlow = 4,
+        numupper = 5,
+    },
+
+    [21] = {
+        ID = 21,
+        bilv = 0,
+        foodid = {70053, 70054, 70055, 70040, 70035, 70008, 70020, 70030, 70042},
+        guanka = 8,
+        jinbi = 6075000,
+        name = "French Goose Liver",
+        numlow = 4,
+        numupper = 5,
+    },
+
+    [22] = {
+        ID = 22,
+        bilv = 40,
+        foodid = {70056, 70057, 70058, 70038, 70002, 70059, 70060, 70061, 70042},
+        guanka = 8,
+        jinbi = 6075000,
+        name = "French Baked Snail",
+        numlow = 4,
+        numupper = 5,
+    },
+
+}

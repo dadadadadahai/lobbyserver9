@@ -1,0 +1,8 @@
+#!/bin/bash
+
+find ./ -iname \*.go -exec grep -n --color -H $1 \{\} \;
+find ./ -iname \*.proto -exec grep -n --color  -H $1 \{\} \;
+find ./ -iname \*.lua -exec grep -n --color  -H $1 \{\} \;
+find ./ -iname \*.json -exec grep -n --color  -H $1 \{\} \;
+find ./ -iname \*.py -exec grep -n --color  -H $1 \{\} \;
+find ./ -iname \*.sh -exec grep -n --color  -H $1 \{\} \;

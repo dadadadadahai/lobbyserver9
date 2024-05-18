@@ -1,0 +1,27 @@
+-- -- 请求轮盘信息
+-- Net.CmdUserRouletteInfoRequestSgnCmd_C = function(cmd, laccount)
+-- 	local res = {}
+-- 	res["do"] = "Cmd.UserRouletteInfoReturnSgnCmd_S"
+-- 	-- local uid = laccount.Id
+-- 	local rouletteData = Roulette.CmdUserRouletteInfoGet()
+-- 	res["data"] = rouletteData
+-- 	return res
+-- end
+
+-- -- 用户轮盘游玩
+-- Net.CmdUserRouletteRequestSgnCmd_C = function(cmd, laccount)
+-- 	local res = {}
+-- 	res["do"] = "Cmd.UserRouletteReturnSgnCmd_S"
+-- 	local uid = laccount.Id
+-- 	local score = cmd.data.score
+-- 	if score == nil then
+-- 		res["data"] = {
+-- 			resultCode = 1,
+-- 			desc = "客户端传入参数错误 score 为nil",
+-- 		}
+-- 		return res
+-- 	end
+-- 	local rouletteData = Roulette.CmdUserRoulettePlayRequest(uid, score)
+-- 	res["data"] = rouletteData
+-- 	return res
+-- end
