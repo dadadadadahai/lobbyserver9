@@ -1,4 +1,4 @@
--- 自动生成 ./excel/game/121/RTP100.xlsx(table_121_mul_3)
+-- 自动生成 ./excel/game/160/RTP100.xlsx(table_160_mul_3)
 return {
 
     [1] = {

@@ -23,6 +23,7 @@ TABLE_VIPPL_NAME = "vippointlottery"
 
 function PLTick() --一分钟执行一次
 	local time = os.time()
+	--print("PLTick"..time)
 	local all =  Getplinfo()
 	for _, pt in pairs(all) do
 		if  pt.isfinish ==0   then

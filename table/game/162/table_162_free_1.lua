@@ -1,4 +1,4 @@
--- 自动生成 ./excel/game/121/RTP100.xlsx(table_121_free_1)
+-- 自动生成 ./excel/game/162/RTP100.xlsx(table_162_free_1)
 return {
 
     [1] = {

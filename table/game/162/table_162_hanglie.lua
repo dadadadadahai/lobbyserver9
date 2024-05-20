@@ -1,4 +1,4 @@
--- 自动生成 ./excel/game/121/standard.xlsx(table_121_hanglie)
+-- 自动生成 ./excel/game/162/standard.xlsx(table_162_hanglie)
 return {
 
     [1] = {
@@ -8,7 +8,7 @@ return {
         c4 = 7,
         c5 = 7,
         c6 = 7,
-		c7 = 7,
+        c7 = 7,
         linenum = 1,
     },
 
