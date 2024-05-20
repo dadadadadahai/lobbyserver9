@@ -56,8 +56,10 @@ GmSvr.PmdRequestRedEnvelopeRainPmd_C = function(cmd, laccount)
                 grantgold       = logInfo.grantgold,                                            -- 总金额
             })
             -- 统计合计数量
-            res.data.all.receivegold = res.data.all.receivegold + logInfo.receivenum
-            res.data.all.receivenum = res.data.all.receivenum + 1
+            res.data.all.receivegold = res.data.all.receivegold + logInfo.grantgold
+            res.data.all.receivenum = res.data.all.receivenum + logInfo.receivenum
+            -- res.data.all.receivegold = res.data.all.receivegold + logInfo.receivenum
+            -- res.data.all.receivenum = res.data.all.receivenum + 1
         end
         return res
     elseif cmd.data.optype == 2 then

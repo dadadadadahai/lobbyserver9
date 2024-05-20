@@ -59,7 +59,6 @@ WithdrawCash.CreateOrderId = function()
     end
 end
 --------------------------------------------------------    外部调用    --------------------------------------------------------
-
 -- 查询订单     page为第几页 line为每页几条数据 state 为状态判断条件 不填为查询所有
 WithdrawCash.QueryOrderInfo = function(page, line, state)
     local orderInfo
@@ -117,7 +116,7 @@ WithdrawCash.ChangeState = function(id, state)
             local mailConfig = tableMailConfig[21]
             mailInfo.charid = data._id
             mailInfo.subject = mailConfig.subject
-            mailInfo.content = string.format(mailConfig.content,orderInfo.moedas/100)
+            mailInfo.content = string.format(mailConfig.content,orderInfo._id,orderInfo.moedas/100)
             mailInfo.type = 0
             mailInfo.attachment = {}
             mailInfo.extData = {}
@@ -140,7 +139,7 @@ WithdrawCash.ChangeState = function(id, state)
             mailInfo.charid = data._id
             mailInfo.subject = mailConfig.subject
             -- mailInfo.content = string.format(mailConfig.content,orderInfo.moedas/100,chessutil.FormatDateGet(nil,"%d/%m/%Y %H:%M:%S"))
-            mailInfo.content = string.format(mailConfig.content,orderInfo.moedas/100)
+            mailInfo.content = string.format(mailConfig.content,orderInfo._id,orderInfo.moedas/100)
             mailInfo.configId = 22
             mailInfo.type = 0
             mailInfo.attachment = {}
@@ -158,10 +157,10 @@ WithdrawCash.ChangeState = function(id, state)
             -- 添加订单结束时间
             orderInfo.finishTimes = os.time()
             local mailInfo = {}
-            local mailConfig = tableMailConfig[23]
+            local mailConfig = tableMailConfig[21]
             mailInfo.charid = data._id
             mailInfo.subject = mailConfig.subject
-            mailInfo.content = string.format(mailConfig.content,orderInfo.moedas/100)
+            mailInfo.content = string.format(mailConfig.content,orderInfo._id,orderInfo.moedas/100)
             mailInfo.type = 0
             mailInfo.attachment = {}
             mailInfo.extData = {}
@@ -184,7 +183,7 @@ WithdrawCash.ChangeState = function(id, state)
             local mailConfig = tableMailConfig[22]
             mailInfo.charid = data._id
             mailInfo.subject = mailConfig.subject
-            mailInfo.content = string.format(mailConfig.content,orderInfo.moedas/100)
+            mailInfo.content = string.format(mailConfig.content,orderInfo._id,orderInfo.moedas/100)
             mailInfo.type = 0
             mailInfo.attachment = {}
             mailInfo.extData = {}
@@ -221,10 +220,10 @@ WithdrawCash.ChangeState = function(id, state)
             -- data.totalWithdrawal = data.totalWithdrawal + orderInfo.dinheiro
             data.totalWithdrawal = data.totalWithdrawal + orderInfo.moedas
             local mailInfo = {}
-            local mailConfig = tableMailConfig[21]
+            local mailConfig = tableMailConfig[51]
             mailInfo.charid = data._id
             mailInfo.subject = mailConfig.subject
-            mailInfo.content = string.format(mailConfig.content,orderInfo.moedas/100)
+            mailInfo.content = string.format(mailConfig.content,orderInfo._id,orderInfo.moedas/100)
             mailInfo.type = 0
             mailInfo.attachment = {}
             mailInfo.extData = {}
@@ -236,15 +235,74 @@ WithdrawCash.ChangeState = function(id, state)
         elseif state == STATE_REFUSE or state == STATE_FAILURE_FINISH then
             -- 回退提现次数
             local userInfo = unilight.getdata('userinfo',orderInfo.uid)
-            userInfo.status.chipsWithdrawNum = userInfo.status.chipsWithdrawNum - 1
-            userInfo.status.chipsWithdraw = userInfo.status.chipsWithdraw - orderInfo.moedas
+            userInfo.status.promoteWithdawNum = userInfo.status.promoteWithdawNum - 1
+            userInfo.status.promoteWithdaw = userInfo.status.promoteWithdaw - orderInfo.moedas
             unilight.savedata('userinfo',userInfo)
             local mailInfo = {}
-            local mailConfig = tableMailConfig[26]
+            local mailConfig = tableMailConfig[52]
             mailInfo.charid = data._id
             mailInfo.subject = mailConfig.subject
-            mailInfo.content = string.format(mailConfig.content,orderInfo.moedas/100)
-            mailInfo.configId = 26
+            mailInfo.content = string.format(mailConfig.content,orderInfo._id,orderInfo.moedas/100)
+            mailInfo.configId = 22
+            mailInfo.type = 0
+            mailInfo.attachment = {}
+            mailInfo.extData = {}
+            ChessGmMailMgr.AddGlobalMail(mailInfo)
+            -- 增加余额
+            data.specialWithdrawal = data.specialWithdrawal + orderInfo.moedas
+        elseif state == STATE_UNDER_REVIEW then
+            orderInfo.payPlatId = UserInfo.ReqWithDraw(orderInfo._id,orderInfo.orderType)
+        end
+        unilight.savedata(WithdrawCash.DB_Name, data)
+        unilight.savedata(WithdrawCash.DB_History_Name,withdrawCashHistoryInfo)
+    elseif orderInfo.orderType == 4 then
+        -- 对历史记录进行判断如果新历史记录表中没有字段值则同步历史记录并且删除withdrawcash表中历史记录内容
+        -- 同步历史记录信息  数据搬迁
+        local withdrawCashHistoryInfo = unilight.getdata(WithdrawCash.DB_History_Name,orderInfo.uid)
+        if table.empty(withdrawCashHistoryInfo) then
+            withdrawCashHistoryInfo = {
+                _id = orderInfo.uid, -- 玩家ID
+                history = {}, -- 历史记录
+            }
+            -- 如果有旧数据则同步数据
+            if table.empty(data.history) == false then
+                withdrawCashHistoryInfo.history = data.history
+            end
+        end
+
+        for i, v in ipairs(withdrawCashHistoryInfo.history) do
+            if v.orderId == orderInfo._id then
+                v.state = state
+            end
+        end
+        -- 判断提现成功并且是兑换功能的订单
+        if state == STATE_SUCCESS_FINISH then
+            -- 添加订单结束时间
+            orderInfo.finishTimes = os.time()
+            -- 添加兑换成功总金额
+            -- 统计总提现金额  从扣除手续费后金额变为扣除前金额
+            -- data.totalWithdrawal = data.totalWithdrawal + orderInfo.dinheiro
+            data.totalWithdrawal = data.totalWithdrawal + orderInfo.moedas
+            local mailInfo = {}
+            local mailConfig = tableMailConfig[54]
+            mailInfo.charid = data._id
+            mailInfo.subject = mailConfig.subject
+            mailInfo.content = string.format(mailConfig.content,orderInfo._id,orderInfo.moedas/100)
+            mailInfo.type = 0
+            mailInfo.attachment = {}
+            mailInfo.extData = {}
+
+            ChessGmMailMgr.AddGlobalMail(mailInfo)
+            gamecommon.CashOutRtpRandom(data._id)
+            --保存下日志
+            chessrechargemgr.SaveRechargeWithdrawLog(data._id, 2, orderInfo.dinheiro)
+        elseif state == STATE_REFUSE or state == STATE_FAILURE_FINISH then
+            local mailInfo = {}
+            local mailConfig = tableMailConfig[55]
+            mailInfo.charid = data._id
+            mailInfo.subject = mailConfig.subject
+            mailInfo.content = string.format(mailConfig.content,orderInfo._id,orderInfo.moedas/100)
+            mailInfo.configId = 22
             mailInfo.type = 0
             mailInfo.attachment = {}
             mailInfo.extData = {}
@@ -292,11 +350,13 @@ function RefreshDiscountShop()
             UserInfo.UserWithdrawSucces(orderInfo.uid, orderInfo)
         else
             --在其它进程
-            local userInfo = chessuserinfodb.RUserInfoGet(orderInfo.uid)
-            local gameInfo = userInfo.gameInfo
-            local zoneInfo = ZoneInfo.GetZoneInfoByGameIdZoneId(gameInfo.gameId, gameInfo.zoneId)
+            -- local userInfo = chessuserinfodb.RUserInfoGet(orderInfo.uid)
+            -- local gameInfo = userInfo.gameInfo
+            -- local zoneInfo = ZoneInfo.GetZoneInfoByGameIdZoneId(gameInfo.gameId, gameInfo.zoneId)
+            local zoneInfo = backRealtime.lobbyOnlineUserManageMap[orderInfo.uid]
             if zoneInfo ~= nil then
-                zoneInfo:SendCmdToMe("Cmd.ReqUserWithdrawCashSuccessLobby_CS",orderInfo)
+                zoneInfo.zone:SendCmdToMe("Cmd.ReqUserWithdrawCashSuccessLobby_CS",orderInfo)
+                print('send to other')
             end
         end
     end
@@ -309,30 +369,50 @@ function RefreshDiscountShop()
             WithdrawCash.ChangeState(orderInfo._id, STATE_FAILURE_FINISH)
         else
             --在其它进程
-            local userInfo = chessuserinfodb.RUserInfoGet(orderInfo.uid)
-            local gameInfo = userInfo.gameInfo
-            local zoneInfo = ZoneInfo.GetZoneInfoByGameIdZoneId(gameInfo.gameId, gameInfo.zoneId)
+            -- local userInfo = chessuserinfodb.RUserInfoGet(orderInfo.uid)
+            -- local gameInfo = userInfo.gameInfo
+            local zoneInfo = backRealtime.lobbyOnlineUserManageMap[orderInfo.uid]
             if zoneInfo ~= nil then
-                zoneInfo:SendCmdToMe("Cmd.ReqUserWithdrawCashFailureLobby_CS",orderInfo)
+                zoneInfo.zone:SendCmdToMe("Cmd.ReqUserWithdrawCashFailureLobby_CS",orderInfo)
             end
         end
     end
 
-    -- 提现金额小于配置直接同意
-    local orderList = unilight.chainResponseSequence(unilight.startChain().Table("withdrawcash_order").Filter(unilight.a(unilight.eq("state", STATE_WAIT_REVIEW),unilight.le("moedas",parameterConfig[35].Parameter))))	
+    local orderList = unilight.chainResponseSequence(unilight.startChain().Table("withdrawcash_order").Filter(unilight.eq("state", STATE_REFUSE)))	
     for _, orderInfo in pairs(orderList) do
         --在大厅
         local laccount = go.roomusermgr.GetRoomUserById(orderInfo.uid)
         if laccount ~= nil then
-            WithdrawCash.ChangeState(orderInfo._id, STATE_UNDER_REVIEW)
+            -- 改变状态
+            WithdrawCash.ChangeState(orderInfo._id, STATE_REFUSE)
         else
             --在其它进程
-            local userInfo = chessuserinfodb.RUserInfoGet(orderInfo.uid)
-            local gameInfo = userInfo.gameInfo
-            local zoneInfo = ZoneInfo.GetZoneInfoByGameIdZoneId(gameInfo.gameId, gameInfo.zoneId)
+            -- local userInfo = chessuserinfodb.RUserInfoGet(orderInfo.uid)
+            -- local gameInfo = userInfo.gameInfo
+            local zoneInfo = backRealtime.lobbyOnlineUserManageMap[orderInfo.uid]
             if zoneInfo ~= nil then
-                zoneInfo:SendCmdToMe("Cmd.ReqUserWithdrawCashSuccessLobby_CS",orderInfo)
+                zoneInfo.zone:SendCmdToMe("Cmd.ReqUserWithdrawCashReFuseLobby_CS",orderInfo)
             end
         end
+    end
+
+
+    -- 提现金额小于配置直接同意
+    local orderList = unilight.chainResponseSequence(unilight.startChain().Table("withdrawcash_order").Filter(unilight.a(unilight.eq("state", STATE_WAIT_REVIEW),unilight.le("moedas",parameterConfig[35].Parameter))))	
+    for _, orderInfo in pairs(orderList) do
+        WithdrawCash.ChangeState(orderInfo._id, STATE_UNDER_REVIEW)
+        -- --在大厅
+        -- local laccount = go.roomusermgr.GetRoomUserById(orderInfo.uid)
+        -- if laccount ~= nil then
+        --     WithdrawCash.ChangeState(orderInfo._id, STATE_UNDER_REVIEW)
+        -- else
+        --     --在其它进程
+        --     -- local userInfo = chessuserinfodb.RUserInfoGet(orderInfo.uid)
+        --     -- local gameInfo = userInfo.gameInfo
+        --     local zoneInfo = backRealtime.lobbyOnlineUserManageMap[orderInfo.uid]
+        --     if zoneInfo ~= nil then
+        --         zoneInfo.zone:SendCmdToMe("Cmd.ReqUserWithdrawCashSuccessLobby_CS",orderInfo)
+        --     end
+        -- end
     end
 end

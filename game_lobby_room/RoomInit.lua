@@ -13,7 +13,6 @@ function DBReady()
     RoomInfo.CreateRoomCache()
 -- 房间初始化表格数据
     RoomInfo.InitTable()
-
 end
 
 
@@ -23,19 +22,19 @@ function StartOver()
 	local CYCLE_HOUR = 3600
 	local CYCLE_DAY = CYCLE_HOUR * 24
 
-    unilight.addtimer('racelamp.timer',20)
-    racelamp.Init()
+    -- unilight.addtimer('racelamp.timer',20)
+    -- racelamp.Init()
 	unilight.info("服务器启动调用")
     --每10秒钟定时器
-	unilight.addclocker("LobbyRoomInitMgr.TenSecCallback", 0, 10)
+	-- unilight.addclocker("LobbyRoomInitMgr.TenSecCallback", 0, 10)
     --每30秒钟定时器
-	unilight.addclocker("LobbyRoomInitMgr.ThirtySecCallback", 0, 30)
+	-- unilight.addclocker("LobbyRoomInitMgr.ThirtySecCallback", 0, 30)
     --每分钟定时器
-	unilight.addclocker("LobbyRoomInitMgr.OneMinCallback", 0, CYCLE_MIN)
+	-- unilight.addclocker("LobbyRoomInitMgr.OneMinCallback", 0, CYCLE_MIN)
     --每3分钟定时器
-	unilight.addclocker("LobbyRoomInitMgr.ThreeMinCallback", 0, CYCLE_MIN * 3)
+	-- unilight.addclocker("LobbyRoomInitMgr.ThreeMinCallback", 0, CYCLE_MIN * 3)
     --每10分钟定时器
-	unilight.addclocker("LobbyRoomInitMgr.TenMinCallback", 0, CYCLE_MIN * 10)
+	-- unilight.addclocker("LobbyRoomInitMgr.TenMinCallback", 0, CYCLE_MIN * 10)
 
     --每3秒钟定时器
 	unilight.addclocker("LobbyRoomInitMgr.TwoSecCallback", 0, 2)
@@ -43,8 +42,6 @@ function StartOver()
     unilight.addclocker("LobbyRoomInitMgr.OneSecCallback", 0, 1)
 	--每天0点定时器
 	unilight.addclocker("LobbyRoomInitMgr.ZeroHourCallback", 0, CYCLE_DAY)
-    --积分抽奖定时器
-    unilight.addclocker("Pointlottery.PLTick", 0, CYCLE_MIN)
     --重置下特惠礼包
     ShopMgr.RefreshDiscountShop()
     --检查全局限时礼包
@@ -56,20 +53,20 @@ function StartOver()
     --排行榜初始化
     -- RankListMgr:Init()
     --初始排行榜机器人数量
-    InitRobotInfoNum()
+    -- InitRobotInfoNum()
     -- 初始化累计充值活动信息
-	CumulativeRecharge.Init()
+	-- CumulativeRecharge.Init()
 
 end
 --每秒定时器
 function OneSecCallback()
-    redRain.redLoop()
+    -- redRain.redLoop()
 end
 
 
 --0点定时器
 function ZeroHourCallback()
-    InitRobotInfoNum()
+    -- InitRobotInfoNum()
     -- CleanCustomRank()
 end
 
@@ -106,8 +103,8 @@ end
 
 --10分钟定时器
 function TenMinCallback()
-    RobotChipsRandomChange()
-    RefreshSlotsChipsRank()
+    -- RobotChipsRandomChange()
+    -- RefreshSlotsChipsRank()
 end
 
 
@@ -189,11 +186,10 @@ end
 function StopOver()
 	unilight.info("服务器关闭调用")
     unilight.info("保存房间信息")
-    RoomInfo.SaveAllRoomData()
-
+    -- RoomInfo.SaveAllRoomData()
     --排行榜排序并存档一下
     -- RankListMgr:SortRank()
-
+    storecatch.FlushCatchToDb()
 end
 
 --初始化机器人数量

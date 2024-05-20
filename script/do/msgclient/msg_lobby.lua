@@ -17,6 +17,7 @@ Net.CmdUserInfoSynRequestLbyCmd_C = function(cmd, laccount)
 	LossRebate.isRefresh(uid)
 	local userInfo = chessuserinfodb.RUserLoginGet(uid, cmd.data)
     unilight.info("玩家登陆:"..uid..", chips="..userInfo.property.chips)
+	backRealtime.userLoginInToLoddy(uid)
 	local userBaseInfo = chessuserinfodb.RUserBaseInfoGet(userInfo)	
 	res["data"] = {
 		errno = 0,

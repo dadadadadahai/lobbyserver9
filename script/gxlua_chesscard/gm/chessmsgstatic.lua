@@ -308,6 +308,8 @@ GmSvr.PmdRequestUserItemsHistoryListGmUserPmd_CS = function(cmd, laccount)
 
     --货币类型
     if data.optype > 0 then
+        -- 大厅9版本 后台传 1 体验币 2 真金 但是服务器存的是 0 体验 1 真金
+        data.optype = data.optype - 1
         filter = unilight.a(filter,unilight.eq("itemid", data.optype))
     end
 
@@ -353,7 +355,7 @@ GmSvr.PmdRequestUserItemsHistoryListGmUserPmd_CS = function(cmd, laccount)
             {
                 charid    = info.uid,
                 charname  = userInfo.base.nickname,
-                itemid    = info.itemid, -- // 道具名称,不填默认为货币,或者问策划道具表要
+                itemid    = info.itemid + 1, -- // 道具名称,不填默认为货币,或者问策划道具表要
                 balance   = info.balance, -- // 当前余额(操作后)
                 diff      = info.diff, --; // 本次操作变化量
                 timestamp = info.timestamp, -- // 操作时间,unixtime unitme.Time.Sec()
@@ -825,7 +827,7 @@ GmSvr.PmdGameOrderListGmUserPmd_CS = function(cmd, laccount)
             platorder  = info.order_no,     --第三方订单id
             money      = info.backPrice,    --支付金额
             status     = info.status,       --订单状态
-            chips      = goodNum,    --充值金额
+            chips      = info.goodNum,    --充值金额
             rechargetype = info.shopType,               --充值类型
             silver     = diamondNum,           --银币数量
             regflag    = userInfo.base.regFlag, --注册来源, 1.投放 2.非投放
@@ -1279,81 +1281,15 @@ end
 
 --充值渠道操作
 GmSvr.PmdStReqRechargePlatInfoGmUserPmd_CS = function(cmd, laccount)
-	local curpage 		= cmd.data.curpage
-	local perpage 		= cmd.data.perpage
-	local optype = cmd.data.optype
-    local reqtype = cmd.data.reqtype
-	local maxpage = 0
-	local datas = {}
-
-	if curpage == 0 then
-		curpage = 1
-	end
-
-    --支付
-    if reqtype == 1 then
-
-        --查询列表
-        if optype == 1 then
-            for _, v in ipairs(table_recharge_plat) do
-                table.insert(datas, {
-                        id     = v.ID,      --编号
-                        platid = v.platId, --//平台id
-                        status = v.status, --//是否启用， 1启用，0禁用
-                        platname = v.desc, --//渠道名称
-                    })
-            end
-            --修改渠道状态
-        elseif optype == 2 then
-            for _, v in ipairs(table_recharge_plat) do
-                if v.ID == cmd.data.id then
-                    v.status = cmd.data.status
-                end
-            end
+    local optype=cmd.data.optype
+    if optype~=1 then
+        --广播到全服
+        for key,zontask in pairs(ZoneInfo.GlobalZoneInfoMap) do
+            --广播到服务器
+            zontask:SendCmdToMe('Cmd.StReqRechargePlatInfoGmUserLobby_CS',cmd)
         end
-    --提现
-    elseif reqtype ==2 then
-
-        --查询列表
-        if optype == 1 then
-            for _, v in ipairs(table_withdraw_plat) do
-                table.insert(datas, {
-                        id     = v.ID,      --编号
-                        platid = v.platId, --//平台id
-                        status1 = v.status1, --//金币提现是否启用， 1启用，0禁用
-                        status2 = v.status2, --//推广是否启用， 1启用，0禁用
-                        platname = v.desc, --//渠道名称
-                    })
-            end
-            --修改金币渠道状态
-        elseif optype == 2 then
-            for _, v in ipairs(table_withdraw_plat) do
-                if v.ID == cmd.data.id then
-                    v.status1 = cmd.data.status
-                end
-            end
-            --修改推广渠道状态
-        elseif optype == 4 then
-            for _, v in ipairs(table_withdraw_plat) do
-                if v.ID == cmd.data.id then
-                    v.status2 = cmd.data.status
-                end
-            end
-            --修改提现直接通过的上限值
-        elseif optype == 3 then
-            -- 上限值
-            WithdrawCash.parameterConfig[35].Parameter = cmd.data.cashoutauto
-        end
-
     end
-
-    cmd.data.retcode = 0
-    cmd.data.retdesc =  "操作成功"
-	cmd.data.maxpage      = maxpage
-	cmd.data.data        = datas
-	cmd.data.cashoutauto        = WithdrawCash.parameterConfig[35].Parameter
-    return cmd
-
+    return msgLobbyHandle.StReqRechargePlatInfoGmUser(cmd)
 end
 
 --推广奖励日志
@@ -2546,7 +2482,9 @@ GmSvr.PmdStWithdrawPercentGmUserPmd_CS = function(cmd, laccount)
 
     --查询推广提现忽略投放标志
     -- unilight.info('starttime endtime',starttime,endtime)
-    local tmpFilterStr = '"orderType":2,"state":{"$in":[6, 3]}'
+    -- local tmpFilterStr = '"orderType":3,"state":{"$in":[6, 3]}'
+    --  这里暂时使用gte 3 和 4 的都算推广
+    local tmpFilterStr = '"orderType":{"$gte":3},"state":{"$in":[6, 3]}'
     tmpFilterStr = tmpFilterStr .. ', "timestamp":{"$gte":' .. starttime ..' , "$lt":' .. endtime .. '}'
     local info = unilight.chainResponseSequence(unilight.startChain().Table("withdrawcash_order").Aggregate(
     '{"$match":{'..tmpFilterStr..'}}', '{"$group":{"_id":null, "sum":{"$sum":"$dinheiro"}}}'  ))
@@ -2564,7 +2502,8 @@ GmSvr.PmdStWithdrawPercentGmUserPmd_CS = function(cmd, laccount)
 
 	cmd.data.maxpage      = maxpage
 	cmd.data.datas        = datas
-    cmd.data.totalwithdrawmoney = totalwithdrawmoney+dayDinheiro
+    -- cmd.data.totalwithdrawmoney = totalwithdrawmoney+dayDinheiro
+    cmd.data.totalwithdrawmoney = totalwithdrawmoney
     cmd.data.totalrechargemoney = totalrechargemoney
     cmd.data.totalrechargenum  = totalrechargenum
     cmd.data.totalwithdrawnum  = totalwithdrawnum+withdrawNum

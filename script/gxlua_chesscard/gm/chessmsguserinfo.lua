@@ -80,6 +80,10 @@ GmSvr.PmdRequestUserInfoGmUserPmd_C = function(cmd, laccount)
         uid = dbinfo._id
     end
     local ret, desc, data = ChessGmUserInfoMgr.GetUserInfo(uid)
+    
+
+
+
     if ret ~= 0 then
         res.data.retcode = ret
         res.data.retdesc = desc
@@ -102,347 +106,26 @@ GmSvr.PmdRequestModifyUserInfoGmUserPmd_C = function(cmd, laccount)
 		res.data.retdesc = "参数类型没有带入"
 		return res
 	end
-	local uid = cmd.data.charid
-	local opType = cmd.data.optype
-	local changeType = cmd.data.changetype or 0
-
     res.data.retcode = 0 
     res.data.retdesc = "操作成功"
-
-	-- 如果为增减 暂时只让增减货币
-	if changeType == 1 then
-		if opType ~= 5 and opType ~= 6 and opType ~= 8 and opType ~= 9 then
-			res.data.retcode = 2 
-			res.data.retdesc = "增减功能 只适合货币、钻石、房卡操作"
-			return res			
-		end
-	end
-
-	local userInfo = chessuserinfodb.RUserInfoGet(uid)
-	if userInfo == nil then
-		res.data.retcode = 2 
-		res.data.retdesc = "角色不存在"
-		return res
-	end
-
-	res.data.charid = uid
-	if opType == 1 then -- 昵称
-		if cmd.data.charname ~= nil then
-			modifyInfo = {}
-			modifyInfo.nickName = cmd.data.charname
-			chessuserinfodb.WUserInfoModity(uid, modifyInfo)
-			res.data.retcode = 0
-            res.data.retdesc = "参数类型没有带入"
-			return  res
-		end
-	end
-	if opType == 7 then -- 修改金币
-		if cmd.data.opnum ~= nil then
-			-- 兼容一下 怕改错了麻将的数据
-			if changeType == 1 then
-				-- 增减  
-				local ret = nil
-				if cmd.data.opnum < 0 then
-					_, ret = chessuserinfodb.WChipsChange(uid, 2, -cmd.data.opnum, "gm工具修改筹码 gmid:" .. cmd.data.gmid)
-				elseif cmd.data.opnum > 0 then
-					_, ret = chessuserinfodb.WChipsChange(uid, 1, cmd.data.opnum, "gm工具修改筹码 gmid:" .. cmd.data.gmid)
-				end
-				if ret == true then
-					res.data.retcode = 0
-
-					-- 货币变化加上日志
-					if cmd.data.opnum < 0 then
-						unilight.warn("gm工具修改筹码 gmid:" .. cmd.data.gmid .. " 扣除玩家:" .. uid .. ":" .. -cmd.data.opnum)
-					elseif cmd.data.opnum > 0 then
-						unilight.warn("gm工具修改筹码 gmid:" .. cmd.data.gmid .. " 增加玩家:" .. uid .. ":" .. cmd.data.opnum)
-					end
-				else
-					res.data.retcode = 4 
-					res.data.retdesc = "修改金币失败"
-					return res
-				end
-			else	
-				-- 修改之前的筹码
-				local baseChips = userInfo.property.chips
-                userInfo.property.chips = cmd.data.opnum
-                chessuserinfodb.WUserInfoUpdate(uid, userInfo)
-				res.data.retcode = 0
-
-				-- gm设定金币后 计算此次金币变动值 并记录
-				ChessItemsHistory.AddItemsHistory(uid, 2, cmd.data.opnum, cmd.data.opnum-baseChips, "gm工具修改筹码 gmid:" .. cmd.data.gmid)
-
-				-- 货币变化加上日志
-				unilight.warn("gm工具修改筹码 gmid:" .. cmd.data.gmid .. " 设定玩家:" .. uid .. ":" .. cmd.data.opnum .. " pre:" .. baseChips)
-			end
-			return  res
-		end
-	end
-
-	-- 3 表示修改vip等级
-	if opType == 3 then
-		local vipLevel = tonumber(cmd.data.opnum)
-		if vipLevel == nil then
-			res.data.retcode = 2 
-			res.data.retdesc = "opnum 需要是数字"
-		else
-			local userData = chessuserinfodb.RUserInfoGet(uid)
-			if userData.property.vipLevel == nil then
-				res.data.retcode = 3 
-				res.data.retdesc = "该玩家不存在vip结构"
-			else
-				res.data.retcode = 0
-				userData.property.vipLevel = vipLevel
-				chessuserinfodb.WUserInfoUpdate(uid, userData)
-			end
-		end
-		return  res
-	end
-
-	-- 15 修改真实姓名
-	if opType == 15 then
-        local realName = cmd.data.ext
-        res.data.retcode = 0
-        WithdrawCash.ChangeWithdrawcashCpfInfo(uid, realName, "", "")
-        unilight.info(string.format("gm修改真实姓名:%d, realName%s", uid, realName))
-		return  res
-	end
-
-	-- 16 修改cpf
-	if opType == 16 then
-        local cpf = cmd.data.ext
-        -- local userData = chessuserinfodb.GetUserDataById(uid)
-        res.data.retcode = 0
-        -- userData.base.cpf = cpf
-        -- chessuserinfodb.SaveUserData(userData)
-        WithdrawCash.ChangeWithdrawcashCpfInfo(uid, "", cpf, "")
-        unilight.info(string.format("gm修改cpf:%d, cfp:%s", uid, cpf))
-		return  res
-	end
-	-- 20 修改邮mail
-	if opType == 20 then
-        local mail = cmd.data.ext
-        -- local userData = chessuserinfodb.GetUserDataById(uid)
-        res.data.retcode = 0
-        -- userData.base.cpf = cpf
-        -- chessuserinfodb.SaveUserData(userData)
-        WithdrawCash.ChangeWithdrawcashCpfInfo(uid, "", "", mail)
-        unilight.info(string.format("gm修改邮箱:%d, mail:%s", uid, mail))
-		return  res
-	end
-
-	-- 21 绑定手机
-	if opType == 21 then
-        if cmd.data.ext == nil or cmd.data.ext == "" then
-            res.data.retcode = 1
-            res.data.retdesc = "未输入手机号码"
-			return  res
-        end
-        local phoneNbr = cmd.data.ext
-        local allNum 	= unilight.startChain().Table("userinfo").Filter(unilight.eq("base.phoneNbr", phoneNbr)).Count()
-        print("allNum="..allNum)
-        if allNum > 0 then
-            res.data.retcode = 1
-            res.data.retdesc = "手机号码重复"
-            return res 
-        end
-
-        uniplatform.modifyaccountmobilenum(uid, phoneNbr, uid, "111111")
-        res.data.retcode = 0
-        res.data.retdesc = "操作成功"
-        return  res
-	end
-
-	-- 22 修改银币
-	if opType == 22 then
-		if cmd.data.opnum ~= nil then
-            -- 修改之前的筹码
-            local baseChips = chessuserinfodb.RUserDiamondGet(uid)
-
-            chessuserinfodb.WDiamondSet(uid, cmd.data.opnum)
-            res.data.retcode = 0
-
-            -- gm设定金币后 计算此次金币变动值 并记录
-            ChessItemsHistory.AddItemsHistory(uid, 1, cmd.data.opnum, cmd.data.opnum-baseChips, "gm工具修改筹码 gmid:" .. cmd.data.gmid)
-
-            -- 货币变化加上日志
-            unilight.warn("gm工具修改筹码 gmid:" .. cmd.data.gmid .. " 设定玩家:" .. uid .. ":" .. cmd.data.opnum .. " pre:" .. baseChips)
-			return  res
-		end
-	end
-
-	-- 23  修改累计充值
-	if opType == 23 then
-		if cmd.data.opnum ~= nil then
-            res.data.retcode = 0
-            res.data.retdesc = "更新成功"
-            local userInfo = chessuserinfodb.RUserInfoGet(uid)
-            unilight.info("gm修改玩家累充前:"..uid..", ="..userInfo.property.totalRechargeChips)
-            userInfo.property.totalRechargeChips = cmd.data.opnum
-            chessuserinfodb.WUserInfoUpdate(uid, userInfo)
-            
-            unilight.info("gm修改玩家累充后:"..uid..", ="..cmd.data.opnum)
-			return  res
-		end
-	end
-	-- 29  修改累计下注
-	if opType == 29 then
-		if cmd.data.opnum ~= nil then
-            res.data.retcode = 0
-            res.data.retdesc = "更新成功"
-            local userInfo = chessuserinfodb.RUserInfoGet(uid)
-            unilight.info("gm修改玩家累计下注前:"..uid..", ="..userInfo.gameData.slotsBet)
-            userInfo.gameData.slotsBet = tonumber(cmd.data.ext)
-            chessuserinfodb.WUserInfoUpdate(uid, userInfo)
-            
-            unilight.info("gm修改玩家累计下注后:"..uid..", ="..cmd.data.ext)
-			return  res
-		end
-	end
-
-	-- 24  修改玩家提现通道
-	if opType == 24 then
-		if cmd.data.opnum ~= nil then
-            res.data.retcode = 0
-            res.data.retdesc = "更新成功"
-            if cmd.data.opnum ~= 0 and cmd.data.opnum ~= 1 and cmd.data.opnum ~= 2 then
-                res.data.retcode = 1
-                res.data.retdesc = "参数错误"
-                return res
-            end
-            unilight.info("gm修改玩:"..uid..", 提现通道:"..cmd.data.opnum)
-            WithdrawCash.ChangeChavePixChannel(uid,cmd.data.opnum)
-			return  res
-		end
-	end
-
-	-- 25  删除账号
-	if opType == 25 then
-		if cmd.data.opnum ~= nil then
-            res.data.retcode = 0
-            res.data.retdesc = "更新成功"
-            unilight.info("删除玩家账号信息:"..uid)
-            unilight.delete("rechargeinfo", uid)
-            unilight.delete("userinfo", uid)
-            unilight.delete("withdrawcash", uid)
-            unilight.delete("usermailinfo", uid)
-            unilight.delete("taskother", uid)
-            unilight.delete("user_image_upload", uid)
-            unilight.delete("user_image_addDesktop", uid)
-            unilight.redis_rmkey("userinfo_"..uid)
-            -- WithdrawCash.ChangeChavePixChannel(uid,cmd.data.opnum)
-			return  res
-		end
-	end
-
-	-- 11  账号充值
-	if opType == 11 then
-		if cmd.data.opnum ~= nil then
-            res.data.retcode = 0
-            res.data.retdesc = "更新成功"
-            local shopId = tonumber(cmd.data.ext) 
-            unilight.info("后台玩家充值:"..uid.." :"..shopId)
-            ShopMgr.BuyGoods(uid, shopId)
-			return  res
-		end
-	end
-
-	-- 26  可设置提现金额
-	if opType == 26 then
-		if cmd.data.opnum ~= nil then
-            res.data.retcode = 0
-            res.data.retdesc = "更新成功"
-            local chips = tonumber(cmd.data.ext) * 100
-            unilight.info("后台玩家设置可提现金额:"..uid.." :"..chips)
-            local info = unilight.getdata("withdrawcash", uid)
-            if info ~= nil then
-                info.statement = chips
-                unilight.savedata("withdrawcash", info)
-            end
-			return  res
-		end
-	end
-
-	-- 27  同意提现
-	if opType == 27 then
-		if cmd.data.opnum ~= nil then
-            res.data.retcode = 0
-            res.data.retdesc = "更新成功"
-            local orderId = tonumber(cmd.data.ext)
-            unilight.info("gm后台同意提现:"..uid.." :"..orderId)
-            local info = unilight.getdata("withdrawcash_order", orderId)
-            if info ~= nil then
-                info.state = 3
-                unilight.savedata("withdrawcash_order", info)
-            end
-            dump(info)
-			return  res
-		end
-	end
-
-	-- 27  设置累计提现
-	if opType == 28 then
-
-		if cmd.data.opnum ~= nil then
-            local chips = tonumber(cmd.data.ext) * 100
-            unilight.info("后台玩家累计提现:"..uid.." :"..chips)
-            local userInfo = chessuserinfodb.RUserInfoGet(uid)
-            if userInfo ~= nil then
-                userInfo.status.chipsWithdraw = chips
-                chessuserinfodb.WUserInfoUpdate(uid, userInfo)
-            end
-
-            local info = unilight.getdata("withdrawcash", uid)
-            if info ~= nil then
-                info.totalWithdrawal = chips 
-                unilight.savedata("withdrawcash", info)
-            end
-
-            res.data.retcode = 0
-            res.data.retdesc = "更新成功"
-			return  res
-		end
-	end
-
-    --设置免费, 爆池 ， bonus
-    if opType == 17 or opType == 18 or opType == 19 then
-        local newType = Const.GAME_CONTROL_TYPE.FREE
-
-        if opType == 18 then
-            newType = Const.GAME_CONTROL_TYPE.JACKPOT
-        elseif opType == 19 then
-            newType = Const.GAME_CONTROL_TYPE.BONUS
-        end
-        local gameInfo = string.split(cmd.data.ext, ",")
-        local gameId, gameType = tonumber(gameInfo[1]), tonumber(gameInfo[2])
-        print(uid, gameId, gameType, newType, cmd.data.opnum)
-        chessuserinfodb.WUserGameControl(uid, gameId, gameType, newType, cmd.data.opnum or 1 )
-        return res
+    local uid = cmd.data.charid
+	local opType = cmd.data.optype
+	local changeType = cmd.data.changetype or 0
+    local onlineInfo = backRealtime.lobbyOnlineUserManageMap[uid]
+    if onlineInfo==nil then
+        --不在线
+        UserInfo.playerModifyInfo(uid,opType,changeType,cmd)
+    else
+        local data={
+            uid=uid,
+            opType=opType,
+            changeType=changeType,
+            cmd=cmd
+        }
+        onlineInfo.zone:SendCmdToMe('Cmd.RequestModifyUserInfoGmUserLobby_CS',data)
     end
-
-	-- 4 表示gmlevel
-	if opType == 4 then
-		local gmLevel = tonumber(cmd.data.opnum)
-		if gmLevel == nil then
-			res.data.retcode = 2 
-			res.data.retdesc = "opnum 需要是数字"
-		else
-			req = {
-				accid = uid,
-				gmlevel = gmLevel,
-			}
-			local resStr = json.encode(encode_repair(req))
-			go.buildProtoFwdServer("*Smd.RequestSetUserGmLevelLoginSmd_CS", resStr, "LS")
-			res.data.retcode = 0
-		end
-		return  res
-	end
-
-
-	res.data.retcode = 4 
-	res.data.retdesc = "更新数据库失败" 
-	return  res
+    return res
 end
-
 -- 玩家处罚(处罚相关操作 均使用 charid 代替 uid)
 -- 处罚操作 ptype：1警告，2禁言，3自言自语，4关禁闭，5踢下线，6封号 (暂时只做 3自言自语)
 GmSvr.PmdPunishUserGmUserPmd_C= function(cmd, laccount)
@@ -533,7 +216,7 @@ GmSvr.PmdRequestOnlineUserInfoGmUserPmd_CS= function(cmd, laccount)
 	local ranktype 		= cmd.data.ranktype -- 排序 结果排序类型，0注册时间， 1金币, 2.累计充值， 3.充值次数， 4. 推广提现， 5.金币提现， 6.推广提现次数， 7.金币提现次数
     local phonenum      = cmd.data.phonenum
     local account      = cmd.data.account
-
+    local cpf = cmd.data.cpf
 
 	if curpage == 0 then
 		curpage = 1
@@ -616,6 +299,20 @@ GmSvr.PmdRequestOnlineUserInfoGmUserPmd_CS= function(cmd, laccount)
 				table.insert(datas, data)
 			end			
 		end
+    --根据CPF查询
+    elseif cpf ~= nil and cpf ~= ""  then
+		unilight.info("收到根据CPF查询玩家信息:" .. cpf)
+
+        filter = unilight.a(filter,unilight.eq("base.cpf", cpf))
+		local userInfoNum = unilight.startChain().Table("userinfo").Filter(filter).Count()
+		maxpage = math.ceil(userInfoNum/perpage)
+ 		local userInfos = unilight.chainResponseSequence(unilight.startChain().Table("userinfo").Filter(filter).OrderBy(orderBy).Skip((curpage-1)*perpage).Limit(perpage))
+		for i,v in ipairs(userInfos) do
+			local ret, _, data = ChessGmUserInfoMgr.GetUserInfo(v.uid)
+			if ret == 0 then
+				table.insert(datas, data)
+			end			
+		end
 
 	-- 6个新增范围选项 只要有一个 则走以下查询方案
 	-- elseif starttime ~= 0 or endtime ~= 0 or lstime ~= 0 or letime ~= 0 or mincoin ~= 0 or maxcoin ~= 0 or ranktype ~= 0 then
@@ -648,6 +345,10 @@ GmSvr.PmdRequestOnlineUserInfoGmUserPmd_CS= function(cmd, laccount)
             filter = unilight.a(filter,unilight.eq("status.registerIp", cmd.data.regip))
         end
 
+        if cpf ~= nil and cpf ~= "" then
+            filter = unilight.a(filter,unilight.eq("base.cpf", cpf))
+        end
+
         if string.len(cmd.data.starttime) > 0 and string.len(cmd.data.endtime) > 0 then
             local starttime = chessutil.TimeByDateGet(cmd.data.starttime)
             local endtime   = chessutil.TimeByDateGet(cmd.data.endtime)
@@ -675,7 +376,8 @@ GmSvr.PmdRequestOnlineUserInfoGmUserPmd_CS= function(cmd, laccount)
 			end			
 		end
         -- 计算下载APK玩家总数量
-        local apkNumFilter = unilight.o(unilight.a(unilight.eq("status.loginPlatIds.1", 1),unilight.eq("status.loginPlatIds.2", 3)),
+        local apkNumFilter = unilight.o(unilight.eq("status.loginPlatIds.1", 3),
+                                        unilight.a(unilight.eq("status.loginPlatIds.1", 1),unilight.eq("status.loginPlatIds.2", 3)),
                                         unilight.a(unilight.eq("status.loginPlatIds.1", 2),unilight.eq("status.loginPlatIds.2", 3)),
                                         unilight.a(unilight.eq("status.loginPlatIds.1", 1),unilight.eq("status.loginPlatIds.2", 2),unilight.eq("status.loginPlatIds.3", 3)),
                                         unilight.a(unilight.eq("status.loginPlatIds.1", 2),unilight.eq("status.loginPlatIds.2", 1),unilight.eq("status.loginPlatIds.3", 3)))
@@ -930,7 +632,7 @@ GmSvr.PmdStRequestConvertVerifyPmd_CS = function(cmd, laccount)
     if string.len(cmd.data.begintime) > 0 and string.len(cmd.data.endtime) > 0 then
         local starttime = chessutil.TimeByDateGet(cmd.data.begintime)
         local endtime   = chessutil.TimeByDateGet(cmd.data.endtime)
-        filter = unilight.a(unilight.ge('timestamp',starttime), unilight.le('timestamp',endtime))
+        filter = unilight.a(filter,unilight.a(unilight.ge('timestamp',starttime), unilight.le('timestamp',endtime)))
     end
         --[[
         uid = uid,                                                          -- 玩家ID
@@ -1063,6 +765,7 @@ GmSvr.PmdStRequestConvertVerifyPmd_CS = function(cmd, laccount)
             elseif opvalue == 1 then
                 --拒绝
                 WithdrawCash.ChangeState(cmd.data.orderid, WithdrawCash.STATE_REFUSE)
+
                 unilight.info(string.format("gm拒绝玩家提现: orderid=%s",cmd.data.orderid))
                 --忽略(只有初始状态才可以忽略)
             elseif opvalue == 2 and covertInfo.state == WithdrawCash.STATE_WAIT_REVIEW then
@@ -1093,125 +796,206 @@ GmSvr.PmdStRequestOnlineListInfoPmd_CS = function(cmd, laccount)
 	local maxpage = 0
 	local datas = {}
 
-	if curpage == 0 then
-		curpage = 1
-	end
-
-    local todayOnline, yestedayOnline = annagent.GetOnlineInfo()
-    local registerAll = unilight.startChain().Table("userinfo").Filter(unilight.field("uid").Gt(0)).Count()
-
-
-    ----------------------
-    -- local game_zone_online_list = annagent.GetOnlineUids()
-    -- local game_zone_online_list = unilight.redis_getdata(Const.REDIS_HASH_NAME.ONLINE_INFO)
-    local game_zone_online_list = unilight.redis_getdata(Const.REDIS_HASH_NAME.ONLINE_INFO)
-    if game_zone_online_list == "" then
-        game_zone_online_list = {}
-    else
-        game_zone_online_list = json2table(game_zone_online_list)
-    end
-
-    local uids = {}
-    local lobbyuids = {}
-    for gameId, zone_online_list in pairs(game_zone_online_list) do
-        for zoneId, online_list in pairs(zone_online_list) do
-            for _, userInfo in ipairs(online_list) do
-                --大厅人数单独统计
-                if gameId == Const.GAME_TYPE.LOBBY then
-                    table.insert(lobbyuids, userInfo.uid)
-                else
-                    local newInfo = {}
-
-                    --查询具体游戏
-                    if data.subgameid > 0  then
-                        newInfo.subGameId = data.subgameid
-                    end
-                    --查询初中高级场
-                    if data.gametype > 0 then 
-                        newInfo.subGameType = data.gametype
-                    end
-
-                    if data.regflag > 0  then
-                        newInfo.regFlag = data.regflag
-                    end
-
-                    if data.rechargeflag > 0 then
-                        newInfo.rechargeFlag = data.rechargeflag
-                    end
-
-                    if data.subplatid > 0 then
-                        newInfo.subplatid = data.subplatid
-                    end
-
-                    if table.empty(newInfo) then
-                        table.insert(uids, userInfo.uid)
-                    else
-                        local bFind = true
-                        for k, v in pairs(newInfo) do
-                            if userInfo[k] ~= v then
-                                bFind = false
-                                break
-                            end
-                        end
-
-                        if bFind then
-                            table.insert(uids, userInfo.uid)
-                        end
-                    end
-
-                end
-
+	-- if curpage == 0 then
+	-- 	curpage = 1
+	-- end
+    --回送数据
+    local lobbyonline = 0       --大厅在线人数
+    local curonline = 0         --当前在线人数
+    local gameonline = 0        --游戏在线人数
+    local datas={}
+    --投放标志
+    local regflag = data.regflag
+    --1 充值玩家  2非充值玩家
+    local rechargeflag = data.rechargeflag
+    local checkAdd=function(rInfo)
+       if regflag>0 then
+            if rInfo.regFlag~=regflag then
+                return false
             end
+       end
+       if rechargeflag==1 then
+            if rInfo.totalRechargeChips<=0 then
+                return false
+            end
+       elseif rechargeflag==2 then
+            if rInfo.totalRechargeChips>0 then
+                return false
+            end
+       end
+       return true
+    end
+    for uid,uValue in pairs(backRealtime.lobbyOnlineUserManageMap) do
+        if uValue.zone.gameid==1001 then
+            lobbyonline=lobbyonline+1
+        else
+            local zone = uValue.zone
+            local rInfo = uValue.rInfo
+            local zoneId =  zone.zoneid
+            local subgameid = math.floor(zoneId/100)
+            if checkAdd(rInfo) then
+                table.insert(datas,{
+                    uid=rInfo.uid,
+                    chips = rInfo.chips,
+                    totalRechargeChips=rInfo.totalRechargeChips,
+                    chargeMax = rInfo.chargeMax,
+                    statement=rInfo.statement,
+                    totalWithdrawal=rInfo.totalWithdrawal,
+                    rtp=rInfo.rtp,
+                    autocontroltype=rInfo.autocontroltype,
+                    controlvalue=rInfo.controlvalue,
+                    subgameid=subgameid,
+                    enterchip=uValue.enterchip,
+                    regFlag=rInfo.regFlag,
+                })
+            end
+            gameonline=gameonline+1
         end
+        curonline=curonline+1
     end
-
-    table.sort(uids)
-
-    --查找指定玩家
-    if cmd.data.charid ~= nil and cmd.data.charid > 0 then
-        for _, uid in pairs(uids) do
-            if uid == cmd.data.charid then
-                local ret, _, data = ChessGmUserInfoMgr.GetUserOnlineInfo(uid)
-                if ret == 0 then
-                    table.insert(datas, data)
-                end
-                break
-            end
-        end
-    else
-        maxpage = math.ceil(#uids/perpage)
-        for i=(curpage-1)*perpage + 1, curpage*perpage do
-            if i > #uids then
-                break
-            end
-            local ret, _, data = ChessGmUserInfoMgr.GetUserOnlineInfo(uids[i])
-            if ret == 0 then
-                table.insert(datas, data)
-            end
-        end
-
+    --datas 按充值金额排序
+    table.sort(datas,function(a,b)
+        return a.totalRechargeChips>b.totalRechargeChips
+    end)
+    local skip = (curpage-1)*perpage
+    local endNum = skip + perpage
+    skip = skip+1
+    if endNum>#datas then
+        endNum = #datas
     end
-
-    --[[
-    local onlineinfo = go.gameonlineinfo
-    local totalOnlineNum  = 0
-
-    for gameId, onlineNum  in pairs(onlineinfo) do
-        totalOnlineNum = totalOnlineNum + onlineNum
+    local resdata={}
+    for i=skip,endNum do
+        table.insert(resdata,datas[i])
     end
-    ]]
-
+    maxpage = math.ceil(#datas/perpage)
+    --执行返回
     cmd.data.retcode = 0 
     cmd.data.retdesc =  "操作成功"
-
 	cmd.data.maxpage      = maxpage
-	cmd.data.datas        = datas
-	cmd.data.curonline    = table.len(uids)
-    cmd.data.lobbyonline  = table.len(lobbyuids)
-    cmd.data.todayonline  = todayOnline
-    cmd.data.yestedayline = yestedayOnline
-    cmd.data.registernum  = registerAll
+	cmd.data.datas        = resdata
+	cmd.data.curonline    = curonline
+    cmd.data.lobbyonline  = lobbyonline
+    cmd.data.todayonline  = 0
+    cmd.data.yestedayline = 0
+    cmd.data.registernum  = unilight.startChain().Table("userinfo").Count()
+
     return cmd
+
+    -- local todayOnline, yestedayOnline = annagent.GetOnlineInfo()
+    -- local registerAll = unilight.startChain().Table("userinfo").Filter(unilight.field("uid").Gt(0)).Count()
+    
+
+    -- ----------------------
+    -- -- local game_zone_online_list = annagent.GetOnlineUids()
+    -- -- local game_zone_online_list = unilight.redis_getdata(Const.REDIS_HASH_NAME.ONLINE_INFO)
+    -- local game_zone_online_list = unilight.redis_getdata(Const.REDIS_HASH_NAME.ONLINE_INFO)
+    -- if game_zone_online_list == "" then
+    --     game_zone_online_list = {}
+    -- else
+    --     game_zone_online_list = json2table(game_zone_online_list)
+    -- end
+
+    -- local uids = {}
+    -- local lobbyuids = {}
+    -- for gameId, zone_online_list in pairs(game_zone_online_list) do
+    --     for zoneId, online_list in pairs(zone_online_list) do
+    --         for _, userInfo in ipairs(online_list) do
+    --             --大厅人数单独统计
+    --             if gameId == Const.GAME_TYPE.LOBBY then
+    --                 table.insert(lobbyuids, userInfo.uid)
+    --             else
+    --                 local newInfo = {}
+
+    --                 --查询具体游戏
+    --                 if data.subgameid > 0  then
+    --                     newInfo.subGameId = data.subgameid
+    --                 end
+    --                 --查询初中高级场
+    --                 if data.gametype > 0 then 
+    --                     newInfo.subGameType = data.gametype
+    --                 end
+
+    --                 if data.regflag > 0  then
+    --                     newInfo.regFlag = data.regflag
+    --                 end
+
+    --                 if data.rechargeflag > 0 then
+    --                     newInfo.rechargeFlag = data.rechargeflag
+    --                 end
+
+    --                 if data.subplatid > 0 then
+    --                     newInfo.subplatid = data.subplatid
+    --                 end
+
+    --                 if table.empty(newInfo) then
+    --                     table.insert(uids, userInfo.uid)
+    --                 else
+    --                     local bFind = true
+    --                     for k, v in pairs(newInfo) do
+    --                         if userInfo[k] ~= v then
+    --                             bFind = false
+    --                             break
+    --                         end
+    --                     end
+
+    --                     if bFind then
+    --                         table.insert(uids, userInfo.uid)
+    --                     end
+    --                 end
+
+    --             end
+
+    --         end
+    --     end
+    -- end
+
+    -- table.sort(uids)
+
+    -- --查找指定玩家
+    -- if cmd.data.charid ~= nil and cmd.data.charid > 0 then
+    --     for _, uid in pairs(uids) do
+    --         if uid == cmd.data.charid then
+    --             local ret, _, data = ChessGmUserInfoMgr.GetUserOnlineInfo(uid)
+    --             if ret == 0 then
+    --                 table.insert(datas, data)
+    --             end
+    --             break
+    --         end
+    --     end
+    -- else
+    --     maxpage = math.ceil(#uids/perpage)
+    --     for i=(curpage-1)*perpage + 1, curpage*perpage do
+    --         if i > #uids then
+    --             break
+    --         end
+    --         local ret, _, data = ChessGmUserInfoMgr.GetUserOnlineInfo(uids[i])
+    --         if ret == 0 then
+    --             table.insert(datas, data)
+    --         end
+    --     end
+
+    -- end
+
+    -- --[[
+    -- local onlineinfo = go.gameonlineinfo
+    -- local totalOnlineNum  = 0
+
+    -- for gameId, onlineNum  in pairs(onlineinfo) do
+    --     totalOnlineNum = totalOnlineNum + onlineNum
+    -- end
+    -- ]]
+
+    -- cmd.data.retcode = 0 
+    -- cmd.data.retdesc =  "操作成功"
+
+	-- cmd.data.maxpage      = maxpage
+	-- cmd.data.datas        = datas
+	-- cmd.data.curonline    = table.len(uids)
+    -- cmd.data.lobbyonline  = table.len(lobbyuids)
+    -- cmd.data.todayonline  = todayOnline
+    -- cmd.data.yestedayline = yestedayOnline
+    -- cmd.data.registernum  = registerAll
+    -- return cmd
 end
 
 

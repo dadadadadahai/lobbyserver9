@@ -3,7 +3,7 @@ GmSvr.PmdStRequestPromotionPmd_CS =function(cmd, laccount)
     if cmd.data.charid ~= nil and cmd.data.charid > 0 then
         filter = unilight.a(filter,unilight.eq("_id", cmd.data.charid))
     end
-    local order = unilight.desc("_id")
+    local order = unilight.desc("belowNum")
     local infoNum = unilight.startChain().Table('extension_relation').Filter(filter).Count()
     local maxpage = math.ceil(infoNum/cmd.data.perpage)
     local res = {
@@ -26,15 +26,20 @@ GmSvr.PmdStRequestPromotionPmd_CS =function(cmd, laccount)
         -- 只查找一级下线
         local filter = unilight.a(unilight.eq("uid",exinfo._id),unilight.eq("lev", 1))
         local tolchildren = unilight.startChain().Table('rebateItem').Filter(filter).Count()
-        table.insert(res.data.data,{
-            charid                  = exinfo._id,                                                                                           -- 用户id
-            tolchildren             = tolchildren,                                                                                          -- 下级数量
-            tolinvite               = exinfo.totalFreeValidChips + exinfo.totalRebateChip + exinfo.totalValidChips + exinfo.tolBetFall,     -- 邀请总收益
-            tolinviteordinary       = exinfo.totalFreeValidChips + exinfo.totalRebateChip + exinfo.totalValidChips,                         -- 普通邀请收益
-            tolinviteteam           = exinfo.tolBetFall,                                                                                    -- 团队邀请收益
-        })
-        res.data.tolchildren = res.data.tolchildren + tolchildren
+        -- if tolchildren > 0 and exinfo.tolBetFall > 0 then
+            table.insert(res.data.data,{
+                charid                  = exinfo._id,                                                                                           -- 用户id
+                tolchildren             = tolchildren,                                                                                          -- 下级数量
+                tolinvite               = exinfo.totalFreeValidChips + exinfo.totalRebateChip + exinfo.totalValidChips + exinfo.tolBetFall,     -- 邀请总收益
+                tolinviteordinary       = exinfo.totalFreeValidChips + exinfo.totalRebateChip + exinfo.totalValidChips,                         -- 普通邀请收益
+                tolinviteteam           = exinfo.tolBetFall,                                                                                    -- 团队邀请收益
+            })
+            res.data.tolchildren = res.data.tolchildren + tolchildren
+        -- end
         res.data.tolinvite = res.data.tolinvite + exinfo.totalFreeValidChips + exinfo.totalRebateChip + exinfo.totalValidChips + exinfo.tolBetFall
     end
+    table.sort(res.data.data, function(a, b)
+        return a.tolchildren > b.tolchildren
+    end)
     return res
 end

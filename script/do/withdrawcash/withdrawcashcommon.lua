@@ -202,6 +202,7 @@ WithdrawCash.AmountExchange = function(uid, dinheiro, type)
         unilight.savedata('userinfo',userInfo)
         -- 添加订单
         local orderId = WithdrawCash.SetOrder(uid, moedas, dinheiro, withdrawCashInfo, 1)
+        LossRebate.AddWeekWithdrawCashNum(uid,moedas)
         -- 保存记录
         -- 同步历史记录信息  数据搬迁
         local withdrawCashHistoryInfo = unilight.getdata(WithdrawCash.DB_History_Name,uid)
@@ -229,7 +230,8 @@ WithdrawCash.AmountExchange = function(uid, dinheiro, type)
         local mailConfig = tableMailConfig[44]
         mailInfo.charid = uid
         mailInfo.subject = mailConfig.subject
-        mailInfo.content = mailConfig.content
+        -- mailInfo.content = mailConfig.content
+        mailInfo.content = string.format(mailConfig.content,orderId,moedas/100)
         mailInfo.type = 0
         mailInfo.attachment = {}
         mailInfo.extData = {}
@@ -269,19 +271,20 @@ WithdrawCash.AmountExchange = function(uid, dinheiro, type)
         withdrawCashInfo.specialWithdrawal = withdrawCashInfo.specialWithdrawal - dinheiro
         -- 增加总提现次数
         local userInfo = unilight.getdata('userinfo',uid)
-        userInfo.status.chipsWithdrawNum = userInfo.status.chipsWithdrawNum + 1
+        userInfo.status.promoteWithdawNum = userInfo.status.promoteWithdawNum + 1
         -- 统计总提现金额  从扣除手续费后金额变为扣除前金额
-        userInfo.status.chipsWithdraw = userInfo.status.chipsWithdraw + moedas
+        userInfo.status.promoteWithdaw = userInfo.status.promoteWithdaw + moedas
         unilight.savedata('userinfo',userInfo)
         -- 保存数据库信息
         unilight.savedata(WithdrawCash.DB_Name,withdrawCashInfo)
         unilight.savedata(WithdrawCash.DB_History_Name,withdrawCashHistoryInfo)
         -- 发送邮件
         local mailInfo = {}
-        local mailConfig = tableMailConfig[44]
+        local mailConfig = tableMailConfig[53]
         mailInfo.charid = uid
         mailInfo.subject = mailConfig.subject
-        mailInfo.content = mailConfig.content
+        -- mailInfo.content = mailConfig.content
+        mailInfo.content = string.format(mailConfig.content,orderId,moedas/100)
         mailInfo.type = 0
         mailInfo.attachment = {}
         mailInfo.extData = {}

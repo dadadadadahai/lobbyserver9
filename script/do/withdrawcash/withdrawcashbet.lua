@@ -48,8 +48,10 @@ end
 
 --------------------------------------------------------    公共接口    --------------------------------------------------------
 WithdrawCash.GetBetInfo = function(uid,dataName,gameType,resInfo,isNormal,gameId)
-    -- 兑换功能打马金额减少(减少可提现金额)
-    WithdrawCash.ReduceBet(uid, resInfo.payScore)
+    if isNormal then
+        -- 兑换功能打马金额减少(减少可提现金额)
+        WithdrawCash.ReduceBet(uid, resInfo.payScore)
+    end
 end
 
 -- 首充随机增加流水

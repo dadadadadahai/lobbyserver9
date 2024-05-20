@@ -34,7 +34,7 @@ end
 ZoneClass:SetClassName("Zone")
 
 GlobalZoneInfoMap = {} --全局区管理,gamezoneid二级key
-
+zoneIdInfoMap={}
 -- 通过gameId、zoneId 获取区服信息
 function GetZoneInfoByGameIdZoneId(gameid,zoneid)
 	local zoneTask = unizone.getzonetaskbygameidzonid(gameid,zoneid)
@@ -56,6 +56,7 @@ function CreateZone(zonetask)
 	zone.state.maxOnlineNum = 10000
 	zone.state.zoneTask = zonetask
 	zone:Info("CreateZone")
+    zoneIdInfoMap[zone.zoneid] = zone
 	return zone
 end
 
@@ -100,7 +101,6 @@ function GetBestZoneId(uid, mapGameInfoList, gameId, subGameId, roomType, isPrac
 	local maxZoneId 		= nil 	-- 人数最多的区服 
 	local minZoneId 		= nil 	-- 人数最少的区服
 	local noOverMaxZoneId 	= nil 	-- 未超过阈值且人数最多的区服
-
     local isRecharge = true        --是否充值(默认充值服务器）
     --[[
     if chessuserinfodb.GetChargeInfo(uid) > 0 then
@@ -231,6 +231,7 @@ function GetBestZoneId(uid, mapGameInfoList, gameId, subGameId, roomType, isPrac
 	if bestZoneId ~= nil then
 		unilight.info("gameId:" .. gameId .. str .. ":" .. bestZoneId)
 	end
+    print('bestZoneId',bestZoneId)
 	return bestZoneId
 end
 
@@ -258,6 +259,7 @@ Zone.zone_disconnect = function(cmd,zonetask)
 	if zone ~= nil then
 		zone:Destroy()
 		GlobalZoneInfoMap[zonetask.GetId()] = nil
+        zoneIdInfoMap[zonetask.GetZoneId()] = nil
 		zone:Info("卸载游戏区")
 	end
     --清空下游戏在线

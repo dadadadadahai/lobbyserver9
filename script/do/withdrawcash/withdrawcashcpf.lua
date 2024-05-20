@@ -87,6 +87,10 @@ WithdrawCash.BindingCpf = function(uid, cpf, name, flag, chavePix, email, teleph
     withdrawCashInfo.cpf = cpf
     withdrawCashInfo.name = name
     withdrawCashInfo.flag = flag
+    -- 绑定玩家CPF信息
+    local userinfo = unilight.getdata('userinfo',uid)
+    userinfo.base.cpf = cpf
+    unilight.savedata('userinfo',userinfo)
     if flag == 1 or flag == 2 then
         withdrawCashInfo.chavePix = chavePix
     else
@@ -156,6 +160,9 @@ function ChangeWithdrawcashCpfInfo(uid, name, cpf, chavePix)
         else
             withdrawCashInfo.cpf = cpf
         end
+        local userinfo = unilight.getdata('userinfo',uid)
+        userinfo.base.cpf = cpf
+        unilight.savedata('userinfo',userinfo)
     end
     if chavePix ~= nil and chavePix ~= "" then
         withdrawCashInfo.chavePix = chavePix

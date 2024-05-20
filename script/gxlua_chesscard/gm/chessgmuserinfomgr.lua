@@ -12,6 +12,9 @@ function GetUserInfo(uid, userInfo)
 	end
     local withdrawcashInfo = WithdrawCash.GetWithdrawcashInfo(uid)
     local cpfInfo = WithdrawCash.ChangeWithdrawcashCpfInfo(uid, "", "", "")
+	
+
+
 	local data              = {}
 	data.charname           = userInfo.base.nickname
 	data.plataccount        = userInfo.base.plataccount
@@ -77,6 +80,13 @@ function GetUserInfo(uid, userInfo)
 	data.inviterteamgold		= userInfo.property.totalteamrebatechips			-- 团队返利金币
 	data.turntable				= userInfo.property.totalturntablechips				-- 普通转盘金币
 	data.rewardactivites	 	= userInfo.property.totalntaskchips					-- 新任务金币
+	data.autocontroltype = userInfo.point.autocontroltype
+	local inviteroulettelogInfo = InviteRoulette.GetInviteRouletteRechargeInfo(uid)
+	data.turninviternum			= inviteroulettelogInfo.rechargeUserNum
+	data.turninvitergold		= inviteroulettelogInfo.inviterRechargeNum
+	data.presentChips 			= userInfo.property.presentChips					-- 假金币
+
+
 	-- 判断玩家是否下载过APK
 	if userInfo.status.loginPlatIds ~= nil then
 		for _, loginPlatId in ipairs(userInfo.status.loginPlatIds) do
@@ -87,59 +97,6 @@ function GetUserInfo(uid, userInfo)
 			end
 		end
 	end
-    -- 玩家携带金币>=chargeMax时，后台显示“上限3倍点杀”
-	if userInfo.point.chargeMax ~= nil then
-		if userInfo.property.chips >= userInfo.point.chargeMax and userInfo.property.totalRechargeChips < 10000 then
-			data.kill_chips_max = "上限3倍80杀"
-		elseif userInfo.property.chips >= userInfo.point.chargeMax and userInfo.property.totalRechargeChips >= 10000 then
-			data.kill_chips_max = "上限5倍90杀"
-		end
-	end
-    data.kill_low_charge        = "" --低充值第一次杀
-    -- isMiddleKill = 1时，后台显示“低充值第一次5倍点杀”
-    if userInfo.point.isMiddleKill == 1 then
-        data.kill_low_charge = "低充值第1次7倍80杀"
-    end
-    data.kill_charge            = "" -- //充值点杀
-    -- rangeId=1-4，时，后台显示“任意充值后8倍85点杀”
-    -- rangeId=6，时，后台显示“任意充值后随机局数1倍点杀”
-	if userInfo.point.rangeId ~= nil then
-		if userInfo.point.rangeId >= 1 and userInfo.point.rangeId <= 4 then
-			data.kill_charge = "任意充值7倍80杀"
-		elseif userInfo.point.rangeId == 6 then
-			data.kill_charge = "任意充值随机1倍杀"
-		end
-	end
-    data.kill_trigger           = "" -- //触发杀
-    local killXs = userInfo.point.killXs or 0
-    local chargeMax = userInfo.point.chargeMax or 0
-    local killTakeEffect = userInfo.point.killTakeEffect or 0
-    local desStr = string.format("(解除:%.2f,当前刀:%d,总刀:%d,触发:%.2f)",(chargeMax * killXs / 100) , userInfo.point.killNum or 0, userInfo.point.killMaxNum or 0, (chargeMax * killTakeEffect /10000/100) )
-    data.kill_trigger = desStr
-	if userInfo.point.killNum ~= nil and userInfo.point.killXs ~= nil then
-		if userInfo.point.killNum == 1 and userInfo.point.killXs ~= 0 then
-			data.kill_trigger   = "5倍70杀"..desStr -- //触发杀
-		elseif userInfo.point.killNum == 1 and userInfo.point.killXs == 0 then
-            data.kill_trigger   = "第1次点杀结束"..desStr -- //触发杀
-		elseif userInfo.point.killNum == 2 and userInfo.point.killXs ~= 0 then
-			data.kill_trigger   = "5倍70杀"..desStr -- //触发杀
-		elseif userInfo.point.killNum == 2 and userInfo.point.killXs == 0 then
-			data.kill_trigger   = "第2次点杀结束"..desStr -- //触发杀
-		elseif userInfo.point.killNum == 3 and userInfo.point.killXs ~= 0 then
-			data.kill_trigger   = "5倍70杀"..desStr -- //触发杀
-		elseif userInfo.point.killNum == 3 and userInfo.point.killXs == 0 then
-			data.kill_trigger   = "第3次点杀结束"..desStr -- //触发杀
-		elseif userInfo.point.killNum == 4 and userInfo.point.killXs ~= 0 then
-			data.kill_trigger   = "5倍70杀"..desStr -- //触发杀
-		elseif userInfo.point.killNum == 4 and userInfo.point.killXs == 0 then
-			data.kill_trigger   = "第4次点杀结束"..desStr  -- //触发杀
-		elseif userInfo.point.killNum >= 5 and userInfo.point.killXs ~= 0 then
-			data.kill_trigger   = "5倍70杀"..desStr -- //触发杀
-		elseif userInfo.point.killNum >= 5 and userInfo.point.killXs == 0 then
-			data.kill_trigger   = string.format("第%d次点杀结束", userInfo.point.killNum)..desStr -- //触发杀
-		end
-	end
-
 	if userInfo.base.imei ~= nil then
 		data.imei = userInfo.base.imei
 		data.osname = userInfo.base.osname
@@ -171,7 +128,22 @@ function GetUserInfo(uid, userInfo)
     data.nochargemax     = userInfo.point.noChargeMax or 0--//高点
     data.nochargemin     = userInfo.point.noChargeMin or 0-- //低点
     data.chargemax       = userInfo.point.chargeMax   or 0  --最大金币上限
-
+	data.chargeMax = userInfo.point.chargeMax or 0
+	data.rtp = 0
+	data.statement = cpfInfo.statement			
+	--判断玩家在线状态
+	local onlineUserInfo =  backRealtime.lobbyOnlineUserManageMap[uid]
+	if onlineUserInfo~=nil then
+		local rInfo = onlineUserInfo.rInfo
+		data.chargeMax = rInfo.chargeMax
+		data.totalrechargechips = rInfo.totalRechargeChips
+		data.controlvalue = rInfo.controlvalue
+		data.rtp = rInfo.rtp
+		data.autocontroltype = rInfo.autocontroltype
+		data.statement = rInfo.statement
+		data.slotsbet = rInfo.slotsBet
+		data.slotswin = rInfo.slotsWin
+	end
 
     --[[
 	-- 填充 玩家已发送未被领取的红包总金额
@@ -249,7 +221,7 @@ function GetUserOnlineInfo(uid, userInfo)
 	end
     ChessGmUserInfoMgr.CheckUserPunish(uid, Const.BAN_TYPE.CONTROL)
 	userInfo = userInfo or chessuserinfodb.RUserInfoGet(uid)
-	 local withdrawcashInfo = WithdrawCash.GetWithdrawcashInfo(uid)
+	local withdrawcashInfo = WithdrawCash.GetWithdrawcashInfo(uid)
 	if userInfo == nil then
 		return 2, "角色不存在"
 	end
@@ -521,16 +493,28 @@ function PunishUser(data)
     if CheckUserPunish(charid, ptype) then
         return 2, "当前玩家 存在该类型有效处罚 请先解除老的处罚后再次操作"
     end
-
-
     -- 点控值
     if ptype == Const.BAN_TYPE.CONTROL then
-
         local userInfo = chessuserinfodb.RUserInfoGet(charid)
+		if userInfo==nil then
+			return 2,"无法查找该玩家"
+		end
         userInfo.point.controlvalue = tonumber(data.punishvalue)
 		userInfo.point.autocontroltype = 2
         unilight.info(string.format("玩家:%d, 增加点控值:%d", charid, data.punishvalue))
         chessuserinfodb.WUserInfoUpdate(charid, userInfo)
+		--通知到具体的游戏服处理
+		local laccount = go.roomusermgr.GetRoomUserById(userInfo._id)
+		if laccount==nil and backRealtime.lobbyOnlineUserManageMap[userInfo._id]~=nil then
+			local tonlineU = backRealtime.lobbyOnlineUserManageMap[userInfo._id].zone
+			if tonlineU~=nil then
+				--分发到游戏服
+				tonlineU:SendCmdToMe('Cmd.PunishUserToGameCmd_S',{
+					uid=userInfo._id,
+					punishvalue=userInfo.point.controlvalue,
+				})
+			end
+		end
     --追踪
     elseif ptype == Const.BAN_TYPE.TRACE then
         local userInfo = chessuserinfodb.RUserInfoGet(charid)

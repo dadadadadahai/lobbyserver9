@@ -12,11 +12,12 @@ end
 function StartOver()
         --注册游戏处理函数
 	unilight.info("服务器启动调用")
-    unilight.addtimer('racelamp.timer',20)
+    -- unilight.addtimer('racelamp.timer',20)
     -- racelamp.Init()
     gamecommon.RegGameNetCommand()
+    unilight.addclocker('SlotsGameInitMgr.TwoSecCallback',0,2)
     -- gamestock.LoadStock()
-    gamestockredis.InitStockToRedis()
+    -- gamestockredis.InitStockToRedis()
     --实现slots奖池自动变化
     -- unilight.addclocker('gamecommon.JackNameTimeTicket',0,10)
 
@@ -27,8 +28,10 @@ function StartOver()
 	-- unilight.addclocker("SlotsGameInitMgr.OneMinCallback", 0, 60)
 
     --每30s定时器
-	unilight.addclocker("SlotsGameInitMgr.ThirtySecCallback", 0, 30)
-
+	-- unilight.addclocker("SlotsGameInitMgr.ThirtySecCallback", 0, 30)
+    
+    -- 初始化累计充值活动信息
+	CumulativeRecharge.Init()
 end
 --服务器关闭后要做的事
 function StopOver()
@@ -50,6 +53,11 @@ function lobbyconnect()
         JACKPOT_ROBOT_FLAG = true
     end
 end
+--两秒定时器
+function TwoSecCallback()
+    backRealtime.gameTimerToLobby()
+end
+
 
 --3分钟定时器
 function ThreeMinCallback()

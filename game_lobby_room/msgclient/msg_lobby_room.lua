@@ -369,4 +369,3 @@ Net.CmdRequestRecordLobbyCmd_C = function(cmd, laccount)
 	}
 	RoomInfo.SendCmdToUser("Cmd.ReturnRecordLobbyCmd_S",data,laccount, true)
 end
-

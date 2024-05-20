@@ -210,6 +210,7 @@ function FlushCatchToDb()
             local r = unilight.get_mongodb().SaveCollectionById(table_name, encode_repair(data))
             -- unilight.savedata(table_name, data)
             unilight.clearMongoCatch(uid)
+            backRealtime.userLoginOutToLoddy(uid)
         end
     end
 end
