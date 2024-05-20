@@ -11,16 +11,22 @@ function PlayFreeGame(dragonInfo,uid,gameType)
     -- 增加免费游戏次数
     dragonInfo.free.lackTimes = dragonInfo.free.lackTimes - 1
     -- jackpot发送客户端的数据表
+    local jackpot = {}
+    -- 获取免费预计算信息
+    local freeInfo = dragonInfo.free.freeinfo[1]
+    table.remove(dragonInfo.free.freeinfo,1)
+    -- 整理中奖线数据
+    for _, winline in ipairs(freeInfo.reswinlines[1]) do
+        winline[3] = winline[3] * dragonInfo.betMoney / table_134_hanglie[1].linenum
+    end
     -- 生成免费棋盘和结果
-
-    local data =  table.remove(dragonInfo.free.resdata,1)
-    local boards =  data.boards
-    dragonInfo.boards = boards
-     
-    local  winscore = dragonInfo.betgold * data.sumMul
-
-    dragonInfo.free.tWinScore = dragonInfo.free.tWinScore +winscore
-
+    dragonInfo.boards = freeInfo.boards
+    dragonInfo.mulList = freeInfo.mulList
+    dragonInfo.sumMul = freeInfo.sumMul
+    local winScore = freeInfo.winMul * dragonInfo.betMoney / table_134_hanglie[1].linenum
+    dragonInfo.free.tWinScore = dragonInfo.free.tWinScore + winScore
+    -- 返回数据
+    local res = GetResInfo(uid, dragonInfo, gameType, {})
     -- 判断是否结算
     if dragonInfo.free.lackTimes <= 0 then
         if dragonInfo.free.tWinScore > 0 then
@@ -28,6 +34,13 @@ function PlayFreeGame(dragonInfo,uid,gameType)
             BackpackMgr.GetRewardGood(uid, Const.GOODS_ID.GOLD_BASE, dragonInfo.free.tWinScore, Const.GOODS_SOURCE_TYPE.DRAGON)
         end
     end
+    res.boards = {dragonInfo.boards}
+    res.winScore = winScore
+    res.winlines = freeInfo.reswinlines
+    res.extraData = {
+        mulList = freeInfo.mulList,
+        sumMul = freeInfo.sumMul,
+    }
     -- 增加后台历史记录
     gameDetaillog.SaveDetailGameLog(
         uid,
@@ -35,31 +48,14 @@ function PlayFreeGame(dragonInfo,uid,gameType)
         GameId,
         gameType,
         dragonInfo.betMoney,
-        dragonInfo.betgold,
+        reschip,
         chessuserinfodb.RUserChipsGet(uid),
         0,
-        {type= 'normal',chessdata = boards},
-        {}
+        {type='free',chessdata = freeInfo.boards,totalTimes=dragonInfo.free.totalTimes,lackTimes=dragonInfo.free.lackTimes,tWinScore=dragonInfo.free.tWinScore},
+        jackpot
     )
-    -- WithdrawCash.ResetWithdawTypeState(datainfos._id,0)
-
-    local res = {
-        errno = 0,
-        betIndex = dragonInfo.betindex,
-        bAllLine = LineNum,
-        payScore = 0,
-        winScore = winscore,
-        winLines = data.reswinlines,
-        boards = boards,
-        mulList= data.mulList,
-        sumMulList = sumtable(data.mulList),
-        sumMul = data.sumMul,
-        free = packFree(dragonInfo),
-
-    }
     if dragonInfo.free.lackTimes <= 0 then
         dragonInfo.free = {}
-        dragonInfo.isFree = nil 
     end
     -- 保存数据库信息
     SaveGameInfo(uid,gameType,dragonInfo)

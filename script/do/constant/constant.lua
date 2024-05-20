@@ -24,6 +24,7 @@ GOODS_TYPE           = {
     CHALLENGE_DIAMO         = 20, --挑战钻石
     BUFF_CUSTOM             = 21, --手动使用buff道具
     AHEADSCORE              = 22, --假金币
+    POINT                  = 23,--积分
 }
  
 --一些特殊的道具ID
@@ -31,6 +32,7 @@ GOODS_ID = {
     GOLD            = 1, --金币
     DIAMOND         = 2, --宝石(绿钻)
     GOLD_BASE       = 3, --金币基础值
+    POINT           = 4,--积分
     PASS_TASK_POINT = 10006, --任务通行证进度
 }
 
@@ -172,6 +174,10 @@ GOODS_SOURCE_TYPE           = {
     MOUSE                   =10133,     --老鼠
     DRAGON                  =10134,     --生肖龙
     SEVEN                   =10135,     --777
+    ELEPHANT                =10137,     --大象
+    SWEETBONANZA            =10160,     --甜美的波南扎
+    GREATRHINOCEROS         =10161,     --大犀牛
+    FRUITPARTY2             =10162,     --水果派对2
     Rocket                  =10202,     --火箭
     cacaNiQuEls             =10204,     --老虎机
     LongHu                  =10205,     --龙虎
@@ -293,6 +299,10 @@ GOODS_SOURCE_NAME = {
     [10133] = '老鼠',
     [10134] = '生肖龙',
     [10135] = '777',
+    [10137] = '大象',
+    [10160] = '甜美的波南扎',
+    [10161] = '大犀牛',
+    [10162] = '水果派对2',
     [10202] = '火箭',
     [10204] = '老虎机',
     [10205] = '龙虎斗',
@@ -341,6 +351,15 @@ SHOP_TYPE        = {
 
 --排行榜类型
 RANK_TYPE = {
+    -- FISH      = 3,        --排行榜
+    -- QUEST     = 4,        --探索
+    -- COOKING   = 1000,      --烹饪大师
+    -- CATCHFISH = 2000,      --捕鱼
+    -- BINGO     = 3000,      --宾果
+    -- SCORE     = 10000,     --积分榜
+    -- TEAM      = 100000,    --团队排行榜
+    -- CHALLENGE = 5,         --挑战
+    -- TEAMTOL   =6,           --团队总榜单
     SLOTS_WIN_CHIPS  = 7,       --slots赢取金币排行
     POOL_122_1   = 12201,     --阿波罗初级场
     POOL_122_2   = 12202,     --阿波罗中级场
@@ -354,6 +373,7 @@ RANK_TYPE = {
     POOL_108_1   = 10801,     --水果天堂击初级场
     POOL_108_2   = 10802,     --水果天堂中级场
     POOL_108_3   = 10803,     --水果天堂高级场
+
 }
 
 --排行榜
@@ -512,3 +532,4 @@ REDIS_HASH_NAME = {
     SLOTS_POOL_INFO   = "slots_pool_info",      --slots奖池信息
     SINGLE_POOL_INFO  = "single_pool_info" ,    --单机奖池
 }
+

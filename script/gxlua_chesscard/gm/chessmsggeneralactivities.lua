@@ -24,7 +24,7 @@ function GetActiviteGather(cmd, laccount)
     local order = unilight.desc("starttime")
     -- local logInfos = unilight.chainResponseSequence(unilight.startChain().Table('generalactivitielog').Filter(filter).OrderBy(order).Skip((cmd.data.curpage-1)*cmd.data.perpage).Limit(cmd.data.perpage))
     local logInfos = unilight.chainResponseSequence(unilight.startChain().Table("generalactivitielog").Aggregate('{"$match":{'..filter..'}}',
-    '{"$group":{"_id":{"uid":"$uid","starttime":"$starttime","endtime":"$endtime","type":"$type"},"totalRecharge":{"$max":"$totalRecharge"},"totalInvite":{"$sum":"$totalInvite"},"totalBet":{"$sum":"$totalBet"},"chips":{"$sum":"$chips"}}}',
+    '{"$group":{"_id":{"uid":"$uid","starttime":"$starttime","endtime":"$endtime","type":"$type"},"totalRecharge":{"$sum":"$totalRecharge"},"totalInvite":{"$sum":"$totalInvite"},"totalBet":{"$sum":"$totalBet"},"chips":{"$sum":"$chips"}}}',
     '{"$sort":{"_id.starttime":-1,"_id.endtime":-1}}',
     '{"$skip":'..(cmd.data.curpage-1)*cmd.data.perpage..'}',
     '{"$limit":'..cmd.data.perpage..'}'))

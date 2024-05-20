@@ -64,36 +64,54 @@ GmSvr.PmdStRequestSlotsGameParamPmd_CS = function(cmd, laccount)
         if curpage == 0 then
             curpage = 1
         end
-        local getItemGameInfo=function(item)
-            return{
-                fakepoolmin=0,
-                lowrechargertp=item.lowChargeRtp,
-                limitlow=0,
-                fakepoolchips=0,
-                addrealpoolper=0,
-                fakepoolmax=0,
-                totalprofit=0,
-                bomblooptime=0,
-                subgameid=item.subGameId,
-                norechargertp=item.noChargeRtp,
-                subgametype=item.gameType,
-                rebatevalue=item.RTP4,
-                standardchips=0,
-                realpoolchips=0,
-            }
-        end
+
+        local maxpage = 0
+        local zonePoolInfos = unilight.redis_gethashmultdata_Str(Const.REDIS_HASH_NAME.SLOTS_POOL_INFO)
         local poolConfigs = {}
-        if cmd.data.subgameid == 0 and cmd.data.subgametype == 0 then
-            for _,value in pairs(table_game_list) do
-                table.insert(poolConfigs,getItemGameInfo(value))
-            end
-        elseif cmd.data.subgameid > 0 and cmd.data.subgametype == 0 then
-            for _,value in pairs(table_game_list) do
-                if value.subGameId==cmd.data.subgameid then
-                    table.insert(poolConfigs,getItemGameInfo(value))
+        for zoneId, poolInfos in pairs(zonePoolInfos) do
+            poolInfos = json2table(poolInfos)
+            --查找所有
+            if cmd.data.subgameid == 0 and cmd.data.subgametype == 0 then
+                for _, poolInfo in pairs(poolInfos) do
+                    table.insert(poolConfigs, poolInfo)
+                end
+
+            --指定游戏所有场次
+            elseif cmd.data.subgameid > 0 and cmd.data.subgametype == 0 then
+                for _, poolInfo in pairs(poolInfos) do
+                    if poolInfo.subgameid == cmd.data.subgameid then
+                        table.insert(poolConfigs, poolInfo)
+                    end
+                end
+            --指定场次，未指定游戏
+            elseif cmd.data.subgameid == 0 and cmd.data.subgametype > 0 then
+                for _, poolInfo in pairs(poolInfos) do
+                    if cmd.data.subgametype == poolInfo.subgametype then
+                        table.insert(poolConfigs, poolInfo)
+                    end
+                end
+
+            --指定游戏指定场次
+            elseif cmd.data.subgameid > 0 and cmd.data.subgametype > 0 then
+                for _, poolInfo in pairs(poolInfos) do
+                    if poolInfo.subgameid == cmd.data.subgameid and cmd.data.subgametype == poolInfo.subgametype then
+                        table.insert(poolConfigs, poolInfo)
+                    end
                 end
             end
+
         end
+
+        local sortFun = function(a, b)
+            if  a.subgameid == b.subgameid then
+                return a.subgametype < b.subgametype 
+            end
+            return a.subgameid< b.subgameid
+        end
+        table.sort(poolConfigs, sortFun)
+
+        -- local poolConfigs = gamecommon.GmGetSlotsPoolConfig(cmd.data.subgameid, cmd.data.subgametype)
+        -- print(table2json(poolConfigs))
         cmd.data.datas = poolConfigs
         cmd.data.sysrtp = table_ctr_whole[1].wholeXs
         cmd.data.regrtp = table_ctr_whole[2].wholeXs
@@ -102,51 +120,23 @@ GmSvr.PmdStRequestSlotsGameParamPmd_CS = function(cmd, laccount)
         return cmd
     --设置奖池
     elseif cmd.data.optype == 2 then
+        print(table2json(cmd.data.datas[1]))
         local poolInfo = cmd.data.datas[1]
-        --首先修改本地配置
-        local key = poolInfo.subgameid*10000+1
-        if table_game_list[key]~=nil then
-            table_game_list[key].RTP4 = poolInfo.rebatevalue
-            table_game_list[key].lowChargeRtp = poolInfo.lowrechargertp
-            if unilight.getdebuglevel() > 0 then
-                --debug 模式
-                --全局推送
-                
-                RoomInfo.BroadcastToAllZone("Cmd.EditSysSingleRtpCmd_S", {subgameid=poolInfo.subgameid,sysRtp=poolInfo.lowrechargertp, regRtp= poolInfo.rebatevalue})
-            else
-                --组装zoneId
-                local zoneId = poolInfo.subgameid*100+11
-                local zone = ZoneInfo.zoneIdInfoMap[zoneId]
-                if zone~=nil then
-                    zone:SendCmdToMe("Cmd.EditSysSingleRtpCmd_S",{subgameid=poolInfo.subgameid,sysRtp=poolInfo.lowrechargertp, regRtp= poolInfo.rebatevalue})
-                end
-            end
-        end
-        cmd.data.retcode = 0 
-        cmd.data.retdesc =  "操作成功"                                          
         -- gamecommon.GmSetSlotsPoolConfig(cmd.data.subgameid, cmd.data.subgametype, cmd.data.datas[1])
-        -- ZoneInfo.BroadcastToZone(poolInfo.subgameid, poolInfo.zoneid, "Cmd.EditSlotsPoolInfoCmd_S", poolInfo)
+        ZoneInfo.BroadcastToZone(poolInfo.subgameid, poolInfo.zoneid, "Cmd.EditSlotsPoolInfoCmd_S", poolInfo)
         -- local poolConfigs = gamecommon.GmGetSlotsPoolConfig(cmd.data.subgameid, cmd.data.subgametype)
         -- cmd.data.datas = poolConfigs
-        -- cmd.data.sysrtp = table_ctr_whole[1].wholeXs
-        -- cmd.data.regrtp = table_ctr_whole[2].wholeXs
-        -- cmd.data.retcode = 0 
-        -- cmd.data.retdesc =  "操作成功"
-
-
-
+        cmd.data.sysrtp = table_ctr_whole[1].wholeXs
+        cmd.data.regrtp = table_ctr_whole[2].wholeXs
+        cmd.data.retcode = 0 
+        cmd.data.retdesc =  "操作成功"
         return cmd
 
     --设置系统rtp
     elseif cmd.data.optype == 3 then
-        -- unilight.info(string.format("gm设置系统rtp:"..cmd.data.sysrtp))
+        unilight.info(string.format("gm设置系统rtp:"..cmd.data.sysrtp))
         -- table_ctr_whole[1].wholeXs = cmd.data.sysrtp
         -- table_ctr_whole[2].wholeXs = cmd.data.regrtp
-
-        for _, value in pairs(table_game_list) do
-            value.lowChargeRtp = cmd.data.sysrtp
-            value.RTP4 = cmd.data.regrtp
-        end
         --红包雨 参考
         RoomInfo.BroadcastToAllZone("Cmd.EditSysRtpCmd_S", {sysRtp=cmd.data.sysrtp, regRtp=cmd.data.regrtp})
         cmd.data.retcode = 0 

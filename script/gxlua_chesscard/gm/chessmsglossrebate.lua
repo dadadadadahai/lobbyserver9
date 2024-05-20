@@ -6,10 +6,6 @@ GmSvr.PmdRequestLossRebatePmd_C = function(cmd, laccount)
     if cmd.data.charid ~= nil and cmd.data.charid > 0 then
         filter = unilight.a(filter,unilight.eq("uid",cmd.data.charid))
     end
-    -- 根据玩家ID
-    if cmd.data.rebatetype ~= nil and cmd.data.rebatetype > 0 then
-        filter = unilight.a(filter,unilight.eq("type",cmd.data.rebatetype))
-    end
     -- 根据发放时间判断
     if cmd.data.begintime ~= nil and cmd.data.begintime ~= "" then
         local starttime = chessutil.TimeByDateGet(cmd.data.begintime)
@@ -54,7 +50,6 @@ GmSvr.PmdRequestLossRebatePmd_C = function(cmd, laccount)
             datetime        = chessutil.FormatDateGet(logInfo.datetime),                    -- 领取时间
             netloss         = logInfo.newloss,                                              -- 净损失金额
             receivegold     = logInfo.receivegold,                                          -- 领取返利金额
-            rebatetype      = logInfo.type,                                                 -- 类型  1 日返 2 周返
         })
         -- 统计合计数量
         res.data.receivegold = res.data.receivegold + logInfo.receivegold

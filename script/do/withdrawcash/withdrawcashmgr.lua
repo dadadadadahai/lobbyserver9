@@ -66,8 +66,3 @@ function CmdUserWithdrawCashCPFRequest(uid, cpf, name, flag, chavePix, email, te
     end
 
 end
-
--- 邀请订单增加
-function InviteWithdrawCashRequest(uid)
-    InviteWithdrawCashCommon(uid)
-end

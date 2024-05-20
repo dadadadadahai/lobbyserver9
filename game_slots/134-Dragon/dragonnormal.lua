@@ -1,26 +1,26 @@
 -- 生肖龙游戏模块
 module('Dragon', package.seeall)
-function sumtable(table)
-    local sum = 0
-    for _, value in pairs(table) do
-        sum = sum + value
-    end
-    return sum 
-end
-function PlayNormalGame(dragonInfo,uid,betIndex,gameType)
+
+function PlayNormalGame(dragonInfo,uid,betIndex,gameType,specialType)
+    specialType = specialType or false
     -- 游戏后台记录所需初始信息
     local sTime = os.time()
     local reschip = chessuserinfodb.RUserChipsGet(uid)
+    -- 清理棋盘附加信息
+    dragonInfo.iconsAttachData = {}
     -- 保存下注档次
     dragonInfo.betIndex = betIndex
     local betConfig = gamecommon.GetBetConfig(gameType,table_134_hanglie[1].linenum)
     local betgold = betConfig[dragonInfo.betIndex]                                                      -- 单注下注金额
     local payScore = betgold * table_134_hanglie[1].linenum                                   -- 全部下注金额
     local jackpot = {}
-    -- 只有普通扣费 买免费触发的普通不扣费
-
+    local payMul = 1
+    if specialType then
+        print("=========================")
+        payMul = 5
+    end
     -- 扣除金额
-    local remainder, ok = chessuserinfodb.WChipsChange(uid, Const.PACK_OP_TYPE.SUB, payScore, "生肖龙下注扣费")
+    local _, ok = chessuserinfodb.WChipsChange(uid, Const.PACK_OP_TYPE.SUB, payScore * payMul, "生肖龙下注扣费")
     if ok == false then
         local res = {
             errno = 1,
@@ -29,63 +29,78 @@ function PlayNormalGame(dragonInfo,uid,betIndex,gameType)
         return res
     end
     dragonInfo.betMoney = payScore
-    dragonInfo.betgold = betgold
-    -- 生成普通棋盘和结果
-    local resultGame,realMul,imageType = gameImagePool.RealCommonRotate(uid,GameId,gameType,nil,Dragon,{betchip=betgold,gameId=GameId,gameType=gameType,betchips=payScore})
 
-    -- 保存棋盘数据
-    local data = table.remove(resultGame,1) 
-    local boards =  data.boards
-    dragonInfo.boards = boards
-    -- 整理中奖线数据
-    for _, winline in ipairs(data.reswinlines) do
-        winline[3] = winline[3] * betgold
+    -- 生成普通棋盘和结果
+    local tablepro = table.clone(table_134_imagePro)
+    if specialType then
+        table.remove(tablepro,1)
+    else
+        table.remove(tablepro,2)
     end
-    local  winscore = betgold * data.sumMul
-    if imageType == 1 and winscore > 0 then
-        -- 增加奖励
-        BackpackMgr.GetRewardGood(uid, Const.GOODS_ID.GOLD, winscore, Const.GOODS_SOURCE_TYPE.DRAGON)
-    elseif imageType == 2 then
-        resultGame.isFree = true
-        dragonInfo.free={
-            totalTimes=8,
-            lackTimes=7,
-            tWinScore = winscore,
-            resdata=resultGame
+    local param = {betchip=payScore,gameId=GameId,gameType=gameType,betchips=payScore}
+    local controlvalue = gamecommon.GetControlPoint(uid,param)
+    --获取rtp
+    local rtp = gamecommon.GetModelRtp(uid, GameId, gameType, controlvalue)
+    
+    param.rtp = rtp
+    local imageType = tablepro[gamecommon.CommRandInt(tablepro,'gailv'..rtp)].type
+
+    local resultGame,realMul,imageType = gameImagePool.RealCommonRotate(uid,GameId,gameType,imageType,Dragon,param)
+    local winScore = realMul * dragonInfo.betMoney
+    local result = resultGame
+    -- 如果是中了免费 第一句就需要配置
+    if imageType == 3 then
+        result = resultGame.free[1]
+        table.remove(resultGame.free,1)
+        dragonInfo.free = {
+            lackTimes = 7,
+            totalTimes = 8,
+            tWinScore = 0,
+            freeinfo = resultGame.free
         }
+        winScore = result.winMul * dragonInfo.betMoney
+        dragonInfo.free.tWinScore = dragonInfo.free.tWinScore + winScore / table_134_hanglie[1].linenum
     end
+    -- 保存棋盘数据
+    dragonInfo.boards = result.boards
+    dragonInfo.mulList = result.mulList
+    dragonInfo.sumMul = result.sumMul
+    -- 整理中奖线数据
+    for _, winline in ipairs(result.reswinlines[1]) do
+        winline[3] = winline[3] * dragonInfo.betMoney / table_134_hanglie[1].linenum
+    end
+    if winScore > 0 and imageType ~= 3 then
+        -- 增加奖励
+        BackpackMgr.GetRewardGood(uid, Const.GOODS_ID.GOLD, winScore, Const.GOODS_SOURCE_TYPE.DRAGON)
+    end
+    -- 返回数据
+    local res = GetResInfo(uid, dragonInfo, gameType, {})
+    res.boards = {result.boards}
+    res.winScore = winScore
+    res.winlines = result.reswinlines
+    res.extraData = {
+        mulList = result.mulList,
+        sumMul = result.sumMul,
+    }
+    -- 保存数据库信息
+    SaveGameInfo(uid,gameType,dragonInfo)
     -- 增加后台历史记录
+    local type = 'normal'
+    -- 如果中了免费模式
+    if not table.empty(dragonInfo.free) then
+        type = 'freeNormal'
+    end
     gameDetaillog.SaveDetailGameLog(
         uid,
         sTime,
         GameId,
         gameType,
-        dragonInfo.betMoney,
-        remainder+payScore,
+        dragonInfo.betMoney * payMul,
+        reschip,
         chessuserinfodb.RUserChipsGet(uid),
         0,
-        {type=( resultGame.isFree and "free" or 'normal'),chessdata = boards},
-        {}
+        {type=type,chessdata = result.boards},
+        jackpot
     )
-    -- WithdrawCash.ResetWithdawTypeState(datainfos._id,0)
-
-
-    SaveGameInfo(uid,gameType,dragonInfo)
-    local res = {
-        errno = 0,
-        betIndex = dragonInfo.betindex,
-        bAllLine = LineNum,
-        payScore = payScore,
-        winScore = winscore,
-        winLines = data.reswinlines,
-        boards = boards,
-        mulList= data.mulList,
-        sumMulList = sumtable(data.mulList),
-        sumMul = data.sumMul,
-        free = packFree(dragonInfo),
-        isfake = resultGame.isfake or 0 
-
-    }
     return res
- 
 end

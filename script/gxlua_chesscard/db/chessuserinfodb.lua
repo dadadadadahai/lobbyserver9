@@ -1659,7 +1659,6 @@ function UserLogout(uid)
     userInfo.status.logoutTime = os.time()
     unilight.savedata("userinfo", userInfo, true)
     unilight.info("玩家下线:"..uid..", chips="..userInfo.property.chips)
-	backRealtime.userLoginOutToLoddy(uid)
 end
 
 ---------------------------------------------------------------------------------------------------------------------
