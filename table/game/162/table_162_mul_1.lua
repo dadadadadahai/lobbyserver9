@@ -1,4 +1,4 @@
--- 自动生成 ./excel/game/162/RTP100.xlsx(table_162_mul_1)
+-- 自动生成 ./excel/game/121/RTP100.xlsx(table_121_mul_1)
 return {
 
     [1] = {
@@ -9,7 +9,7 @@ return {
         gailv50 = 0,
         gailv75 = 0,
         gailvfree = 0,
-        iconid = 0,
+        iconid = 90,
         mul = 1,
     },
 
@@ -21,8 +21,8 @@ return {
         gailv50 = 3117,
         gailv75 = 3117,
         gailvfree = 2537,
-        iconid = 101,
-        mul = 2,
+        iconid = 90,
+        mul = 3,
     },
 
     [3] = {
@@ -33,7 +33,7 @@ return {
         gailv50 = 2500,
         gailv75 = 2500,
         gailvfree = 2500,
-        iconid = 102,
+        iconid = 90,
         mul = 3,
     },
 
@@ -45,8 +45,8 @@ return {
         gailv50 = 1500,
         gailv75 = 1500,
         gailvfree = 1500,
-        iconid = 102,
-        mul = 4,
+        iconid = 90,
+        mul = 3,
     },
 
     [5] = {
@@ -57,8 +57,8 @@ return {
         gailv50 = 1000,
         gailv75 = 1000,
         gailvfree = 1200,
-        iconid = 103,
-        mul = 5,
+        iconid = 90,
+        mul = 9,
     },
 
     [6] = {
@@ -69,8 +69,8 @@ return {
         gailv50 = 700,
         gailv75 = 700,
         gailvfree = 1000,
-        iconid = 103,
-        mul = 6,
+        iconid = 90,
+        mul = 9,
     },
 
     [7] = {
@@ -81,8 +81,8 @@ return {
         gailv50 = 500,
         gailv75 = 500,
         gailvfree = 800,
-        iconid = 104,
-        mul = 8,
+        iconid = 90,
+        mul = 9,
     },
 
     [8] = {
@@ -93,8 +93,8 @@ return {
         gailv50 = 300,
         gailv75 = 300,
         gailvfree = 300,
-        iconid = 104,
-        mul = 10,
+        iconid = 90,
+        mul = 27,
     },
 
     [9] = {
@@ -105,8 +105,8 @@ return {
         gailv50 = 200,
         gailv75 = 200,
         gailvfree = 50,
-        iconid = 104,
-        mul = 12,
+        iconid = 90,
+        mul = 27,
     },
 
     [10] = {
@@ -117,8 +117,8 @@ return {
         gailv50 = 100,
         gailv75 = 100,
         gailvfree = 50,
-        iconid = 104,
-        mul = 15,
+        iconid = 90,
+        mul = 27,
     },
 
     [11] = {
@@ -129,8 +129,8 @@ return {
         gailv50 = 50,
         gailv75 = 50,
         gailvfree = 30,
-        iconid = 104,
-        mul = 20,
+        iconid = 90,
+        mul = 27,
     },
 
     [12] = {
@@ -141,8 +141,8 @@ return {
         gailv50 = 20,
         gailv75 = 20,
         gailvfree = 20,
-        iconid = 104,
-        mul = 25,
+        iconid = 90,
+        mul = 27,
     },
 
     [13] = {
@@ -153,44 +153,9 @@ return {
         gailv50 = 10,
         gailv75 = 10,
         gailvfree = 10,
-        iconid = 104,
-        mul = 50,
+        iconid = 90,
+        mul = 27,
     },
 
-    [14] = {
-        ID = 14,
-        gailv100 = 1,
-        gailv150 = 1,
-        gailv200 = 1,
-        gailv50 = 1,
-        gailv75 = 1,
-        gailvfree = 1,
-        iconid = 104,
-        mul = 100,
-    },
-
-    [15] = {
-        ID = 15,
-        gailv100 = 1,
-        gailv150 = 1,
-        gailv200 = 1,
-        gailv50 = 1,
-        gailv75 = 1,
-        gailvfree = 1,
-        iconid = 104,
-        mul = 250,
-    },
-
-    [16] = {
-        ID = 16,
-        gailv100 = 1,
-        gailv150 = 1,
-        gailv200 = 1,
-        gailv50 = 1,
-        gailv75 = 1,
-        gailvfree = 1,
-        iconid = 104,
-        mul = 500,
-    },
 
 }

@@ -156,7 +156,7 @@ function Normal(gameId,gameType, betindex, datainfo, datainfos, uid)
     datainfo.betindex = betindex
     --启用图库模式
     local alldisInfo,realMul,imageType = gameImagePool.RealCommonRotate(uid,GameId,gameType,nil,fruitparty2,{betchip=betMoney,gameId=GameId,gameType=gameType,betchips=chip})
-    if imageType == 2 then
+    if imageType == 2 or imageType == 3 then
         local disInfo =  table.remove(alldisInfo,1)
         local betchip = chip
         local disInfos,realMul = parseData(betMoney,disInfo)

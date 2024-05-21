@@ -23,7 +23,7 @@ TABLE_VIPPL_NAME = "vippointlottery"
 
 function PLTick() --一分钟执行一次
 	local time = os.time()
-	--print("PLTick"..time)
+	print("PLTick"..time)
 	local all =  Getplinfo()
 	for _, pt in pairs(all) do
 		if  pt.isfinish ==0   then
@@ -45,7 +45,7 @@ end
 
 function Getplinfo()
 	local begintime  = chessutil.getTimestampForLastNDaysMidnight(3)
-	print("Getplinfo begintime",begintime)
+	--print("Getplinfo begintime",begintime)
 	local filter = unilight.ge('time',begintime)
 	local all =  unilight.chainResponseSequence(unilight.startChain().Table(TABLE_NAME).Filter(filter))
 	return all 
@@ -74,7 +74,7 @@ function addbet(uid,pid)
 		return 2
 	end
 	 -- 执行扣费
-	local remainder, ok = chessuserinfodb.WGoldChange(uid, Const.PACK_OP_TYPE.SUB,100,
+	local remainder, ok = chessuserinfodb.WChipsChange(uid, Const.PACK_OP_TYPE.SUB,100,
 	"积分抽奖ID"..pid)
 	if ok == false then
        return  ErrorDefine.CHIPS_NOT_ENOUGH
@@ -150,7 +150,7 @@ function ReturnPoints(pt)
     end
      -- 执行扣费
 	 for uid, value in pairs(curuserbet) do
-		local remainder, ok = chessuserinfodb.WGoldChange(uid, Const.PACK_OP_TYPE.ADD, value,
+		local remainder, ok = chessuserinfodb.WChipsChange(uid, Const.PACK_OP_TYPE.ADD, value,
 		"积分抽奖返还ID"..pt._id)
 		if ok == false then
 			unilight.error("ReturnPoints ",uid,value)

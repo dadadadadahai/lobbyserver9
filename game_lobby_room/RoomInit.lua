@@ -45,6 +45,8 @@ function StartOver()
 	unilight.addclocker("LobbyRoomInitMgr.ZeroHourCallback", 0, CYCLE_DAY)
     --积分抽奖定时器
     unilight.addclocker("Pointlottery.PLTick", 0, CYCLE_MIN)
+   -- unilight.addclocker("timelycolor.Tick", 0, 1)
+    unilight.addclocker("twelvegame.Tick", 0, 1)
     --重置下特惠礼包
     ShopMgr.RefreshDiscountShop()
     --检查全局限时礼包
