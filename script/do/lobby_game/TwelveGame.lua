@@ -23,28 +23,23 @@ TABLE_NAME = "twelvegame"
 TABLE_PRIZELOG_NAME = "twelveprizelog"
 TABLE_LOG_NAME = "twelvebetlog"
 TABLE_VIPPL_NAME = "viptwelve"
-local function check_is_tenmin()
-	local date_tbl = os.date("*t")
-	local sec = date_tbl.sec
-	local min = date_tbl.min
-	return sec == 0  --sec == 0 and min /10 == 0 and  min %10 == 0
+
+local function get_last_tenmin()
+	return math.floor(os.time()/600)*600
 end
- local function get_last_tenmin()
-	local date_tbl = os.date("*t")
-	date_tbl.sec = 0
-	date_tbl.min =  math.floor(date_tbl.min/10)	*10
-	return os.time(date_tbl)
+local function get_next_tenmin()
+	return get_last_tenmin() +600
 end
+local NEXTOPENTIME = get_next_tenmin()
 function Tick() --一分钟执行一次
-	if not check_is_tenmin() then
+	if  os.time() <  NEXTOPENTIME  then
 		return
 	end
-	local endtime = os.time()
-	local begintime = os.time() - 600
-	print("twelvegameTick"..endtime)
+	local endtime = NEXTOPENTIME
+	local begintime = NEXTOPENTIME - 600
+	print("twelvegameTick"..NEXTOPENTIME)
 	OpenPrize(begintime,endtime)
-				
-
+	NEXTOPENTIME = NEXTOPENTIME +600
 end 
 
 
@@ -79,20 +74,27 @@ function OpenPrize(btime,etime)
 		local uid = value.uid
 		local gold = value.gold
 		local winnums = 0
-		local betmoney= value.betnums  * gold 
+		local betmoney= value.betnums  * gold
+		local per_winner_bonus = 0
+		local winprizes = {t={},f={}}
 		for _, v in pairs(value.tw) do
 			if TprizesMP[v] then
 				winnums = winnums +1
+				table.insert(winprizes.t,v)
 			end 
 		end
+
+		per_winner_bonus =  ( winnums == 3 ) and  40 * gold  or winnums *3*gold
+ 
+		
 		for _, v in pairs(value.fv) do
-			if FprizesMP[v] then
+			if FprizesMP[v] and winnums > 0  then
 				winnums = winnums +1
+				per_winner_bonus = per_winner_bonus * 3
+				table.insert(winprizes.f,v)
 			end 
 		end
-		local per_winner_bonus = ( winnums == 4 )and  15 * gold  or winnums*2*gold
-	
-		saveUserPrizeInfo({time = etime,uid = uid,prize = per_winner_bonus,bet = betmoney})
+		saveUserPrizeInfo({time = etime,uid = uid,win = per_winner_bonus,bet = betmoney,bets = {t=value.tw,f=value.fv},winprizes = winprizes})
 		local remainder, ok = chessuserinfodb.WChipsChange(uid, Const.PACK_OP_TYPE.ADD, per_winner_bonus,
 		"十二生肖中奖")
 		print(uid .. "十二生肖中奖 中奖，获得奖金：" .. per_winner_bonus )
@@ -109,18 +111,18 @@ local betconfig = {1,5,10,20,100}
 local basescore = 200
 --投注 ERROR_PARAM
 function addbet(uid,data)
-	if not data or not data.betindex or not data.prizes then
-		return  ErrorDefine.ERROR_PARAM
+	if not data or not data.betIndex or not data.prizes then
+		return  ErrorDefine.ERROR_PARAM,"参数错误"
 	end
-	if data.betindex <1 or data.betindex >5  then
-		return  ErrorDefine.ERROR_PARAM
+	if data.betIndex <1 or data.betIndex >5  then
+		return  ErrorDefine.ERROR_PARAM,"下注错误"
 	end
 
-	 local gold = betconfig[data.betindex] *basesore 
+	 local gold = betconfig[data.betIndex] *basescore 
 	 local t = data.prizes.t --{30}
 	 local f = data.prizes.f -- {0}
-	if not t or table.empty(t) then
-		return  ErrorDefine.ERROR_PARAM
+	if not t or table.empty(t) or table.nums(t) > 3  then
+		return  ErrorDefine.ERROR_PARAM,"没有下注"
 	end
 
 	if table.Or(t,function (v,k)
@@ -128,7 +130,19 @@ function addbet(uid,data)
 	end)  or  table.Or(f,function (v,k)
 		return v>5 or v <1
 	end)  then
-		return  ErrorDefine.ERROR_PARAM
+		return  ErrorDefine.ERROR_PARAM,"下注越界"
+	end
+	if not table.empty(getUserBetInfoOne(NEXTOPENTIME-600,uid)) then 
+		return  ErrorDefine.ERROR_PARAM,"已经下注"
+	end
+	local tgroup = table.group(t,function (v,_)
+		return v
+	end)
+	
+	if table.Or(tgroup,function (v,k)
+		return table.nums(v) > 1
+	end)   then
+		return  ErrorDefine.ERROR_PARAM,"不能一个元素下多次"
 	end
 	local betnums = table.nums(t)+table.nums(f)
 	local betmoney = gold * betnums 
@@ -136,11 +150,11 @@ function addbet(uid,data)
 	local remainder, ok = chessuserinfodb.WChipsChange(uid, Const.PACK_OP_TYPE.SUB,betmoney,
 	"十二生肖")
 	if ok == false then
-       return  ErrorDefine.CHIPS_NOT_ENOUGH
+       return  ErrorDefine.CHIPS_NOT_ENOUGH,"没有钱"
     end
 	print("addbet")
-	saveUserBetInfo({time = os.time,uid =uid,gold = gold,betnums =betnums,tw=t,fv = f  })
-	return 0 
+	saveUserBetInfo({time = os.time(),uid =uid,gold = gold,betnums =betnums,tw=t,fv = f})
+	return 0 ,"ok"
 end
 
 function saveUserPrizeInfo(data)
@@ -165,18 +179,25 @@ function getGamePrizeInfo()
 end
 
 function saveUserBetInfo(data)
+	
 	unilight.savedata(TABLE_LOG_NAME, data)
 end
 
 function getUserBetInfo(btime,etime)
-	etime = etime or (btime+600)
 	print("twelvegame Getbetinfo begintime",btime)
 	print("twelvegame Getbetinfo etime",etime)
 	local filter =  unilight.a(unilight.ge('time',btime),unilight.lt('time',etime))
 	local all =  unilight.chainResponseSequence(unilight.startChain().Table(TABLE_LOG_NAME).Filter(filter))
 	return all
 end
-
+function getUserBetInfoOne(btime,uid)
+	local etime = btime+600
+	print("twelvegame Getbetinfo begintime",btime)
+	print("twelvegame Getbetinfo etime",etime)
+	local filter =  unilight.a(unilight.ge('time',btime),unilight.lt('time',etime),unilight.eq('uid',uid))
+	local all =  unilight.chainResponseSequence(unilight.startChain().Table(TABLE_LOG_NAME).Filter(filter))
+	return all
+end
 
 function getVipInfo(btime,etime)
 	local filter =  unilight.a(unilight.ge('time',btime),unilight.lt('time',etime))
@@ -186,9 +207,9 @@ end
 
 
 
-function Get_info_Cmd_C()
+function Get_info_Cmd_C(uid)
 	local all = getGamePrizeInfo()
-	local res = {game={},basescore = basescore,betconfig=betconfig,isbet= not table.empty(getUserBetInfo(get_last_tenmin()))}
+	local res = {game={},nextopentime = NEXTOPENTIME,basescore = basescore,betconfig=betconfig,isbet= not table.empty(getUserBetInfoOne(NEXTOPENTIME-600,uid))}
 	for _, value in pairs(all) do
 		local data = value
 		local log = getUserPrizeInfo(value.time)

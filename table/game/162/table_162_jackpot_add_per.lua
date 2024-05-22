@@ -1,4 +1,4 @@
--- 自动生成 ./excel/game/121/standard.xlsx(table_121_jackpot_add_per)
+-- 自动生成 ./excel/game/162/standard.xlsx(table_162_jackpot_add_per)
 return {
 
     [1] = {

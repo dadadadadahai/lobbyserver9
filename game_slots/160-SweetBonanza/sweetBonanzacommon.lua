@@ -205,7 +205,7 @@ function Normal(gameId,gameType, betindex, datainfo, datainfos, uid)
         return res
     else 
         local disInfos ,realMul2= parseData(betMoney,alldisInfo)
-        print(string.format("realMul%d  realMul2%d",realMul,realMul2))
+        dump(string.format("realMul%d  realMuls %d",realMul,realMul2))
         local winScore = realMul*chip
         if winScore >0 then 
             BackpackMgr.GetRewardGood(datainfos._id, Const.GOODS_ID.GOLD,winScore, Const.GOODS_SOURCE_TYPE.SWEETBONANZA)

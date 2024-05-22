@@ -556,7 +556,7 @@ end
 
 -- 
 Net.CmdRequestPointLotteryInfo_C = function(cmd, laccount)
-	print("CmdRequestPointLotteryInfo_C")
+
 	local uid = laccount.Id
 		-- 往上提 不需要读两次mongo
 	local userInfo = chessuserinfodb.RUserInfoGet(uid)
@@ -576,7 +576,7 @@ end
 
 -- 
 Net.CmdRequestPointLotteryBet_C = function(cmd, laccount)
-	dump(cmd,"CmdRequestPointLotteryBet_C",10)
+
 	local uid = laccount.Id
 	local plid =  cmd.data and  cmd.data.id or 0 
 
@@ -601,10 +601,10 @@ end
 
 -- 
 Net.CmdRequestTwelvegameInfo_C = function(cmd, laccount)
-	print("CmdRequestTwelvegameInfo_C")
+
 	local uid = laccount.Id
 	--dump(property,"CmdRequestPointLotteryInfo_C",10)
-	local data = twelvegame.Get_info_Cmd_C()
+	local data = twelvegame.Get_info_Cmd_C(uid)
 	local res  = {}
 	res["do"] = "Cmd.ReturnTwelvegameBetInfo_S"
 	res["data"] = {
@@ -620,7 +620,6 @@ end
 Net.CmdRequestTwelvegameBet_C = function(cmd, laccount)
 	dump(cmd,"CmdRequestTwelvegameBet_C",10)
 	local uid = laccount.Id
-	local resultCode = 0 
 	local res = {}
 	res["do"] = "Cmd.ReturnTwelvegameBet_S"
 	res["data"] = {
@@ -628,9 +627,7 @@ Net.CmdRequestTwelvegameBet_C = function(cmd, laccount)
 		desc = "ok",
 		
 	}
-
-	resultCode = twelvegame.addbet(uid,plid)
-	res["data"].errno = resultCode
+	res["data"].errno,res["data"].desc =   twelvegame.addbet(uid,cmd.data)
 	dump(res,"CmdRequestTwelvegameBet_Cres",10)
 	return res
 
@@ -638,11 +635,11 @@ end
 
 
 
-Net.CmdRequesttimelycolorInfo_C = function(cmd, laccount)
-	print("CmdRequesttimelycolorInfo_C")
+Net.CmdRequestTimelycolorInfo_C = function(cmd, laccount)
+	
 	local uid = laccount.Id
 	--dump(property,"CmdRequestPointLotteryInfo_C",10)
-	local data = timelycolor.Get_info_Cmd_C()
+	local data = timelycolor.Get_info_Cmd_C(uid)
 	local res  = {}
 	res["do"] = "Cmd.ReturntimelycolorInfo_S"
 	res["data"] = {
@@ -650,15 +647,14 @@ Net.CmdRequesttimelycolorInfo_C = function(cmd, laccount)
 		desc = "ok",
 		data = data,
 	}
-	dump(res,"CmdRequesttimelycolorInfo_Cres",10)
+	dump(res,"CmdRequestTimelycolorInfo_Cres",10)
 	return res 
 end 
 
 -- 
-Net.CmdRequesttimelycolorBet_C = function(cmd, laccount)
-	dump(cmd,"CmdRequesttimelycolorBet_C",10)
+Net.CmdRequestTimelycolorBet_C = function(cmd, laccount)
+
 	local uid = laccount.Id
-	local resultCode = 0 
 	local res = {}
 	res["do"] = "Cmd.ReturntimelycolorBet_S"
 	res["data"] = {
@@ -666,10 +662,8 @@ Net.CmdRequesttimelycolorBet_C = function(cmd, laccount)
 		desc = "ok",
 		
 	}
-
-	resultCode = timelycolor.addbet(uid,plid)
-	res["data"].errno = resultCode
-	dump(res,"CmdRequesttimelycolorBet_Cres",10)
+	res["data"].errno,res["data"].desc  = timelycolor.addbet(uid,cmd.data)
+	dump(res,"CmdRequestTimelycolorBet_Cres",10)
 	return res
 
 end 
