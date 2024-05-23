@@ -30,7 +30,7 @@ function CmdGameOprate(uid, msg)
 
         --进入普通游戏逻辑
       for i = 1, 50000 do
-       --  msg.betIndex = math.random(12)
+         msg.betIndex = math.random(12)
          local res = PlayNormalGame(tigerInfo,uid,msg.betIndex,msg.gameType)
          WithdrawCash.GetBetInfo(uid,DB_Name,msg.gameType,res,true,GameId)
         ------------------------------------- 特殊游戏特殊处理 -------------------------------------

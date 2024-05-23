@@ -49,11 +49,7 @@ function PlayNormalGame(goldcowInfo,uid,betIndex,gameType)
     res.winlines = resultGame.winlines
     res.extraData = resultGame.extraData
     goldcowInfo.bonusFlag = resultGame.extraData.bonusFlag
-    if imageType == 1 then
-        res.isfake = ( math.random(3) == 1 and  math.random(0,2) or 0)
-    else 
-        res.isfake = 0 
-    end 
+     res.isfake = resultGame.isfake
     -- 如果中了福牛模式
     if goldcowInfo.bonusFlag then
         -- 未中奖则保存福牛模式进度

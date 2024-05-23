@@ -1,6 +1,7 @@
 
 module('timelycolor', package.seeall) 
 -- 数字球抽奖
+local tableMailConfig = import "table/table_mail_config"
 
 -- 数字球每10分钟开奖，两种开奖模式，一种买中某个球数字赔付，一种按单双赔付，玩家可以从1-64号球中买任意3个数字，或者单双。
 -- 每一期开奖1个数字，匹配数字或单双的玩家中奖，投注1个数字金额2，2个数字金额4，3个数字金额6；购买单、双金额2，可选择倍投5、10、20、100倍，赔付比例如下：
@@ -92,6 +93,18 @@ function OpenPrize(btime,etime)
 		print(uid .. "时时彩 中奖，获得奖金：" .. per_winner_bonus )
 		totablbonus  = 	totablbonus  + per_winner_bonus
 		totablbetmoney  = 	totablbetmoney  + betmoney
+		--发送邮件
+		local mailInfo = {}
+
+		local mailConfig = tableMailConfig[49]
+		mailInfo.charid = uid
+		mailInfo.subject = mailConfig.subject
+		mailInfo.content = mailConfig.content
+		mailInfo.type = 0 --0是个人邮件
+		mailInfo.attachment = {}
+		mailInfo.extData = {configId=mailConfig.ID}
+		table.insert(mailInfo.attachment,{itemId=Const.GOODS_TYPE.GOLD, itemNum=5000})
+		ChessGmMailMgr.AddGlobalMail(mailInfo)
 		if per_winner_bonus > 0 then 
 			prinzeusernums = prinzeusernums + 1
 			    --发送邮件

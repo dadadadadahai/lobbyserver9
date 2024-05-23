@@ -92,7 +92,7 @@ function BuyFree(gameType,betindex,datainfo,datainfos)
         lackTimes=15,
         tWinScore = 0,
         tMul = 0,
-        wMul = 0 ,
+        sMul = 0 ,
         mulInfoList={},
         isBuy = 1,
         resdata=alldisInfo
@@ -101,7 +101,7 @@ function BuyFree(gameType,betindex,datainfo,datainfos)
         errno = 0,
         betIndex = datainfo.betindex,
         bAllLine = LineNum,
-        payScore = datainfo.betMoney * LineNum,
+        payScore =0,
         winScore = winScore,
         winLines = {},
         boards = boards,
@@ -132,7 +132,7 @@ function Normal(gameId,gameType, betindex, datainfo, datainfos, uid)
         }
     end
     local sTime = os.time()
-    if datainfo.isInHight then
+    if datainfo.isInHight  == true then
         chip = math.floor(chip/table_121_buygailv[1].betChange)
     end
     -- 执行扣费
@@ -171,7 +171,7 @@ function Normal(gameId,gameType, betindex, datainfo, datainfos, uid)
             lackTimes=15,
             tWinScore = 0,
             tMul = 0,
-            wMul = 0 ,
+            sMul = 0 ,
             mulInfoList={},
             isBuy = 0,
             resdata=alldisInfo
@@ -292,7 +292,13 @@ function Free(gameId, gameType, datainfo,datainfos)
     end
     table.remove(disInfos,#disInfos)
     local  Smul =  calcSMul(ssum)
-    local winScore =  chip*(tmul+Smul) *  (datainfo.free.sMul == 0 and 1 or  datainfo.free.sMul)
+    local winScore = 0
+    if boommuls >0 then 
+        winScore=  chip*(tmul+Smul) *  (datainfo.free.sMul == 0 and 1 or  datainfo.free.sMul)
+    else 
+        winScore=  chip*(tmul+Smul) 
+    end 
+      
     datainfo.free.lackTimes = datainfo.free.lackTimes  -1
     datainfo.free.tWinScore = datainfo.free.tWinScore + winScore
     local achip = chessuserinfodb.RUserChipsGet(datainfos._id)

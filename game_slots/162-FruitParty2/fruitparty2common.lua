@@ -89,6 +89,16 @@ function BuyFree(gameType,betindex,datainfo,datainfos)
     if winScore > 0 then 
         BackpackMgr.GetRewardGood(datainfos._id, Const.GOODS_ID.GOLD,winScore, Const.GOODS_SOURCE_TYPE.FRUITPARTY2)
     end 
+    local lastDis = disInfos[#disInfos]
+    local sNum = 0
+    for col=1,#lastDis.chessdata do
+        for row=1,#lastDis.chessdata[col] do
+            if lastDis.chessdata[col][row] ==70 then
+                sNum = sNum +1 
+            end
+        end
+    end
+
     local boards= table.clone(disInfos[1].chessdata)
     local iconsAttachData = disInfos[1].iconsAttachData
     for i=1,#disInfos-1 do
@@ -96,15 +106,7 @@ function BuyFree(gameType,betindex,datainfo,datainfos)
        -- disInfos[i].iconsAttachData = disInfos[i+1].iconsAttachData
     end
     table.remove(disInfos,#disInfos)
-    local lastDis = disInfo[#disInfo]
-    local sNum = 0
-    for col=1,#lastDis.chessdata do
-        for row=1,#lastDis.chessdata[col] do
-            if lastDis.chessdata[col][row]==70 then
-                sNum = sNum +1 
-            end
-        end
-    end
+
     local freetimes = CalcFreeNum(sNum)
     dump(freetimes,"freetimes",1)
     datainfo.free={
@@ -119,7 +121,7 @@ function BuyFree(gameType,betindex,datainfo,datainfos)
         errno = 0,
         betIndex = datainfo.betindex,
         bAllLine = LineNum,
-        payScore = datainfo.betMoney * LineNum,
+        payScore = 0,
         winScore = winScore,
         winLines = {},
         boards = boards,
@@ -151,7 +153,7 @@ function Normal(gameId,gameType, betindex, datainfo, datainfos, uid)
         }
     end
     local sTime = os.time()
-    if datainfo.isInHight then
+    if datainfo.isInHight  == true then
         chip = math.floor(chip/table_162_buygailv[1].betChange)
     end
     -- 执行扣费

@@ -17,6 +17,17 @@ GameId = 160
 J = 100
 S = 70
 -- sweetBonanza
+
+function calcSMul(sNum)
+    if sNum==4 then
+        return 6
+    elseif sNum==5 then
+        return 10
+    elseif sNum==6 then
+        return 200
+    end
+    return 0
+end
 function Get(gameType, uid)
     local datainfos = unilight.getdata(Table, uid)
     if table.empty(datainfos) then
@@ -103,14 +114,13 @@ function BuyFree(gameType,betindex,datainfo,datainfos)
         tMul = 0,
         mulInfoList={},
         isBuy = 1,
-        wMul = 0 ,
         resdata=alldisInfo
     }
     local res = {
         errno = 0,
         betIndex = datainfo.betindex,
         bAllLine = LineNum,
-        payScore = datainfo.betMoney * LineNum,
+        payScore = 0,
         winScore = winScore,
         winLines = {},
         boards = boards,
@@ -143,7 +153,7 @@ function Normal(gameId,gameType, betindex, datainfo, datainfos, uid)
     end
     local userinfo = unilight.getdata('userinfo', datainfos._id)
     local sTime = os.time()
-    if datainfo.isInHight  then
+    if datainfo.isInHight  == true then
         chip = math.floor(chip/table_160_buygailv[1].betChange)
     end
     -- 执行扣费
@@ -180,7 +190,7 @@ function Normal(gameId,gameType, betindex, datainfo, datainfos, uid)
             lackTimes=10,
             tWinScore = 0,
             tMul = 0,
-            wMul = 0 ,
+    
             mulInfoList={},
             isBuy = 0,
             resdata=alldisInfo
@@ -273,7 +283,7 @@ function Free(gameId, gameType, datainfo,datainfos)
             table.insert(datainfo.free.mulInfoList,value.data.mul)
             datainfo.free.tMul = datainfo.free.tMul+value.data.mul
         end
-        datainfo.free.sMul =  boommuls
+       
     end
     for i=1,#disInfos-1 do
         disInfos[i].chessdata = disInfos[i+1].chessdata
@@ -301,7 +311,7 @@ function Free(gameId, gameType, datainfo,datainfos)
     end
     table.remove(disInfos,#disInfos)
     local  Smul =  calcSMul(ssum)
-    local winScore =  chip*(tmul+Smul) *  (datainfo.free.sMul == 0 and 1 or  datainfo.free.sMul)
+    local winScore =  chip*(tmul+Smul) *  (boommuls == 0 and 1 or  boommuls)
     datainfo.free.lackTimes = datainfo.free.lackTimes  -1
     datainfo.free.tWinScore = datainfo.free.tWinScore + winScore
     local achip = chessuserinfodb.RUserChipsGet(datainfos._id)
@@ -364,15 +374,4 @@ function Free(gameId, gameType, datainfo,datainfos)
     )
     unilight.update(Table, datainfos._id, datainfos)
     return res
-end
-
-function calcSMul(sNum)
-    if sNum==4 then
-        return 6
-    elseif sNum==5 then
-        return 10
-    elseif sNum==6 then
-        return 200
-    end
-    return 0
 end

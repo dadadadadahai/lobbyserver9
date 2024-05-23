@@ -43,9 +43,9 @@ function RealCommonRotate(_id,gameId,gameType,imageType,gameObj,param)
        --  rtp =  rtptable[gamecommon.CommRandInt(rtptable,'pro')].type
         --end 
    end 
-   if  gameId ==127 then 
-      rtp = 100
-   end 
+--    if  gameId ==127 then 
+--       rtp = 100
+--    end 
     local imagePro = string.format("table_%d_imagePro",gameId)
     if imageType==nil then
         imageType = gameObj[imagePro][gamecommon.CommRandInt(gameObj[imagePro],'gailv'..rtp)].type
@@ -138,6 +138,10 @@ function RealCommonRotate(_id,gameId,gameType,imageType,gameObj,param)
             realMul = curmuls[math.random(#curmuls)]
         end
     end
+    if gameId == 131 then 
+        imageType = 1
+        realMul = 0 
+    end 
     local jsonstr=go.ImagePools.GetOnePool(gameId,imageType,realMul)
     if jsonstr=='' then
         unilight.info('norealmuljsonstr==',realMul,imageType)
