@@ -19,7 +19,9 @@ end
     param {betchip 押注值
     }
 ]]
-local index = 0
+local index1 = 0
+local index2 = 0
+local index3 = 0
 function RealCommonRotate(_id,gameId,gameType,imageType,gameObj,param)
     local betchip = param.betchip
 
@@ -30,15 +32,19 @@ function RealCommonRotate(_id,gameId,gameType,imageType,gameObj,param)
     local controlvalue = gamecommon.GetControlPoint(_id,param)
     -- --获取rtp
    local rtp = gamecommon.GetModelRtp(_id, gameId, gameType, controlvalue)
-   if gameId ==131 then 
-        local betindex = param.betindex
+   if gameId ==131  or gameId ==127 then 
+        local betIndex = param.betIndex
         local betrtptable = gameObj['table_'..gameId..'_betrtp']
-        rtp =  betrtptable[gamecommon.CommRandInt(betrtptable,'bet'..betindex)].bet_level
+        rtp =  betrtptable[gamecommon.CommRandInt(betrtptable,'bet'..betIndex)].bet_level
+        unilight.info('@@@@betrtptablertp', rtp) 
         --local rtptable = gameObj['table_'..gameId..'_rtpswitch']
        -- local rtp = 200 --没充值的直接走200
        -- if totalRechargeChips >0 then 
        --  rtp =  rtptable[gamecommon.CommRandInt(rtptable,'pro')].type
         --end 
+   end 
+   if  gameId ==127 then 
+      rtp = 100
    end 
     local imagePro = string.format("table_%d_imagePro",gameId)
     if imageType==nil then
@@ -77,6 +83,7 @@ function RealCommonRotate(_id,gameId,gameType,imageType,gameObj,param)
     else
         imageType=1
     end
+
     unilight.info('gameId.imageType.realMul',gameId,imageType,realMul)
     if gameId == 161 then
         if imageType == 1 then
@@ -142,6 +149,16 @@ function RealCommonRotate(_id,gameId,gameType,imageType,gameObj,param)
             jsonstr=go.ImagePools.GetOnePool(gameId,imageType,realMul)
         end
     end
+    if imageType == 1 then 
+        index1 = index1 + 1
+    end 
+    if imageType == 2 then 
+        index2 = index2 + 1
+    end 
+    if imageType == 3 then 
+        index3 = index3 + 1
+    end 
+    unilight.info('index1 index2   index3 ',index1,index2,index3)
     unilight.info('realMul',realMul)
     unilight.info('jsonstr',jsonstr)
     local jsonobj = json.decode(jsonstr)

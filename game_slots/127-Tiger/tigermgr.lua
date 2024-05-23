@@ -29,36 +29,15 @@ function CmdGameOprate(uid, msg)
     local tigerInfo = Get(msg.gameType, uid)
 
         --进入普通游戏逻辑
-        local res = PlayNormalGame(tigerInfo,uid,msg.betIndex,msg.gameType)
-        WithdrawCash.GetBetInfo(uid,DB_Name,msg.gameType,res,true,GameId)
+      for i = 1, 50000 do
+       --  msg.betIndex = math.random(12)
+         local res = PlayNormalGame(tigerInfo,uid,msg.betIndex,msg.gameType)
+         WithdrawCash.GetBetInfo(uid,DB_Name,msg.gameType,res,true,GameId)
         ------------------------------------- 特殊游戏特殊处理 -------------------------------------
-        res.features = nil
-
+         res.features = nil
+      end 
         -------------------------------------------------------------------------------------------
-        gamecommon.SendNet(uid,'GameOprateGame_S',res)
- 
-    -- for i = 1, 100000 do
-    --     local res={}
-    --     -- 获取数据库信息
-    --     local tigerInfo = Get(msg.gameType, uid)
-    --     if not table.empty(tigerInfo.respin) then
-    --         --进入respin游戏逻辑
-    --         local res = PlayRespinGame(tigerInfo,uid,msg.gameType)
-    --         -- WithdrawCash.GetBetInfo(uid,DB_Name,msg.gameType,res,false,GameId)
-    --         -- ------------------------------------- 特殊游戏特殊处理 -------------------------------------
-    --         -- res.features = nil
-    --         -- -------------------------------------------------------------------------------------------
-    --         -- gamecommon.SendNet(uid,'GameOprateGame_S',res)
-    --     else
-    --         --进入普通游戏逻辑
-    --         local res = PlayNormalGame(tigerInfo,uid,msg.betIndex,msg.gameType)
-    --         -- WithdrawCash.GetBetInfo(uid,DB_Name,msg.gameType,res,true,GameId)
-    --         -- ------------------------------------- 特殊游戏特殊处理 -------------------------------------
-    --         -- res.features = nil
-    --         -- -------------------------------------------------------------------------------------------
-    --         -- gamecommon.SendNet(uid,'GameOprateGame_S',res)
-    --     end
-    -- end
+      --  gamecommon.SendNet(uid,'GameOprateGame_S',res)
 end
 
 -- 注册消息解析

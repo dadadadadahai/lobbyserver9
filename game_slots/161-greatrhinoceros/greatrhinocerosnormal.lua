@@ -25,7 +25,7 @@ function PlayNormalGame(GreatRhinocerosInfo,uid,betIndex,gameType)
     GreatRhinocerosInfo.betMoney = payScore
     GreatRhinocerosInfo.betgold = betgold
     -- 生成普通棋盘和结果
-    local resultGame,realMul,imageType = gameImagePool.RealCommonRotate(uid,GameId,gameType,nil ,GreatRhinoceros,{betchip=betgold,gameId=GameId,gameType=gameType,betchips=payScore})
+    local resultGame,realMul,imageType = gameImagePool.RealCommonRotate(uid,GameId,gameType,nil ,GreatRhinoceros,{betchip=betgold,betIndex=betIndex,gameId=GameId,gameType=gameType,betchips=payScore})
     local winScore = betgold * resultGame.normalMul
     
     -- 判断免费生成

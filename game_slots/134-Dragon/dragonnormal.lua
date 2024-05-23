@@ -31,7 +31,7 @@ function PlayNormalGame(dragonInfo,uid,betIndex,gameType)
     dragonInfo.betMoney = payScore
     dragonInfo.betgold = betgold
     -- 生成普通棋盘和结果
-    local resultGame,realMul,imageType = gameImagePool.RealCommonRotate(uid,GameId,gameType,nil,Dragon,{betchip=betgold,gameId=GameId,gameType=gameType,betchips=payScore})
+    local resultGame,realMul,imageType = gameImagePool.RealCommonRotate(uid,GameId,gameType,nil,Dragon,{betchip=betgold,betIndex=betIndex,gameId=GameId,gameType=gameType,betchips=payScore})
 
     -- 保存棋盘数据
     local data = table.remove(resultGame,1) 

@@ -69,7 +69,7 @@ function BuyFree(gameType,betindex,datainfo,datainfos)
 
     datainfo.betMoney = betMoney
     --取图库2
-    local alldisInfo = gameImagePool.RealCommonRotate(datainfos._id,GameId,gameType,2,cleopatraNew,{betchip=betMoney,gameId=GameId,gameType=gameType,betchips=chip})
+    local alldisInfo = gameImagePool.RealCommonRotate(datainfos._id,GameId,gameType,2,cleopatraNew,{betchip=betMoney,betIndex=betindex,gameId=GameId,gameType=gameType,betchips=chip})
 
     local disInfo =  table.remove(alldisInfo,1)
     local betchip = betMoney * LineNum
@@ -146,7 +146,7 @@ function Normal(gameId,gameType, betindex, datainfo, datainfos, uid)
     datainfo.betMoney = chip
     datainfo.betindex = betindex
     --启用图库模式
-    local alldisInfo,realMul ,imageType= gameImagePool.RealCommonRotate(uid,GameId,gameType,nil,cleopatraNew,{betchip=betMoney/LineNum,gameId=GameId,gameType=gameType,betchips=chip})
+    local alldisInfo,realMul ,imageType= gameImagePool.RealCommonRotate(uid,GameId,gameType,nil,cleopatraNew,{betchip=betMoney/LineNum,betIndex=betindex,gameId=GameId,gameType=gameType,betchips=chip})
     if imageType == 2 or imageType == 3 then 
 
         local disInfo =  table.remove(alldisInfo,1)

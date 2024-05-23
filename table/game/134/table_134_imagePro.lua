@@ -13,11 +13,11 @@ return {
 
     [2] = {
         ID = 2,
-        gailv100 = 9830,
-        gailv150 = 9724,
-        gailv200 = 9618,
-        gailv50 = 9936,
-        gailv75 = 9883,
+        gailv100 =  150,
+        gailv150 = 150,
+        gailv200 = 150,
+        gailv50 = 150,
+        gailv75 = 150,
         type = 2,
     },
 

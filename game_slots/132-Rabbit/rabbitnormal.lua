@@ -31,7 +31,7 @@ function PlayNormalGame(rabbitInfo,uid,betIndex,gameType)
     if math.random(5) == 1 then
         imageType = 2
     end
-    local resultGame,realMul,imageType = gameImagePool.RealCommonRotate(uid,GameId,gameType,imageType,Rabbit,{betchip=betgold,gameId=GameId,gameType=gameType,betchips=payScore})
+    local resultGame,realMul,imageType = gameImagePool.RealCommonRotate(uid,GameId,gameType,imageType,Rabbit,{betchip=betgold,betIndex=betIndex,gameId=GameId,gameType=gameType,betchips=payScore})
     local winScore = 0
     -- 如果是普通则需要处理免费第一把信息
     if imageType == 2 then

@@ -4,6 +4,7 @@ return {
     [1] = {
         ID = 1,
         pro = 50,
+        spuriousPro = 150,
     },
 
 }

@@ -29,7 +29,7 @@ function PlayNormalGame(goldcowInfo,uid,betIndex,gameType)
     goldcowInfo.betMoney = payScore
     -- 生成普通棋盘和结果
    
-    local resultGame,realMul,imageType = gameImagePool.RealCommonRotate(uid,GameId,gameType,nil,GoldCow,{betchip=betgold,betindex=betIndex,gameId=GameId,gameType=gameType,betchips=payScore})
+    local resultGame,realMul,imageType = gameImagePool.RealCommonRotate(uid,GameId,gameType,nil,GoldCow,{betchip=betgold,betIndex=betIndex,gameId=GameId,gameType=gameType,betchips=payScore})
     
     -- 保存棋盘数据
     goldcowInfo.boards = resultGame.boards

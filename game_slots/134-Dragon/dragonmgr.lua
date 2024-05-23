@@ -23,7 +23,7 @@ function CmdGameOprate(uid, msg)
     if not table.empty(dragonInfo.free) then 
         --进入免费游戏逻辑
         dump(dragonInfo.free,"生肖龙游戏模块free",10)
-         res = PlayFreeGame(dragonInfo,uid,msg.betIndex,msg.gameType)
+         res = PlayFreeGame(dragonInfo,uid,msg.gameType)
          WithdrawCash.GetBetInfo(uid,DB_Name,msg.gameType,res,false,GameId)
         gamecommon.SendNet(uid,'GameOprateGame_S',res)
     else

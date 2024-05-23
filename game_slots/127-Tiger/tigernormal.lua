@@ -27,8 +27,8 @@ function PlayNormalGame(tigerInfo,uid,betIndex,gameType)
     -- local imageType = table_127_imagePro[gamecommon.CommRandInt(table_127_imagePro,'pro')].type
     -- imageType = GmProcess(imageType)
 
-    local resultGame,realMul,imageType = gameImagePool.RealCommonRotate(uid,GameId,gameType,nil,Tiger,{betchip=betgold,gameId=GameId,gameType=gameType,betchips=payScore})
-    resultGame.winScore = realMul *  tigerInfo.betMoney 
+    local resultGame,realMul,imageType = gameImagePool.RealCommonRotate(uid,GameId,gameType,nil,Tiger,{betchip=betgold,betIndex=betIndex,gameId=GameId,gameType=gameType,betchips=payScore})
+    resultGame.winScore = realMul *  payScore
     -- 保存棋盘数据
     tigerInfo.boards = resultGame.boards
     tigerInfo.respin = resultGame.respin
@@ -44,7 +44,9 @@ function PlayNormalGame(tigerInfo,uid,betIndex,gameType)
         end
      
     end 
-    BackpackMgr.GetRewardGood(uid, Const.GOODS_ID.GOLD, resultGame.winScore, Const.GOODS_SOURCE_TYPE.TIGER)
+    if resultGame.winScore >0 then 
+     BackpackMgr.GetRewardGood(uid, Const.GOODS_ID.GOLD, resultGame.winScore, Const.GOODS_SOURCE_TYPE.TIGER)
+    end 
     -- 返回数据
     local res = GetResInfo(uid, tigerInfo, gameType)
     res.boards = {resultGame.boards}

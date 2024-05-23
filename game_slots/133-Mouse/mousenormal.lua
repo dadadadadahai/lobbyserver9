@@ -33,7 +33,7 @@ function PlayNormalGame(mouseInfo,uid,betIndex,gameType)
         imageType = 2
     end
     print("1111111")
-    local resultGame,realMul ,imageType= gameImagePool.RealCommonRotate(uid,GameId,gameType,nil,Mouse,{betchip=betgold,gameId=GameId,gameType=gameType,betchips=payScore})
+    local resultGame,realMul ,imageType= gameImagePool.RealCommonRotate(uid,GameId,gameType,nil,Mouse,{betchip=betgold,betIndex=betIndex,gameId=GameId,gameType=gameType,betchips=payScore})
     
     -- 保存棋盘数据
     mouseInfo.boards = resultGame.boards
