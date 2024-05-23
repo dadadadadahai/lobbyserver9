@@ -83,9 +83,9 @@ function BuyFree(gameType,betindex,datainfo,datainfos)
 
     local disInfo =  table.remove(alldisInfo,1)
     local betchip = betMoney * LineNum
-    local disInfos,realMul = parseData(betMoney,disInfo)
-
-    local winScore = realMul*betchip
+    local disInfos,realMul ,ssums= parseData(betMoney,disInfo)
+    local  Smul =  calcSMul(ssums)
+    local winScore = (realMul+Smul)*betchip
     if winScore > 0 then 
         BackpackMgr.GetRewardGood(datainfos._id, Const.GOODS_ID.GOLD,winScore, Const.GOODS_SOURCE_TYPE.FRUITPARTY2)
     end 
@@ -96,10 +96,20 @@ function BuyFree(gameType,betindex,datainfo,datainfos)
        -- disInfos[i].iconsAttachData = disInfos[i+1].iconsAttachData
     end
     table.remove(disInfos,#disInfos)
-   
+    local lastDis = disInfo[#disInfo]
+    local sNum = 0
+    for col=1,#lastDis.chessdata do
+        for row=1,#lastDis.chessdata[col] do
+            if lastDis.chessdata[col][row]==70 then
+                sNum = sNum +1 
+            end
+        end
+    end
+    local freetimes = CalcFreeNum(sNum)
+    dump(freetimes,"freetimes",1)
     datainfo.free={
-        totalTimes=10,
-        lackTimes=10,
+        totalTimes=freetimes,
+        lackTimes=freetimes,
         tWinScore = 0,
         mulInfoList={},
         isBuy = 1,
@@ -159,8 +169,9 @@ function Normal(gameId,gameType, betindex, datainfo, datainfos, uid)
     if imageType == 2 or imageType == 3 then
         local disInfo =  table.remove(alldisInfo,1)
         local betchip = chip
-        local disInfos,realMul = parseData(betMoney,disInfo)
-        local winScore = realMul*betchip
+        local disInfos,realMul,ssums = parseData(betMoney,disInfo)
+        local  Smul =  calcSMul(ssums)
+        local winScore = (realMul+Smul)*betchip
         if winScore > 0 then 
             BackpackMgr.GetRewardGood(datainfos._id, Const.GOODS_ID.GOLD,winScore, Const.GOODS_SOURCE_TYPE.FRUITPARTY2)
         end 
@@ -171,10 +182,20 @@ function Normal(gameId,gameType, betindex, datainfo, datainfos, uid)
            -- disInfos[i].iconsAttachData = disInfos[i+1].iconsAttachData
         end
         table.remove(disInfos,#disInfos)
-       
+        local lastDis = disInfo[#disInfo]
+        local sNum = 0
+        for col=1,#lastDis.chessdata do
+            for row=1,#lastDis.chessdata[col] do
+                if lastDis.chessdata[col][row]==70 then
+                    sNum = sNum +1 
+                end
+            end
+        end
+        local freetimes = CalcFreeNum(sNum)
+        dump(freetimes,"freetimes",1)
         datainfo.free={
-            totalTimes=10,
-            lackTimes=10,
+            totalTimes=freetimes,
+            lackTimes=freetimes,
             tWinScore = 0,
             mulInfoList={},
             isBuy = 1,
@@ -203,9 +224,10 @@ function Normal(gameId,gameType, betindex, datainfo, datainfos, uid)
         -- WithdrawCash.ResetWithdawTypeState(datainfos._id,0)
         unilight.update(Table, datainfos._id, datainfos)
     else 
-        local disInfos ,realMul2= parseData(betMoney,alldisInfo)
+        local disInfos ,realMul2,ssums= parseData(betMoney,alldisInfo)
+        local  Smul =  calcSMul(ssums)
         print(string.format("realMul%d  realMul2%d",realMul,realMul2))
-        local winScore = realMul*chip
+        local winScore = (realMul+Smul)*chip
         if winScore >0 then 
             BackpackMgr.GetRewardGood(datainfos._id, Const.GOODS_ID.GOLD,winScore, Const.GOODS_SOURCE_TYPE.FRUITPARTY2)
         end 
@@ -255,8 +277,8 @@ end
 function Free(gameId, gameType, datainfo,datainfos)
     local chip = datainfo.betMoney * LineNum
     local disInfo =   table.remove(datainfo.free.resdata,1)
-    local disInfos,tmul = parseData(datainfo.betMoney,disInfo)
- 
+    local disInfos,tmul,ssums = parseData(datainfo.betMoney,disInfo)
+    local  Smul =  calcSMul(ssums)
     local boards= table.clone(disInfos[1].chessdata)
     local yyy = table.clone(disInfos[1].chessdata) --服务器打印跟客户端收到的数据BOARDS不一样加一个
     local iconsAttachData = disInfos[1].iconsAttachData
@@ -278,7 +300,7 @@ function Free(gameId, gameType, datainfo,datainfos)
         datainfo.free.totalTimes = datainfo.free.totalTimes + 5
     end
     table.remove(disInfos,#disInfos)
-    local winScore =  chip*tmul
+    local winScore =  chip*(tmul+Smul)
     datainfo.free.lackTimes = datainfo.free.lackTimes  -1
     datainfo.free.tWinScore = datainfo.free.tWinScore + winScore
     local achip = chessuserinfodb.RUserChipsGet(datainfos._id)
@@ -333,4 +355,34 @@ function Free(gameId, gameType, datainfo,datainfos)
     )
     unilight.update(Table, datainfos._id, datainfos)
     return res
+end
+
+function calcSMul(sNum)
+    if sNum==3 then
+        return 6
+    elseif sNum==4 then
+        return 10
+    elseif sNum==5 then
+        return 20
+	elseif sNum==6 then
+		return 40
+	elseif sNum==7 then
+		return 200
+    end
+    return 0
+end
+
+function CalcFreeNum(sNum)
+    if sNum==3 then
+        return 10
+    elseif sNum==4 then
+        return 12
+    elseif sNum==5 then
+        return 15
+	elseif sNum==6 then
+		return 20
+	elseif sNum==7 then
+		return 25
+    end
+    return 0
 end

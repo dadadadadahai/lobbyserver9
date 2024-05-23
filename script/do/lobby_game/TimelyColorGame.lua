@@ -87,13 +87,25 @@ function OpenPrize(btime,etime)
 			end 
 		end
 		saveUserPrizeInfo({time = etime,uid = uid,win = per_winner_bonus,bet = betmoney,bets = {t=value.tw,f=value.fv},winprizes = winprizes})
-		local remainder, ok = chessuserinfodb.WChipsChange(uid, Const.PACK_OP_TYPE.ADD, per_winner_bonus,
-		"时时彩中奖")
+		--local remainder, ok = chessuserinfodb.WChipsChange(uid, Const.PACK_OP_TYPE.ADD, per_winner_bonus,
+		--"时时彩中奖")
 		print(uid .. "时时彩 中奖，获得奖金：" .. per_winner_bonus )
 		totablbonus  = 	totablbonus  + per_winner_bonus
 		totablbetmoney  = 	totablbetmoney  + betmoney
 		if per_winner_bonus > 0 then 
 			prinzeusernums = prinzeusernums + 1
+			    --发送邮件
+			local mailInfo = {}
+	
+			local mailConfig = tableMailConfig[49]
+			mailInfo.charid = uid
+			mailInfo.subject = mailConfig.subject
+			mailInfo.content = mailConfig.content
+			mailInfo.type = 0 --0是个人邮件
+			mailInfo.attachment = {}
+			mailInfo.extData = {configId=mailConfig.ID}
+			table.insert(mailInfo.attachment,{itemId=Const.GOODS_TYPE.GOLD, itemNum=per_winner_bonus})
+			ChessGmMailMgr.AddGlobalMail(mailInfo)
 		end 
 	end
 	saveGamePrizeInfo({time = etime,totablbonus = totablbonus,totablbetmoney = totablbetmoney,usernums = usernums,prinzeusernums = prinzeusernums,prizes= prizes})
@@ -116,6 +128,10 @@ function addbet(uid,data)
 	if not t or table.empty(t)  or table.nums(t) > 1 then
 		return  ErrorDefine.ERROR_PARAM,"没有下注"
 	end
+	if not table.empty(f) and  table.nums(f) ~= 1  then
+		return  ErrorDefine.ERROR_PARAM,"下注越界"
+	end
+
 
 	if table.Or(t,function (v,k)
 		return v>64 or v <1
@@ -207,7 +223,7 @@ function Get_info_Cmd_C(uid)
 	local res = {game={},nextopentime = NEXTOPENTIME,basescore = basescore,betconfig=betconfig,isbet= not table.empty(getUserBetInfoOne(NEXTOPENTIME-600,uid)) }
 	for _, value in pairs(all) do
 		local data = value
-		local log = getuserPrizeInfo(value.time)
+		local log = getUserPrizeInfo(value.time)
 		table.insert(res.game,{data = data,log = log })
 	end
 	return res 

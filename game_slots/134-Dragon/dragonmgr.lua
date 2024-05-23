@@ -19,17 +19,20 @@ function CmdGameOprate(uid, msg)
     local res={}
     -- 获取数据库信息
     local dragonInfo = Get(msg.gameType, uid)
-    if not table.empty(dragonInfo.free) then
+    --金龙有免费
+    if not table.empty(dragonInfo.free) then 
         --进入免费游戏逻辑
-        local res = PlayFreeGame(dragonInfo,uid,msg.gameType,msg.specialType)
-        WithdrawCash.GetBetInfo(uid,DB_Name,msg.gameType,res,false,GameId)
+        dump(dragonInfo.free,"生肖龙游戏模块free",10)
+         res = PlayFreeGame(dragonInfo,uid,msg.betIndex,msg.gameType)
+         WithdrawCash.GetBetInfo(uid,DB_Name,msg.gameType,res,false,GameId)
         gamecommon.SendNet(uid,'GameOprateGame_S',res)
     else
         --进入普通游戏逻辑
-        local res = PlayNormalGame(dragonInfo,uid,msg.betIndex,msg.gameType,msg.specialType)
+         res = PlayNormalGame(dragonInfo,uid,msg.betIndex,msg.gameType)
         WithdrawCash.GetBetInfo(uid,DB_Name,msg.gameType,res,true,GameId)
         gamecommon.SendNet(uid,'GameOprateGame_S',res)
     end
+
 end
 
 -- 注册消息解析

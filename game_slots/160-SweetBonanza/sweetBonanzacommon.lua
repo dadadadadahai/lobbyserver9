@@ -82,8 +82,9 @@ function BuyFree(gameType,betindex,datainfo,datainfos)
     local alldisInfo = gameImagePool.RealCommonRotate(datainfos._id,GameId,gameType,2,sweetBonanza,{betchip=betMoney,gameId=GameId,gameType=gameType,betchips=chip})
     local disInfo =  table.remove(alldisInfo,1)
     local betchip = betMoney * LineNum
-    local disInfos,realMul = parseData(betMoney,disInfo)
-    local winScore = realMul*betchip
+    local disInfos,realMul ,bombdataMap,ssum = parseData(betMoney,disInfo)
+    local  Smul =  calcSMul(ssum)
+    local winScore = (realMul+Smul)*betchip
     if winScore > 0 then 
         BackpackMgr.GetRewardGood(datainfos._id, Const.GOODS_ID.GOLD,winScore, Const.GOODS_SOURCE_TYPE.SWEETBONANZA)
     end 
@@ -102,6 +103,7 @@ function BuyFree(gameType,betindex,datainfo,datainfos)
         tMul = 0,
         mulInfoList={},
         isBuy = 1,
+        wMul = 0 ,
         resdata=alldisInfo
     }
     local res = {
@@ -139,6 +141,7 @@ function Normal(gameId,gameType, betindex, datainfo, datainfos, uid)
             errno = ErrorDefine.ERROR_PARAM,
         }
     end
+    local userinfo = unilight.getdata('userinfo', datainfos._id)
     local sTime = os.time()
     if datainfo.isInHight  then
         chip = math.floor(chip/table_160_buygailv[1].betChange)
@@ -158,8 +161,9 @@ function Normal(gameId,gameType, betindex, datainfo, datainfos, uid)
     if imageType == 2 or imageType == 3 then 
         local disInfo =  table.remove(alldisInfo,1)
         local betchip = chip 
-        local disInfos,realMul = parseData(betMoney,disInfo)
-        local winScore = realMul*betchip
+        local disInfos,realMul,bombdataMap,ssum  = parseData(betMoney,disInfo)
+        local  Smul =  calcSMul(ssum)
+        local winScore = (realMul+Smul)*betchip
         if winScore > 0 then 
             BackpackMgr.GetRewardGood(datainfos._id, Const.GOODS_ID.GOLD,winScore, Const.GOODS_SOURCE_TYPE.SWEETBONANZA)
         end 
@@ -176,6 +180,7 @@ function Normal(gameId,gameType, betindex, datainfo, datainfos, uid)
             lackTimes=10,
             tWinScore = 0,
             tMul = 0,
+            wMul = 0 ,
             mulInfoList={},
             isBuy = 0,
             resdata=alldisInfo
@@ -256,8 +261,10 @@ end
 function Free(gameId, gameType, datainfo,datainfos)
     local chip = datainfo.betMoney * LineNum
     local disInfo =   table.remove(datainfo.free.resdata,1)
-    local disInfos,tmul ,bombdataMap= parseData(datainfo.betMoney,disInfo)
-
+    local disInfos,tmul ,bombdataMap,ssum= parseData(datainfo.betMoney,disInfo)
+    local boommuls = table.sum(bombdataMap,function (v)
+        return v.mul 
+    end)
     local boards= table.clone(disInfos[1].chessdata)
   
     local iconsAttachData = disInfos[1].iconsAttachData
@@ -266,6 +273,7 @@ function Free(gameId, gameType, datainfo,datainfos)
             table.insert(datainfo.free.mulInfoList,value.data.mul)
             datainfo.free.tMul = datainfo.free.tMul+value.data.mul
         end
+        datainfo.free.sMul =  boommuls
     end
     for i=1,#disInfos-1 do
         disInfos[i].chessdata = disInfos[i+1].chessdata
@@ -286,12 +294,14 @@ function Free(gameId, gameType, datainfo,datainfos)
             end
         end
     end
+    dump(string.format("sNum%d  sum%d ",sNum,ssum))
     if sNum >= 3 then
         datainfo.free.lackTimes = datainfo.free.lackTimes + 5
         datainfo.free.totalTimes = datainfo.free.totalTimes + 5
     end
     table.remove(disInfos,#disInfos)
-    local winScore =  chip*tmul
+    local  Smul =  calcSMul(ssum)
+    local winScore =  chip*(tmul+Smul) *  (datainfo.free.sMul == 0 and 1 or  datainfo.free.sMul)
     datainfo.free.lackTimes = datainfo.free.lackTimes  -1
     datainfo.free.tWinScore = datainfo.free.tWinScore + winScore
     local achip = chessuserinfodb.RUserChipsGet(datainfos._id)
@@ -354,4 +364,15 @@ function Free(gameId, gameType, datainfo,datainfos)
     )
     unilight.update(Table, datainfos._id, datainfos)
     return res
+end
+
+function calcSMul(sNum)
+    if sNum==4 then
+        return 6
+    elseif sNum==5 then
+        return 10
+    elseif sNum==6 then
+        return 200
+    end
+    return 0
 end

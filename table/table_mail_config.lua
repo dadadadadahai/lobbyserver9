@@ -428,5 +428,22 @@ Os jogadores acima são todos usuários sortudos do 9kbet.com! As recompensas em
         limitTime = 7776000,
         subject = "",
     },
+    [48] = {
+        ID = 48,
+        content = "You rank %d in the twelve Chinese zodiac signs and get your rewards!",
+        desc = "十二生肖结束后，玩家若获得排名奖励则发放到收件箱。",
+        icon = "",
+        limitTime = 1209600,
+        subject = "TWELVE GAME  REWARD",
+    },
+
+    [49] = {
+        ID = 49,
+        content = "You rank %d in Timely color and get your rewards!",
+        desc = "时时彩结束后，玩家若获得排名奖励则发放到收件箱。",
+        icon = "",
+        limitTime = 1209600,
+        subject = "TIMELY COLOR REWARD",
+    },
 
 }

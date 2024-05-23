@@ -612,7 +612,7 @@ Net.CmdRequestTwelvegameInfo_C = function(cmd, laccount)
 		desc = "ok",
 		data = data,
 	}
-	dump(res,"CmdRequestTwelvegameInfo_Cres",10)
+	--dump(res,"CmdRequestTwelvegameInfo_Cres",10)
 	return res 
 end 
 

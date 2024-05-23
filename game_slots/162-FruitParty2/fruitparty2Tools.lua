@@ -21,6 +21,7 @@ function parseData(betMoney,disInfo)
     local disInfos = disInfo
     local resDisInfos={}
     local tmul = 0
+    local snum = 0 
     --u图标id记录  重复不添加
     for index, value in ipairs(disInfos) do
         local mchessdata = value.chessdata
@@ -28,7 +29,8 @@ function parseData(betMoney,disInfo)
         local mul = value.mul
         tmul = tmul + mul
         local dis = value.dis
-        local resChessdata = getIconAttachDataAndInfos(mchessdata)
+        local resChessdata,ssnum = getIconAttachDataAndInfos(mchessdata)
+        snum = ssnum
         local info = getInfos(betMoney,dis)
         table.insert(resDisInfos,{
             chessdata = resChessdata,
@@ -36,7 +38,7 @@ function parseData(betMoney,disInfo)
             iconsAttachData=winfo,
         })
     end
-    return resDisInfos,tmul
+    return resDisInfos,tmul,snum
 end
 --获取info
 function getInfos(betMoney,dis)
@@ -50,6 +52,7 @@ end
 --整理棋牌数据,,添加附加数据
 function getIconAttachDataAndInfos(chessdata)
     local resChessdata = {}
+    local snums = 0 
     for col=1,#chessdata do
         resChessdata[col] = resChessdata[col] or {}
         for row=1,#chessdata[col] do
@@ -57,8 +60,11 @@ function getIconAttachDataAndInfos(chessdata)
             local Id = chessdata[col][row].Id
             resChessdata[col][row] = val
         end
+        if snums ==S then
+            snums = snums + 1
+        end 
     end
-    return resChessdata
+    return resChessdata ,snums
 end
 
 

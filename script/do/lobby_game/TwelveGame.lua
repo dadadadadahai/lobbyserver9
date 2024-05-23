@@ -84,24 +84,52 @@ function OpenPrize(btime,etime)
 			end 
 		end
 
-		per_winner_bonus =  ( winnums == 3 ) and  40 * gold  or winnums *3*gold
+		per_winner_bonus =  ( winnums == 3 ) and  40 *  3 * gold  or winnums *3*3*gold
  
-		
-		for _, v in pairs(value.fv) do
-			if FprizesMP[v] and winnums > 0  then
-				winnums = winnums +1
-				per_winner_bonus = per_winner_bonus * 3
-				table.insert(winprizes.f,v)
+		if not  table.empty(value.fv) then 
+			if winnums <1 then 
+				for _, v in pairs(value.fv) do
+					if FprizesMP[v] then
+						winnums = winnums +1
+						table.insert(winprizes.f,v)
+					end 
+				end
+			else 
+				local iswinf = false 
+				for _, v in pairs(value.fv) do
+					if FprizesMP[v] then
+						iswinf = true
+						winnums = winnums +1
+						per_winner_bonus = per_winner_bonus * 3
+						table.insert(winprizes.f,v)
+					end 
+				end
+				if not iswinf then
+					per_winner_bonus = 0 
+				end 
 			end 
-		end
+		end 
 		saveUserPrizeInfo({time = etime,uid = uid,win = per_winner_bonus,bet = betmoney,bets = {t=value.tw,f=value.fv},winprizes = winprizes})
-		local remainder, ok = chessuserinfodb.WChipsChange(uid, Const.PACK_OP_TYPE.ADD, per_winner_bonus,
-		"十二生肖中奖")
+		--local remainder, ok = chessuserinfodb.WChipsChange(uid, Const.PACK_OP_TYPE.ADD, per_winner_bonus,
+		--"十二生肖中奖")
 		print(uid .. "十二生肖中奖 中奖，获得奖金：" .. per_winner_bonus )
 		totablbonus  = 	totablbonus  + per_winner_bonus
 		totablbetmoney  = 	totablbetmoney  + betmoney
 		if per_winner_bonus > 0 then 
 			prinzeusernums = prinzeusernums + 1
+			prinzeusernums = prinzeusernums + 1
+			    --发送邮件
+			local mailInfo = {}
+	
+			local mailConfig = tableMailConfig[49]
+			mailInfo.charid = uid
+			mailInfo.subject = mailConfig.subject
+			mailInfo.content = mailConfig.content
+			mailInfo.type = 0 --0是个人邮件
+			mailInfo.attachment = {}
+			mailInfo.extData = {configId=mailConfig.ID}
+			table.insert(mailInfo.attachment,{itemId=Const.GOODS_TYPE.GOLD, itemNum=per_winner_bonus})
+			ChessGmMailMgr.AddGlobalMail(mailInfo)
 		end 
 	end
 	saveGamePrizeInfo({time = etime,totablbonus = totablbonus,totablbetmoney = totablbetmoney,usernums = usernums,prinzeusernums = prinzeusernums,prizes= prizes})
@@ -121,8 +149,11 @@ function addbet(uid,data)
 	 local gold = betconfig[data.betIndex] *basescore 
 	 local t = data.prizes.t --{30}
 	 local f = data.prizes.f -- {0}
-	if not t or table.empty(t) or table.nums(t) > 3  then
+	if not t or table.empty(t) or table.nums(t) ~= 3  then
 		return  ErrorDefine.ERROR_PARAM,"没有下注"
+	end
+	if not table.empty(f) and  table.nums(f) ~= 1  then
+		return  ErrorDefine.ERROR_PARAM,"下注越界"
 	end
 
 	if table.Or(t,function (v,k)

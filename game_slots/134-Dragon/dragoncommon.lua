@@ -67,11 +67,13 @@ function GetBoards(uid,gameId,gameType,isFree,dragonInfo)
     }
     -- 生成异形棋盘
     boards = gamecommon.CreateSpecialChessData(DataFormat,gamecommon.GetSpin(uid,gameId,gameType,betInfo))
+    local bonusFlag = false
+    local firstFlag = false
     -- 随机是否触发福牛模式
     if (not table.empty(dragonInfo.free)) or (math.random(10000) <= table_134_freePro[1].pro) or isFree or GmProcess("Free") then
+        bonusFlag = true
         if table.empty(dragonInfo.free) then
-            print("-------------")
-            print(table2json(dragonInfo))
+            firstFlag = true
             -- 初始化免费数据
             dragonInfo.free = {
                 lackTimes = 7,
@@ -100,7 +102,6 @@ function GetBoards(uid,gameId,gameType,isFree,dragonInfo)
     -- 每一句初始化倍数
     dragonInfo.mulList = {}
     dragonInfo.sumMul = 1
-    
     -- 随机额外倍数
     if table.empty(dragonInfo.free) then
         -- 普通模式随机
@@ -108,7 +109,7 @@ function GetBoards(uid,gameId,gameType,isFree,dragonInfo)
         table.insert(dragonInfo.mulList,mul)
         dragonInfo.sumMul = mul
     else
-        -- 普通模式随机
+        -- 特殊模式随机
         local mulInfo = table_134_freeMul[gamecommon.CommRandInt(table_134_freeMul, 'pro')]
         -- 随机显示
         local randomPoints = chessutil.NotRepeatRandomNumbers(1, 3, 3)
@@ -119,11 +120,9 @@ function GetBoards(uid,gameId,gameType,isFree,dragonInfo)
         end
         dragonInfo.sumMul = mulInfo.sumMul
     end
-
     if dragonInfo.sumMul > 0 then
         res.winScore = res.winScore * dragonInfo.sumMul
     end
-
     if table.empty(dragonInfo.free) == false then
         dragonInfo.free.tWinScore = dragonInfo.free.tWinScore + res.winScore
     end
@@ -134,6 +133,8 @@ function GetBoards(uid,gameId,gameType,isFree,dragonInfo)
     res.extraData = {
         mulList = dragonInfo.mulList,
         sumMul = dragonInfo.sumMul,
+        bonusFlag = bonusFlag,
+        firstFlag = firstFlag,
     }
     return res
 end
@@ -179,4 +180,15 @@ function GetResInfo(uid, dragonInfo, gameType, tringerPoints)
         }
     }
     return res
+end
+
+function packFree(datainfo)
+    if table.empty(datainfo.free) then
+        return {}
+    end
+    return{
+        totalTimes=8,
+        lackTimes=datainfo.free.lackTimes,
+        tWinScore = datainfo.free.tWinScore,
+    }
 end

@@ -21,6 +21,7 @@ function parseData(betMoney,disInfo)
     local disInfos = disInfo
     local resDisInfos={}
     local tmul = 0
+    local ssum = 0
     --u图标id记录  重复不添加
     local uIconIdMap={}
     local bombdataMap = {}
@@ -29,7 +30,8 @@ function parseData(betMoney,disInfo)
         local mul = value.mul
         tmul = tmul + mul
         local dis = value.dis
-        local resChessdata,iconsAttachData = getIconAttachDataAndInfos(mchessdata,uIconIdMap,bombdataMap)
+        local resChessdata,iconsAttachData ,tssum= getIconAttachDataAndInfos(mchessdata,uIconIdMap,bombdataMap)
+        ssum = tssum
         local info = getInfos(betMoney,dis)
         table.insert(resDisInfos,{
             chessdata = resChessdata,
@@ -41,7 +43,7 @@ function parseData(betMoney,disInfo)
     for key, value in pairs(bombdataMap) do
         table.insert(bombdata,{val=key,mul = value})
     end
-    return resDisInfos,tmul,bombdata
+    return resDisInfos,tmul,bombdata,ssum
 end
 --获取info
 function getInfos(betMoney,dis)
@@ -60,6 +62,7 @@ end
 function getIconAttachDataAndInfos(chessdata,uIconIdMap,bombdataMap)
     local resChessdata = {}
     local iconsAttachData={}
+    local snums = 0 
     for col=1,#chessdata do
         resChessdata[col] = resChessdata[col] or {}
         for row=1,#chessdata[col] do
@@ -79,9 +82,12 @@ function getIconAttachDataAndInfos(chessdata,uIconIdMap,bombdataMap)
                 end
                 bombdataMap[val] = chessdata[col][row].mul
             end
+            if val ==S then
+                snums = snums + 1
+            end 
         end
     end
-    return resChessdata,iconsAttachData
+    return resChessdata,iconsAttachData,snums
 end
 
 
