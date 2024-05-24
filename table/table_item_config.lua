@@ -55,6 +55,24 @@ return {
         useType = "",
     },
 
+    [4] = {
+        ID = 4,
+        giftGoods = {},
+        goodDesc = "demo游戏使用的假金币",
+        goodIcon = "",
+        goodName = "demo金币",
+        goodType = 23,
+        isShow = 0,
+        limitTime = 0,
+        mark = "",
+        overNum = 1,
+        para1 = "",
+        para2 = "",
+        posType = 3,
+        price = 0,
+        useType = "",
+    },
+    
     [10000] = {
         ID = 10000,
         giftGoods = {},

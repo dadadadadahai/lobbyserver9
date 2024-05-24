@@ -12,6 +12,35 @@ Table_Base = import "table/game/131/table_131_hanglie"                        --
 MaxNormalIconId = 6
 LineNum = Table_Base[1].linenum
 -- 构造数据存档
+function SetGameMold(uid,demo)
+    local goldcowInfo = unilight.getdata(DB_Name, uid)
+    -- 没有则初始化信息
+    if table.empty(goldcowInfo) then
+        goldcowInfo = {
+            _id = uid, -- 玩家ID
+            demo = demo or 0 ,
+            gameRooms = {}, -- 游戏类型
+        }
+        unilight.savedata(DB_Name,goldcowInfo)
+    end
+    goldcowInfo.demo = demo or 0 
+end
+function GetGameMold(uid)
+    local goldcowInfo = unilight.getdata(DB_Name, uid)
+    -- 没有则初始化信息
+    if table.empty(goldcowInfo) then
+        goldcowInfo = {
+            _id = uid, -- 玩家ID
+            demo = 0,
+            gameRooms = {}, -- 游戏类型
+        }
+        unilight.savedata(DB_Name,goldcowInfo)
+    end
+    return goldcowInfo.demo or 0 
+end
+function IsDemo(uid)
+    return GetGameMold(uid)  == 1
+end
 function Get(gameType,uid)
     -- 获取金牛模块数据库信息
     local goldcowInfo = unilight.getdata(DB_Name, uid)
@@ -26,6 +55,7 @@ function Get(gameType,uid)
     if gameType == nil then
         return goldcowInfo
     end
+    local gameType = IsDemo(uid) and gameType*10 or gameType
     -- 没有初始化房间信息
     if table.empty(goldcowInfo.gameRooms[gameType]) then
         goldcowInfo.gameRooms[gameType] = {
@@ -45,6 +75,7 @@ function Get(gameType,uid)
 end
 -- 保存数据存档
 function SaveGameInfo(uid,gameType,roomInfo)
+    local gameType = IsDemo(uid) and gameType*10 or gameType
     -- 获取金牛模块数据库信息
     local goldcowInfo = unilight.getdata(DB_Name, uid)
     goldcowInfo.gameRooms[gameType] = roomInfo

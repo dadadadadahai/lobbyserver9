@@ -145,6 +145,7 @@ function Normal(gameId,gameType, betindex, datainfo, datainfos, uid)
     end
     datainfo.betMoney = chip
     datainfo.betindex = betindex
+    local userinfo = unilight.getdata('userinfo', datainfos._id)
     --启用图库模式
     local alldisInfo,realMul ,imageType= gameImagePool.RealCommonRotate(uid,GameId,gameType,nil,cleopatraNew,{betchip=betMoney/LineNum,betIndex=betindex,gameId=GameId,gameType=gameType,betchips=chip})
     if imageType == 2 or imageType == 3 then 

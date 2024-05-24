@@ -90,6 +90,7 @@ function BuyFree(gameType,betindex,datainfo,datainfos)
         BackpackMgr.GetRewardGood(datainfos._id, Const.GOODS_ID.GOLD,winScore, Const.GOODS_SOURCE_TYPE.FRUITPARTY2)
     end 
     local lastDis = disInfos[#disInfos]
+    
     local sNum = 0
     for col=1,#lastDis.chessdata do
         for row=1,#lastDis.chessdata[col] do
@@ -166,6 +167,7 @@ function Normal(gameId,gameType, betindex, datainfo, datainfos, uid)
     end
     datainfo.betMoney = chip
     datainfo.betindex = betindex
+    local userinfo = unilight.getdata('userinfo', datainfos._id)
     --启用图库模式
     local alldisInfo,realMul,imageType = gameImagePool.RealCommonRotate(uid,GameId,gameType,nil,fruitparty2,{betchip=betMoney,betIndex=betindex,gameId=GameId,gameType=gameType,betchips=chip})
     if imageType == 2 or imageType == 3 then
@@ -177,14 +179,8 @@ function Normal(gameId,gameType, betindex, datainfo, datainfos, uid)
         if winScore > 0 then 
             BackpackMgr.GetRewardGood(datainfos._id, Const.GOODS_ID.GOLD,winScore, Const.GOODS_SOURCE_TYPE.FRUITPARTY2)
         end 
-        local boards= table.clone(disInfos[1].chessdata)
-        local iconsAttachData = disInfos[1].iconsAttachData
-        for i=1,#disInfos-1 do
-            disInfos[i].chessdata = disInfos[i+1].chessdata
-           -- disInfos[i].iconsAttachData = disInfos[i+1].iconsAttachData
-        end
-        table.remove(disInfos,#disInfos)
-        local lastDis = disInfo[#disInfo]
+        local lastDis = disInfos[#disInfos]
+       
         local sNum = 0
         for col=1,#lastDis.chessdata do
             for row=1,#lastDis.chessdata[col] do
@@ -193,6 +189,14 @@ function Normal(gameId,gameType, betindex, datainfo, datainfos, uid)
                 end
             end
         end
+        local boards= table.clone(disInfos[1].chessdata)
+        local iconsAttachData = disInfos[1].iconsAttachData
+        for i=1,#disInfos-1 do
+            disInfos[i].chessdata = disInfos[i+1].chessdata
+           -- disInfos[i].iconsAttachData = disInfos[i+1].iconsAttachData
+        end
+        table.remove(disInfos,#disInfos)
+
         local freetimes = CalcFreeNum(sNum)
         dump(freetimes,"freetimes",1)
         datainfo.free={

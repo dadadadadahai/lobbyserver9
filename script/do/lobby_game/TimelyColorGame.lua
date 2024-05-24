@@ -21,7 +21,7 @@ TABLE_NAME = "timelycolor"
 TABLE_PRIZELOG_NAME = "timelycolorprizelog"
 TABLE_LOG_NAME = "timelycolorbetlog"
 TABLE_VIPPL_NAME = "viptimelycolor"
-
+local constindex = 1
 local function get_last_tenmin()
 	return math.floor(os.time()/600)*600   
 end
@@ -41,20 +41,70 @@ function Tick() --一分钟执行一次
 end 
 
 
-function GettTelvePrize(mustprize)
+function GettTelvePrize(i)
 	local prizes = {t={},f={}}
-	local curtw = table.clone(CONSTTIMELYCOLOR)
-	if table.empty(mustprize) then
-		local curnumber = CONSTTIMELYCOLOR[math.random(#CONSTTIMELYCOLOR)]
-		table.insert(prizes.t,curnumber)
-		table.insert(prizes.f,curnumber%2) --0是双--1是单
-	else
-	end 
+	local r = constindex+i%64+1
+	print(constindex,i,r)
+	local curnumber = CONSTTIMELYCOLOR[r]
+	table.insert(prizes.t,curnumber)
+	table.insert(prizes.f,curnumber%2) --0是双--1是单
 	return prizes
 end 
+function getOneOpenPrizes(allbets,i)
+	local prizes = GettTelvePrize(i)
+	local TprizesMP = table.map(prizes.t,function (v,k)
+		return v,true
+	end)
+	local FprizesMP = table.map(prizes.f,function (v,k)
+		return v,true
+	end)
+
+	local totablbonus = 0
+	local totablbetmoney = 0
+	for key, value in pairs(allbets) do
+		local gold = value.gold
+		local winnums = 0
+		local betmoney= value.betnums  * gold 
+		local  per_winner_bonus=  0 
+
+		for _, v in pairs(value.tw) do
+			if TprizesMP[v] then
+				winnums = winnums +1
+				per_winner_bonus = gold *15
+			end 
+		end
+		for _, v in pairs(value.fv) do
+			if FprizesMP[v] then
+				per_winner_bonus = per_winner_bonus +  gold*1.9
+			end 
+		end
+
+		totablbonus  = 	totablbonus  + per_winner_bonus
+		totablbetmoney  = 	totablbetmoney  + betmoney
+
+	end
+	return prizes ,totablbonus,totablbetmoney
+end 
+function OpenPrizes(allbets)
+	local prizes, totablbonus,totablbetmoney
+	local curprizes = {}
+	constindex = math.random(64)
+	for i = 1, 64, 1 do
+		 prizes, totablbonus,totablbetmoney= getOneOpenPrizes(allbets,i)
+		 if totablbetmoney >=totablbonus then
+			return prizes
+		end
+		 table.insert(curprizes,{prizes=prizes,tt = totablbetmoney -totablbonus })
+	end
+	local key = table.max(curprizes,function (v)
+		return v.tt
+	end)
+	return curprizes[key].prizes
+end
+
 function OpenPrize(btime,etime)
 	local allbets =  getUserBetInfo(btime,etime)
-	local prizes = GettTelvePrize()
+	local prizes = OpenPrizes(allbets)
 	local TprizesMP = table.map(prizes.t,function (v,k)
 		return v,true
 	end)
@@ -93,18 +143,6 @@ function OpenPrize(btime,etime)
 		print(uid .. "时时彩 中奖，获得奖金：" .. per_winner_bonus )
 		totablbonus  = 	totablbonus  + per_winner_bonus
 		totablbetmoney  = 	totablbetmoney  + betmoney
-		--发送邮件
-		local mailInfo = {}
-
-		local mailConfig = tableMailConfig[49]
-		mailInfo.charid = uid
-		mailInfo.subject = mailConfig.subject
-		mailInfo.content = mailConfig.content
-		mailInfo.type = 0 --0是个人邮件
-		mailInfo.attachment = {}
-		mailInfo.extData = {configId=mailConfig.ID}
-		table.insert(mailInfo.attachment,{itemId=Const.GOODS_TYPE.GOLD, itemNum=5000})
-		ChessGmMailMgr.AddGlobalMail(mailInfo)
 		if per_winner_bonus > 0 then 
 			prinzeusernums = prinzeusernums + 1
 			    --发送邮件
@@ -113,11 +151,11 @@ function OpenPrize(btime,etime)
 			local mailConfig = tableMailConfig[49]
 			mailInfo.charid = uid
 			mailInfo.subject = mailConfig.subject
-			mailInfo.content = mailConfig.content
+			mailInfo.content = string.format(mailConfig.content,per_winner_bonus/100) 
 			mailInfo.type = 0 --0是个人邮件
 			mailInfo.attachment = {}
 			mailInfo.extData = {configId=mailConfig.ID}
-			table.insert(mailInfo.attachment,{itemId=Const.GOODS_TYPE.GOLD, itemNum=per_winner_bonus})
+			table.insert(mailInfo.attachment,{itemId=Const.GOODS_ID.GOLD, itemNum=per_winner_bonus})
 			ChessGmMailMgr.AddGlobalMail(mailInfo)
 		end 
 	end
@@ -181,8 +219,8 @@ end
 function saveUserPrizeInfo(data)
 	unilight.savedata(TABLE_PRIZELOG_NAME, data)
 end
-function getUserPrizeInfo(time)
-	local filter = unilight.eq('time',time)
+function getUserPrizeInfo(time,uid)
+	local filter =unilight.a(unilight.eq('time',time),unilight.eq('uid',uid))
 	local all =  unilight.chainResponseSequence(unilight.startChain().Table(TABLE_PRIZELOG_NAME).Filter(filter))
 	return all 
 end
@@ -236,7 +274,7 @@ function Get_info_Cmd_C(uid)
 	local res = {game={},nextopentime = NEXTOPENTIME,basescore = basescore,betconfig=betconfig,isbet= not table.empty(getUserBetInfoOne(NEXTOPENTIME-600,uid)) }
 	for _, value in pairs(all) do
 		local data = value
-		local log = getUserPrizeInfo(value.time)
+		local log = getUserPrizeInfo(value.time,uid)
 		table.insert(res.game,{data = data,log = log })
 	end
 	return res 

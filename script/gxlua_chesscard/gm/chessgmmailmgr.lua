@@ -55,7 +55,11 @@ function AddGlobalMail(mailInfo, mailType)
 	mailInfo.id = emailId
 
     mailInfo.isRead = false
-
+    
+    -- 所有gm过来的邮件 如果有附件那么久直接给他标记附件没有领取
+	if not table.empty(mailInfo.attachment)  then
+		mailInfo.isGet = false
+	end
 	-- 所有gm过来的邮件 均存档
 	if mailInfo.recordtime == nil then
 		mailInfo.recordtime = os.time()

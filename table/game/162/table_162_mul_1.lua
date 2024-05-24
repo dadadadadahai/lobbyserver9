@@ -22,7 +22,7 @@ return {
         gailv75 = 3117,
         gailvfree = 2345,
         iconid = 90,
-        mul = 7,
+        mul = 9,
     },
 
     [3] = {
@@ -35,6 +35,42 @@ return {
         gailvfree = 866,
         iconid = 90,
         mul = 27,
+    },
+
+    [4] = {
+        ID = 4,
+        gailv100 = 0,
+        gailv150 = 0,
+        gailv200 = 0,
+        gailv50 = 0,
+        gailv75 = 0,
+        gailvfree = 0,
+        iconid = 90,
+        mul = 81,
+    },
+
+    [5] = {
+        ID = 5,
+        gailv100 = 0,
+        gailv150 = 0,
+        gailv200 = 0,
+        gailv50 = 0,
+        gailv75 = 0,
+        gailvfree = 0,
+        iconid = 90,
+        mul = 243,
+    },
+
+    [6] = {
+        ID = 6,
+        gailv100 = 0,
+        gailv150 = 0,
+        gailv200 = 0,
+        gailv50 = 0,
+        gailv75 = 0,
+        gailvfree = 0,
+        iconid = 90,
+        mul = 729,
     },
 
 }

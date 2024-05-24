@@ -1101,8 +1101,6 @@ function WGoldChange(uid, opType, gold, desc, sourceType)
 
     if desc == nil then desc = "未知" end
     unilight.info(string.format("玩家:%d,%s积分:%d, 剩余:%d, 原因:%s", uid, opStr,gold, property.gold, desc ))
-	-- 金币流向 全部记录
-	ChessItemsHistory.AddItemsHistory(uid, Const.GOODS_TYPE.POINT, property.gold, diff, desc)
 	SendRefreshMoneyMsg(uid, Const.GOODS_ID.POINT, property.gold, opType, gold, sourceType,userInfo.status.experienceStatus)
 
 	return property.gold, true

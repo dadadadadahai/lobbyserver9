@@ -603,7 +603,8 @@ end
 Net.CmdRequestTwelvegameInfo_C = function(cmd, laccount)
 
 	local uid = laccount.Id
-	--dump(property,"CmdRequestPointLotteryInfo_C",10)
+
+	--dump(uid,"uid",10)
 	local data = twelvegame.Get_info_Cmd_C(uid)
 	local res  = {}
 	res["do"] = "Cmd.ReturnTwelvegameBetInfo_S"
@@ -618,7 +619,7 @@ end
 
 -- 
 Net.CmdRequestTwelvegameBet_C = function(cmd, laccount)
-	dump(cmd,"CmdRequestTwelvegameBet_C",10)
+	--dump(cmd,"CmdRequestTwelvegameBet_C",10)
 	local uid = laccount.Id
 	local res = {}
 	res["do"] = "Cmd.ReturnTwelvegameBet_S"
@@ -628,7 +629,7 @@ Net.CmdRequestTwelvegameBet_C = function(cmd, laccount)
 		
 	}
 	res["data"].errno,res["data"].desc =   twelvegame.addbet(uid,cmd.data)
-	dump(res,"CmdRequestTwelvegameBet_Cres",10)
+	--dump(res,"CmdRequestTwelvegameBet_Cres",10)
 	return res
 
 end 
@@ -647,7 +648,7 @@ Net.CmdRequestTimelycolorInfo_C = function(cmd, laccount)
 		desc = "ok",
 		data = data,
 	}
-	dump(res,"CmdRequestTimelycolorInfo_Cres",10)
+	--dump(res,"CmdRequestTimelycolorInfo_Cres",10)
 	return res 
 end 
 
@@ -663,7 +664,7 @@ Net.CmdRequestTimelycolorBet_C = function(cmd, laccount)
 		
 	}
 	res["data"].errno,res["data"].desc  = timelycolor.addbet(uid,cmd.data)
-	dump(res,"CmdRequestTimelycolorBet_Cres",10)
+	--dump(res,"CmdRequestTimelycolorBet_Cres",10)
 	return res
 
 end 

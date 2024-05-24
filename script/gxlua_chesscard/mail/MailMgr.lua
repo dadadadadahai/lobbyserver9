@@ -105,6 +105,7 @@ function GetMailInfoByData(mailData)
 		content 	= mailData.content,
 		recordTime 	= mailData.recordtime,
 		isRead 		= mailData.isRead,
+		isGet 		= mailData.isGet,
         mailType    = mailData.mailType,
         overTime    = mailData.overTime,
         attachment  = mailData.attachment,
@@ -317,7 +318,7 @@ function GetMailAttachment(uid, mailIds)
 
     for i,mailInfo in ipairs(userMailData.maildata) do
         for _, mailId in pairs(mailIds) do
-            if mailInfo.id ==  mailId and mailInfo.isRead == false then
+            if mailInfo.id ==  mailId and not mailInfo.isGet  then
                 if table.len(mailInfo.attachment) > 0 then
                     for _, itemInfo in ipairs(mailInfo.attachment) do
                         summary = BackpackMgr.GetRewardGood(uid, itemInfo.itemId, itemInfo.itemNum, Const.GOODS_SOURCE_TYPE.MAIL, summary)
@@ -329,7 +330,7 @@ function GetMailAttachment(uid, mailIds)
                     end
                 end
                 --mailInfo.attachment = {}    --清空附件
-                mailInfo.isRead = true
+                mailInfo.isGet = true
                 bSucess = true
             end
         end

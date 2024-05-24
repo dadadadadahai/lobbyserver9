@@ -110,7 +110,17 @@ function CmdGetNormalRewardGood(uid, goodId, goodNum, sourceId, sourceType)
     --获得物品回调
     UserInfo.AddItemEvent(uid, goodId, goodNum)
 end
-
+function DemoInitPoint(uid)
+    local userInfo = unilight.getdata("userinfo", uid)
+	local property = userInfo.property
+	if property == nil then
+		unilight.error("DemoInitPoint()玩家不存在" .. uid)
+		return 0, false
+	end	
+	property.gold = 100000000
+	userInfo.property = property
+	WUserInfoUpdate(uid, userInfo)
+end 
 -- 获取物品统一处理接口
 -- summary = {goodId:goodNum} 汇总 
 --[[
@@ -163,7 +173,8 @@ function GetRewardGood(uid, goodId, goodNum, sourceType, summary)
             end
 
         end
-
+    elseif   tableGood.goodType == Const.GOODS_TYPE.POINT then
+        chessuserinfodb.WGoldChange(uid, Const.PACK_OP_TYPE.ADD, goodNum, Const.GOODS_SOURCE_NAME[sourceType], sourceType)
         -- 金币基础
     elseif tableGood.goodType == Const.GOODS_TYPE.GOLD_BASE then
         --加成统一处理
