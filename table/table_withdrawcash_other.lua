@@ -5,10 +5,10 @@ return {
         MaxCpfNum = 5,
         addServiceCharge = 0,
         betMul = 1,
-        firstMinDinheiro = 3000,
-        firstServiceCharge = 200,
+        firstMinDinheiro = 3000,            --首次最低体现值
+        firstServiceCharge = 200,           --提现手续费
         intervalMinutes = 0,
-        minDinheiro = 3000,
+        minDinheiro = 3000,                 --最低提现额
     },
 
 }
