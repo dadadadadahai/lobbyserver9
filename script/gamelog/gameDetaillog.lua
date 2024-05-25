@@ -108,9 +108,9 @@ function SaveDetailGameLog(uid,sTime,gameId,gameType,betChip,bChip,aChip,tax,gam
     rebate.IsValidinVite(uid)
     rebate.IsFreeValidinVite(uid)
     -- nvipmgr.AddLostGold(uid,tbetchip,sysWinScore)
-    if userinfo.property.totalRechargeChips > 0 then
-        DayBetMoney.AddDayBetMoney(uid,tbetchip)
-    end
+    -- if userinfo.property.totalRechargeChips > 0 then
+    --     DayBetMoney.AddDayBetMoney(uid,tbetchip)
+    -- end
     if tbetchip > 0 then
         nTask.AddTaskNum(uid,5,1)
     end

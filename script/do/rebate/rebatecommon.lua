@@ -12,9 +12,12 @@ RebateChipsTable = 'flowing_final'
 function AddRebateListChips(dbId,uid,chips)
     -- 获取玩家信息
     local userInfo = unilight.getdata('userinfo',uid)
-    if userInfo.status.experienceStatus == 0 then
+    if userInfo.property.totalRechargeChips<=0 then
         return
     end
+    -- if userInfo.status.experienceStatus == 0 then
+    --     return
+    -- end
 
     -- if (not UserInfo.HaveSuperiors(uid)) then
     --     return

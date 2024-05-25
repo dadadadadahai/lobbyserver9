@@ -315,3 +315,41 @@ function GetInviteReward(uid,type)
     }
     return res
 end
+
+--查询流水返利接口
+function QueryRebateRelation(uid)
+    local data = unilight.getdata('extension_relation',uid)
+    local res={
+        unclaimed = 0,      --待领取
+        claimed = 0,        --可领取
+        oneUnderNum = 0,    --下线人数
+    }
+    if table.empty(data)==false then
+        res.unclaimed = data.TodayBetFall
+        res.claimed = data.tomorrowFlowingChips
+        res.oneUnderNum = data.oneUnderNum
+    end
+    return res
+
+end
+--领取返利
+function RecvRebateRelation(uid)
+    local claimed = 0
+    local data = unilight.getdata('extension_relation',uid)
+    if table.empty(data)==false then
+        claimed = math.floor(data.tomorrowFlowingChips)
+    end
+    if claimed>0 then
+        --加上金币
+        data.tomorrowFlowingChips=data.tomorrowFlowingChips-claimed
+        unilight.savedata('extension_relation',data)
+        local withdrawCashInfo = WithdrawCash.UserGameConstruct(uid)
+        withdrawCashInfo.statement = withdrawCashInfo.statement + claimed
+        BackpackMgr.GetRewardGood(uid, Const.GOODS_ID.GOLD,claimed , Const.GOODS_SOURCE_TYPE.RECVREBATE)
+        unilight.savedata('withdrawcash',withdrawCashInfo)
+    end
+    --返回
+    return {
+        claimed = claimed,  --领取的具体值
+    }
+end
