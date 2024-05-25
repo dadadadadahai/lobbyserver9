@@ -20,8 +20,9 @@ end
 --拉动游戏过程
 function CmdGameOprate(uid, msg)
     -- 获取数据库信息
-    local dragonInfo = Get(msg.gameType, uid)
+
     if   IsDemo(uid) then
+        local dragonInfo = Get(msg.gameType, uid)
          --金龙有免费
          if not table.empty(dragonInfo.free) then 
             --进入免费游戏逻辑
@@ -34,6 +35,7 @@ function CmdGameOprate(uid, msg)
             AddDemoNums(uid)
         end
     else
+        local dragonInfo = Get(msg.gameType, uid)
         if not table.empty(dragonInfo.free) then 
             --进入免费游戏逻辑
             local res = PlayFreeGame(dragonInfo,uid,msg.gameType)

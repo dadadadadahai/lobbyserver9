@@ -320,14 +320,15 @@ end
 function QueryRebateRelation(uid)
     local data = unilight.getdata('extension_relation',uid)
     local res={
+        errno = 0 ,
         unclaimed = 0,      --待领取
         claimed = 0,        --可领取
         oneUnderNum = 0,    --下线人数
     }
     if table.empty(data)==false then
-        res.unclaimed = data.TodayBetFall
-        res.claimed = data.tomorrowFlowingChips
-        res.oneUnderNum = data.oneUnderNum
+        res.unclaimed = data.TodayBetFall or 0
+        res.claimed = data.tomorrowFlowingChips or 0
+        res.oneUnderNum = data.oneUnderNum or 0
     end
     return res
 
@@ -350,6 +351,7 @@ function RecvRebateRelation(uid)
     end
     --返回
     return {
+        errno = 0 ,
         claimed = claimed,  --领取的具体值
     }
 end

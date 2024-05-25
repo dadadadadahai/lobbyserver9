@@ -20,8 +20,8 @@ end
 --拉动游戏过程
 function CmdGameOprate(uid, msg)
     -- 获取数据库信息
-    
     if   IsDemo(uid) then
+        local elephantInfo = Get(msg.gameType, uid)
         if not table.empty(elephantInfo.free) then
             --进入免费游戏逻辑
             local res = PlayFreeGameDemo(elephantInfo,uid,msg.gameType)
@@ -33,20 +33,18 @@ function CmdGameOprate(uid, msg)
             AddDemoNums(uid)
         end
     else
-        for i = 1, 100000, 1 do
-            local elephantInfo = Get(msg.gameType, uid)
-            msg.betIndex = math.random(12)
-            if not table.empty(elephantInfo.free) then
-                --进入免费游戏逻辑
-                local res = PlayFreeGame(elephantInfo,uid,msg.gameType)
-              --  WithdrawCash.GetBetInfo(uid,DB_Name,msg.gameType,res,false,GameId)
-                --gamecommon.SendNet(uid,'GameOprateGame_S',res)
-            else
-                --进入普通游戏逻辑
-                local res = PlayNormalGame(elephantInfo,uid,msg.betIndex,msg.gameType)
-               -- WithdrawCash.GetBetInfo(uid,DB_Name,msg.gameType,res,true,GameId)
-               -- gamecommon.SendNet(uid,'GameOprateGame_S',res)
-            end
+        local elephantInfo = Get(msg.gameType, uid)
+        msg.betIndex = math.random(12)
+        if not table.empty(elephantInfo.free) then
+            --进入免费游戏逻辑
+            local res = PlayFreeGame(elephantInfo,uid,msg.gameType)
+            --  WithdrawCash.GetBetInfo(uid,DB_Name,msg.gameType,res,false,GameId)
+            gamecommon.SendNet(uid,'GameOprateGame_S',res)
+        else
+            --进入普通游戏逻辑
+            local res = PlayNormalGame(elephantInfo,uid,msg.betIndex,msg.gameType)
+            WithdrawCash.GetBetInfo(uid,DB_Name,msg.gameType,res,true,GameId)
+            gamecommon.SendNet(uid,'GameOprateGame_S',res)
         end
     end 
 end

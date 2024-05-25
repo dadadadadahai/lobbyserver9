@@ -116,13 +116,14 @@ function RealCommonRotate(_id,gameId,gameType,imageType,gameObj,param)
     unilight.info('imageType',imageType)
     unilight.info('jsonstr',jsonstr)
     local jsonobj = json.decode(jsonstr)
-    userinfo.gameData.slotsBet = userinfo.gameData.slotsBet + betchip
-    if gameId == 137 then 
-        userinfo.gameData.slotsWin = userinfo.gameData.slotsWin + math.floor(realMul * betchip)
-    else
-        userinfo.gameData.slotsWin = userinfo.gameData.slotsWin + math.floor(realMul * betchip*gameObj.LineNum)
+    if not demo  then 
+        userinfo.gameData.slotsBet = userinfo.gameData.slotsBet + betchip
+        if gameId == 137 then 
+            userinfo.gameData.slotsWin = userinfo.gameData.slotsWin + math.floor(realMul * betchip)
+        else
+            userinfo.gameData.slotsWin = userinfo.gameData.slotsWin + math.floor(realMul * betchip*gameObj.LineNum)
+        end 
     end 
-
     return jsonobj,realMul,imageType
 end
 --取出0倍图库
