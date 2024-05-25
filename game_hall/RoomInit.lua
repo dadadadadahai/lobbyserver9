@@ -25,6 +25,10 @@ function StartOver()
     -- unilight.addtimer('racelamp.timer',20)
     -- racelamp.Init()
 	unilight.info("服务器启动调用")
+      --积分抽奖定时器
+    --  unilight.addclocker("Pointlottery.PLTick", 0, CYCLE_MIN)
+    unilight.addclocker("timelycolor.Tick", 0, 1)
+    unilight.addclocker("twelvegame.Tick", 0, 1)
     --每10秒钟定时器
 	-- unilight.addclocker("LobbyRoomInitMgr.TenSecCallback", 0, 10)
     --每30秒钟定时器
