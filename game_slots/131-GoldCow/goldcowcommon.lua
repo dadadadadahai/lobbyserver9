@@ -21,9 +21,9 @@ function SetGameMold(uid,demo)
             demo = demo or 0 ,
             gameRooms = {}, -- 游戏类型
         }
-        unilight.savedata(DB_Name,goldcowInfo)
     end
-    goldcowInfo.demo = demo or 0 
+    goldcowInfo.demo = demo or 0
+    unilight.savedata(DB_Name,goldcowInfo)
 end
 function GetGameMold(uid)
     local goldcowInfo = unilight.getdata(DB_Name, uid)

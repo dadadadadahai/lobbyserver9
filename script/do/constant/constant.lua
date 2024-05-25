@@ -143,6 +143,7 @@ GOODS_SOURCE_TYPE           = {
     REDEEMCODE              = 66, --兑换码
     LUCKYPLAYER             = 67, --幸运玩家
     LOSSREBATE              = 68, --损失返利
+    DEMOINIT               = 69, --demo游戏初始化
     GOLDENUNICORN           =10101,     --黄金独角兽
     CRAZYTRUCK              =10102,     --疯狂大卡车
     HAPPYPUMPKIN            =10103,     --快乐南瓜

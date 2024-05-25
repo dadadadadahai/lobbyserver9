@@ -110,17 +110,7 @@ function CmdGetNormalRewardGood(uid, goodId, goodNum, sourceId, sourceType)
     --获得物品回调
     UserInfo.AddItemEvent(uid, goodId, goodNum)
 end
-function DemoInitPoint(uid)
-    local userInfo = unilight.getdata("userinfo", uid)
-	local property = userInfo.property
-	if property == nil then
-		unilight.error("DemoInitPoint()玩家不存在" .. uid)
-		return 0, false
-	end	
-	property.gold = 100000000
-	userInfo.property = property
-	WUserInfoUpdate(uid, userInfo)
-end 
+
 -- 获取物品统一处理接口
 -- summary = {goodId:goodNum} 汇总 
 --[[

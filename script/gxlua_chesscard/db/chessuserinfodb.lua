@@ -1058,6 +1058,18 @@ function WChipsChange(uid, opType, chips, desc, sourceType)
 	return property.chips, true
 end
 
+function DemoInitPoint(uid)
+    local userInfo = unilight.getdata("userinfo", uid)
+	local property = userInfo.property
+	if property == nil then
+		unilight.error("DemoInitPoint()玩家不存在" .. uid)
+		return 0, false
+	end	
+	property.gold = 100000000
+	userInfo.property = property
+	WUserInfoUpdate(uid, userInfo)
+	SendRefreshMoneyMsg(uid, Const.GOODS_ID.POINT, property.gold, 1, 100000000, Const.GOODS_SOURCE_TYPE.DEMOINIT,userInfo.status.experienceStatus)
+end 
 -- 修改积分数量
 -- in, opType = 1 表示增加, opType = 2 表示减少
 -- out, remander = 表示剩余钱数, ok

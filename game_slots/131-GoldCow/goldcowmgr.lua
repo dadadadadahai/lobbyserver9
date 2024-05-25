@@ -6,12 +6,16 @@ function CmdEnterGame(uid, msg)
     -- 获取玩家信息
     -- 获取游戏类型
     SetGameMold(uid,msg.demo)
+
     local gameType = msg.gameType
     -- 获取数据库信息
     local goldcowInfo = Get(gameType, uid)
     local res = GetResInfo(uid, goldcowInfo, gameType)
     -- 发送消息
     gamecommon.SendNet(uid,'EnterSceneGame_S',res)
+    if IsDemo(uid) then
+        chessuserinfodb.DemoInitPoint(uid)
+    end 
 end
 
 --拉动游戏过程
@@ -20,11 +24,13 @@ function CmdGameOprate(uid, msg)
     -- 获取数据库信息
     local goldcowInfo = Get(msg.gameType, uid)
     --进入普通游戏逻辑
-  -- for i = 1, 5000, 1 do
-       -- msg.betIndex = math.random(12)
-        local res = PlayNormalGame(goldcowInfo,uid,msg.betIndex,msg.gameType,msg.isAdditional)
+    if   IsDemo(uid) then
+        res = PlayNormalGame_Demo(goldcowInfo,uid,msg.betIndex,msg.gameType)
+    else 
+        res = PlayNormalGame(goldcowInfo,uid,msg.betIndex,msg.gameType)
         WithdrawCash.GetBetInfo(uid,DB_Name,msg.gameType,res,true,GameId)
-  -- end
+    end 
+  
 
     gamecommon.SendNet(uid,'GameOprateGame_S',res)
 end

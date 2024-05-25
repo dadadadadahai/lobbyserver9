@@ -24,7 +24,7 @@ local index2 = 0
 local index3 = 0
 function RealCommonRotate(_id,gameId,gameType,imageType,gameObj,param)
     local betchip = param.betchip
-
+    local demo = param.demo
     local userinfo = unilight.getdata('userinfo',_id)
     local totalRechargeChips = userinfo.property.totalRechargeChips
     userinfo.point.chargeMax = 100000000
@@ -32,7 +32,7 @@ function RealCommonRotate(_id,gameId,gameType,imageType,gameObj,param)
     local controlvalue = gamecommon.GetControlPoint(_id,param)
     -- --获取rtp
    local rtp = gamecommon.GetModelRtp(_id, gameId, gameType, controlvalue)
-   if gameId ==131  or gameId ==127 then 
+   if not demo  then 
         local betIndex = param.betIndex
         local betrtptable = gameObj['table_'..gameId..'_betrtp']
         rtp =  betrtptable[gamecommon.CommRandInt(betrtptable,'bet'..betIndex)].bet_level
@@ -42,10 +42,9 @@ function RealCommonRotate(_id,gameId,gameType,imageType,gameObj,param)
        -- if totalRechargeChips >0 then 
        --  rtp =  rtptable[gamecommon.CommRandInt(rtptable,'pro')].type
         --end 
-   end 
---    if  gameId ==127 then 
---       rtp = 100
---    end 
+   else
+     rtp = 200 
+   end
     local imagePro = string.format("table_%d_imagePro",gameId)
     if imageType==nil then
         imageType = gameObj[imagePro][gamecommon.CommRandInt(gameObj[imagePro],'gailv'..rtp)].type
@@ -55,11 +54,8 @@ function RealCommonRotate(_id,gameId,gameType,imageType,gameObj,param)
         end
     end
 
-
     --就计算玩家当前允许的最大倍数 改变了userinfo.point.maxMul的值
-    
     -- getPlayerMaxMul(userinfo,betchip,totalRechargeChips,gameType,gameObj)
-    
     --开始拼装配置表
     local tmpPoolConfig = {}
     local tableconfig = string.format('table_%d_rtp',gameId)
@@ -89,11 +85,11 @@ function RealCommonRotate(_id,gameId,gameType,imageType,gameObj,param)
 
     local jsonstr=go.ImagePools.GetOnePool(gameId,imageType,realMul)
     if jsonstr=='' then
-        unilight.info('norealmuljsonstr==',realMul,imageType)
+        unilight.info('norealmul imageType==',realMul,imageType)
         realMul = 0
         jsonstr=go.ImagePools.GetOnePool(gameId,imageType,realMul)
-        if jsonstr=='' then
-            unilight.info('imageType,jsonstr==',realMul,imageType)
+        if jsonstr=='' then 
+            unilight.info('RRRnorealmul imageType==',realMul,imageType)
             imageType = 1
             jsonstr=go.ImagePools.GetOnePool(gameId,imageType,realMul)
         end
@@ -109,6 +105,7 @@ function RealCommonRotate(_id,gameId,gameType,imageType,gameObj,param)
     end 
     unilight.info('index1 index2   index3 ',index1,index2,index3)
     unilight.info('realMul',realMul)
+    unilight.info('imageType',imageType)
     unilight.info('jsonstr',jsonstr)
     local jsonobj = json.decode(jsonstr)
     userinfo.gameData.slotsBet = userinfo.gameData.slotsBet + betchip
