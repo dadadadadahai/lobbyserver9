@@ -39,7 +39,11 @@ function CmdGameOprate(uid, msg)
         if not table.empty(dragonInfo.free) then 
             --进入免费游戏逻辑
             local res = PlayFreeGame(dragonInfo,uid,msg.gameType)
+<<<<<<< HEAD
            -- WithdrawCash.GetBetInfo(uid,DB_Name,msg.gameType,res,false,GameId)
+=======
+            WithdrawCash.GetBetInfo(uid,DB_Name,msg.gameType,res,false,GameId)
+>>>>>>> cad78e1 (2)
             gamecommon.SendNet(uid,'GameOprateGame_S',res)
         else
             --进入普通游戏逻辑
