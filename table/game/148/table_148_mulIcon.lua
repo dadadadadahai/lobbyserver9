@@ -4,13 +4,13 @@ return {
     [1] = {
         ID = 1,
         iconId = 1,
-        pro = 7500,
+        pro = 7000,
     },
 
     [2] = {
         ID = 2,
         iconId = 2,
-        pro = 2400,
+        pro = 2500,
     },
 
     [3] = {
@@ -22,25 +22,25 @@ return {
     [4] = {
         ID = 4,
         iconId = 4,
-        pro = 0,
+        pro = 100,
     },
 
     [5] = {
         ID = 5,
         iconId = 5,
-        pro = 0,
+        pro = 100,
     },
 
     [6] = {
         ID = 6,
         iconId = 6,
-        pro = 0,
+        pro = 100,
     },
 
     [7] = {
         ID = 7,
         iconId = 90,
-        pro = 0,
+        pro = 100,
     },
 
 }

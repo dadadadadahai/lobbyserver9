@@ -1338,3 +1338,8 @@ function DelGameInfo(uid)
     end
     storecatch.ClearStore(uid)
 end
+
+--通用发送
+function SendGlobalMsgTip(uid,data)
+    SendNet(uid,'GlobalMsgTip_S',data)
+end

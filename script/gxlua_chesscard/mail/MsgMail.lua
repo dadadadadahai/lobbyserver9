@@ -7,7 +7,7 @@ Net.CmdGetListMailCmd_C = function(cmd, laccount)
 	local page = cmd.data.page or 0
 	local  ret, desc, userMailInfo = MailMgr.GetListUserMail(uid,page)
 	res["data"] = {
-		resultCode 	= ret, 
+		errno 	= ret, 
 		desc 		= desc, 
 		mailInfo 	= userMailInfo,
 	}
@@ -24,6 +24,7 @@ Net.CmdGetMailNumCmd_C = function(cmd, laccount)
 	res["data"] = {
 		noReadNum 	= dataInfo.noReadNum,
 		totalNum = dataInfo.totalNum,
+		errno = 0
 	}
 	return res
 end
@@ -39,7 +40,7 @@ Net.CmdReadMailCmd_C = function(cmd, laccount)
 
 	local  ret, desc, mailInfo, coin, remainder = MailMgr.ReadMail(uid, cmd.data.id)
 	res["data"] = {
-		resultCode 	= ret, 
+		errno 	= ret, 
 		desc 		= desc, 
 		coin 		= coin, 
 		mailInfo 	= mailInfo,
@@ -59,7 +60,7 @@ Net.CmdDeleteMailCmd_C = function(cmd, laccount)
 
 	local  ret, desc, userMailInfo = MailMgr.DeleteUserMail(uid, cmd.data.ids)
 	res["data"] = {
-		resultCode 	= ret, 
+		errno 	= ret, 
 		desc 		= desc, 
 		mailInfo 	= userMailInfo,
 	}

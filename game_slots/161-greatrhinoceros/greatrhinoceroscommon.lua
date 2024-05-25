@@ -29,6 +29,7 @@ function Get(gameType,uid)
     if gameType == nil then
         return GreatRhinocerosInfo
     end
+    local gameType = IsDemo(uid) and gameType*10 or gameType
     -- 没有初始化房间信息
     if table.empty(GreatRhinocerosInfo.gameRooms[gameType]) then
         GreatRhinocerosInfo.gameRooms[gameType] = {
@@ -45,6 +46,7 @@ end
 -- 保存数据存档
 function SaveGameInfo(uid,gameType,roomInfo)
     -- 获取大象模块数据库信息
+    local gameType = IsDemo(uid) and gameType*10 or gameType
     local GreatRhinocerosInfo = unilight.getdata(DB_Name, uid)
     GreatRhinocerosInfo.gameRooms[gameType] = roomInfo
     unilight.update(DB_Name,uid,GreatRhinocerosInfo)

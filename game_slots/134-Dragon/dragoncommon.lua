@@ -11,6 +11,48 @@ DataFormat = {3,3,3}    -- 棋盘规格
 Table_Base = import "table/game/134/table_134_hanglie"                        -- 基础行列
 MaxNormalIconId = 6
 LineNum = Table_Base[1].linenum
+function SetGameMold(uid,demo)
+    local datainfo = unilight.getdata(DB_Name, uid)
+    -- 没有则初始化信息
+    if table.empty(datainfo) then
+        datainfo = {
+            _id = uid, -- 玩家ID
+            demo = demo or 0 ,
+            gameRooms = {}, -- 游戏类型
+        }
+    end
+    datainfo.demo = demo or 0
+    unilight.savedata(DB_Name,datainfo)
+end
+function GetGameMold(uid)
+    local datainfo = unilight.getdata(DB_Name, uid)
+    -- 没有则初始化信息
+    if table.empty(datainfo) then
+        datainfo = {
+            _id = uid, -- 玩家ID
+            demo = 0,
+            gameRooms = {}, -- 游戏类型
+        }
+        unilight.savedata(DB_Name,datainfo)
+    end
+    return datainfo.demo or 0 
+end
+function IsDemo(uid)
+    return GetGameMold(uid)  == 1
+end
+function AddDemoNums(uid)
+    local datainfo = unilight.getdata(DB_Name, uid)
+    -- 没有则初始化信息
+    if table.empty(datainfo) then
+        dump("nodatainfo")
+        return 
+    end 
+    datainfo.demonum =  datainfo.demonum  and (datainfo.demonum  + 1 ) or 1
+    unilight.savedata(DB_Name,datainfo)
+    if datainfo.demonum % 5 == 0 then 
+        gamecommon.SendGlobalMsgTip(uid,{type = Const.MSGTIP.DEMO})
+    end 
+end
 -- 构造数据存档
 function Get(gameType,uid)
     -- 获取生肖龙模块数据库信息
@@ -27,6 +69,7 @@ function Get(gameType,uid)
         return dragonInfo
     end
     -- 没有初始化房间信息
+    local gameType = IsDemo(uid) and gameType*10 or gameType
     if table.empty(dragonInfo.gameRooms[gameType]) then
         dragonInfo.gameRooms[gameType] = {
             betIndex = 1, -- 当前玩家下注下标
@@ -44,6 +87,7 @@ end
 -- 保存数据存档
 function SaveGameInfo(uid,gameType,roomInfo)
     -- 获取生肖龙模块数据库信息
+    local gameType = IsDemo(uid) and gameType*10 or gameType
     local dragonInfo = unilight.getdata(DB_Name, uid)
     dragonInfo.gameRooms[gameType] = roomInfo
     unilight.update(DB_Name,uid,dragonInfo)

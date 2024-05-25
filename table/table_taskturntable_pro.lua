@@ -49,9 +49,9 @@ return {
     [6] = {
         ID = 6,
         desc = "300",
-        pro1 = 2000,
-        pro2 = 2000,
-        pro3 = 2000,
+        pro1 = 5,
+        pro2 = 5,
+        pro3 = 5,
         type = 2,
     },
 
@@ -67,9 +67,9 @@ return {
     [8] = {
         ID = 8,
         desc = "200",
-        pro1 = 2000,
-        pro2 = 2000,
-        pro3 = 2000,
+        pro1 = 10,
+        pro2 = 10,
+        pro3 = 10,
         type = 2,
     },
 
@@ -85,9 +85,9 @@ return {
     [10] = {
         ID = 10,
         desc = "10",
-        pro1 = 2000,
-        pro2 = 2000,
-        pro3 = 2000,
+        pro1 = 100,
+        pro2 = 100,
+        pro3 = 100,
         type = 2,
     },
 
@@ -103,9 +103,9 @@ return {
     [12] = {
         ID = 12,
         desc = "50",
-        pro1 = 2000,
-        pro2 = 2000,
-        pro3 = 2000,
+        pro1 = 50,
+        pro2 = 50,
+        pro3 = 50,
         type = 2,
     },
 

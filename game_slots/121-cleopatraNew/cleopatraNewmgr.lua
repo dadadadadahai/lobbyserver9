@@ -1,16 +1,14 @@
 module('cleopatraNew',package.seeall)
 --进入游戏场景消息
 function CmdEnterGame(uid,msg)
-    local gameId = msg.gameId
     local gameType = msg.gameType
-    local datainfo,datainfos = Get(gameType,uid)
-    local betconfig = gamecommon.GetBetConfig(gameType,LineNum)
+    local datainfo = Get(gameType,uid)
     local res={
         errno = 0,
-        betConfig = betconfig, 
+        betConfig = gamecommon.GetBetConfig(gameType,LineNum), 
         betIndex = datainfo.betindex,
         bAllLine=LineNum,
-        gameType = datainfos.gameType,
+        gameType = gameType,
         features={
             free = packFree(datainfo),      --是否存在免费  存在的话 就是刚才的数据
         },
@@ -23,42 +21,41 @@ function CmdEnterGame(uid,msg)
     gamecommon.SendNet(uid,'EnterSceneGame_S',res)
 end
 function CmdGameOprate(uid,msg)
-    local gameId = msg.gameId
-    local gameType = msg.gameType
-    local datainfo,datainfos = Get(gameType,uid)
-    datainfos.gameType = gameType
+    for i = 1, 50000, 1 do
+        local datainfo = Get(msg.gameType,uid)
+        local res={}
+        if table.empty(datainfo.free)==false then
+            res = Free(msg.gameType,datainfo,uid)
+        else
+            res = Normal(msg.gameType,msg.betIndex,datainfo,uid)
+           -- WithdrawCash.GetBetInfo(uid,Table,msg.gameType,res,true,GameId)
+        end
+    end
+    local datainfo = Get(msg.gameType,uid)
     local res={}
     if table.empty(datainfo.free)==false then
-    
-        res = Free(gameId,gameType,datainfo,datainfos)
-        -- WithdrawCash.GetBetInfo(uid,Table,gameType,res,false)
+        res = Free(msg.gameType,datainfo,uid)
     else
-        res = Normal(gameId,gameType,msg.betIndex,datainfo,datainfos,uid)
-        WithdrawCash.GetBetInfo(uid,Table,gameType,res,true)
+        res = Normal(msg.gameType,msg.betIndex,datainfo,uid)
+       -- WithdrawCash.GetBetInfo(uid,Table,msg.gameType,res,true,GameId)
     end
-    res.gameType = gameType
-    dump(res,"cleopatraNewCmdGameOprate",10)
-    gamecommon.SendNet(uid, 'GameOprateGame_S', res)
+  --  res.gameType = msg.gameType
+  --  dump(res,"cleopatraNewCmdGameOprate",10)
+   -- gamecommon.SendNet(uid, 'GameOprateGame_S', res)
 
 end
 function CmdBuyFree(uid,msg)
-
-    local gameType = msg.gameType
-    local datainfo,datainfos = Get(gameType,uid)
-    datainfos.gameType = gameType
-    local res = BuyFree(gameType,msg.betIndex,datainfo,datainfos)
-    res.gameType = gameType
+    local datainfo = Get(msg.gameType,uid)
+    local res = BuyFree(msg.gameType,msg.betIndex,datainfo,uid)
+    WithdrawCash.GetBetInfo(uid,Table,msg.gameType,res,true,GameId)
+    res.gameType = msg.gameType
     dump(res,"cleopatraNewCmdBuyFree",10)
     gamecommon.SendNet(uid, 'GameOprateGame_S', res)
 end
 function CmdBuyHighBet(uid,msg)
-
-    local gameType = msg.gameType
-    local datainfo,datainfos = Get(gameType,uid)
-    datainfos.gameType = gameType
-    local res = BuyHighBet(msg.highLevel,datainfo,datainfos)
-    res.gameType = gameType
-
+    local datainfo = Get(msg.gameType,uid)
+    local res = BuyHighBet(msg.highLevel,datainfo,msg.gameType,uid)
+    res.gameType = msg.gameType
     gamecommon.SendNet(uid, 'HighBetCmd_S', res)
 end
 --注册消息解析

@@ -1,4 +1,4 @@
--- 自动生成 ./excel/game/121/standard.xlsx(table_121_jackpot_scale2)
+-- 自动生成 ./excel/game/160/standard.xlsx(table_160_jackpot_scale2)
 return {
 
     [1] = {

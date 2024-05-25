@@ -9,13 +9,13 @@ return {
 
     [2] = {
         ID = 2,
-        pro = 7500,
+        pro = 8000,
         result = 2,
     },
 
     [3] = {
         ID = 3,
-        pro = 1500,
+        pro = 1000,
         result = 3,
     },
 

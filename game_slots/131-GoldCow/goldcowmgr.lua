@@ -3,8 +3,7 @@ module('GoldCow', package.seeall)
 
 -- 获取金牛模块信息
 function CmdEnterGame(uid, msg)
-    -- 获取玩家信息
-    -- 获取游戏类型
+
     SetGameMold(uid,msg.demo)
 
     local gameType = msg.gameType
@@ -25,7 +24,8 @@ function CmdGameOprate(uid, msg)
     local goldcowInfo = Get(msg.gameType, uid)
     --进入普通游戏逻辑
     if   IsDemo(uid) then
-        res = PlayNormalGame_Demo(goldcowInfo,uid,msg.betIndex,msg.gameType)
+        res = PlayNormalGameDemo(goldcowInfo,uid,msg.betIndex,msg.gameType)
+        AddDemoNums(uid)
     else 
         res = PlayNormalGame(goldcowInfo,uid,msg.betIndex,msg.gameType)
         WithdrawCash.GetBetInfo(uid,DB_Name,msg.gameType,res,true,GameId)

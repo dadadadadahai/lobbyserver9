@@ -38,25 +38,25 @@ return {
     },
 
     [1001] = {
-        Formula = "http://webapi.slotmagia7.com:8083/relation/bind/%s/%s",
+        Formula = "https://webapi.5r5.com:8083/relation/bind/%s/%s",
         ID = 1001,
         desc = "好友邀请url",
     },
 
     [1002] = {
-        Formula = "http://webapi.slotmagia7.com:8083/sms/send/%s/%s",
+        Formula = "https://webapi.5r5.com:8083/sms/send/%s/%s",
         ID = 1002,
         desc = "短信验证url",
     },
 
     [1003] = {
-        Formula = "http://webapi.slotmagia7.com:8083/repay/repayState/%s/%s",
+        Formula = "https://webapi.5r5.com:8083/repay/repayState/%s/%s",
         ID = 1003,
         desc = "申请提现url",
     },
 
     [1004] = {
-        Formula = "https://pay.slotsclassic11.com/collectdata/find/%s/%s",
+        Formula = "https://pay.5r5.com/collectdata/find/%s/%s",
         ID = 1004,
         desc = "查询gps_adid url",
     },

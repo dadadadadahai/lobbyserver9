@@ -3,7 +3,7 @@ return {
 
     [1] = {
         ID = 1,
-        desc = "TsPay01",
+        desc = "TsPay",
         platId = 1,
         pro = 10,
         status1 = 0,
@@ -12,7 +12,7 @@ return {
 
     [2] = {
         ID = 2,
-        desc = "LePay02",
+        desc = "LePay",
         platId = 2,
         pro = 10,
         status1 = 0,
@@ -21,7 +21,7 @@ return {
 
     [3] = {
         ID = 3,
-        desc = "Fastpay03",
+        desc = "Fastpay",
         platId = 3,
         pro = 10,
         status1 = 1,
@@ -30,16 +30,16 @@ return {
 
     [4] = {
         ID = 4,
-        desc = "goopago04",
-        platId = 4,
+        desc = "Sitopay",
+        platId = 5,
         pro = 10,
-        status1 = 0,
+        status1 = 1,
         status2 = 0,
     },
 
     [5] = {
         ID = 5,
-        desc = "HKPpay06",
+        desc = "HKPpay",
         platId = 6,
         pro = 10,
         status1 = 0,

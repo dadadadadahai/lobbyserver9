@@ -3,19 +3,31 @@ return {
 
     [1] = {
         ID = 1,
-        pro = 100,
+        gailv100 = 100,
+        gailv150 = 100,
+        gailv200 = 100,
+        gailv50 = 100,
+        gailv75 = 100,
         type = 1,
     },
 
     [2] = {
         ID = 2,
-        pro = 100,
+        gailv100 = 100,
+        gailv150 = 100,
+        gailv200 = 100,
+        gailv50 = 100,
+        gailv75 = 100,
         type = 2,
     },
 
     [3] = {
         ID = 3,
-        pro = 100,
+        gailv100 = 100,
+        gailv150 = 100,
+        gailv200 = 100,
+        gailv50 = 100,
+        gailv75 = 100,
         type = 3,
     },
 

@@ -28,7 +28,7 @@ return {
     [4] = {
         ID = 4,
         goldMax = 80,
-        goldMin = 20,
+        goldMin = 10,
         rechargeMax = 100000,
         rechargeMin = 50001,
     },
@@ -36,23 +36,23 @@ return {
     [5] = {
         ID = 5,
         goldMax = 100,
-        goldMin = 30,
+        goldMin = 10,
         rechargeMax = 500000,
         rechargeMin = 100001,
     },
 
     [6] = {
         ID = 6,
-        goldMax = 150,
-        goldMin = 50,
+        goldMax = 100,
+        goldMin = 10,
         rechargeMax = 1000000,
         rechargeMin = 500001,
     },
 
     [7] = {
         ID = 7,
-        goldMax = 200,
-        goldMin = 80,
+        goldMax = 100,
+        goldMin = 10,
         rechargeMax = 99999999999,
         rechargeMin = 1000001,
     },

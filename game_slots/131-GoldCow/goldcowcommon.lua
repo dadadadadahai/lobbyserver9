@@ -41,6 +41,20 @@ end
 function IsDemo(uid)
     return GetGameMold(uid)  == 1
 end
+function AddDemoNums(uid)
+    local goldcowInfo = unilight.getdata(DB_Name, uid)
+    -- 没有则初始化信息
+    if table.empty(goldcowInfo) then
+        dump("nogoldcowInfo")
+        return 
+    end 
+    goldcowInfo.demonum =  goldcowInfo.demonum  and (goldcowInfo.demonum  + 1 ) or 1
+    unilight.savedata(DB_Name,goldcowInfo)
+    if goldcowInfo.demonum % 5 == 0 then 
+        gamecommon.SendGlobalMsgTip(uid,{type = Const.MSGTIP.DEMO})
+    end 
+end
+
 function Get(gameType,uid)
     -- 获取金牛模块数据库信息
     local goldcowInfo = unilight.getdata(DB_Name, uid)

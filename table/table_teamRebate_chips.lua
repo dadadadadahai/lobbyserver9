@@ -3,8 +3,8 @@ return {
 
     [1] = {
         ID = 1,
-        chips = 200,
-        chips2 = 500,
+        chips = 150,
+        chips2 = 300,
         type = 1,
     },
 

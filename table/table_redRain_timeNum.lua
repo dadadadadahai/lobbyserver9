@@ -3,7 +3,7 @@ return {
 
     [1] = {
         ID = 1,
-        maxNum = 6,
+        maxNum = 3,
         minNum = 1,
     },
 

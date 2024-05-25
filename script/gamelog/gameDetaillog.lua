@@ -94,7 +94,7 @@ function SaveDetailGameLog(uid,sTime,gameId,gameType,betChip,bChip,aChip,tax,gam
     end
     --记录系统级流水
     updateRoomFlow(gameId,gameType,tax,gamecount,tbetchip,sysWinScore,userinfo)
-    local gameIds={101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150}
+    local gameIds={101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,160,161,162,163}
     for _, value in ipairs(gameIds) do
         if value==gameId then
             userinfo.gameData.slotsCount = userinfo.gameData.slotsCount + 1

@@ -27,7 +27,7 @@ return {
 
     [4] = {
         ID = 4,
-        giftChips = 700,
+        giftChips = 900,
         max = 3041,
         min = 3000,
         mul = 5,
@@ -35,7 +35,7 @@ return {
 
     [5] = {
         ID = 5,
-        giftChips = 700,
+        giftChips = 900,
         max = 3975,
         min = 3042,
         mul = 4,
@@ -43,7 +43,7 @@ return {
 
     [6] = {
         ID = 6,
-        giftChips = 700,
+        giftChips = 900,
         max = 4999,
         min = 3976,
         mul = 3,

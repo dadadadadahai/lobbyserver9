@@ -1,24 +1,34 @@
--- 自动生成 ./excel/game/133/RTP100.xlsx(table_133_imagePro)
+-- 自动生成 ./excel/game/121/RTP100.xlsx(table_121_imagePro)
 return {
 
     [1] = {
         ID = 1,
-        gailv100 = 9800,
-        gailv150 = 9674,
-        gailv200 = 9547,
-        gailv50 = 9926,
-        gailv75 = 9863,
+        gailv100 = 9940,
+        gailv150 = 9932,
+        gailv200 = 9935,
+        gailv50 = 9740,
+        gailv75 = 9932,
         type = 1,
     },
 
     [2] = {
         ID = 2,
-        gailv100 = 200,
-        gailv150 = 326,
-        gailv200 = 453,
-        gailv50 = 74,
-        gailv75 = 137,
+        gailv100 = 0,
+        gailv150 = 0,
+        gailv200 = 0,
+        gailv50 = 0,
+        gailv75 = 0,
         type = 2,
+    },
+
+    [3] = {
+        ID = 3,
+        gailv100 = 60,
+        gailv150 = 68,
+        gailv200 = 65,
+        gailv50 = 120,
+        gailv75 = 68,
+        type = 3,
     },
 
 }

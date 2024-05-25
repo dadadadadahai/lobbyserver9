@@ -11,8 +11,8 @@ return {
         type1 = 0.0,
         type2 = 0.7,
         type3 = 3.9,
-        type4 = 9.0,
-        type5 = 12.3,
+        type4 = 9.4,
+        type5 = 9.9,
     },
 
     [2] = {
@@ -21,12 +21,12 @@ return {
         limit2 = 11,
         limit3 = 1,
         limit4 = 1,
-        limit5 = 2,
+        limit5 = 1,
         type1 = 0.2,
         type2 = 0.8,
         type3 = 5.3,
-        type4 = 10.1,
-        type5 = 13.1,
+        type4 = 11.2,
+        type5 = 15.1,
     },
 
     [3] = {
@@ -35,12 +35,12 @@ return {
         limit2 = 28,
         limit3 = 2,
         limit4 = 1,
-        limit5 = 2,
+        limit5 = 1,
         type1 = 0.3,
         type2 = 0.9,
         type3 = 6.0,
-        type4 = 10.6,
-        type5 = 14.3,
+        type4 = 11.4,
+        type5 = 16.4,
     },
 
     [4] = {
@@ -53,8 +53,8 @@ return {
         type1 = 0.4,
         type2 = 1.0,
         type3 = 6.2,
-        type4 = 11.4,
-        type5 = 15.2,
+        type4 = 12.0,
+        type5 = 16.5,
     },
 
     [5] = {
@@ -67,8 +67,8 @@ return {
         type1 = 0.5,
         type2 = 1.1,
         type3 = 6.3,
-        type4 = 11.7,
-        type5 = 15.3,
+        type4 = 12.3,
+        type5 = 16.6,
     },
 
     [6] = {
@@ -81,8 +81,8 @@ return {
         type1 = 0.6,
         type2 = 1.2,
         type3 = 6.6,
-        type4 = 11.8,
-        type5 = 15.5,
+        type4 = 12.5,
+        type5 = 16.9,
     },
 
     [7] = {
@@ -95,8 +95,8 @@ return {
         type1 = 0.7,
         type2 = 1.3,
         type3 = 6.7,
-        type4 = 13.5,
-        type5 = 15.8,
+        type4 = 12.9,
+        type5 = 17.1,
     },
 
     [8] = {
@@ -104,13 +104,13 @@ return {
         limit1 = 72,
         limit2 = 134,
         limit3 = 2,
-        limit4 = 1,
+        limit4 = 2,
         limit5 = 1,
         type1 = 0.8,
         type2 = 1.4,
         type3 = 7.3,
-        type4 = 14.3,
-        type5 = 16.0,
+        type4 = 13.1,
+        type5 = 17.3,
     },
 
     [9] = {
@@ -123,8 +123,8 @@ return {
         type1 = 0.9,
         type2 = 1.5,
         type3 = 7.4,
-        type4 = 14.5,
-        type5 = 16.2,
+        type4 = 13.5,
+        type5 = 17.5,
     },
 
     [10] = {
@@ -137,8 +137,8 @@ return {
         type1 = 1.0,
         type2 = 1.6,
         type3 = 7.5,
-        type4 = 14.8,
-        type5 = 16.4,
+        type4 = 13.6,
+        type5 = 17.8,
     },
 
     [11] = {
@@ -146,13 +146,13 @@ return {
         limit1 = 8,
         limit2 = 60,
         limit3 = 2,
-        limit4 = 2,
+        limit4 = 1,
         limit5 = 1,
         type1 = 1.1,
         type2 = 1.7,
         type3 = 7.6,
-        type4 = 14.9,
-        type5 = 16.5,
+        type4 = 13.7,
+        type5 = 18.2,
     },
 
     [12] = {
@@ -165,8 +165,8 @@ return {
         type1 = 1.2,
         type2 = 1.8,
         type3 = 7.7,
-        type4 = 15.4,
-        type5 = 16.6,
+        type4 = 13.8,
+        type5 = 18.7,
     },
 
     [13] = {
@@ -175,12 +175,12 @@ return {
         limit2 = 102,
         limit3 = 1,
         limit4 = 1,
-        limit5 = 1,
+        limit5 = 2,
         type1 = 1.3,
         type2 = 1.9,
         type3 = 7.8,
-        type4 = 15.6,
-        type5 = 16.8,
+        type4 = 13.9,
+        type5 = 19.4,
     },
 
     [14] = {
@@ -189,12 +189,12 @@ return {
         limit2 = 59,
         limit3 = 4,
         limit4 = 1,
-        limit5 = 1,
+        limit5 = 2,
         type1 = 1.4,
         type2 = 2.0,
         type3 = 7.9,
-        type4 = 15.9,
-        type5 = 17.1,
+        type4 = 14.2,
+        type5 = 19.7,
     },
 
     [15] = {
@@ -203,12 +203,12 @@ return {
         limit2 = 75,
         limit3 = 4,
         limit4 = 1,
-        limit5 = 1,
+        limit5 = 2,
         type1 = 1.5,
         type2 = 2.1,
         type3 = 8.0,
-        type4 = 16.0,
-        type5 = 17.3,
+        type4 = 14.3,
+        type5 = 19.8,
     },
 
     [16] = {
@@ -221,8 +221,8 @@ return {
         type1 = 1.6,
         type2 = 2.2,
         type3 = 8.1,
-        type4 = 16.4,
-        type5 = 17.4,
+        type4 = 14.5,
+        type5 = 19.9,
     },
 
     [17] = {
@@ -230,13 +230,13 @@ return {
         limit1 = 1,
         limit2 = 64,
         limit3 = 2,
-        limit4 = 1,
-        limit5 = 3,
+        limit4 = 2,
+        limit5 = 1,
         type1 = 1.7,
         type2 = 2.3,
         type3 = 8.2,
-        type4 = 16.5,
-        type5 = 17.6,
+        type4 = 14.6,
+        type5 = 20.0,
     },
 
     [18] = {
@@ -244,13 +244,13 @@ return {
         limit1 = 20,
         limit2 = 78,
         limit3 = 1,
-        limit4 = 1,
+        limit4 = 2,
         limit5 = 1,
         type1 = 1.8,
         type2 = 2.4,
         type3 = 8.3,
-        type4 = 16.6,
-        type5 = 17.9,
+        type4 = 15.0,
+        type5 = 20.4,
     },
 
     [19] = {
@@ -263,8 +263,8 @@ return {
         type1 = 1.9,
         type2 = 2.5,
         type3 = 8.4,
-        type4 = 16.7,
-        type5 = 18.5,
+        type4 = 15.2,
+        type5 = 20.6,
     },
 
     [20] = {
@@ -277,8 +277,8 @@ return {
         type1 = 2.0,
         type2 = 2.6,
         type3 = 8.6,
-        type4 = 17.3,
-        type5 = 18.6,
+        type4 = 15.4,
+        type5 = 20.8,
     },
 
     [21] = {
@@ -291,8 +291,8 @@ return {
         type1 = 2.1,
         type2 = 2.7,
         type3 = 8.7,
-        type4 = 17.7,
-        type5 = 18.7,
+        type4 = 16.0,
+        type5 = 21.2,
     },
 
     [22] = {
@@ -300,13 +300,13 @@ return {
         limit1 = 2,
         limit2 = 55,
         limit3 = 3,
-        limit4 = 1,
+        limit4 = 2,
         limit5 = 1,
         type1 = 2.2,
         type2 = 2.8,
         type3 = 8.8,
-        type4 = 17.9,
-        type5 = 19.0,
+        type4 = 16.1,
+        type5 = 21.3,
     },
 
     [23] = {
@@ -319,8 +319,8 @@ return {
         type1 = 2.3,
         type2 = 2.9,
         type3 = 8.9,
-        type4 = 18.4,
-        type5 = 19.3,
+        type4 = 16.2,
+        type5 = 21.6,
     },
 
     [24] = {
@@ -328,13 +328,13 @@ return {
         limit1 = 4,
         limit2 = 75,
         limit3 = 7,
-        limit4 = 2,
-        limit5 = 2,
+        limit4 = 1,
+        limit5 = 1,
         type1 = 2.4,
         type2 = 3.0,
         type3 = 9.0,
-        type4 = 18.5,
-        type5 = 19.6,
+        type4 = 16.3,
+        type5 = 21.8,
     },
 
     [25] = {
@@ -343,12 +343,12 @@ return {
         limit2 = 49,
         limit3 = 3,
         limit4 = 1,
-        limit5 = 2,
+        limit5 = 1,
         type1 = 2.5,
         type2 = 3.1,
         type3 = 9.2,
-        type4 = 18.6,
-        type5 = 19.8,
+        type4 = 16.4,
+        type5 = 21.9,
     },
 
     [26] = {
@@ -361,8 +361,8 @@ return {
         type1 = 3.0,
         type2 = 3.2,
         type3 = 9.3,
-        type4 = 18.7,
-        type5 = 19.9,
+        type4 = 16.5,
+        type5 = 22.1,
     },
 
     [27] = {
@@ -371,12 +371,12 @@ return {
         limit2 = 49,
         limit3 = 7,
         limit4 = 1,
-        limit5 = 2,
+        limit5 = 1,
         type1 = 3.3,
         type2 = 3.3,
         type3 = 9.4,
-        type4 = 19.6,
-        type5 = 20.0,
+        type4 = 16.6,
+        type5 = 22.2,
     },
 
     [28] = {
@@ -385,12 +385,12 @@ return {
         limit2 = 70,
         limit3 = 5,
         limit4 = 1,
-        limit5 = 3,
+        limit5 = 2,
         type1 = 3.4,
         type2 = 3.4,
         type3 = 9.5,
-        type4 = 19.7,
-        type5 = 20.1,
+        type4 = 16.8,
+        type5 = 22.3,
     },
 
     [29] = {
@@ -399,12 +399,12 @@ return {
         limit2 = 64,
         limit3 = 3,
         limit4 = 1,
-        limit5 = 2,
+        limit5 = 1,
         type1 = 3.5,
         type2 = 3.5,
         type3 = 9.6,
-        type4 = 20.0,
-        type5 = 20.2,
+        type4 = 16.9,
+        type5 = 22.4,
     },
 
     [30] = {
@@ -413,12 +413,12 @@ return {
         limit2 = 33,
         limit3 = 4,
         limit4 = 1,
-        limit5 = 2,
+        limit5 = 1,
         type1 = 3.6,
         type2 = 3.6,
         type3 = 9.7,
-        type4 = 20.6,
-        type5 = 20.3,
+        type4 = 17.2,
+        type5 = 22.5,
     },
 
     [31] = {
@@ -427,12 +427,12 @@ return {
         limit2 = 34,
         limit3 = 2,
         limit4 = 1,
-        limit5 = 1,
+        limit5 = 2,
         type1 = 4.0,
         type2 = 3.7,
         type3 = 9.8,
-        type4 = 20.7,
-        type5 = 20.6,
+        type4 = 17.3,
+        type5 = 22.7,
     },
 
     [32] = {
@@ -445,8 +445,8 @@ return {
         type1 = 4.3,
         type2 = 3.8,
         type3 = 9.9,
-        type4 = 21.3,
-        type5 = 20.7,
+        type4 = 17.4,
+        type5 = 23.0,
     },
 
     [33] = {
@@ -455,12 +455,12 @@ return {
         limit2 = 51,
         limit3 = 6,
         limit4 = 1,
-        limit5 = 2,
+        limit5 = 1,
         type1 = 4.4,
         type2 = 3.9,
         type3 = 10.0,
-        type4 = 21.7,
-        type5 = 20.9,
+        type4 = 17.5,
+        type5 = 23.2,
     },
 
     [34] = {
@@ -469,12 +469,12 @@ return {
         limit2 = 61,
         limit3 = 4,
         limit4 = 1,
-        limit5 = 3,
+        limit5 = 1,
         type1 = 4.5,
         type2 = 4.0,
         type3 = 10.1,
-        type4 = 22.5,
-        type5 = 21.0,
+        type4 = 17.6,
+        type5 = 23.4,
     },
 
     [35] = {
@@ -483,12 +483,12 @@ return {
         limit2 = 35,
         limit3 = 3,
         limit4 = 1,
-        limit5 = 2,
+        limit5 = 4,
         type1 = 5.0,
         type2 = 4.1,
         type3 = 10.2,
-        type4 = 23.6,
-        type5 = 21.2,
+        type4 = 17.7,
+        type5 = 23.8,
     },
 
     [36] = {
@@ -496,13 +496,13 @@ return {
         limit1 = 3,
         limit2 = 40,
         limit3 = 6,
-        limit4 = 1,
+        limit4 = 2,
         limit5 = 1,
         type1 = 6.0,
         type2 = 4.2,
         type3 = 10.3,
-        type4 = 24.3,
-        type5 = 21.4,
+        type4 = 17.8,
+        type5 = 24.1,
     },
 
     [37] = {
@@ -510,13 +510,13 @@ return {
         limit1 = 2,
         limit2 = 26,
         limit3 = 7,
-        limit4 = 1,
-        limit5 = 2,
+        limit4 = 3,
+        limit5 = 1,
         type1 = 7.0,
         type2 = 4.3,
         type3 = 10.4,
-        type4 = 24.5,
-        type5 = 21.6,
+        type4 = 17.9,
+        type5 = 24.5,
     },
 
     [38] = {
@@ -524,13 +524,13 @@ return {
         limit1 = 1,
         limit2 = 54,
         limit3 = 5,
-        limit4 = 1,
+        limit4 = 2,
         limit5 = 1,
         type1 = 10.0,
         type2 = 4.4,
         type3 = 10.5,
-        type4 = 25.2,
-        type5 = 21.7,
+        type4 = 18.1,
+        type5 = 24.8,
     },
 
     [39] = {
@@ -539,12 +539,12 @@ return {
         limit2 = 46,
         limit3 = 1,
         limit4 = 1,
-        limit5 = 1,
+        limit5 = 2,
         type1 = -1.0,
         type2 = 4.5,
         type3 = 10.6,
-        type4 = 25.5,
-        type5 = 21.8,
+        type4 = 18.2,
+        type5 = 24.9,
     },
 
     [40] = {
@@ -552,13 +552,13 @@ return {
         limit1 = -1,
         limit2 = 27,
         limit3 = 1,
-        limit4 = 1,
+        limit4 = 3,
         limit5 = 1,
         type1 = -1.0,
         type2 = 4.6,
         type3 = 10.7,
-        type4 = 25.9,
-        type5 = 21.9,
+        type4 = 18.3,
+        type5 = 25.1,
     },
 
     [41] = {
@@ -566,13 +566,13 @@ return {
         limit1 = -1,
         limit2 = 29,
         limit3 = 2,
-        limit4 = 1,
-        limit5 = 1,
+        limit4 = 2,
+        limit5 = 2,
         type1 = -1.0,
         type2 = 4.7,
         type3 = 10.8,
-        type4 = 27.0,
-        type5 = 22.0,
+        type4 = 18.4,
+        type5 = 25.4,
     },
 
     [42] = {
@@ -580,13 +580,13 @@ return {
         limit1 = -1,
         limit2 = 22,
         limit3 = 2,
-        limit4 = 1,
+        limit4 = 2,
         limit5 = 1,
         type1 = -1.0,
         type2 = 4.8,
         type3 = 10.9,
-        type4 = 27.2,
-        type5 = 22.1,
+        type4 = 18.6,
+        type5 = 25.5,
     },
 
     [43] = {
@@ -599,8 +599,8 @@ return {
         type1 = -1.0,
         type2 = 4.9,
         type3 = 11.0,
-        type4 = 29.5,
-        type5 = 22.4,
+        type4 = 18.7,
+        type5 = 25.6,
     },
 
     [44] = {
@@ -613,8 +613,8 @@ return {
         type1 = -1.0,
         type2 = 5.0,
         type3 = 11.1,
-        type4 = 29.6,
-        type5 = 22.5,
+        type4 = 19.0,
+        type5 = 25.9,
     },
 
     [45] = {
@@ -627,8 +627,8 @@ return {
         type1 = -1.0,
         type2 = 5.1,
         type3 = 11.2,
-        type4 = 31.5,
-        type5 = 22.6,
+        type4 = 19.3,
+        type5 = 26.0,
     },
 
     [46] = {
@@ -636,13 +636,13 @@ return {
         limit1 = -1,
         limit2 = 17,
         limit3 = 7,
-        limit4 = 1,
+        limit4 = 2,
         limit5 = 1,
         type1 = -1.0,
         type2 = 5.2,
         type3 = 11.3,
-        type4 = 67.2,
-        type5 = 22.7,
+        type4 = 19.4,
+        type5 = 26.1,
     },
 
     [47] = {
@@ -650,13 +650,13 @@ return {
         limit1 = -1,
         limit2 = 17,
         limit3 = 6,
-        limit4 = -1,
+        limit4 = 1,
         limit5 = 1,
         type1 = -1.0,
         type2 = 5.3,
         type3 = 11.4,
-        type4 = -1.0,
-        type5 = 22.8,
+        type4 = 19.5,
+        type5 = 26.2,
     },
 
     [48] = {
@@ -664,13 +664,13 @@ return {
         limit1 = -1,
         limit2 = 22,
         limit3 = 6,
-        limit4 = -1,
+        limit4 = 2,
         limit5 = 1,
         type1 = -1.0,
         type2 = 5.4,
         type3 = 11.5,
-        type4 = -1.0,
-        type5 = 22.9,
+        type4 = 19.6,
+        type5 = 26.3,
     },
 
     [49] = {
@@ -678,13 +678,13 @@ return {
         limit1 = -1,
         limit2 = 23,
         limit3 = 6,
-        limit4 = -1,
-        limit5 = 1,
+        limit4 = 1,
+        limit5 = 3,
         type1 = -1.0,
         type2 = 5.5,
         type3 = 11.6,
-        type4 = -1.0,
-        type5 = 23.0,
+        type4 = 19.7,
+        type5 = 26.5,
     },
 
     [50] = {
@@ -692,13 +692,13 @@ return {
         limit1 = -1,
         limit2 = 14,
         limit3 = 5,
-        limit4 = -1,
-        limit5 = 2,
+        limit4 = 2,
+        limit5 = 1,
         type1 = -1.0,
         type2 = 5.6,
         type3 = 11.7,
-        type4 = -1.0,
-        type5 = 23.2,
+        type4 = 19.9,
+        type5 = 26.6,
     },
 
     [51] = {
@@ -706,13 +706,13 @@ return {
         limit1 = -1,
         limit2 = 12,
         limit3 = 10,
-        limit4 = -1,
+        limit4 = 2,
         limit5 = 1,
         type1 = -1.0,
         type2 = 5.7,
         type3 = 11.8,
-        type4 = -1.0,
-        type5 = 23.3,
+        type4 = 20.1,
+        type5 = 26.9,
     },
 
     [52] = {
@@ -720,13 +720,13 @@ return {
         limit1 = -1,
         limit2 = 11,
         limit3 = 6,
-        limit4 = -1,
+        limit4 = 1,
         limit5 = 2,
         type1 = -1.0,
         type2 = 5.8,
         type3 = 11.9,
-        type4 = -1.0,
-        type5 = 23.5,
+        type4 = 20.2,
+        type5 = 27.2,
     },
 
     [53] = {
@@ -734,13 +734,13 @@ return {
         limit1 = -1,
         limit2 = 14,
         limit3 = 8,
-        limit4 = -1,
-        limit5 = 3,
+        limit4 = 1,
+        limit5 = 2,
         type1 = -1.0,
         type2 = 5.9,
         type3 = 12.0,
-        type4 = -1.0,
-        type5 = 23.7,
+        type4 = 20.3,
+        type5 = 27.5,
     },
 
     [54] = {
@@ -748,13 +748,13 @@ return {
         limit1 = -1,
         limit2 = 22,
         limit3 = 9,
-        limit4 = -1,
-        limit5 = 2,
+        limit4 = 1,
+        limit5 = 1,
         type1 = -1.0,
         type2 = 6.0,
         type3 = 12.1,
-        type4 = -1.0,
-        type5 = 23.8,
+        type4 = 20.4,
+        type5 = 27.7,
     },
 
     [55] = {
@@ -762,13 +762,13 @@ return {
         limit1 = -1,
         limit2 = 8,
         limit3 = 3,
-        limit4 = -1,
-        limit5 = 3,
+        limit4 = 2,
+        limit5 = 1,
         type1 = -1.0,
         type2 = 6.1,
         type3 = 12.2,
-        type4 = -1.0,
-        type5 = 23.9,
+        type4 = 20.5,
+        type5 = 27.9,
     },
 
     [56] = {
@@ -776,13 +776,13 @@ return {
         limit1 = -1,
         limit2 = 12,
         limit3 = 10,
-        limit4 = -1,
+        limit4 = 1,
         limit5 = 1,
         type1 = -1.0,
         type2 = 6.2,
         type3 = 12.3,
-        type4 = -1.0,
-        type5 = 24.0,
+        type4 = 20.7,
+        type5 = 28.0,
     },
 
     [57] = {
@@ -790,13 +790,13 @@ return {
         limit1 = -1,
         limit2 = 13,
         limit3 = 2,
-        limit4 = -1,
-        limit5 = 2,
+        limit4 = 2,
+        limit5 = 1,
         type1 = -1.0,
         type2 = 6.3,
         type3 = 12.4,
-        type4 = -1.0,
-        type5 = 24.1,
+        type4 = 20.9,
+        type5 = 28.4,
     },
 
     [58] = {
@@ -804,13 +804,13 @@ return {
         limit1 = -1,
         limit2 = 16,
         limit3 = 6,
-        limit4 = -1,
-        limit5 = 4,
+        limit4 = 1,
+        limit5 = 1,
         type1 = -1.0,
         type2 = 6.4,
         type3 = 12.5,
-        type4 = -1.0,
-        type5 = 24.2,
+        type4 = 21.1,
+        type5 = 28.6,
     },
 
     [59] = {
@@ -818,13 +818,13 @@ return {
         limit1 = -1,
         limit2 = 14,
         limit3 = 4,
-        limit4 = -1,
-        limit5 = 2,
+        limit4 = 1,
+        limit5 = 1,
         type1 = -1.0,
         type2 = 6.5,
         type3 = 12.6,
-        type4 = -1.0,
-        type5 = 24.3,
+        type4 = 21.2,
+        type5 = 28.7,
     },
 
     [60] = {
@@ -832,13 +832,13 @@ return {
         limit1 = -1,
         limit2 = 8,
         limit3 = 3,
-        limit4 = -1,
+        limit4 = 1,
         limit5 = 1,
         type1 = -1.0,
         type2 = 6.6,
         type3 = 12.7,
-        type4 = -1.0,
-        type5 = 24.4,
+        type4 = 21.3,
+        type5 = 28.9,
     },
 
     [61] = {
@@ -846,13 +846,13 @@ return {
         limit1 = -1,
         limit2 = 10,
         limit3 = 3,
-        limit4 = -1,
+        limit4 = 1,
         limit5 = 1,
         type1 = -1.0,
         type2 = 6.7,
         type3 = 12.8,
-        type4 = -1.0,
-        type5 = 24.5,
+        type4 = 21.5,
+        type5 = 29.2,
     },
 
     [62] = {
@@ -860,13 +860,13 @@ return {
         limit1 = -1,
         limit2 = 10,
         limit3 = 9,
-        limit4 = -1,
-        limit5 = 3,
+        limit4 = 2,
+        limit5 = 1,
         type1 = -1.0,
         type2 = 6.8,
         type3 = 12.9,
-        type4 = -1.0,
-        type5 = 24.7,
+        type4 = 21.7,
+        type5 = 29.3,
     },
 
     [63] = {
@@ -874,13 +874,13 @@ return {
         limit1 = -1,
         limit2 = 21,
         limit3 = 3,
-        limit4 = -1,
-        limit5 = 3,
+        limit4 = 1,
+        limit5 = 1,
         type1 = -1.0,
         type2 = 6.9,
         type3 = 13.0,
-        type4 = -1.0,
-        type5 = 24.8,
+        type4 = 22.2,
+        type5 = 30.0,
     },
 
     [64] = {
@@ -888,13 +888,13 @@ return {
         limit1 = -1,
         limit2 = 15,
         limit3 = 9,
-        limit4 = -1,
-        limit5 = 3,
+        limit4 = 2,
+        limit5 = 1,
         type1 = -1.0,
         type2 = 7.0,
         type3 = 13.1,
-        type4 = -1.0,
-        type5 = 24.9,
+        type4 = 22.7,
+        type5 = 30.1,
     },
 
     [65] = {
@@ -902,13 +902,13 @@ return {
         limit1 = -1,
         limit2 = 9,
         limit3 = 4,
-        limit4 = -1,
-        limit5 = 3,
+        limit4 = 2,
+        limit5 = 2,
         type1 = -1.0,
         type2 = 7.1,
         type3 = 13.2,
-        type4 = -1.0,
-        type5 = 25.1,
+        type4 = 23.3,
+        type5 = 30.3,
     },
 
     [66] = {
@@ -916,13 +916,13 @@ return {
         limit1 = -1,
         limit2 = 10,
         limit3 = 4,
-        limit4 = -1,
+        limit4 = 2,
         limit5 = 1,
         type1 = -1.0,
         type2 = 7.2,
         type3 = 13.3,
-        type4 = -1.0,
-        type5 = 25.2,
+        type4 = 23.4,
+        type5 = 30.4,
     },
 
     [67] = {
@@ -930,13 +930,13 @@ return {
         limit1 = -1,
         limit2 = 6,
         limit3 = 4,
-        limit4 = -1,
+        limit4 = 1,
         limit5 = 1,
         type1 = -1.0,
         type2 = 7.3,
         type3 = 13.4,
-        type4 = -1.0,
-        type5 = 25.3,
+        type4 = 23.9,
+        type5 = 30.5,
     },
 
     [68] = {
@@ -944,13 +944,13 @@ return {
         limit1 = -1,
         limit2 = 11,
         limit3 = 4,
-        limit4 = -1,
-        limit5 = 1,
+        limit4 = 1,
+        limit5 = 2,
         type1 = -1.0,
         type2 = 7.4,
         type3 = 13.5,
-        type4 = -1.0,
-        type5 = 25.4,
+        type4 = 24.2,
+        type5 = 30.7,
     },
 
     [69] = {
@@ -958,13 +958,13 @@ return {
         limit1 = -1,
         limit2 = 12,
         limit3 = 9,
-        limit4 = -1,
-        limit5 = 1,
+        limit4 = 1,
+        limit5 = 2,
         type1 = -1.0,
         type2 = 7.5,
         type3 = 13.6,
-        type4 = -1.0,
-        type5 = 25.5,
+        type4 = 24.6,
+        type5 = 30.8,
     },
 
     [70] = {
@@ -972,13 +972,13 @@ return {
         limit1 = -1,
         limit2 = 12,
         limit3 = 3,
-        limit4 = -1,
+        limit4 = 1,
         limit5 = 1,
         type1 = -1.0,
         type2 = 7.6,
         type3 = 13.7,
-        type4 = -1.0,
-        type5 = 25.6,
+        type4 = 24.7,
+        type5 = 30.9,
     },
 
     [71] = {
@@ -986,13 +986,13 @@ return {
         limit1 = -1,
         limit2 = 4,
         limit3 = 5,
-        limit4 = -1,
+        limit4 = 1,
         limit5 = 1,
         type1 = -1.0,
         type2 = 7.7,
         type3 = 13.8,
-        type4 = -1.0,
-        type5 = 25.7,
+        type4 = 25.0,
+        type5 = 31.0,
     },
 
     [72] = {
@@ -1000,13 +1000,13 @@ return {
         limit1 = -1,
         limit2 = 7,
         limit3 = 7,
-        limit4 = -1,
+        limit4 = 1,
         limit5 = 1,
         type1 = -1.0,
         type2 = 7.8,
         type3 = 13.9,
-        type4 = -1.0,
-        type5 = 25.8,
+        type4 = 25.4,
+        type5 = 31.1,
     },
 
     [73] = {
@@ -1014,13 +1014,13 @@ return {
         limit1 = -1,
         limit2 = 7,
         limit3 = 4,
-        limit4 = -1,
-        limit5 = 1,
+        limit4 = 1,
+        limit5 = 2,
         type1 = -1.0,
         type2 = 7.9,
         type3 = 14.0,
-        type4 = -1.0,
-        type5 = 25.9,
+        type4 = 25.7,
+        type5 = 31.2,
     },
 
     [74] = {
@@ -1028,13 +1028,13 @@ return {
         limit1 = -1,
         limit2 = 12,
         limit3 = 3,
-        limit4 = -1,
-        limit5 = 1,
+        limit4 = 1,
+        limit5 = 2,
         type1 = -1.0,
         type2 = 8.0,
         type3 = 14.1,
-        type4 = -1.0,
-        type5 = 26.0,
+        type4 = 26.7,
+        type5 = 31.3,
     },
 
     [75] = {
@@ -1042,13 +1042,13 @@ return {
         limit1 = -1,
         limit2 = 3,
         limit3 = 5,
-        limit4 = -1,
-        limit5 = 2,
+        limit4 = 1,
+        limit5 = 1,
         type1 = -1.0,
         type2 = 8.1,
         type3 = 14.2,
-        type4 = -1.0,
-        type5 = 26.1,
+        type4 = 27.0,
+        type5 = 31.4,
     },
 
     [76] = {
@@ -1056,13 +1056,13 @@ return {
         limit1 = -1,
         limit2 = 4,
         limit3 = 5,
-        limit4 = -1,
+        limit4 = 2,
         limit5 = 1,
         type1 = -1.0,
         type2 = 8.2,
         type3 = 14.3,
-        type4 = -1.0,
-        type5 = 26.2,
+        type4 = 27.6,
+        type5 = 32.0,
     },
 
     [77] = {
@@ -1070,13 +1070,13 @@ return {
         limit1 = -1,
         limit2 = 5,
         limit3 = 4,
-        limit4 = -1,
-        limit5 = 2,
+        limit4 = 1,
+        limit5 = 1,
         type1 = -1.0,
         type2 = 8.3,
         type3 = 14.4,
-        type4 = -1.0,
-        type5 = 26.3,
+        type4 = 28.1,
+        type5 = 32.4,
     },
 
     [78] = {
@@ -1084,13 +1084,13 @@ return {
         limit1 = -1,
         limit2 = 8,
         limit3 = 3,
-        limit4 = -1,
-        limit5 = 2,
+        limit4 = 1,
+        limit5 = 1,
         type1 = -1.0,
         type2 = 8.4,
         type3 = 14.5,
-        type4 = -1.0,
-        type5 = 26.4,
+        type4 = 28.9,
+        type5 = 32.5,
     },
 
     [79] = {
@@ -1098,13 +1098,13 @@ return {
         limit1 = -1,
         limit2 = 8,
         limit3 = 2,
-        limit4 = -1,
-        limit5 = 4,
+        limit4 = 1,
+        limit5 = 2,
         type1 = -1.0,
         type2 = 8.5,
         type3 = 14.6,
-        type4 = -1.0,
-        type5 = 26.5,
+        type4 = 29.0,
+        type5 = 32.7,
     },
 
     [80] = {
@@ -1112,13 +1112,13 @@ return {
         limit1 = -1,
         limit2 = 7,
         limit3 = 5,
-        limit4 = -1,
+        limit4 = 1,
         limit5 = 1,
         type1 = -1.0,
         type2 = 8.6,
         type3 = 14.7,
-        type4 = -1.0,
-        type5 = 26.6,
+        type4 = 29.1,
+        type5 = 32.8,
     },
 
     [81] = {
@@ -1126,13 +1126,13 @@ return {
         limit1 = -1,
         limit2 = 6,
         limit3 = 4,
-        limit4 = -1,
+        limit4 = 1,
         limit5 = 1,
         type1 = -1.0,
         type2 = 8.7,
         type3 = 14.8,
-        type4 = -1.0,
-        type5 = 26.7,
+        type4 = 29.3,
+        type5 = 32.9,
     },
 
     [82] = {
@@ -1140,13 +1140,13 @@ return {
         limit1 = -1,
         limit2 = 6,
         limit3 = 5,
-        limit4 = -1,
+        limit4 = 1,
         limit5 = 1,
         type1 = -1.0,
         type2 = 8.8,
         type3 = 14.9,
-        type4 = -1.0,
-        type5 = 26.8,
+        type4 = 30.6,
+        type5 = 33.0,
     },
 
     [83] = {
@@ -1154,13 +1154,13 @@ return {
         limit1 = -1,
         limit2 = 3,
         limit3 = 3,
-        limit4 = -1,
+        limit4 = 1,
         limit5 = 1,
         type1 = -1.0,
         type2 = 8.9,
         type3 = 15.0,
-        type4 = -1.0,
-        type5 = 27.0,
+        type4 = 32.7,
+        type5 = 33.2,
     },
 
     [84] = {
@@ -1168,13 +1168,13 @@ return {
         limit1 = -1,
         limit2 = 6,
         limit3 = 6,
-        limit4 = -1,
-        limit5 = 2,
+        limit4 = 1,
+        limit5 = 1,
         type1 = -1.0,
         type2 = 9.0,
         type3 = 15.1,
-        type4 = -1.0,
-        type5 = 27.2,
+        type4 = 33.3,
+        type5 = 33.3,
     },
 
     [85] = {
@@ -1182,13 +1182,13 @@ return {
         limit1 = -1,
         limit2 = 2,
         limit3 = 2,
-        limit4 = -1,
-        limit5 = 2,
+        limit4 = 1,
+        limit5 = 1,
         type1 = -1.0,
         type2 = 9.1,
         type3 = 15.2,
-        type4 = -1.0,
-        type5 = 27.3,
+        type4 = 34.6,
+        type5 = 33.5,
     },
 
     [86] = {
@@ -1196,13 +1196,13 @@ return {
         limit1 = -1,
         limit2 = 3,
         limit3 = 3,
-        limit4 = -1,
+        limit4 = 1,
         limit5 = 1,
         type1 = -1.0,
         type2 = 9.2,
         type3 = 15.3,
-        type4 = -1.0,
-        type5 = 27.4,
+        type4 = 37.8,
+        type5 = 33.6,
     },
 
     [87] = {
@@ -1210,13 +1210,13 @@ return {
         limit1 = -1,
         limit2 = 4,
         limit3 = 4,
-        limit4 = -1,
+        limit4 = 1,
         limit5 = 1,
         type1 = -1.0,
         type2 = 9.3,
         type3 = 15.4,
-        type4 = -1.0,
-        type5 = 27.5,
+        type4 = 38.4,
+        type5 = 33.7,
     },
 
     [88] = {
@@ -1224,13 +1224,13 @@ return {
         limit1 = -1,
         limit2 = 2,
         limit3 = 4,
-        limit4 = -1,
-        limit5 = 1,
+        limit4 = 1,
+        limit5 = 3,
         type1 = -1.0,
         type2 = 9.4,
         type3 = 15.5,
-        type4 = -1.0,
-        type5 = 27.6,
+        type4 = 39.0,
+        type5 = 33.8,
     },
 
     [89] = {
@@ -1238,13 +1238,13 @@ return {
         limit1 = -1,
         limit2 = 6,
         limit3 = 2,
-        limit4 = -1,
-        limit5 = 1,
+        limit4 = 1,
+        limit5 = 2,
         type1 = -1.0,
         type2 = 9.5,
         type3 = 15.6,
-        type4 = -1.0,
-        type5 = 27.8,
+        type4 = 40.4,
+        type5 = 34.1,
     },
 
     [90] = {
@@ -1252,13 +1252,13 @@ return {
         limit1 = -1,
         limit2 = 1,
         limit3 = 2,
-        limit4 = -1,
+        limit4 = 1,
         limit5 = 1,
         type1 = -1.0,
         type2 = 9.6,
         type3 = 15.7,
-        type4 = -1.0,
-        type5 = 27.9,
+        type4 = 46.2,
+        type5 = 34.4,
     },
 
     [91] = {
@@ -1267,12 +1267,12 @@ return {
         limit2 = 4,
         limit3 = 2,
         limit4 = -1,
-        limit5 = 1,
+        limit5 = 2,
         type1 = -1.0,
         type2 = 9.7,
         type3 = 15.8,
         type4 = -1.0,
-        type5 = 28.0,
+        type5 = 34.5,
     },
 
     [92] = {
@@ -1286,7 +1286,7 @@ return {
         type2 = 9.8,
         type3 = 15.9,
         type4 = -1.0,
-        type5 = 28.1,
+        type5 = 35.0,
     },
 
     [93] = {
@@ -1295,12 +1295,12 @@ return {
         limit2 = 1,
         limit3 = 1,
         limit4 = -1,
-        limit5 = 4,
+        limit5 = 2,
         type1 = -1.0,
         type2 = 10.1,
         type3 = 16.0,
         type4 = -1.0,
-        type5 = 28.2,
+        type5 = 35.1,
     },
 
     [94] = {
@@ -1314,7 +1314,7 @@ return {
         type2 = 10.2,
         type3 = 16.1,
         type4 = -1.0,
-        type5 = 28.3,
+        type5 = 35.2,
     },
 
     [95] = {
@@ -1328,7 +1328,7 @@ return {
         type2 = 10.4,
         type3 = 16.2,
         type4 = -1.0,
-        type5 = 28.4,
+        type5 = 35.3,
     },
 
     [96] = {
@@ -1337,12 +1337,12 @@ return {
         limit2 = 3,
         limit3 = 1,
         limit4 = -1,
-        limit5 = 3,
+        limit5 = 1,
         type1 = -1.0,
         type2 = 10.5,
         type3 = 16.3,
         type4 = -1.0,
-        type5 = 28.5,
+        type5 = 35.5,
     },
 
     [97] = {
@@ -1356,7 +1356,7 @@ return {
         type2 = 10.6,
         type3 = 16.4,
         type4 = -1.0,
-        type5 = 28.6,
+        type5 = 36.0,
     },
 
     [98] = {
@@ -1365,12 +1365,12 @@ return {
         limit2 = 2,
         limit3 = 3,
         limit4 = -1,
-        limit5 = 1,
+        limit5 = 2,
         type1 = -1.0,
         type2 = 10.7,
         type3 = 16.5,
         type4 = -1.0,
-        type5 = 28.7,
+        type5 = 36.1,
     },
 
     [99] = {
@@ -1384,7 +1384,7 @@ return {
         type2 = 10.8,
         type3 = 16.6,
         type4 = -1.0,
-        type5 = 28.9,
+        type5 = 36.4,
     },
 
     [100] = {
@@ -1393,12 +1393,12 @@ return {
         limit2 = 3,
         limit3 = 3,
         limit4 = -1,
-        limit5 = 2,
+        limit5 = 1,
         type1 = -1.0,
         type2 = 10.9,
         type3 = 16.7,
         type4 = -1.0,
-        type5 = 29.3,
+        type5 = 37.0,
     },
 
     [101] = {
@@ -1407,12 +1407,12 @@ return {
         limit2 = 1,
         limit3 = 1,
         limit4 = -1,
-        limit5 = 2,
+        limit5 = 1,
         type1 = -1.0,
         type2 = 11.0,
         type3 = 16.8,
         type4 = -1.0,
-        type5 = 29.5,
+        type5 = 37.4,
     },
 
     [102] = {
@@ -1426,7 +1426,7 @@ return {
         type2 = 11.1,
         type3 = 16.9,
         type4 = -1.0,
-        type5 = 29.7,
+        type5 = 37.5,
     },
 
     [103] = {
@@ -1435,12 +1435,12 @@ return {
         limit2 = 2,
         limit3 = 1,
         limit4 = -1,
-        limit5 = 2,
+        limit5 = 1,
         type1 = -1.0,
         type2 = 11.2,
         type3 = 17.0,
         type4 = -1.0,
-        type5 = 29.8,
+        type5 = 37.6,
     },
 
     [104] = {
@@ -1454,7 +1454,7 @@ return {
         type2 = 11.5,
         type3 = 17.1,
         type4 = -1.0,
-        type5 = 29.9,
+        type5 = 37.7,
     },
 
     [105] = {
@@ -1463,12 +1463,12 @@ return {
         limit2 = 1,
         limit3 = 3,
         limit4 = -1,
-        limit5 = 1,
+        limit5 = 3,
         type1 = -1.0,
         type2 = 11.6,
         type3 = 17.2,
         type4 = -1.0,
-        type5 = 30.2,
+        type5 = 37.8,
     },
 
     [106] = {
@@ -1477,12 +1477,12 @@ return {
         limit2 = 1,
         limit3 = 2,
         limit4 = -1,
-        limit5 = 2,
+        limit5 = 1,
         type1 = -1.0,
         type2 = 11.7,
         type3 = 17.3,
         type4 = -1.0,
-        type5 = 30.3,
+        type5 = 38.0,
     },
 
     [107] = {
@@ -1496,7 +1496,7 @@ return {
         type2 = 11.9,
         type3 = 17.4,
         type4 = -1.0,
-        type5 = 30.4,
+        type5 = 38.1,
     },
 
     [108] = {
@@ -1510,7 +1510,7 @@ return {
         type2 = 12.2,
         type3 = 17.5,
         type4 = -1.0,
-        type5 = 30.5,
+        type5 = 38.2,
     },
 
     [109] = {
@@ -1524,7 +1524,7 @@ return {
         type2 = 12.5,
         type3 = 17.6,
         type4 = -1.0,
-        type5 = 30.7,
+        type5 = 38.3,
     },
 
     [110] = {
@@ -1538,7 +1538,7 @@ return {
         type2 = 12.6,
         type3 = 17.7,
         type4 = -1.0,
-        type5 = 31.1,
+        type5 = 38.4,
     },
 
     [111] = {
@@ -1547,12 +1547,12 @@ return {
         limit2 = 1,
         limit3 = 1,
         limit4 = -1,
-        limit5 = 1,
+        limit5 = 2,
         type1 = -1.0,
         type2 = 13.3,
         type3 = 17.8,
         type4 = -1.0,
-        type5 = 31.2,
+        type5 = 38.5,
     },
 
     [112] = {
@@ -1561,12 +1561,12 @@ return {
         limit2 = 2,
         limit3 = 4,
         limit4 = -1,
-        limit5 = 2,
+        limit5 = 1,
         type1 = -1.0,
         type2 = 13.5,
         type3 = 17.9,
         type4 = -1.0,
-        type5 = 31.4,
+        type5 = 39.2,
     },
 
     [113] = {
@@ -1580,7 +1580,7 @@ return {
         type2 = 15.4,
         type3 = 18.0,
         type4 = -1.0,
-        type5 = 31.5,
+        type5 = 39.4,
     },
 
     [114] = {
@@ -1594,7 +1594,7 @@ return {
         type2 = 16.0,
         type3 = 18.1,
         type4 = -1.0,
-        type5 = 31.6,
+        type5 = 39.6,
     },
 
     [115] = {
@@ -1608,7 +1608,7 @@ return {
         type2 = 17.3,
         type3 = 18.2,
         type4 = -1.0,
-        type5 = 31.7,
+        type5 = 40.1,
     },
 
     [116] = {
@@ -1617,12 +1617,12 @@ return {
         limit2 = 1,
         limit3 = 2,
         limit4 = -1,
-        limit5 = 2,
+        limit5 = 1,
         type1 = -1.0,
         type2 = 21.5,
         type3 = 18.3,
         type4 = -1.0,
-        type5 = 31.8,
+        type5 = 40.2,
     },
 
     [117] = {
@@ -1631,12 +1631,12 @@ return {
         limit2 = -1,
         limit3 = 4,
         limit4 = -1,
-        limit5 = 1,
+        limit5 = 3,
         type1 = -1.0,
         type2 = -1.0,
         type3 = 18.4,
         type4 = -1.0,
-        type5 = 31.9,
+        type5 = 40.3,
     },
 
     [118] = {
@@ -1645,12 +1645,12 @@ return {
         limit2 = -1,
         limit3 = 2,
         limit4 = -1,
-        limit5 = 2,
+        limit5 = 1,
         type1 = -1.0,
         type2 = -1.0,
         type3 = 18.5,
         type4 = -1.0,
-        type5 = 32.1,
+        type5 = 40.5,
     },
 
     [119] = {
@@ -1659,12 +1659,12 @@ return {
         limit2 = -1,
         limit3 = 3,
         limit4 = -1,
-        limit5 = 1,
+        limit5 = 2,
         type1 = -1.0,
         type2 = -1.0,
         type3 = 18.6,
         type4 = -1.0,
-        type5 = 32.2,
+        type5 = 40.8,
     },
 
     [120] = {
@@ -1678,7 +1678,7 @@ return {
         type2 = -1.0,
         type3 = 18.7,
         type4 = -1.0,
-        type5 = 32.3,
+        type5 = 41.1,
     },
 
     [121] = {
@@ -1692,7 +1692,7 @@ return {
         type2 = -1.0,
         type3 = 18.8,
         type4 = -1.0,
-        type5 = 32.4,
+        type5 = 41.5,
     },
 
     [122] = {
@@ -1701,12 +1701,12 @@ return {
         limit2 = -1,
         limit3 = 4,
         limit4 = -1,
-        limit5 = 2,
+        limit5 = 1,
         type1 = -1.0,
         type2 = -1.0,
         type3 = 19.0,
         type4 = -1.0,
-        type5 = 32.5,
+        type5 = 41.6,
     },
 
     [123] = {
@@ -1715,12 +1715,12 @@ return {
         limit2 = -1,
         limit3 = 3,
         limit4 = -1,
-        limit5 = 6,
+        limit5 = 2,
         type1 = -1.0,
         type2 = -1.0,
         type3 = 19.3,
         type4 = -1.0,
-        type5 = 32.6,
+        type5 = 41.7,
     },
 
     [124] = {
@@ -1729,12 +1729,12 @@ return {
         limit2 = -1,
         limit3 = 1,
         limit4 = -1,
-        limit5 = 2,
+        limit5 = 1,
         type1 = -1.0,
         type2 = -1.0,
         type3 = 19.5,
         type4 = -1.0,
-        type5 = 32.8,
+        type5 = 41.9,
     },
 
     [125] = {
@@ -1748,7 +1748,7 @@ return {
         type2 = -1.0,
         type3 = 19.6,
         type4 = -1.0,
-        type5 = 32.9,
+        type5 = 42.2,
     },
 
     [126] = {
@@ -1757,12 +1757,12 @@ return {
         limit2 = -1,
         limit3 = 1,
         limit4 = -1,
-        limit5 = 2,
+        limit5 = 1,
         type1 = -1.0,
         type2 = -1.0,
         type3 = 19.7,
         type4 = -1.0,
-        type5 = 33.0,
+        type5 = 42.5,
     },
 
     [127] = {
@@ -1776,7 +1776,7 @@ return {
         type2 = -1.0,
         type3 = 19.9,
         type4 = -1.0,
-        type5 = 33.2,
+        type5 = 42.6,
     },
 
     [128] = {
@@ -1785,12 +1785,12 @@ return {
         limit2 = -1,
         limit3 = 1,
         limit4 = -1,
-        limit5 = 4,
+        limit5 = 1,
         type1 = -1.0,
         type2 = -1.0,
         type3 = 20.0,
         type4 = -1.0,
-        type5 = 33.4,
+        type5 = 42.7,
     },
 
     [129] = {
@@ -1799,12 +1799,12 @@ return {
         limit2 = -1,
         limit3 = 1,
         limit4 = -1,
-        limit5 = 1,
+        limit5 = 2,
         type1 = -1.0,
         type2 = -1.0,
         type3 = 20.1,
         type4 = -1.0,
-        type5 = 33.5,
+        type5 = 42.8,
     },
 
     [130] = {
@@ -1813,12 +1813,12 @@ return {
         limit2 = -1,
         limit3 = 1,
         limit4 = -1,
-        limit5 = 3,
+        limit5 = 1,
         type1 = -1.0,
         type2 = -1.0,
         type3 = 20.2,
         type4 = -1.0,
-        type5 = 33.6,
+        type5 = 42.9,
     },
 
     [131] = {
@@ -1832,7 +1832,7 @@ return {
         type2 = -1.0,
         type3 = 20.4,
         type4 = -1.0,
-        type5 = 33.8,
+        type5 = 43.3,
     },
 
     [132] = {
@@ -1841,12 +1841,12 @@ return {
         limit2 = -1,
         limit3 = 1,
         limit4 = -1,
-        limit5 = 2,
+        limit5 = 1,
         type1 = -1.0,
         type2 = -1.0,
         type3 = 20.5,
         type4 = -1.0,
-        type5 = 33.9,
+        type5 = 44.1,
     },
 
     [133] = {
@@ -1860,7 +1860,7 @@ return {
         type2 = -1.0,
         type3 = 20.6,
         type4 = -1.0,
-        type5 = 34.0,
+        type5 = 44.8,
     },
 
     [134] = {
@@ -1874,7 +1874,7 @@ return {
         type2 = -1.0,
         type3 = 20.7,
         type4 = -1.0,
-        type5 = 34.1,
+        type5 = 45.0,
     },
 
     [135] = {
@@ -1883,12 +1883,12 @@ return {
         limit2 = -1,
         limit3 = 2,
         limit4 = -1,
-        limit5 = 2,
+        limit5 = 1,
         type1 = -1.0,
         type2 = -1.0,
         type3 = 20.8,
         type4 = -1.0,
-        type5 = 34.2,
+        type5 = 45.1,
     },
 
     [136] = {
@@ -1902,7 +1902,7 @@ return {
         type2 = -1.0,
         type3 = 21.0,
         type4 = -1.0,
-        type5 = 34.3,
+        type5 = 45.4,
     },
 
     [137] = {
@@ -1916,7 +1916,7 @@ return {
         type2 = -1.0,
         type3 = 21.1,
         type4 = -1.0,
-        type5 = 34.4,
+        type5 = 45.6,
     },
 
     [138] = {
@@ -1925,12 +1925,12 @@ return {
         limit2 = -1,
         limit3 = 1,
         limit4 = -1,
-        limit5 = 1,
+        limit5 = 3,
         type1 = -1.0,
         type2 = -1.0,
         type3 = 21.2,
         type4 = -1.0,
-        type5 = 34.5,
+        type5 = 45.7,
     },
 
     [139] = {
@@ -1939,12 +1939,12 @@ return {
         limit2 = -1,
         limit3 = 1,
         limit4 = -1,
-        limit5 = 2,
+        limit5 = 1,
         type1 = -1.0,
         type2 = -1.0,
         type3 = 21.3,
         type4 = -1.0,
-        type5 = 34.6,
+        type5 = 46.2,
     },
 
     [140] = {
@@ -1953,12 +1953,12 @@ return {
         limit2 = -1,
         limit3 = 2,
         limit4 = -1,
-        limit5 = 2,
+        limit5 = 1,
         type1 = -1.0,
         type2 = -1.0,
         type3 = 21.5,
         type4 = -1.0,
-        type5 = 34.7,
+        type5 = 46.5,
     },
 
     [141] = {
@@ -1972,7 +1972,7 @@ return {
         type2 = -1.0,
         type3 = 21.6,
         type4 = -1.0,
-        type5 = 34.8,
+        type5 = 46.6,
     },
 
     [142] = {
@@ -1986,7 +1986,7 @@ return {
         type2 = -1.0,
         type3 = 21.7,
         type4 = -1.0,
-        type5 = 34.9,
+        type5 = 46.7,
     },
 
     [143] = {
@@ -1995,12 +1995,12 @@ return {
         limit2 = -1,
         limit3 = 1,
         limit4 = -1,
-        limit5 = 3,
+        limit5 = 1,
         type1 = -1.0,
         type2 = -1.0,
         type3 = 22.2,
         type4 = -1.0,
-        type5 = 35.0,
+        type5 = 46.9,
     },
 
     [144] = {
@@ -2014,7 +2014,7 @@ return {
         type2 = -1.0,
         type3 = 22.3,
         type4 = -1.0,
-        type5 = 35.1,
+        type5 = 47.3,
     },
 
     [145] = {
@@ -2028,7 +2028,7 @@ return {
         type2 = -1.0,
         type3 = 22.4,
         type4 = -1.0,
-        type5 = 35.4,
+        type5 = 47.6,
     },
 
     [146] = {
@@ -2037,12 +2037,12 @@ return {
         limit2 = -1,
         limit3 = 1,
         limit4 = -1,
-        limit5 = 3,
+        limit5 = 1,
         type1 = -1.0,
         type2 = -1.0,
         type3 = 22.6,
         type4 = -1.0,
-        type5 = 35.5,
+        type5 = 47.7,
     },
 
     [147] = {
@@ -2051,12 +2051,12 @@ return {
         limit2 = -1,
         limit3 = 1,
         limit4 = -1,
-        limit5 = 2,
+        limit5 = 1,
         type1 = -1.0,
         type2 = -1.0,
         type3 = 22.7,
         type4 = -1.0,
-        type5 = 35.9,
+        type5 = 47.8,
     },
 
     [148] = {
@@ -2065,12 +2065,12 @@ return {
         limit2 = -1,
         limit3 = 1,
         limit4 = -1,
-        limit5 = 3,
+        limit5 = 1,
         type1 = -1.0,
         type2 = -1.0,
         type3 = 22.8,
         type4 = -1.0,
-        type5 = 36.1,
+        type5 = 48.5,
     },
 
     [149] = {
@@ -2084,7 +2084,7 @@ return {
         type2 = -1.0,
         type3 = 23.2,
         type4 = -1.0,
-        type5 = 36.2,
+        type5 = 48.7,
     },
 
     [150] = {
@@ -2093,12 +2093,12 @@ return {
         limit2 = -1,
         limit3 = 1,
         limit4 = -1,
-        limit5 = 3,
+        limit5 = 1,
         type1 = -1.0,
         type2 = -1.0,
         type3 = 23.3,
         type4 = -1.0,
-        type5 = 36.3,
+        type5 = 48.8,
     },
 
     [151] = {
@@ -2107,12 +2107,12 @@ return {
         limit2 = -1,
         limit3 = 2,
         limit4 = -1,
-        limit5 = 3,
+        limit5 = 1,
         type1 = -1.0,
         type2 = -1.0,
         type3 = 23.4,
         type4 = -1.0,
-        type5 = 36.4,
+        type5 = 48.9,
     },
 
     [152] = {
@@ -2121,12 +2121,12 @@ return {
         limit2 = -1,
         limit3 = 1,
         limit4 = -1,
-        limit5 = 2,
+        limit5 = 1,
         type1 = -1.0,
         type2 = -1.0,
         type3 = 23.6,
         type4 = -1.0,
-        type5 = 36.5,
+        type5 = 49.4,
     },
 
     [153] = {
@@ -2140,7 +2140,7 @@ return {
         type2 = -1.0,
         type3 = 24.1,
         type4 = -1.0,
-        type5 = 36.7,
+        type5 = 49.8,
     },
 
     [154] = {
@@ -2149,12 +2149,12 @@ return {
         limit2 = -1,
         limit3 = 1,
         limit4 = -1,
-        limit5 = 2,
+        limit5 = 1,
         type1 = -1.0,
         type2 = -1.0,
         type3 = 24.5,
         type4 = -1.0,
-        type5 = 37.0,
+        type5 = 49.9,
     },
 
     [155] = {
@@ -2168,7 +2168,7 @@ return {
         type2 = -1.0,
         type3 = 24.6,
         type4 = -1.0,
-        type5 = 37.1,
+        type5 = 50.2,
     },
 
     [156] = {
@@ -2177,12 +2177,12 @@ return {
         limit2 = -1,
         limit3 = 1,
         limit4 = -1,
-        limit5 = 2,
+        limit5 = 1,
         type1 = -1.0,
         type2 = -1.0,
         type3 = 24.8,
         type4 = -1.0,
-        type5 = 37.2,
+        type5 = 50.4,
     },
 
     [157] = {
@@ -2196,7 +2196,7 @@ return {
         type2 = -1.0,
         type3 = 25.2,
         type4 = -1.0,
-        type5 = 37.3,
+        type5 = 50.9,
     },
 
     [158] = {
@@ -2205,12 +2205,12 @@ return {
         limit2 = -1,
         limit3 = 1,
         limit4 = -1,
-        limit5 = 1,
+        limit5 = 3,
         type1 = -1.0,
         type2 = -1.0,
         type3 = 25.5,
         type4 = -1.0,
-        type5 = 37.6,
+        type5 = 51.1,
     },
 
     [159] = {
@@ -2224,7 +2224,7 @@ return {
         type2 = -1.0,
         type3 = 25.8,
         type4 = -1.0,
-        type5 = 37.8,
+        type5 = 51.8,
     },
 
     [160] = {
@@ -2238,7 +2238,7 @@ return {
         type2 = -1.0,
         type3 = 26.6,
         type4 = -1.0,
-        type5 = 37.9,
+        type5 = 52.0,
     },
 
     [161] = {
@@ -2252,7 +2252,7 @@ return {
         type2 = -1.0,
         type3 = 27.0,
         type4 = -1.0,
-        type5 = 38.1,
+        type5 = 52.2,
     },
 
     [162] = {
@@ -2266,7 +2266,7 @@ return {
         type2 = -1.0,
         type3 = 27.4,
         type4 = -1.0,
-        type5 = 38.2,
+        type5 = 52.4,
     },
 
     [163] = {
@@ -2275,12 +2275,12 @@ return {
         limit2 = -1,
         limit3 = 1,
         limit4 = -1,
-        limit5 = 2,
+        limit5 = 1,
         type1 = -1.0,
         type2 = -1.0,
         type3 = 27.6,
         type4 = -1.0,
-        type5 = 38.3,
+        type5 = 52.5,
     },
 
     [164] = {
@@ -2289,12 +2289,12 @@ return {
         limit2 = -1,
         limit3 = 1,
         limit4 = -1,
-        limit5 = 3,
+        limit5 = 1,
         type1 = -1.0,
         type2 = -1.0,
         type3 = 28.4,
         type4 = -1.0,
-        type5 = 38.4,
+        type5 = 52.8,
     },
 
     [165] = {
@@ -2308,7 +2308,7 @@ return {
         type2 = -1.0,
         type3 = 29.1,
         type4 = -1.0,
-        type5 = 38.5,
+        type5 = 53.2,
     },
 
     [166] = {
@@ -2317,12 +2317,12 @@ return {
         limit2 = -1,
         limit3 = 1,
         limit4 = -1,
-        limit5 = 2,
+        limit5 = 1,
         type1 = -1.0,
         type2 = -1.0,
         type3 = 31.8,
         type4 = -1.0,
-        type5 = 38.7,
+        type5 = 53.6,
     },
 
     [167] = {
@@ -2336,7 +2336,7 @@ return {
         type2 = -1.0,
         type3 = 33.2,
         type4 = -1.0,
-        type5 = 38.9,
+        type5 = 53.7,
     },
 
     [168] = {
@@ -2345,12 +2345,12 @@ return {
         limit2 = -1,
         limit3 = 1,
         limit4 = -1,
-        limit5 = 2,
+        limit5 = 1,
         type1 = -1.0,
         type2 = -1.0,
         type3 = 33.7,
         type4 = -1.0,
-        type5 = 39.1,
+        type5 = 54.0,
     },
 
     [169] = {
@@ -2364,7 +2364,7 @@ return {
         type2 = -1.0,
         type3 = 37.1,
         type4 = -1.0,
-        type5 = 39.4,
+        type5 = 54.1,
     },
 
     [170] = {
@@ -2378,7 +2378,7 @@ return {
         type2 = -1.0,
         type3 = 37.3,
         type4 = -1.0,
-        type5 = 39.6,
+        type5 = 54.3,
     },
 
     [171] = {
@@ -2387,12 +2387,12 @@ return {
         limit2 = -1,
         limit3 = 1,
         limit4 = -1,
-        limit5 = 2,
+        limit5 = 1,
         type1 = -1.0,
         type2 = -1.0,
         type3 = 39.7,
         type4 = -1.0,
-        type5 = 39.7,
+        type5 = 54.6,
     },
 
     [172] = {
@@ -2406,7 +2406,7 @@ return {
         type2 = -1.0,
         type3 = 42.3,
         type4 = -1.0,
-        type5 = 39.8,
+        type5 = 54.9,
     },
 
     [173] = {
@@ -2415,12 +2415,12 @@ return {
         limit2 = -1,
         limit3 = 1,
         limit4 = -1,
-        limit5 = 4,
+        limit5 = 1,
         type1 = -1.0,
         type2 = -1.0,
         type3 = 59.0,
         type4 = -1.0,
-        type5 = 39.9,
+        type5 = 55.0,
     },
 
     [174] = {
@@ -2429,12 +2429,12 @@ return {
         limit2 = -1,
         limit3 = -1,
         limit4 = -1,
-        limit5 = 1,
+        limit5 = 2,
         type1 = -1.0,
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 40.0,
+        type5 = 55.8,
     },
 
     [175] = {
@@ -2443,12 +2443,12 @@ return {
         limit2 = -1,
         limit3 = -1,
         limit4 = -1,
-        limit5 = 1,
+        limit5 = 2,
         type1 = -1.0,
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 40.4,
+        type5 = 56.0,
     },
 
     [176] = {
@@ -2462,7 +2462,7 @@ return {
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 40.6,
+        type5 = 56.9,
     },
 
     [177] = {
@@ -2471,12 +2471,12 @@ return {
         limit2 = -1,
         limit3 = -1,
         limit4 = -1,
-        limit5 = 2,
+        limit5 = 1,
         type1 = -1.0,
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 40.7,
+        type5 = 57.3,
     },
 
     [178] = {
@@ -2485,12 +2485,12 @@ return {
         limit2 = -1,
         limit3 = -1,
         limit4 = -1,
-        limit5 = 4,
+        limit5 = 1,
         type1 = -1.0,
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 40.8,
+        type5 = 57.4,
     },
 
     [179] = {
@@ -2499,12 +2499,12 @@ return {
         limit2 = -1,
         limit3 = -1,
         limit4 = -1,
-        limit5 = 2,
+        limit5 = 1,
         type1 = -1.0,
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 41.0,
+        type5 = 57.7,
     },
 
     [180] = {
@@ -2513,12 +2513,12 @@ return {
         limit2 = -1,
         limit3 = -1,
         limit4 = -1,
-        limit5 = 2,
+        limit5 = 1,
         type1 = -1.0,
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 41.4,
+        type5 = 57.8,
     },
 
     [181] = {
@@ -2527,12 +2527,12 @@ return {
         limit2 = -1,
         limit3 = -1,
         limit4 = -1,
-        limit5 = 3,
+        limit5 = 1,
         type1 = -1.0,
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 41.5,
+        type5 = 57.9,
     },
 
     [182] = {
@@ -2546,7 +2546,7 @@ return {
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 41.6,
+        type5 = 58.0,
     },
 
     [183] = {
@@ -2560,7 +2560,7 @@ return {
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 41.7,
+        type5 = 58.2,
     },
 
     [184] = {
@@ -2574,7 +2574,7 @@ return {
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 42.2,
+        type5 = 59.1,
     },
 
     [185] = {
@@ -2588,7 +2588,7 @@ return {
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 42.5,
+        type5 = 59.3,
     },
 
     [186] = {
@@ -2597,12 +2597,12 @@ return {
         limit2 = -1,
         limit3 = -1,
         limit4 = -1,
-        limit5 = 1,
+        limit5 = 2,
         type1 = -1.0,
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 42.7,
+        type5 = 59.4,
     },
 
     [187] = {
@@ -2616,7 +2616,7 @@ return {
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 42.8,
+        type5 = 59.6,
     },
 
     [188] = {
@@ -2625,12 +2625,12 @@ return {
         limit2 = -1,
         limit3 = -1,
         limit4 = -1,
-        limit5 = 2,
+        limit5 = 1,
         type1 = -1.0,
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 42.9,
+        type5 = 59.7,
     },
 
     [189] = {
@@ -2639,12 +2639,12 @@ return {
         limit2 = -1,
         limit3 = -1,
         limit4 = -1,
-        limit5 = 2,
+        limit5 = 1,
         type1 = -1.0,
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 43.1,
+        type5 = 60.2,
     },
 
     [190] = {
@@ -2658,7 +2658,7 @@ return {
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 43.2,
+        type5 = 60.6,
     },
 
     [191] = {
@@ -2672,7 +2672,7 @@ return {
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 43.3,
+        type5 = 61.4,
     },
 
     [192] = {
@@ -2686,7 +2686,7 @@ return {
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 43.4,
+        type5 = 62.1,
     },
 
     [193] = {
@@ -2695,12 +2695,12 @@ return {
         limit2 = -1,
         limit3 = -1,
         limit4 = -1,
-        limit5 = 2,
+        limit5 = 1,
         type1 = -1.0,
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 43.6,
+        type5 = 62.2,
     },
 
     [194] = {
@@ -2709,12 +2709,12 @@ return {
         limit2 = -1,
         limit3 = -1,
         limit4 = -1,
-        limit5 = 2,
+        limit5 = 1,
         type1 = -1.0,
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 43.7,
+        type5 = 62.9,
     },
 
     [195] = {
@@ -2728,7 +2728,7 @@ return {
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 43.8,
+        type5 = 63.4,
     },
 
     [196] = {
@@ -2742,7 +2742,7 @@ return {
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 43.9,
+        type5 = 63.6,
     },
 
     [197] = {
@@ -2756,7 +2756,7 @@ return {
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 44.0,
+        type5 = 63.7,
     },
 
     [198] = {
@@ -2770,7 +2770,7 @@ return {
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 44.1,
+        type5 = 64.9,
     },
 
     [199] = {
@@ -2784,7 +2784,7 @@ return {
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 44.2,
+        type5 = 65.1,
     },
 
     [200] = {
@@ -2798,7 +2798,7 @@ return {
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 44.5,
+        type5 = 65.3,
     },
 
     [201] = {
@@ -2812,7 +2812,7 @@ return {
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 44.6,
+        type5 = 65.4,
     },
 
     [202] = {
@@ -2826,7 +2826,7 @@ return {
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 44.7,
+        type5 = 65.7,
     },
 
     [203] = {
@@ -2840,7 +2840,7 @@ return {
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 44.8,
+        type5 = 65.8,
     },
 
     [204] = {
@@ -2849,12 +2849,12 @@ return {
         limit2 = -1,
         limit3 = -1,
         limit4 = -1,
-        limit5 = 3,
+        limit5 = 1,
         type1 = -1.0,
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 44.9,
+        type5 = 66.2,
     },
 
     [205] = {
@@ -2868,7 +2868,7 @@ return {
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 45.3,
+        type5 = 66.3,
     },
 
     [206] = {
@@ -2877,12 +2877,12 @@ return {
         limit2 = -1,
         limit3 = -1,
         limit4 = -1,
-        limit5 = 2,
+        limit5 = 1,
         type1 = -1.0,
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 45.4,
+        type5 = 66.6,
     },
 
     [207] = {
@@ -2891,12 +2891,12 @@ return {
         limit2 = -1,
         limit3 = -1,
         limit4 = -1,
-        limit5 = 2,
+        limit5 = 1,
         type1 = -1.0,
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 45.5,
+        type5 = 67.3,
     },
 
     [208] = {
@@ -2905,12 +2905,12 @@ return {
         limit2 = -1,
         limit3 = -1,
         limit4 = -1,
-        limit5 = 2,
+        limit5 = 1,
         type1 = -1.0,
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 45.7,
+        type5 = 68.7,
     },
 
     [209] = {
@@ -2924,7 +2924,7 @@ return {
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 45.9,
+        type5 = 69.3,
     },
 
     [210] = {
@@ -2938,7 +2938,7 @@ return {
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 46.0,
+        type5 = 69.7,
     },
 
     [211] = {
@@ -2952,7 +2952,7 @@ return {
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 46.2,
+        type5 = 70.0,
     },
 
     [212] = {
@@ -2966,7 +2966,7 @@ return {
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 46.3,
+        type5 = 71.8,
     },
 
     [213] = {
@@ -2975,12 +2975,12 @@ return {
         limit2 = -1,
         limit3 = -1,
         limit4 = -1,
-        limit5 = 3,
+        limit5 = 1,
         type1 = -1.0,
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 46.5,
+        type5 = 71.9,
     },
 
     [214] = {
@@ -2989,12 +2989,12 @@ return {
         limit2 = -1,
         limit3 = -1,
         limit4 = -1,
-        limit5 = 2,
+        limit5 = 1,
         type1 = -1.0,
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 46.7,
+        type5 = 72.2,
     },
 
     [215] = {
@@ -3003,12 +3003,12 @@ return {
         limit2 = -1,
         limit3 = -1,
         limit4 = -1,
-        limit5 = 2,
+        limit5 = 1,
         type1 = -1.0,
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 47.0,
+        type5 = 72.3,
     },
 
     [216] = {
@@ -3022,7 +3022,7 @@ return {
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 47.1,
+        type5 = 72.5,
     },
 
     [217] = {
@@ -3031,12 +3031,12 @@ return {
         limit2 = -1,
         limit3 = -1,
         limit4 = -1,
-        limit5 = 4,
+        limit5 = 1,
         type1 = -1.0,
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 47.4,
+        type5 = 72.9,
     },
 
     [218] = {
@@ -3045,12 +3045,12 @@ return {
         limit2 = -1,
         limit3 = -1,
         limit4 = -1,
-        limit5 = 2,
+        limit5 = 1,
         type1 = -1.0,
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 47.5,
+        type5 = 73.1,
     },
 
     [219] = {
@@ -3059,12 +3059,12 @@ return {
         limit2 = -1,
         limit3 = -1,
         limit4 = -1,
-        limit5 = 2,
+        limit5 = 1,
         type1 = -1.0,
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 47.7,
+        type5 = 73.8,
     },
 
     [220] = {
@@ -3073,12 +3073,12 @@ return {
         limit2 = -1,
         limit3 = -1,
         limit4 = -1,
-        limit5 = 2,
+        limit5 = 1,
         type1 = -1.0,
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 47.9,
+        type5 = 75.4,
     },
 
     [221] = {
@@ -3092,7 +3092,7 @@ return {
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 48.0,
+        type5 = 75.8,
     },
 
     [222] = {
@@ -3106,7 +3106,7 @@ return {
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 48.2,
+        type5 = 76.6,
     },
 
     [223] = {
@@ -3120,7 +3120,7 @@ return {
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 48.3,
+        type5 = 78.1,
     },
 
     [224] = {
@@ -3134,25 +3134,11 @@ return {
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 48.7,
+        type5 = 79.7,
     },
 
     [225] = {
         ID = 225,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 48.9,
-    },
-
-    [226] = {
-        ID = 226,
         limit1 = -1,
         limit2 = -1,
         limit3 = -1,
@@ -3162,7 +3148,21 @@ return {
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 49.1,
+        type5 = 80.4,
+    },
+
+    [226] = {
+        ID = 226,
+        limit1 = -1,
+        limit2 = -1,
+        limit3 = -1,
+        limit4 = -1,
+        limit5 = 1,
+        type1 = -1.0,
+        type2 = -1.0,
+        type3 = -1.0,
+        type4 = -1.0,
+        type5 = 80.8,
     },
 
     [227] = {
@@ -3176,7 +3176,7 @@ return {
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 49.4,
+        type5 = 80.9,
     },
 
     [228] = {
@@ -3185,12 +3185,12 @@ return {
         limit2 = -1,
         limit3 = -1,
         limit4 = -1,
-        limit5 = 2,
+        limit5 = 1,
         type1 = -1.0,
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 49.5,
+        type5 = 81.1,
     },
 
     [229] = {
@@ -3199,12 +3199,12 @@ return {
         limit2 = -1,
         limit3 = -1,
         limit4 = -1,
-        limit5 = 2,
+        limit5 = 1,
         type1 = -1.0,
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 49.6,
+        type5 = 81.6,
     },
 
     [230] = {
@@ -3218,7 +3218,7 @@ return {
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 49.7,
+        type5 = 82.5,
     },
 
     [231] = {
@@ -3227,12 +3227,12 @@ return {
         limit2 = -1,
         limit3 = -1,
         limit4 = -1,
-        limit5 = 2,
+        limit5 = 1,
         type1 = -1.0,
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 50.1,
+        type5 = 83.2,
     },
 
     [232] = {
@@ -3246,7 +3246,7 @@ return {
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 50.2,
+        type5 = 85.2,
     },
 
     [233] = {
@@ -3255,12 +3255,12 @@ return {
         limit2 = -1,
         limit3 = -1,
         limit4 = -1,
-        limit5 = 2,
+        limit5 = 1,
         type1 = -1.0,
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 50.3,
+        type5 = 85.3,
     },
 
     [234] = {
@@ -3274,7 +3274,7 @@ return {
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 50.4,
+        type5 = 85.6,
     },
 
     [235] = {
@@ -3288,7 +3288,7 @@ return {
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 50.5,
+        type5 = 87.4,
     },
 
     [236] = {
@@ -3302,7 +3302,7 @@ return {
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 50.6,
+        type5 = 87.7,
     },
 
     [237] = {
@@ -3316,7 +3316,7 @@ return {
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 50.7,
+        type5 = 88.9,
     },
 
     [238] = {
@@ -3330,7 +3330,7 @@ return {
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 50.8,
+        type5 = 89.5,
     },
 
     [239] = {
@@ -3344,7 +3344,7 @@ return {
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 51.1,
+        type5 = 90.6,
     },
 
     [240] = {
@@ -3353,12 +3353,12 @@ return {
         limit2 = -1,
         limit3 = -1,
         limit4 = -1,
-        limit5 = 2,
+        limit5 = 1,
         type1 = -1.0,
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 51.3,
+        type5 = 96.2,
     },
 
     [241] = {
@@ -3372,7 +3372,7 @@ return {
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 51.7,
+        type5 = 97.1,
     },
 
     [242] = {
@@ -3386,7 +3386,7 @@ return {
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 51.9,
+        type5 = 97.9,
     },
 
     [243] = {
@@ -3395,12 +3395,12 @@ return {
         limit2 = -1,
         limit3 = -1,
         limit4 = -1,
-        limit5 = 2,
+        limit5 = 1,
         type1 = -1.0,
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 52.1,
+        type5 = 98.1,
     },
 
     [244] = {
@@ -3414,7 +3414,7 @@ return {
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 52.9,
+        type5 = 98.6,
     },
 
     [245] = {
@@ -3428,7 +3428,7 @@ return {
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 53.0,
+        type5 = 100.4,
     },
 
     [246] = {
@@ -3437,12 +3437,12 @@ return {
         limit2 = -1,
         limit3 = -1,
         limit4 = -1,
-        limit5 = 2,
+        limit5 = 1,
         type1 = -1.0,
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 53.3,
+        type5 = 111.1,
     },
 
     [247] = {
@@ -3451,12 +3451,12 @@ return {
         limit2 = -1,
         limit3 = -1,
         limit4 = -1,
-        limit5 = 2,
+        limit5 = 1,
         type1 = -1.0,
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 53.4,
+        type5 = 114.3,
     },
 
     [248] = {
@@ -3465,12 +3465,12 @@ return {
         limit2 = -1,
         limit3 = -1,
         limit4 = -1,
-        limit5 = 2,
+        limit5 = 1,
         type1 = -1.0,
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 53.5,
+        type5 = 124.9,
     },
 
     [249] = {
@@ -3484,7 +3484,7 @@ return {
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 53.7,
+        type5 = 132.3,
     },
 
     [250] = {
@@ -3498,1295 +3498,7 @@ return {
         type2 = -1.0,
         type3 = -1.0,
         type4 = -1.0,
-        type5 = 54.0,
-    },
-
-    [251] = {
-        ID = 251,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 2,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 54.6,
-    },
-
-    [252] = {
-        ID = 252,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 54.7,
-    },
-
-    [253] = {
-        ID = 253,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 55.1,
-    },
-
-    [254] = {
-        ID = 254,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 55.5,
-    },
-
-    [255] = {
-        ID = 255,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 55.9,
-    },
-
-    [256] = {
-        ID = 256,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 2,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 57.6,
-    },
-
-    [257] = {
-        ID = 257,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 57.9,
-    },
-
-    [258] = {
-        ID = 258,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 58.4,
-    },
-
-    [259] = {
-        ID = 259,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 58.6,
-    },
-
-    [260] = {
-        ID = 260,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 58.8,
-    },
-
-    [261] = {
-        ID = 261,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 59.4,
-    },
-
-    [262] = {
-        ID = 262,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 2,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 59.5,
-    },
-
-    [263] = {
-        ID = 263,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 59.8,
-    },
-
-    [264] = {
-        ID = 264,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 60.3,
-    },
-
-    [265] = {
-        ID = 265,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 60.7,
-    },
-
-    [266] = {
-        ID = 266,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 61.0,
-    },
-
-    [267] = {
-        ID = 267,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 61.6,
-    },
-
-    [268] = {
-        ID = 268,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 61.7,
-    },
-
-    [269] = {
-        ID = 269,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 61.8,
-    },
-
-    [270] = {
-        ID = 270,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 62.7,
-    },
-
-    [271] = {
-        ID = 271,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 62.8,
-    },
-
-    [272] = {
-        ID = 272,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 62.9,
-    },
-
-    [273] = {
-        ID = 273,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 63.6,
-    },
-
-    [274] = {
-        ID = 274,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 2,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 63.7,
-    },
-
-    [275] = {
-        ID = 275,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 63.8,
-    },
-
-    [276] = {
-        ID = 276,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 64.1,
-    },
-
-    [277] = {
-        ID = 277,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 65.1,
-    },
-
-    [278] = {
-        ID = 278,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 2,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 65.9,
-    },
-
-    [279] = {
-        ID = 279,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 66.2,
-    },
-
-    [280] = {
-        ID = 280,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 66.3,
-    },
-
-    [281] = {
-        ID = 281,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 66.4,
-    },
-
-    [282] = {
-        ID = 282,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 66.6,
-    },
-
-    [283] = {
-        ID = 283,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 66.9,
-    },
-
-    [284] = {
-        ID = 284,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 67.0,
-    },
-
-    [285] = {
-        ID = 285,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 67.3,
-    },
-
-    [286] = {
-        ID = 286,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 67.6,
-    },
-
-    [287] = {
-        ID = 287,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 68.0,
-    },
-
-    [288] = {
-        ID = 288,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 68.2,
-    },
-
-    [289] = {
-        ID = 289,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 69.8,
-    },
-
-    [290] = {
-        ID = 290,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 2,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 70.3,
-    },
-
-    [291] = {
-        ID = 291,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 70.7,
-    },
-
-    [292] = {
-        ID = 292,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 71.6,
-    },
-
-    [293] = {
-        ID = 293,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 71.7,
-    },
-
-    [294] = {
-        ID = 294,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 71.8,
-    },
-
-    [295] = {
-        ID = 295,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 73.4,
-    },
-
-    [296] = {
-        ID = 296,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 74.2,
-    },
-
-    [297] = {
-        ID = 297,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 74.4,
-    },
-
-    [298] = {
-        ID = 298,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 74.7,
-    },
-
-    [299] = {
-        ID = 299,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 74.8,
-    },
-
-    [300] = {
-        ID = 300,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 75.3,
-    },
-
-    [301] = {
-        ID = 301,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 76.3,
-    },
-
-    [302] = {
-        ID = 302,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 76.7,
-    },
-
-    [303] = {
-        ID = 303,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 2,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 77.3,
-    },
-
-    [304] = {
-        ID = 304,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 77.5,
-    },
-
-    [305] = {
-        ID = 305,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 77.7,
-    },
-
-    [306] = {
-        ID = 306,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 78.0,
-    },
-
-    [307] = {
-        ID = 307,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 78.5,
-    },
-
-    [308] = {
-        ID = 308,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 2,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 78.6,
-    },
-
-    [309] = {
-        ID = 309,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 78.9,
-    },
-
-    [310] = {
-        ID = 310,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 3,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 79.0,
-    },
-
-    [311] = {
-        ID = 311,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 82.1,
-    },
-
-    [312] = {
-        ID = 312,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 2,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 83.6,
-    },
-
-    [313] = {
-        ID = 313,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 84.8,
-    },
-
-    [314] = {
-        ID = 314,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 85.1,
-    },
-
-    [315] = {
-        ID = 315,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 85.3,
-    },
-
-    [316] = {
-        ID = 316,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 85.5,
-    },
-
-    [317] = {
-        ID = 317,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 85.6,
-    },
-
-    [318] = {
-        ID = 318,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 85.9,
-    },
-
-    [319] = {
-        ID = 319,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 87.0,
-    },
-
-    [320] = {
-        ID = 320,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 88.7,
-    },
-
-    [321] = {
-        ID = 321,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 89.1,
-    },
-
-    [322] = {
-        ID = 322,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 2,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 91.2,
-    },
-
-    [323] = {
-        ID = 323,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 93.7,
-    },
-
-    [324] = {
-        ID = 324,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 94.6,
-    },
-
-    [325] = {
-        ID = 325,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 95.2,
-    },
-
-    [326] = {
-        ID = 326,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 95.4,
-    },
-
-    [327] = {
-        ID = 327,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 95.5,
-    },
-
-    [328] = {
-        ID = 328,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 96.4,
-    },
-
-    [329] = {
-        ID = 329,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 96.6,
-    },
-
-    [330] = {
-        ID = 330,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 97.8,
-    },
-
-    [331] = {
-        ID = 331,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 99.4,
-    },
-
-    [332] = {
-        ID = 332,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 103.1,
-    },
-
-    [333] = {
-        ID = 333,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 103.5,
-    },
-
-    [334] = {
-        ID = 334,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 106.1,
-    },
-
-    [335] = {
-        ID = 335,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 109.2,
-    },
-
-    [336] = {
-        ID = 336,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 112.2,
-    },
-
-    [337] = {
-        ID = 337,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 115.2,
-    },
-
-    [338] = {
-        ID = 338,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 124.6,
-    },
-
-    [339] = {
-        ID = 339,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 150.0,
-    },
-
-    [340] = {
-        ID = 340,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 155.7,
-    },
-
-    [341] = {
-        ID = 341,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 162.1,
-    },
-
-    [342] = {
-        ID = 342,
-        limit1 = -1,
-        limit2 = -1,
-        limit3 = -1,
-        limit4 = -1,
-        limit5 = 1,
-        type1 = -1.0,
-        type2 = -1.0,
-        type3 = -1.0,
-        type4 = -1.0,
-        type5 = 167.7,
+        type5 = 144.3,
     },
 
 }

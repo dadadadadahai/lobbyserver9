@@ -6,7 +6,7 @@ return {
         addServiceCharge = 0,
         betMul = 1,
         firstMinDinheiro = 3000,
-        firstServiceCharge = 200,
+        firstServiceCharge = 0,
         intervalMinutes = 0,
         minDinheiro = 3000,
     },

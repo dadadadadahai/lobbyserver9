@@ -3,35 +3,35 @@ return {
 
     [1] = {
         ID = 1,
-        desc = "TsPay01",
+        desc = "TsPay",
         platId = 1,
         status = 0,
     },
 
     [2] = {
         ID = 2,
-        desc = "LePay02",
+        desc = "LePay",
         platId = 2,
         status = 0,
     },
 
     [3] = {
         ID = 3,
-        desc = "Fastpay03",
+        desc = "Fastpay",
         platId = 3,
         status = 1,
     },
 
     [4] = {
         ID = 4,
-        desc = "goopago04",
-        platId = 4,
-        status = 1,
+        desc = "Sitopay",
+        platId = 5,
+        status = 0,
     },
 
     [5] = {
         ID = 5,
-        desc = "HKPpay06",
+        desc = "HKPpay",
         platId = 6,
         status = 0,
     },

@@ -534,3 +534,9 @@ REDIS_HASH_NAME = {
     SINGLE_POOL_INFO  = "single_pool_info" ,    --单机奖池
 }
 
+
+--消息提示枚举
+MSGTIP = {
+    DEMO = 1 ,--DEMO 提示
+}
+

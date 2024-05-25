@@ -1,4 +1,4 @@
--- 自动生成 ./excel/game/121/RTP100.xlsx(table_121_normalspin_50_2)
+-- 自动生成 ./excel/game/160/RTP100.xlsx(table_160_normalspin_50_2)
 return {
 
     [1] = {

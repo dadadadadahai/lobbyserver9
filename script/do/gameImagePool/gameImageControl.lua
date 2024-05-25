@@ -22,6 +22,8 @@ end
 local index1 = 0
 local index2 = 0
 local index3 = 0
+local rmdayu0  = 0
+local rmdayu1  = 0
 function RealCommonRotate(_id,gameId,gameType,imageType,gameObj,param)
     local betchip = param.betchip
     local demo = param.demo
@@ -103,13 +105,24 @@ function RealCommonRotate(_id,gameId,gameType,imageType,gameObj,param)
     if imageType == 3 then 
         index3 = index3 + 1
     end 
-    unilight.info('index1 index2   index3 ',index1,index2,index3)
+    if realMul > 0 then 
+        rmdayu0 = rmdayu0 + 1
+        if realMul > 1 then 
+            rmdayu1 = rmdayu1 +1 
+        end 
+    end 
+    unilight.info('index1 index2   index3 rmdayu0 rmdayu1 ',index1,index2,index3,rmdayu0,rmdayu1)
     unilight.info('realMul',realMul)
     unilight.info('imageType',imageType)
     unilight.info('jsonstr',jsonstr)
     local jsonobj = json.decode(jsonstr)
     userinfo.gameData.slotsBet = userinfo.gameData.slotsBet + betchip
-    userinfo.gameData.slotsWin = userinfo.gameData.slotsWin + math.floor(realMul * betchip/gameObj.LineNum)
+    if gameId == 137 then 
+        userinfo.gameData.slotsWin = userinfo.gameData.slotsWin + math.floor(realMul * betchip)
+    else
+        userinfo.gameData.slotsWin = userinfo.gameData.slotsWin + math.floor(realMul * betchip*gameObj.LineNum)
+    end 
+
     return jsonobj,realMul,imageType
 end
 --取出0倍图库

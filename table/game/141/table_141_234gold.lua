@@ -3,7 +3,7 @@ return {
 
     [1] = {
         ID = 1,
-        gailv = 500,
+        gailv = 1500,
     },
 
 }

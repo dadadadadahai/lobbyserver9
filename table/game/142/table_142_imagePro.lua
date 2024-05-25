@@ -3,7 +3,11 @@ return {
 
     [1] = {
         ID = 1,
-        pro = 10000,
+        gailv100 = 10000,
+        gailv150 = 10000,
+        gailv200 = 10000,
+        gailv50 = 10000,
+        gailv75 = 10000,
         type = 1,
     },
 

@@ -201,7 +201,7 @@ return {
 
     [33] = {
         ID = 33,
-        Parameter = 500,
+        Parameter = 300,
         desc = "登录akp赠送金币",
     },
 

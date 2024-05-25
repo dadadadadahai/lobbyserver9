@@ -5,6 +5,7 @@ return {
         ID = 1,
         num = 8,
         pro = 200,
+        spuriousPro = 200,
     },
 
 }

@@ -323,7 +323,7 @@ end
 
 function Get_info_Cmd_C(uid)
 	local all = getGamePrizeInfo()
-	local res = {game={},nextopentime = NEXTOPENTIME,basescore = basescore,betconfig=betconfig,isbet= not table.empty(getUserBetInfoOne(NEXTOPENTIME-600,uid))}
+	local res = {game={},nextopentime = NEXTOPENTIME - os.time(),basescore = basescore,betconfig=betconfig,isbet= not table.empty(getUserBetInfoOne(NEXTOPENTIME-600,uid))}
 	for _, value in pairs(all) do
 		local data = value
 		local log = getUserPrizeInfo(value.time,uid)

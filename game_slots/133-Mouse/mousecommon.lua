@@ -12,6 +12,49 @@ Table_Base = import "table/game/133/table_133_hanglie"                        --
 MaxNormalIconId = 6
 LineNum = Table_Base[1].linenum
 -- 构造数据存档
+-- 构造数据存档
+function SetGameMold(uid,demo)
+    local datainfo = unilight.getdata(DB_Name, uid)
+    -- 没有则初始化信息
+    if table.empty(datainfo) then
+        datainfo = {
+            _id = uid, -- 玩家ID
+            demo = demo or 0 ,
+            gameRooms = {}, -- 游戏类型
+        }
+    end
+    datainfo.demo = demo or 0
+    unilight.savedata(DB_Name,datainfo)
+end
+function GetGameMold(uid)
+    local datainfo = unilight.getdata(DB_Name, uid)
+    -- 没有则初始化信息
+    if table.empty(datainfo) then
+        datainfo = {
+            _id = uid, -- 玩家ID
+            demo = 0,
+            gameRooms = {}, -- 游戏类型
+        }
+        unilight.savedata(DB_Name,datainfo)
+    end
+    return datainfo.demo or 0 
+end
+function IsDemo(uid)
+    return GetGameMold(uid)  == 1
+end
+function AddDemoNums(uid)
+    local datainfo = unilight.getdata(DB_Name, uid)
+    -- 没有则初始化信息
+    if table.empty(datainfo) then
+        dump("nodatainfo")
+        return 
+    end 
+    datainfo.demonum =  datainfo.demonum  and (datainfo.demonum  + 1 ) or 1
+    unilight.savedata(DB_Name,datainfo)
+    if datainfo.demonum % 5 == 0 then 
+        gamecommon.SendGlobalMsgTip(uid,{type = Const.MSGTIP.DEMO})
+    end 
+end
 function Get(gameType,uid)
     -- 获取老鼠模块数据库信息
     local mouseInfo = unilight.getdata(DB_Name, uid)
@@ -26,6 +69,7 @@ function Get(gameType,uid)
     if gameType == nil then
         return mouseInfo
     end
+    local gameType = IsDemo(uid) and gameType*10 or gameType
     -- 没有初始化房间信息
     if table.empty(mouseInfo.gameRooms[gameType]) then
         mouseInfo.gameRooms[gameType] = {
@@ -45,6 +89,7 @@ end
 -- 保存数据存档
 function SaveGameInfo(uid,gameType,roomInfo)
     -- 获取老鼠模块数据库信息
+    local gameType = IsDemo(uid) and gameType*10 or gameType
     local mouseInfo = unilight.getdata(DB_Name, uid)
     mouseInfo.gameRooms[gameType] = roomInfo
     unilight.update(DB_Name,uid,mouseInfo)
