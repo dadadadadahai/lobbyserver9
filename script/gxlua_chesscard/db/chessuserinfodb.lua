@@ -566,7 +566,7 @@ function WUserConstuct(uid, data)
 	local osname = nil
 	if laccount ~= nil then
 		-- platInfo.nickName = laccount.JsMessage.GetNickname()
-		platInfo.nickName = string.format("user%4d", uid % 10000)
+		platInfo.nickName =  GetFakeNickName()--string.format("user%4d", uid % 10000)
 		if platInfo.nickName == "" then
 			platInfo.nickName = nil
 		end
