@@ -54,6 +54,23 @@ return {
         price = 0,
         useType = "",
     },
+    [4] = {
+        ID = 4,
+        giftGoods = {},
+        goodDesc = "",
+        goodIcon = "",
+        goodName = "demo货币",
+        goodType = 23,
+        isShow = 0,
+        limitTime = 0,
+        mark = "",
+        overNum = 1,
+        para1 = "",
+        para2 = "",
+        posType = 1,
+        price = 0,
+        useType = "",
+    },
 
     [10000] = {
         ID = 10000,
