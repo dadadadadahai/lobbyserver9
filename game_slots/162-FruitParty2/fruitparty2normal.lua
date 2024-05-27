@@ -35,9 +35,9 @@ function Normal(gameType, betindex, datainfo, uid)
     if  imageType == 3 then
         local disInfo =  table.remove(alldisInfo,1)
         local betchip = chip
-        local disInfos,realMul,ssums = parseData(betMoney,disInfo)
+        local disInfos,realMuls,ssums = parseData(betMoney,disInfo)
         local  Smul =  calcSMul(ssums)
-        local winScore = (realMul+Smul)*betchip
+        local winScore = (realMuls+Smul)*betchip
         if winScore > 0 then 
             BackpackMgr.GetRewardGood(uid, Const.GOODS_ID.GOLD,winScore, Const.GOODS_SOURCE_TYPE.FRUITPARTY2)
         end 
@@ -66,7 +66,7 @@ function Normal(gameType, betindex, datainfo, uid)
             lackTimes=freetimes,
             tWinScore = 0,
             mulInfoList={},
-            isBuy = 1,
+            isBuy = 0,
             resdata=alldisInfo
         }
         gameDetaillog.SaveDetailGameLog(
@@ -103,10 +103,9 @@ function Normal(gameType, betindex, datainfo, uid)
         SaveGameInfo(uid,gameType,datainfo)
         return res
     else 
-        local disInfos ,realMul2,ssums= parseData(betMoney,alldisInfo)
-        local  Smul =  calcSMul(ssums)
+        local disInfos ,realMul2,ssums= parseData(betMoney,alldisInfo)  
         print(string.format("realMul%d  realMul2%d",realMul,realMul2))
-        local winScore = (realMul+Smul)*chip
+        local winScore = realMul*chip
         if winScore >0 then 
             BackpackMgr.GetRewardGood(uid, Const.GOODS_ID.GOLD,winScore, Const.GOODS_SOURCE_TYPE.FRUITPARTY2)
         end 
@@ -183,9 +182,9 @@ function NormalDemo(gameType, betindex, datainfo, uid)
     if  imageType == 3 then
         local disInfo =  table.remove(alldisInfo,1)
         local betchip = chip
-        local disInfos,realMul,ssums = parseData(betMoney,disInfo)
+        local disInfos,realMuls,ssums = parseData(betMoney,disInfo)
         local  Smul =  calcSMul(ssums)
-        local winScore = (realMul+Smul)*betchip
+        local winScore = (realMuls+Smul)*betchip
         if winScore > 0 then 
             BackpackMgr.GetRewardGood(uid, Const.GOODS_ID.POINT,winScore, Const.GOODS_SOURCE_TYPE.FRUITPARTY2)
         end 
@@ -214,7 +213,7 @@ function NormalDemo(gameType, betindex, datainfo, uid)
             lackTimes=freetimes,
             tWinScore = 0,
             mulInfoList={},
-            isBuy = 1,
+            isBuy = 0,
             resdata=alldisInfo
         }
 
@@ -241,9 +240,8 @@ function NormalDemo(gameType, betindex, datainfo, uid)
         return res
     else 
         local disInfos ,realMul2,ssums= parseData(betMoney,alldisInfo)
-        local  Smul =  calcSMul(ssums)
         print(string.format("realMul%d  realMul2%d",realMul,realMul2))
-        local winScore = (realMul+Smul)*chip
+        local winScore = realMul*chip
         if winScore >0 then 
             BackpackMgr.GetRewardGood(uid, Const.GOODS_ID.POINT,winScore, Const.GOODS_SOURCE_TYPE.FRUITPARTY2)
         end 

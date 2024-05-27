@@ -19,17 +19,23 @@ end
 
 --拉动游戏过程
 function CmdGameOprate(uid, msg)
-    local res={}
-    -- 获取数据库信息
-    local tigerInfo = Get(msg.gameType, uid)
+
     if   IsDemo(uid) then
+        local res={}
+        -- 获取数据库信息
+        local tigerInfo = Get(msg.gameType, uid)
        res = PlayNormalGameDemo(tigerInfo,uid,msg.betIndex,msg.gameType)
+       gamecommon.SendNet(uid,'GameOprateGame_S',res)
        AddDemoNums(uid)
     else
-       res = PlayNormalGame(tigerInfo,uid,msg.betIndex,msg.gameType)
+        local res={}
+        -- 获取数据库信息
+        local tigerInfo = Get(msg.gameType, uid)
+        res = PlayNormalGame(tigerInfo,uid,msg.betIndex,msg.gameType)
         WithdrawCash.GetBetInfo(uid,DB_Name,msg.gameType,res,true,GameId)
+        gamecommon.SendNet(uid,'GameOprateGame_S',res)
     end 
-    gamecommon.SendNet(uid,'GameOprateGame_S',res)
+
 end
 
 -- 注册消息解析

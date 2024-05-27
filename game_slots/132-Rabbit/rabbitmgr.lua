@@ -19,8 +19,9 @@ end
 
 --拉动游戏过程
 function CmdGameOprate(uid, msg)
-    local rabbitInfo = Get(msg.gameType, uid)
+    
     if   IsDemo(uid) then
+        local rabbitInfo = Get(msg.gameType, uid)
         if not table.empty(rabbitInfo.free) then
             --进入免费游戏逻辑
             local res = PlayFreeGameDemo(rabbitInfo,uid,msg.gameType)
@@ -32,6 +33,7 @@ function CmdGameOprate(uid, msg)
             AddDemoNums(uid)
         end
     else
+        local rabbitInfo = Get(msg.gameType, uid)
         if not table.empty(rabbitInfo.free) then
             --进入免费游戏逻辑
             local res = PlayFreeGame(rabbitInfo,uid,msg.gameType)

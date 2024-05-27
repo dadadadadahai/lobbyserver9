@@ -19,9 +19,10 @@ end
 
 --拉动游戏过程
 function CmdGameOprate(uid, msg)
-    -- 获取数据库信息
-    local GreatRhinocerosInfo = Get(msg.gameType, uid)
+  
     if   IsDemo(uid) then
+          -- 获取数据库信息
+         local GreatRhinocerosInfo = Get(msg.gameType, uid)
         if not table.empty(GreatRhinocerosInfo.free) then
             --进入免费游戏逻辑
             local res = PlayFreeGameDemo(GreatRhinocerosInfo,uid,msg.gameType)
@@ -33,6 +34,8 @@ function CmdGameOprate(uid, msg)
             AddDemoNums(uid)
         end
     else
+          -- 获取数据库信息
+          local GreatRhinocerosInfo = Get(msg.gameType, uid)
         if not table.empty(GreatRhinocerosInfo.free) then
             --进入免费游戏逻辑
             local res = PlayFreeGame(GreatRhinocerosInfo,uid,msg.gameType)

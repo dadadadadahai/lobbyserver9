@@ -39,7 +39,7 @@ function CmdGameOprate(uid,msg)
          res.gameType = msg.gameType
         gamecommon.SendNet(uid, 'GameOprateGame_S', res)
     else
-        for i = 1, 50000, 1 do
+        for i = 1, 1000, 1 do
             local datainfo = Get(msg.gameType,uid)
             local res={}
             if table.empty(datainfo.free)==false then
@@ -62,7 +62,7 @@ function CmdBuyFree(uid,msg)
         res.gameType = msg.gameType
         gamecommon.SendNet(uid, 'GameOprateGame_S', res)
     else 
-        for i = 1, 100000, 1 do
+        for i = 1, 1000, 1 do
             local datainfo = Get(msg.gameType,uid)
             if table.empty(datainfo.free) ==false then
                 res = Free(msg.gameType,datainfo,uid)

@@ -59,10 +59,11 @@ function getIconAttachDataAndInfos(chessdata)
             local val = chessdata[col][row].val
             local Id = chessdata[col][row].Id
             resChessdata[col][row] = val
+            if val ==S then
+                snums = snums + 1
+            end 
         end
-        if snums ==S then
-            snums = snums + 1
-        end 
+
     end
     return resChessdata ,snums
 end

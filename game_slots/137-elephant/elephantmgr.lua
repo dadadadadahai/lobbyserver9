@@ -34,7 +34,6 @@ function CmdGameOprate(uid, msg)
         end
     else
         local elephantInfo = Get(msg.gameType, uid)
-        msg.betIndex = math.random(12)
         if not table.empty(elephantInfo.free) then
             --进入免费游戏逻辑
             local res = PlayFreeGame(elephantInfo,uid,msg.gameType)

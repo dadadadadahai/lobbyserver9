@@ -19,20 +19,21 @@ end
 
 --拉动游戏过程
 function CmdGameOprate(uid, msg)
-    local res={}
-    -- 获取数据库信息
-    local goldcowInfo = Get(msg.gameType, uid)
+
     --进入普通游戏逻辑
     if   IsDemo(uid) then
+        local res={}
+        local goldcowInfo = Get(msg.gameType, uid)
         res = PlayNormalGameDemo(goldcowInfo,uid,msg.betIndex,msg.gameType)
+        gamecommon.SendNet(uid,'GameOprateGame_S',res)
         AddDemoNums(uid)
     else 
+        local res={}
+        local goldcowInfo = Get(msg.gameType, uid)
         res = PlayNormalGame(goldcowInfo,uid,msg.betIndex,msg.gameType)
         WithdrawCash.GetBetInfo(uid,DB_Name,msg.gameType,res,true,GameId)
+         gamecommon.SendNet(uid,'GameOprateGame_S',res)
     end 
-  
-
-    gamecommon.SendNet(uid,'GameOprateGame_S',res)
 end
 
 -- 注册消息解析

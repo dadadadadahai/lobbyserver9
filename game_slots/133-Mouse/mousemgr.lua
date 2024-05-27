@@ -20,14 +20,16 @@ end
 --拉动游戏过程
 function CmdGameOprate(uid, msg)
     -- 获取数据库信息
-    local mouseInfo = Get(msg.gameType, uid)
+    
     if   IsDemo(uid) then
         --进入普通游戏逻辑
+        local mouseInfo = Get(msg.gameType, uid)
         local res = PlayNormalGameDemo(mouseInfo,uid,msg.betIndex,msg.gameType)
         gamecommon.SendNet(uid,'GameOprateGame_S',res)
         AddDemoNums(uid)
     else 
         --进入普通游戏逻辑
+        local mouseInfo = Get(msg.gameType, uid)
         local res = PlayNormalGame(mouseInfo,uid,msg.betIndex,msg.gameType)
         WithdrawCash.GetBetInfo(uid,DB_Name,msg.gameType,res,true,GameId)
         gamecommon.SendNet(uid,'GameOprateGame_S',res)
