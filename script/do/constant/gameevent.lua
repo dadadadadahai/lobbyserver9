@@ -29,8 +29,8 @@ GAME_TYPE = {
 
 --子游戏加载路径
 GAME_PATH  = {
-    [1000] = {"game_statisic", "game_common"},         --数据统计
-    [1001] = {"game_lobby_room", "game_common"},            --大厅房加载本目录
+    [1000] = {"game_lobby_room", "game_common"},         --数据统计
+    [1001] = {"game_hall", "game_common"},            --大厅房加载本目录
     [1002] = {"game_slots"},                 --slots游戏目录
     [1003] = {"game_longhu"},                --龙虎斗加载目录
     [1004] = {"game_worldcup"},              --世界杯
@@ -42,13 +42,14 @@ GAME_PATH  = {
 
 --子游戏数据库初始化调用(没有可不填)
 GAME_DB_INIT = {
+    [1000]            = "LobbyRoomInitMgr.DBReady", 
     [1001]            = "LobbyRoomInitMgr.DBReady",         --大厅房间
     [100]             = "BenChiBaoMaInitMgr.DBReady",          --奔驰宝马
 }
 
 --子游戏启动后调用(没有可不填)
 GAME_START_OVER = {
-    [1000]            = "StatisicMgr.StartOver",           --数据统计
+    [1000]            = "LobbyRoomInitMgr.StartOver",           --数据统计
     [1001]            = "LobbyRoomInitMgr.StartOver",           --大厅房间
     [1002]            = 'SlotsGameInitMgr.StartOver',
     [1003]            = 'LongHu.StartOver',                 --龙虎斗
