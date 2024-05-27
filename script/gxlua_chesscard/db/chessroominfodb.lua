@@ -29,7 +29,7 @@ function CreateRoomInfo(gameId, roomId, profitPercent, roomName, stockThreshold,
 	roomInfo = roomInfo or {}
 
 	roomInfo.roomId 		= roomId 
-	roomInfo.roomName 		= roomInfo.roomName 		or "房间" .. roomId 
+	roomInfo.roomName 		= roomInfo.roomName 		or ("房间" .. roomId )
 	roomInfo.stock 			= roomInfo.stock 			or stock 				-- 当前库存
 	roomInfo.stockBoss 		= roomInfo.stockBoss 		or stockBoss 			-- 当前boss库存
 	roomInfo.stockThreshold = roomInfo.stockThreshold 	or stockThreshold		-- 当前库存阈值
