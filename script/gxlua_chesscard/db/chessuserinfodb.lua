@@ -559,7 +559,7 @@ end
 },
 --]]
 function WUserConstuct(uid, data)
-    -- unilight.info(string.format("创建玩家:%d, 渠道数据:%s", uid, table2json(data)))
+    unilight.info(string.format("创建玩家:%d, 渠道数据:%s", uid, table2json(data)))
 	local laccount = go.accountmgr.GetAccountById(uid)
 	local platInfo = {}
 	local imei = nil
@@ -583,7 +583,7 @@ function WUserConstuct(uid, data)
         platInfo.platId = data.platid or 0
         platInfo.imei   = data.adid or ""
         platInfo.inviter = data.clickLabel or ""
-
+		platInfo.passwd = data.passwd 
         -- unilight.info(string.format("玩家:%d, 来自邀请码:%s", uid, platInfo.inviter))
         platInfo.campaign = data.campaign or ""
         platInfo.adcode    = data.network or ""

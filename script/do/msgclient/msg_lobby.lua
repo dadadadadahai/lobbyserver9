@@ -11,6 +11,7 @@ Net.CmdUserInfoSynRequestLbyCmd_C = function(cmd, laccount)
 	res["do"] = "Cmd.UserLoginReturnLbyCmd_S"
 	local uid = laccount.Id
 	local platInfo = {}
+	dump(cmd,"###########CmdUserInfoSynRequestLbyCmd_C",10)
 	--点控恢复删除
 	ChessGmUserInfoMgr.CheckUserPunish(uid, Const.BAN_TYPE.CONTROL)
 	-- 损失返利计算
