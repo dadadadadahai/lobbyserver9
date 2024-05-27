@@ -666,7 +666,7 @@ function WUserConstuct(uid, data)
 		_id=uid,
 		uid = uid,
 		base = {
-			nickname       = string.format("user%04d", uid % 10000),      --玩家名字
+			nickname       = platInfo.nickName or  GetFakeNickName(),      --玩家名字
 			headurl        = platInfo.headUrl or randomHeadUrl,       --玩家头像
             -- headFrame      = 0,                                      --玩家头像框
 			email          = platInfo.email or "123@qq.com",          --邮箱
