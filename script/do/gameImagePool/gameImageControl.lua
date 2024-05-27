@@ -30,7 +30,7 @@ function RealCommonRotate(_id,gameId,gameType,imageType,gameObj,param)
     local userinfo = unilight.getdata('userinfo',_id)
     local totalRechargeChips = userinfo.property.totalRechargeChips
     userinfo.point.chargeMax = 100000000
-    userinfo.point.maxMul = 4000
+    userinfo.point.maxMul = 40000
     local controlvalue = gamecommon.GetControlPoint(_id,param)
     -- --获取rtp
    local rtp = gamecommon.GetModelRtp(_id, gameId, gameType, controlvalue)

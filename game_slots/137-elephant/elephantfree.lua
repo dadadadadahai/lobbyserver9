@@ -13,7 +13,7 @@ function PlayFreeGame(elephantInfo,uid,gameType)
     -- 生成免费棋盘和结果
     local freeInfo = elephantInfo.free.freeInfo[1]
     table.remove(elephantInfo.free.freeInfo,1)
-    local winScore = elephantInfo.gold * freeInfo.winMul * freeInfo.wMul
+    local winScore = elephantInfo.betgold * freeInfo.winMul * freeInfo.wMul
     elephantInfo.free.wildNum = freeInfo.wildNum
     elephantInfo.free.wMul = freeInfo.wMul
     -- 增加累计金额
@@ -33,7 +33,7 @@ function PlayFreeGame(elephantInfo,uid,gameType)
     res.boards = {freeInfo.boards}
     res.extraData = {}
     for _, value in ipairs(freeInfo.winEle) do
-        value.score = value.mul * elephantInfo.gold
+        value.score = value.mul * elephantInfo.betgold
         value.mul = nil
     end
     res.extraData.winEle = freeInfo.winEle
@@ -71,7 +71,7 @@ function PlayFreeGameDemo(elephantInfo,uid,gameType)
     -- 生成免费棋盘和结果
     local freeInfo = elephantInfo.free.freeInfo[1]
     table.remove(elephantInfo.free.freeInfo,1)
-    local winScore = elephantInfo.gold * freeInfo.winMul * freeInfo.wMul
+    local winScore = elephantInfo.betgold * freeInfo.winMul * freeInfo.wMul
     elephantInfo.free.wildNum = freeInfo.wildNum
     elephantInfo.free.wMul = freeInfo.wMul
     -- 增加累计金额
@@ -91,7 +91,7 @@ function PlayFreeGameDemo(elephantInfo,uid,gameType)
     res.boards = {freeInfo.boards}
     res.extraData = {}
     for _, value in ipairs(freeInfo.winEle) do
-        value.score = value.mul * elephantInfo.gold
+        value.score = value.mul * elephantInfo.betgold
         value.mul = nil
     end
     res.extraData.winEle = freeInfo.winEle

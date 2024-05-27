@@ -22,7 +22,7 @@ function PlayNormalGame(elephantInfo,uid,betIndex,gameType)
         }
         return res
     end
-    elephantInfo.gold = betgold
+    elephantInfo.betgold = betgold
     elephantInfo.betMoney = payScore
     -- 生成普通棋盘和结果
     -- local imageType = table_137_imagePro[gamecommon.CommRandInt(table_137_imagePro,'pro')].type
@@ -101,7 +101,7 @@ function PlayNormalGameDemo(elephantInfo,uid,betIndex,gameType)
         }
         return res
     end
-    elephantInfo.gold = betgold
+    elephantInfo.betgold = betgold
     elephantInfo.betMoney = payScore
 
     local resultGame,realMul,imageType = gameImagePool.RealCommonRotate(uid,GameId,gameType,nil,Elephant,{betchip=betgold,demo = IsDemo(uid),betIndex=betIndex,gameId=GameId,gameType=gameType,betchips=payScore})
