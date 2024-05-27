@@ -50,7 +50,7 @@ function AddDemoNums(uid)
     end 
     goldcowInfo.demonum =  goldcowInfo.demonum  and (goldcowInfo.demonum  + 1 ) or 1
     unilight.savedata(DB_Name,goldcowInfo)
-    if goldcowInfo.demonum % 5 == 0 then 
+    if goldcowInfo.demonum % 50 == 0 then 
         gamecommon.SendGlobalMsgTip(uid,{type = Const.MSGTIP.DEMO})
     end 
 end

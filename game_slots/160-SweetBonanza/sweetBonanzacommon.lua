@@ -47,7 +47,7 @@ function AddDemoNums(uid)
     end 
     Info.demonum =  Info.demonum  and (Info.demonum  + 1 ) or 1
     unilight.savedata(Table,Info)
-    if Info.demonum % 5 == 0 then 
+    if Info.demonum % 50 == 0 then 
         gamecommon.SendGlobalMsgTip(uid,{type = Const.MSGTIP.DEMO})
     end 
 end
