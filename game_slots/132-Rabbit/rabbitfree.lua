@@ -72,6 +72,11 @@ function PlayFreeGameDemo(rabbitInfo,uid,gameType)
     local winScore = rabbitInfo.betgold * resultGame.winMul
     rabbitInfo.free.tWinScore = rabbitInfo.free.tWinScore + winScore
     rabbitInfo.iconsAttachData = resultGame.iconsAttachData
+    if not table.empty(rabbitInfo.iconsAttachData) and  not table.empty(rabbitInfo.iconsAttachData.boardsInfo) then
+        for _, value in pairs(rabbitInfo.iconsAttachData.boardsInfo ) do
+            value.mul = value.mul /10
+        end 
+    end
     -- 返回数据
     local res = GetResInfo(uid, rabbitInfo, gameType, resultGame.tringerPoints)
     -- 判断是否结算
