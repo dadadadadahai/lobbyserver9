@@ -601,7 +601,7 @@ local xin = {"Aguiar",
 "Xavier",
 }
 
-local min = {"Ana",
+local ming = {"Ana",
 "Bruno",
 "Camila",
 "Diego",
@@ -1204,5 +1204,5 @@ local min = {"Ana",
 }
 
 function GetFakeNickName()
-    return min[math.random[#min]].." "..xin[math.random[#xin]]
+    return ming[math.random(#ming)].." "..xin[math.random(#xin)]
 end
