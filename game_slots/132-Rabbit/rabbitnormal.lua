@@ -49,6 +49,11 @@ function PlayNormalGame(rabbitInfo,uid,betIndex,gameType)
     -- 保存棋盘数据
     rabbitInfo.boards = resultGame.boards
     rabbitInfo.iconsAttachData = resultGame.iconsAttachData
+    if not table.empty(rabbitInfo.iconsAttachData) and  not table.empty(rabbitInfo.iconsAttachData.boardsInfo) then
+        for _, value in pairs(rabbitInfo.iconsAttachData.boardsInfo ) do
+            value.mul = value.mul /10
+        end 
+    end
     if (imageType == 1 or imageType == 3) and winScore > 0 then
         -- 增加奖励
         BackpackMgr.GetRewardGood(uid, Const.GOODS_ID.GOLD, winScore, Const.GOODS_SOURCE_TYPE.RABBIT)
@@ -123,6 +128,11 @@ function PlayNormalGameDemo(rabbitInfo,uid,betIndex,gameType)
     -- 保存棋盘数据
     rabbitInfo.boards = resultGame.boards
     rabbitInfo.iconsAttachData = resultGame.iconsAttachData
+    if not table.empty(rabbitInfo.iconsAttachData) and  not table.empty(rabbitInfo.iconsAttachData.boardsInfo) then
+        for _, value in pairs(rabbitInfo.iconsAttachData.boardsInfo ) do
+            value.mul = value.mul /10
+        end 
+    end
     if (imageType == 1 or imageType == 3) and winScore > 0 then
         -- 增加奖励
         BackpackMgr.GetRewardGood(uid, Const.GOODS_ID.POINT, winScore, Const.GOODS_SOURCE_TYPE.RABBIT)
