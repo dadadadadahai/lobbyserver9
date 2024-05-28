@@ -21,6 +21,8 @@ TABLE_NAME = "timelycolor"
 TABLE_PRIZELOG_NAME = "timelycolorprizelog"
 TABLE_LOG_NAME = "timelycolorbetlog"
 TABLE_VIPPL_NAME = "viptimelycolor"
+TABLE_CONTROL_NAME = "smallgamecontrol"
+GameID = 777
 local constindex = 1
 local function get_last_tenmin()
 	return math.floor(os.time()/600)*600   
@@ -84,16 +86,35 @@ function getOneOpenPrizes(allbets,i)
 
 	end
 	return prizes ,totablbonus,totablbetmoney
+end
+function GetTongshaPro()
+	local filter =  unilight.eq('game',GameID)
+	local all =  unilight.chainResponseSequence(unilight.startChain().Table(TABLE_CONTROL_NAME).Filter(filter))
+	if table.empty(all) then
+		return 100
+	else 
+		for _, value in pairs(all) do
+			return value.tongsha
+		end
+	end 
 end 
+
 function OpenPrizes(allbets)
 	local prizes, totablbonus,totablbetmoney
 	local curprizes = {}
 	constindex = math.random(64)
+	local tongshapro = math.random(10000) < GetTongshaPro()
 	for i = 1, 64, 1 do
 		 prizes, totablbonus,totablbetmoney= getOneOpenPrizes(allbets,i)
-		 if totablbetmoney >=totablbonus then
-			return prizes
-		end
+		 if not tongshapro then 
+			if totablbetmoney >=totablbonus and totablbonus >0  then
+				return prizes
+			end
+		else
+			if totablbetmoney >=totablbonus and totablbonus == 0  then
+				return prizes
+			end
+		end 
 		 table.insert(curprizes,{prizes=prizes,tt = totablbetmoney -totablbonus })
 	end
 	local key = table.max(curprizes,function (v)
@@ -143,6 +164,19 @@ function OpenPrize(btime,etime)
 		print(uid .. "时时彩 中奖，获得奖金：" .. per_winner_bonus )
 		totablbonus  = 	totablbonus  + per_winner_bonus
 		totablbetmoney  = 	totablbetmoney  + betmoney
+			-- 增加后台历史记录
+			gameDetaillog.SaveDetailGameLog(
+				uid,
+				etime,
+				GameID,
+				1,
+				betmoney,
+				0,
+				per_winner_bonus,
+				0,
+				{type='normal'},
+				{}
+			)
 		if per_winner_bonus > 0 then 
 			prinzeusernums = prinzeusernums + 1
 			    --发送邮件

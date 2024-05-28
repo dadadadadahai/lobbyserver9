@@ -10,7 +10,7 @@ function Free( gameType, datainfo,uid)
   
     local chip = datainfo.betMoney * LineNum
     local disInfo =   table.remove(datainfo.free.resdata,1)
-    local disInfos,tmul,ssums = parseData(datainfo.betMoney,disInfo)
+    local disInfos,tmul,ssums = parseData(datainfo.betMoney,disInfo.b)
     local  Smul =  calcSMul(ssums)
     local boards= table.clone(disInfos[1].chessdata)
     local iconsAttachData = disInfos[1].iconsAttachData
@@ -94,7 +94,7 @@ function FreeDemo( gameType, datainfo,uid)
   
     local chip = datainfo.betMoney * LineNum
     local disInfo =   table.remove(datainfo.free.resdata,1)
-    local disInfos,tmul,ssums = parseData(datainfo.betMoney,disInfo)
+    local disInfos,tmul,ssums = parseData(datainfo.betMoney,disInfo.b)
     local  Smul =  calcSMul(ssums)
     local boards= table.clone(disInfos[1].chessdata)
     local iconsAttachData = disInfos[1].iconsAttachData

@@ -37,11 +37,11 @@ function BuyFree(gameType,betindex,datainfo,uid)
 
     datainfo.betMoney = betMoney
     --取图库2
-    local alldisInfo = gameImagePool.RealCommonRotate(uid,GameId,gameType,2,fruitparty2,{betchip=betMoney,betIndex=betindex,gameId=GameId,gameType=gameType,betchips=chip})
+    local alldisInfo = gameImagePool.RealCommonRotate(uid,GameId,gameType,3,fruitparty2,{betchip=betMoney,betIndex=betindex,gameId=GameId,gameType=gameType,betchips=chip})
 
     local disInfo =  table.remove(alldisInfo,1)
     local betchip = betMoney * LineNum
-    local disInfos,realMul ,ssums= parseData(betMoney,disInfo)
+    local disInfos,realMul ,ssums= parseData(betMoney,disInfo.b)
     local  Smul =  calcSMul(ssums)
     local winScore = (realMul+Smul)*betchip
     if winScore > 0 then 
@@ -138,7 +138,7 @@ function BuyFreeDemo(gameType,betindex,datainfo,uid)
 
     local disInfo =  table.remove(alldisInfo,1)
     local betchip = betMoney * LineNum
-    local disInfos,realMul ,ssums= parseData(betMoney,disInfo)
+    local disInfos,realMul ,ssums= parseData(betMoney,disInfo.b)
     local  Smul =  calcSMul(ssums)
     local winScore = (realMul+Smul)*betchip
     if winScore > 0 then 

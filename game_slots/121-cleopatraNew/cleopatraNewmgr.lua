@@ -58,6 +58,7 @@ function CmdBuyFree(uid,msg)
         res.gameType = msg.gameType
         gamecommon.SendNet(uid, 'GameOprateGame_S', res)
     else 
+        local datainfo = Get(msg.gameType,uid)
         local res = BuyFree(msg.gameType,msg.betIndex,datainfo,uid)
          WithdrawCash.GetBetInfo(uid,Table,msg.gameType,res,true,GameId)
          res.gameType = msg.gameType

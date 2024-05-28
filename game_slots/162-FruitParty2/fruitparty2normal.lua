@@ -35,7 +35,7 @@ function Normal(gameType, betindex, datainfo, uid)
     if  imageType == 3 then
         local disInfo =  table.remove(alldisInfo,1)
         local betchip = chip
-        local disInfos,realMuls,ssums = parseData(betMoney,disInfo)
+        local disInfos,realMuls,ssums = parseData(betMoney,disInfo.b)
         local  Smul =  calcSMul(ssums)
         local winScore = (realMuls+Smul)*betchip
         if winScore > 0 then 
@@ -103,7 +103,7 @@ function Normal(gameType, betindex, datainfo, uid)
         SaveGameInfo(uid,gameType,datainfo)
         return res
     else 
-        local disInfos ,realMul2,ssums= parseData(betMoney,alldisInfo)  
+        local disInfos ,realMul2,ssums= parseData(betMoney,alldisInfo.b)  
         print(string.format("realMul%d  realMul2%d",realMul,realMul2))
         local winScore = realMul*chip
         if winScore >0 then 
@@ -182,7 +182,7 @@ function NormalDemo(gameType, betindex, datainfo, uid)
     if  imageType == 3 then
         local disInfo =  table.remove(alldisInfo,1)
         local betchip = chip
-        local disInfos,realMuls,ssums = parseData(betMoney,disInfo)
+        local disInfos,realMuls,ssums = parseData(betMoney,disInfo.b)
         local  Smul =  calcSMul(ssums)
         local winScore = (realMuls+Smul)*betchip
         if winScore > 0 then 
@@ -239,7 +239,7 @@ function NormalDemo(gameType, betindex, datainfo, uid)
         SaveGameInfo(uid,gameType,datainfo)
         return res
     else 
-        local disInfos ,realMul2,ssums= parseData(betMoney,alldisInfo)
+        local disInfos ,realMul2,ssums= parseData(betMoney,alldisInfo.b)
         print(string.format("realMul%d  realMul2%d",realMul,realMul2))
         local winScore = realMul*chip
         if winScore >0 then 

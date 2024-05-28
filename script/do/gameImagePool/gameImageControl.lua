@@ -45,7 +45,7 @@ function RealCommonRotate(_id,gameId,gameType,imageType,gameObj,param)
        --  rtp =  rtptable[gamecommon.CommRandInt(rtptable,'pro')].type
         --end 
    else
-     rtp = 200 
+        rtp = 200 
    end
     local imagePro = string.format("table_%d_imagePro",gameId)
     if imageType==nil then
