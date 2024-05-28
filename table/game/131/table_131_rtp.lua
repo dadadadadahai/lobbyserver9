@@ -8,7 +8,7 @@ return {
         type1_200 = 0.0,
         type1_50 = 0.0,
         type1_75 = 0.0,
-        type1_gailv100 = 153575,
+        type1_gailv100 = 352880,
         type1_gailv150 = 162860,
         type1_gailv200 = 153575,
         type1_gailv50 = 158480,
