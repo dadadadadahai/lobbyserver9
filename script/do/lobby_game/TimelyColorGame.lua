@@ -45,7 +45,7 @@ end
 
 function GettTelvePrize(i)
 	local prizes = {t={},f={}}
-	local r = constindex+i%64+1
+	local r = (constindex+i)%64+1
 	print(constindex,i,r)
 	local curnumber = CONSTTIMELYCOLOR[r]
 	table.insert(prizes.t,curnumber)
