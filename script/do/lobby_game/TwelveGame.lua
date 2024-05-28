@@ -57,9 +57,9 @@ function GettTelvePrize(i)
 	-- 	table.insert(prizes.f,CONSTFIVE[math.random(#CONSTFIVE)])
 	-- else
 	-- end 
-	local r = constindex+i%1100+1
+	local r = (constindex+i)%1100+1
 	print(constindex,i,r)
-	return data[constindex+i%1100+1]
+	return data[r]
 end
 function getOneOpenPrizes(allbets,i)
 	
@@ -121,6 +121,7 @@ end
 function GetTongshaPro()
 	local filter =  unilight.eq('game',GameID)
 	local all =  unilight.chainResponseSequence(unilight.startChain().Table(TABLE_CONTROL_NAME).Filter(filter))
+	dump(all)
 	if table.empty(all) then
 		return 100
 	else 
@@ -136,14 +137,18 @@ function OpenPrizes(allbets)
 	local tongshapro = math.random(10000) < GetTongshaPro()
 	for i = 1, 1100, 1 do
 		prizes, totablbonus,totablbetmoney= getOneOpenPrizes(allbets,i)
-		if not tongshapro then
-			if totablbetmoney >=totablbonus and totablbonus > 0  then
-				return prizes
+		if not table.empty(allbets) then
+			if not tongshapro then
+				if totablbetmoney >=totablbonus and totablbonus > 0  then
+					return prizes
+				end
+			else
+				if totablbetmoney >=totablbonus and totablbonus == 0  then
+					return prizes
+				end
 			end
 		else
-			if totablbetmoney >=totablbonus and totablbonus == 0  then
-				return prizes
-			end
+			return prizes
 		end
 		table.insert(curprizes,{prizes=prizes,tt = totablbetmoney -totablbonus })
 	end

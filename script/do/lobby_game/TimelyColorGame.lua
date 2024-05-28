@@ -90,6 +90,7 @@ end
 function GetTongshaPro()
 	local filter =  unilight.eq('game',GameID)
 	local all =  unilight.chainResponseSequence(unilight.startChain().Table(TABLE_CONTROL_NAME).Filter(filter))
+	dump(all,"all",10)
 	if table.empty(all) then
 		return 100
 	else 
@@ -106,14 +107,18 @@ function OpenPrizes(allbets)
 	local tongshapro = math.random(10000) < GetTongshaPro()
 	for i = 1, 64, 1 do
 		 prizes, totablbonus,totablbetmoney= getOneOpenPrizes(allbets,i)
-		 if not tongshapro then 
-			if totablbetmoney >=totablbonus and totablbonus >0  then
-				return prizes
-			end
+		 if not table.empty(allbets)  then 
+			if not tongshapro then 
+				if totablbetmoney >=totablbonus and totablbonus >0  then
+					return prizes
+				end
+			else
+				if totablbetmoney >=totablbonus and totablbonus == 0  then
+					return prizes
+				end
+			end 
 		else
-			if totablbetmoney >=totablbonus and totablbonus == 0  then
-				return prizes
-			end
+			return prizes
 		end 
 		 table.insert(curprizes,{prizes=prizes,tt = totablbetmoney -totablbonus })
 	end
