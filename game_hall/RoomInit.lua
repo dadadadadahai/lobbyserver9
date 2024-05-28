@@ -41,9 +41,7 @@ function StartOver()
 	-- unilight.addclocker("LobbyRoomInitMgr.TenMinCallback", 0, CYCLE_MIN * 10)
     unilight.addclocker('LobbyRoomInitMgr.TwoSecCallback',0,2)
       --积分抽奖定时器
-    --  unilight.addclocker("Pointlottery.PLTick", 0, CYCLE_MIN)
-    unilight.addclocker("timelycolor.Tick", 0, 1)
-    unilight.addclocker("twelvegame.Tick", 0, 1)
+  
     -- --每3秒钟定时器
 	-- unilight.addclocker("LobbyRoomInitMgr.TwoSecCallback", 0, 2)
     -- --每秒定时器
