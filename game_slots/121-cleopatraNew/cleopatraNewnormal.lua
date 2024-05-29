@@ -59,6 +59,8 @@ function Normal(gameType, betindex, datainfo, uid)
             tWinScore = 0,
             tMul = 0,
             sMul = 0 ,
+            allmul = realMul,
+            normalwinScore = winScore,
             mulInfoList={},
             isBuy = 0,
             resdata=alldisInfo
@@ -196,6 +198,8 @@ function NormalDemo(gameType, betindex, datainfo, uid)
             tWinScore = 0,
             tMul = 0,
             sMul = 0 ,
+            allmul = realMul,
+            normalwinScore = winScore,
             mulInfoList={},
             isBuy = 0,
             resdata=alldisInfo

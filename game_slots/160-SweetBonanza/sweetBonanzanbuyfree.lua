@@ -39,7 +39,7 @@ function BuyFree(gameType,betindex,datainfo,uid)
 
     datainfo.betMoney = betMoney
     --取图库2
-    local alldisInfo = gameImagePool.RealCommonRotate(uid,GameId,gameType,2,sweetBonanza,{betchip=betMoney,betIndex=betindex,gameId=GameId,gameType=gameType,betchips=betMoney})
+    local alldisInfo,realMulaa = gameImagePool.RealCommonRotate(uid,GameId,gameType,2,sweetBonanza,{betchip=betMoney,betIndex=betindex,gameId=GameId,gameType=gameType,betchips=betMoney})
     local disInfo =  table.remove(alldisInfo,1)
     local betchip = betMoney * LineNum
     local disInfos,realMul ,bombdataMap,ssum = parseData(betMoney,disInfo)
@@ -61,7 +61,9 @@ function BuyFree(gameType,betindex,datainfo,uid)
         lackTimes=10,
         tWinScore = 0,
         tMul = 0,
+        allmul=realMulaa,
         mulInfoList={},
+        normalwinScore = winScore,
         isBuy = 1,
         resdata=alldisInfo
     }
@@ -124,7 +126,7 @@ function BuyFreeDemo(gameType,betindex,datainfo,uid)
 
     datainfo.betMoney = betMoney
     --取图库2
-    local alldisInfo = gameImagePool.RealCommonRotate(uid,GameId,gameType,2,sweetBonanza,{betchip=betMoney, demo = IsDemo(uid),betIndex=betindex,gameId=GameId,gameType=gameType,betchips=betMoney})
+    local alldisInfo ,realMulaa= gameImagePool.RealCommonRotate(uid,GameId,gameType,2,sweetBonanza,{betchip=betMoney, demo = IsDemo(uid),betIndex=betindex,gameId=GameId,gameType=gameType,betchips=betMoney})
     local disInfo =  table.remove(alldisInfo,1)
     local betchip = betMoney * LineNum
     local disInfos,realMul ,bombdataMap,ssum = parseData(betMoney,disInfo)
@@ -146,6 +148,8 @@ function BuyFreeDemo(gameType,betindex,datainfo,uid)
         lackTimes=10,
         tWinScore = 0,
         tMul = 0,
+        allmul=realMulaa,
+        normalwinScore = winScore,
         mulInfoList={},
         isBuy = 1,
         resdata=alldisInfo

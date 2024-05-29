@@ -23,7 +23,7 @@ function parseData(betMoney,disInfo)
     local tmul = 0
     local snum = 0 
     --u图标id记录  重复不添加
-    local allwinfo = {}
+   -- local allwinfo = {}
     for index, value in ipairs(disInfos) do
         local mchessdata = value.chessdata
         local  winfo = value.winfo 
@@ -32,10 +32,10 @@ function parseData(betMoney,disInfo)
         local dis = value.dis
         local resChessdata,ssnum = getIconAttachDataAndInfos(mchessdata)
         snum = ssnum
-        local info = getInfos(betMoney,dis,allwinfo)
-        for _, wf in pairs(winfo) do
-            table.insert(allwinfo,wf)
-        end
+        local info = getInfos(betMoney,dis)
+       -- for _, wf in pairs(winfo) do
+       --     table.insert(allwinfo,wf)
+      --  end
         table.insert(resDisInfos,{
             chessdata = resChessdata,
             info =  info,
@@ -48,21 +48,22 @@ end
 function getInfos(betMoney,dis,allwinfo)
     local info={}
     for _,d in ipairs(dis) do
-        d.winScore = math.floor(betMoney*(d.mul or 0 ))
-        if  not table.empty(allwinfo) then
-            for i = #allwinfo, 1, -1 do
-                local winfo =  allwinfo[i]
-                local coordinate = winfo.coordinate
-                for _, v in pairs(d.data) do
-                    if v[1] == coordinate[1] and v[2] ==coordinate[2] then 
-                        d.smul = d.smul or 0
-                        d.smul = d.smul + winfo.mul
-                        table.remove(allwinfo,i)
-                        break
-                    end
-                end
-            end
-        end 
+        d.winScore = tonumber(string.format("%.2f",betMoney*(d.mul or 0 )))
+        -- if  not table.empty(allwinfo) then
+        --     for i = #allwinfo, 1, -1 do
+        --         local winfo =  allwinfo[i]
+        --         local coordinate = winfo.coordinate
+        --         for _, v in pairs(d.data) do
+        --             if v[1] == coordinate[1] and v[2] ==coordinate[2] then 
+        --                 d.smul = d.smul or 0
+        --                 d.smul = d.smul + winfo.mul
+        --                 table.remove(allwinfo,i)
+        --                 break
+        --             end
+        --         end
+        --     end
+        -- end 
+        d.normalwinScore = tonumber(string.format("%.2f",  betMoney*(d.normalmul or 0 )))
         table.insert(info,d)
     end
     return info

@@ -19,19 +19,12 @@ function Free(gameType, datainfo,uid)
     if tmul>0 then
         for _,value in ipairs(iconsAttachData) do
             table.insert(datainfo.free.mulInfoList,value.data.mul)
-            datainfo.free.tMul = datainfo.free.tMul+value.data.mul
         end
-       
+        datainfo.free.tMul = tmul
     end
     for i=1,#disInfos-1 do
         disInfos[i].chessdata = disInfos[i+1].chessdata
         disInfos[i].iconsAttachData = disInfos[i+1].iconsAttachData
-        if tmul>0 then
-            for _,value in ipairs(disInfos[i].iconsAttachData) do
-                table.insert(datainfo.free.mulInfoList,value.data.mul)
-                datainfo.free.tMul = datainfo.free.tMul+value.data.mul
-            end
-        end
     end
     local lastDis = disInfos[#disInfos]
     local sNum = 0
@@ -57,13 +50,15 @@ function Free(gameType, datainfo,uid)
         datainfo.free.lackTimes = 0 
     end 
     if datainfo.free.lackTimes<=0 then
+        local curnwins =  datainfo.free.allmul * chip
+        dump(string.format("#########  %d %d",curnwins,datainfo.free.tWinScore+datainfo.free.normalwinScore))
         BackpackMgr.GetRewardGood(uid, Const.GOODS_ID.GOLD,datainfo.free.tWinScore, Const.GOODS_SOURCE_TYPE.SWEETBONANZA)
     end
     local res = {
         errno = 0,
         betIndex = datainfo.betindex,
         bAllLine = LineNum,
-        payScore = datainfo.betMoney * LineNum,
+        payScore = 0,
         winScore = winScore,
         winLines = {},
         boards = boards,
@@ -131,12 +126,6 @@ function FreeDemo(gameType, datainfo,uid)
     for i=1,#disInfos-1 do
         disInfos[i].chessdata = disInfos[i+1].chessdata
         disInfos[i].iconsAttachData = disInfos[i+1].iconsAttachData
-        if tmul>0 then
-            for _,value in ipairs(disInfos[i].iconsAttachData) do
-                table.insert(datainfo.free.mulInfoList,value.data.mul)
-                datainfo.free.tMul = datainfo.free.tMul+value.data.mul
-            end
-        end
     end
     local lastDis = disInfos[#disInfos]
     local sNum = 0
@@ -159,6 +148,8 @@ function FreeDemo(gameType, datainfo,uid)
     datainfo.free.tWinScore = datainfo.free.tWinScore + winScore
 
     if datainfo.free.lackTimes<=0 then
+        local curnwins =  datainfo.free.allmul * chip
+        dump(string.format("#########  %d %d",curnwins,datainfo.free.tWinScore+datainfo.free.normalwinScore))
         BackpackMgr.GetRewardGood(uid, Const.GOODS_ID.POINT,datainfo.free.tWinScore, Const.GOODS_SOURCE_TYPE.SWEETBONANZA)
     end
     local res = {

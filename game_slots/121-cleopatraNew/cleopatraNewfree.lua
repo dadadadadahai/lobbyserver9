@@ -22,20 +22,14 @@ function Free(gameType, datainfo,uid)
     if tmul>0 then
         for _,value in ipairs(iconsAttachData) do
             table.insert(datainfo.free.mulInfoList,value.data.mul)
-            datainfo.free.tMul = datainfo.free.tMul+value.data.mul
         end
+        datainfo.free.tMul = tmul 
         datainfo.free.sMul =  datainfo.free.sMul +boommuls
     end
    
     for i=1,#disInfos-1 do
         disInfos[i].chessdata = disInfos[i+1].chessdata
         disInfos[i].iconsAttachData = disInfos[i+1].iconsAttachData
-        if tmul>0 then
-            for _,value in ipairs(disInfos[i].iconsAttachData) do
-                table.insert(datainfo.free.mulInfoList,value.data.mul)
-                datainfo.free.tMul = datainfo.free.tMul+value.data.mul
-            end
-        end
     end
     local lastDis = disInfos[#disInfos]
     local sNum = 0
@@ -54,17 +48,20 @@ function Free(gameType, datainfo,uid)
     table.remove(disInfos,#disInfos)
     local  Smul =  calcSMul(ssum)
     local winScore = 0
-    dump(string.format("%d %d %d %d",chip,tmul,Smul,datainfo.free.sMul))
+    dump(string.format("%f %f %f %f",chip,tmul,Smul,datainfo.free.sMul))
     if boommuls >0 then 
         winScore=  chip*(tmul+Smul) *  (datainfo.free.sMul == 0 and 1 or  datainfo.free.sMul)
     else 
         winScore=  chip*(tmul+Smul) 
     end 
-      
+    dump(string.format("cur win %f ",winScore))
     datainfo.free.lackTimes = datainfo.free.lackTimes  -1
     datainfo.free.tWinScore = datainfo.free.tWinScore + winScore
     local achip = chessuserinfodb.RUserChipsGet(uid)
     if datainfo.free.lackTimes<=0 then
+        local curnwins =  datainfo.free.allmul * chip
+       -- dump(string.format("#########  %d %d",curnwins,datainfo.free.tWinScore))
+        dump(string.format("#########  %d %d",curnwins,datainfo.free.tWinScore+datainfo.free.normalwinScore))
         BackpackMgr.GetRewardGood(uid, Const.GOODS_ID.GOLD,datainfo.free.tWinScore, Const.GOODS_SOURCE_TYPE.CLEOPATRANEW)
     end
     local res = {
@@ -120,7 +117,7 @@ function Free(gameType, datainfo,uid)
 end
 
 function FreeDemo(gameType, datainfo,uid)
-    local chip = datainfo.betMoney * LineNum
+    local chip = datainfo.betMoney 
     local disInfo =   table.remove(datainfo.free.resdata,1)
     local disInfos,tmul ,bombdataMap,ssum= parseData(datainfo.betMoney,disInfo)
     local boommuls = table.sum(bombdataMap,function (v)
@@ -133,20 +130,14 @@ function FreeDemo(gameType, datainfo,uid)
     if tmul>0 then
         for _,value in ipairs(iconsAttachData) do
             table.insert(datainfo.free.mulInfoList,value.data.mul)
-            datainfo.free.tMul = datainfo.free.tMul+value.data.mul
         end
+        datainfo.free.tMul =  tmul 
         datainfo.free.sMul =  datainfo.free.sMul +boommuls
     end
    
     for i=1,#disInfos-1 do
         disInfos[i].chessdata = disInfos[i+1].chessdata
         disInfos[i].iconsAttachData = disInfos[i+1].iconsAttachData
-        if tmul>0 then
-            for _,value in ipairs(disInfos[i].iconsAttachData) do
-                table.insert(datainfo.free.mulInfoList,value.data.mul)
-                datainfo.free.tMul = datainfo.free.tMul+value.data.mul
-            end
-        end
     end
     local lastDis = disInfos[#disInfos]
     local sNum = 0
@@ -172,8 +163,9 @@ function FreeDemo(gameType, datainfo,uid)
       
     datainfo.free.lackTimes = datainfo.free.lackTimes  -1
     datainfo.free.tWinScore = datainfo.free.tWinScore + winScore
-    local achip = chessuserinfodb.RUserChipsGet(uid)
     if datainfo.free.lackTimes<=0 then
+        local curnwins =  datainfo.free.allmul * chip
+        dump(string.format("#########  %d %d",curnwins,datainfo.free.tWinScore+datainfo.free.normalwinScore))
         BackpackMgr.GetRewardGood(uid, Const.GOODS_ID.POINT,datainfo.free.tWinScore, Const.GOODS_SOURCE_TYPE.CLEOPATRANEW)
     end
     local res = {

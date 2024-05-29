@@ -121,6 +121,7 @@ function FreeDemo( gameType, datainfo,uid)
     datainfo.free.tWinScore = datainfo.free.tWinScore + winScore
 
     if datainfo.free.lackTimes<=0 then
+        
         BackpackMgr.GetRewardGood(uid, Const.GOODS_ID.POINT,datainfo.free.tWinScore, Const.GOODS_SOURCE_TYPE.FRUITPARTY2)
     end
     local res = {

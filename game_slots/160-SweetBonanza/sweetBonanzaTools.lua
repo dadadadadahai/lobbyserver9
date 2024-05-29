@@ -52,7 +52,7 @@ function getInfos(betMoney,dis)
         table.insert(info,{
             iconid=d.ele,
             mul = d.mul,
-            winScore = math.floor(betMoney*d.mul),
+            winScore = tonumber(string.format("%.2f",betMoney*(d.mul or 0 ))) ,
             val = d.num,
         })
     end
@@ -100,7 +100,7 @@ function packFree(datainfo)
         lackTimes=datainfo.free.lackTimes,
         tWinScore = datainfo.free.tWinScore,
         mulInfoList=datainfo.free.mulInfoList,
-        isBuy = 1,
+        isBuy = datainfo.free.isBuy or 0 ,
         tMul = datainfo.free.tMul
     }
 end

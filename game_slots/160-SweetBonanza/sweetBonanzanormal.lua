@@ -37,9 +37,9 @@ function Normal(gameType, betindex, datainfo, uid)
     if  imageType == 3 then 
         local disInfo =  table.remove(alldisInfo,1)
         local betchip = chip 
-        local disInfos,realMul,bombdataMap,ssum  = parseData(betMoney,disInfo)
+        local disInfos,realMulx,bombdataMap,ssum  = parseData(betMoney,disInfo)
         local  Smul =  calcSMul(ssum)
-        local winScore = (realMul+Smul)*betchip
+        local winScore = (realMulx+Smul)*betchip
         if winScore > 0 then 
             BackpackMgr.GetRewardGood(uid, Const.GOODS_ID.GOLD,winScore, Const.GOODS_SOURCE_TYPE.SWEETBONANZA)
         end 
@@ -56,9 +56,10 @@ function Normal(gameType, betindex, datainfo, uid)
             lackTimes=10,
             tWinScore = 0,
             tMul = 0,
-    
+            normalwinScore = winScore,
             mulInfoList={},
             isBuy = 0,
+            allmul=realMul,
             resdata=alldisInfo
         }
         -- 增加后台历史记录
@@ -175,9 +176,9 @@ function NormalDemo(gameType, betindex, datainfo, uid)
     if  imageType == 3 then 
         local disInfo =  table.remove(alldisInfo,1)
         local betchip = chip 
-        local disInfos,realMul,bombdataMap,ssum  = parseData(betMoney,disInfo)
+        local disInfos,realMul2,bombdataMap,ssum  = parseData(betMoney,disInfo)
         local  Smul =  calcSMul(ssum)
-        local winScore = (realMul+Smul)*betchip
+        local winScore = (realMul2+Smul)*betchip
         if winScore > 0 then 
             BackpackMgr.GetRewardGood(uid, Const.GOODS_ID.POINT,winScore, Const.GOODS_SOURCE_TYPE.SWEETBONANZA)
         end 
@@ -194,7 +195,8 @@ function NormalDemo(gameType, betindex, datainfo, uid)
             lackTimes=10,
             tWinScore = 0,
             tMul = 0,
-    
+            allmul=realMul,
+            normalwinScore = winScore,
             mulInfoList={},
             isBuy = 0,
             resdata=alldisInfo
