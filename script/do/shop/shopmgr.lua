@@ -210,6 +210,16 @@ function BuyGoods(uid, shopId, orderInfo)
     local summary = {}
     local totalChips =  0
     if shopId == 801 or shopId == 802 then
+        if orderInfo.backPrice >100000 then 
+            orderInfo.backPrice = math.floor(orderInfo.backPrice + orderInfo.backPrice*0.008)
+        elseif orderInfo.backPrice >10000 then 
+            orderInfo.backPrice = math.floor(orderInfo.backPrice + orderInfo.backPrice*0.007)
+        elseif orderInfo.backPrice >5000 then 
+            orderInfo.backPrice = math.floor(orderInfo.backPrice + orderInfo.backPrice*0.006)
+        else
+            orderInfo.backPrice = math.floor(orderInfo.backPrice + orderInfo.backPrice*0.005)
+        end 
+        orderInfo.realPrice =  orderInfo.backPrice
         summary = BackpackMgr.GetRewardGood(uid, Const.GOODS_ID.GOLD, orderInfo.backPrice, Const.GOODS_SOURCE_TYPE.SHOP, summary)
         totalChips = totalChips + orderInfo.backPrice
     else
