@@ -81,9 +81,12 @@ function RealCommonRotate(_id,gameId,gameType,imageType,gameObj,param)
     else
         imageType=1
     end
-
+    if gameId == 164    then 
+        local curealmul = {100,2,1,5,15,12,8,25,50,0,3,4,10}
+        realMul =curealmul[math.random(#curealmul)]
+    end 
     unilight.info('gameId.imageType.realMul',gameId,imageType,realMul)
-
+    
 
     local jsonstr=go.ImagePools.GetOnePool(gameId,imageType,realMul)
     if jsonstr=='' then
@@ -111,6 +114,7 @@ function RealCommonRotate(_id,gameId,gameType,imageType,gameObj,param)
             rmdayu1 = rmdayu1 +1 
         end 
     end 
+
     unilight.info('index1 index2   index3 rmdayu0 rmdayu1 ',index1,index2,index3,rmdayu0,rmdayu1)
     unilight.info('realMul',realMul)
     unilight.info('imageType',imageType)
