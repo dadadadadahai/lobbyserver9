@@ -1,6 +1,7 @@
 module('gameDetaillog',package.seeall)
 Table = 'gameMatchLog'      --游戏对局日志
 DayTable = 'gameDayStatistics'      --按天统计
+DayTableUser = 'gameDayStatisticsUser'      --按天按人统计
 prcentRtpMap = {}
 
 
@@ -140,7 +141,8 @@ function updateRoomFlow(gameId,gameType,tax,gamecount,tbetchip,sysWinScore,useri
     local online = annagent.GetOnlineNumByGameId(gameId, gameType)
 
     if unilight.getdebuglevel() > 0 then
-        local sdata =  unilight.getByFilter(DayTable,unilight.a(unilight.eq('keyval',keyval),unilight.eq('daytimestamp',curdaytimestamp),unilight.eq('type',type)),1)
+        local curf = unilight.a(unilight.eq('keyval',keyval),unilight.eq('daytimestamp',curdaytimestamp),unilight.eq('type',type))
+        local sdata =  unilight.getByFilter(DayTable,curf,1)
         if table.empty(sdata) then
             --需要插入
             local idata={
@@ -180,6 +182,46 @@ function updateRoomFlow(gameId,gameType,tax,gamecount,tbetchip,sysWinScore,useri
             prcentRtpMap[keyval] = {daytimestamp=curdaytimestamp,tchip=tbetchip,twin=sysWinScore}
         end
         --插入日志服
+
+        local curf = unilight.a(unilight.eq('keyval',keyval),unilight.eq('daytimestamp',curdaytimestamp),unilight.eq('type',type),unilight.eq('uid',userinfo._id))
+        local sdata =  unilight.getByFilter(DayTableUser,curf,1)
+        if table.empty(sdata) then
+            --需要插入
+            local idata={
+                _id = go.newObjectId(),
+                keyval = keyval,            --游戏id*10000+gameType 10109
+                gameId = gameId,
+                gameType = gameType,
+                daytimestamp = curdaytimestamp,--当日零点时间戳
+                tax = tax,                  --当日总抽水
+                gamecount = gamecount,      --当日总游戏次数
+                tchip = tbetchip,    --当日总下注
+                -- twin = aChip - bChip,    --当日总输赢
+                twin = sysWinScore,             --玩家赢的钱
+                tAttenuation = 0,            --累计衰减值,抽水值
+                type=type,                  --1受库存影响， 2不受库存影响
+                online = online,                 --在线玩家数量
+                subplatid = subplatid,      --子渠道id 
+                classType = table_game_list[gameId * 10000 + gameType].gameType, --游戏类别
+                uid = userinfo._id
+            }
+            -- SetBetWin(gameId,gameType,type,tbetchip,sysWinScore)
+            unilight.savedata(DayTableUser,idata)
+        else
+            local idata = sdata[1]
+            idata.tax = idata.tax + tax
+            idata.gamecount = idata.gamecount + gamecount
+            idata.tchip = idata.tchip + tbetchip
+            idata.twin = idata.twin + sysWinScore
+            idata.online = online
+            -- idata['']=nil
+            --执行更新
+            tbetchip = idata.tchip
+            sysWinScore = idata.twin
+            -- SetBetWin(gameId,gameType,type,tbetchip,sysWinScore)
+            unilight.savedata(DayTableUser,idata)
+        end
+
     else
         --需要插入
         local idata={
