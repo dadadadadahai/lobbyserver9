@@ -1029,7 +1029,7 @@ return {
         type1_50 = 2.4,
         type1_75 = 2.4,
         type1_gailv100 = 600,
-        type1_gailv150 = 600,
+        type1_gailv150 = 200,
         type1_gailv200 = 600,
         type1_gailv50 = 600,
         type1_gailv75 = 600,
@@ -28385,10 +28385,10 @@ return {
         type3_50 = 61.7,
         type3_75 = 61.7,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [836] = {
@@ -28419,10 +28419,10 @@ return {
         type3_50 = 61.75,
         type3_75 = 61.75,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [837] = {
@@ -28453,10 +28453,10 @@ return {
         type3_50 = 61.8,
         type3_75 = 61.8,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [838] = {
@@ -28487,10 +28487,10 @@ return {
         type3_50 = 61.85,
         type3_75 = 61.85,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [839] = {
@@ -28521,10 +28521,10 @@ return {
         type3_50 = 61.9,
         type3_75 = 61.9,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [840] = {
@@ -28555,10 +28555,10 @@ return {
         type3_50 = 61.95,
         type3_75 = 61.95,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [841] = {
@@ -28589,10 +28589,10 @@ return {
         type3_50 = 62.0,
         type3_75 = 62.0,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [842] = {
@@ -28623,10 +28623,10 @@ return {
         type3_50 = 62.05,
         type3_75 = 62.05,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [843] = {
@@ -28657,10 +28657,10 @@ return {
         type3_50 = 62.1,
         type3_75 = 62.1,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [844] = {
@@ -28691,10 +28691,10 @@ return {
         type3_50 = 62.15,
         type3_75 = 62.15,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [845] = {
@@ -28725,10 +28725,10 @@ return {
         type3_50 = 62.2,
         type3_75 = 62.2,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [846] = {
@@ -28759,10 +28759,10 @@ return {
         type3_50 = 62.25,
         type3_75 = 62.25,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [847] = {
@@ -28793,10 +28793,10 @@ return {
         type3_50 = 62.3,
         type3_75 = 62.3,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [848] = {
@@ -28827,10 +28827,10 @@ return {
         type3_50 = 62.35,
         type3_75 = 62.35,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [849] = {
@@ -28861,10 +28861,10 @@ return {
         type3_50 = 62.4,
         type3_75 = 62.4,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [850] = {
@@ -28895,10 +28895,10 @@ return {
         type3_50 = 62.45,
         type3_75 = 62.45,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [851] = {
@@ -28929,10 +28929,10 @@ return {
         type3_50 = 62.5,
         type3_75 = 62.5,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [852] = {
@@ -28963,10 +28963,10 @@ return {
         type3_50 = 62.55,
         type3_75 = 62.55,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [853] = {
@@ -28997,10 +28997,10 @@ return {
         type3_50 = 62.6,
         type3_75 = 62.6,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [854] = {
@@ -29031,10 +29031,10 @@ return {
         type3_50 = 62.65,
         type3_75 = 62.65,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [855] = {
@@ -29065,10 +29065,10 @@ return {
         type3_50 = 62.7,
         type3_75 = 62.7,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [856] = {
@@ -29099,10 +29099,10 @@ return {
         type3_50 = 62.75,
         type3_75 = 62.75,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [857] = {
@@ -29133,10 +29133,10 @@ return {
         type3_50 = 62.8,
         type3_75 = 62.8,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [858] = {
@@ -29167,10 +29167,10 @@ return {
         type3_50 = 62.85,
         type3_75 = 62.85,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [859] = {
@@ -29201,10 +29201,10 @@ return {
         type3_50 = 62.9,
         type3_75 = 62.9,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [860] = {
@@ -29235,10 +29235,10 @@ return {
         type3_50 = 62.95,
         type3_75 = 62.95,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [861] = {
@@ -29269,10 +29269,10 @@ return {
         type3_50 = 63.0,
         type3_75 = 63.0,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [862] = {
@@ -29303,10 +29303,10 @@ return {
         type3_50 = 63.05,
         type3_75 = 63.05,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [863] = {
@@ -29337,10 +29337,10 @@ return {
         type3_50 = 63.1,
         type3_75 = 63.1,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [864] = {
@@ -29371,10 +29371,10 @@ return {
         type3_50 = 63.15,
         type3_75 = 63.15,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [865] = {
@@ -29405,10 +29405,10 @@ return {
         type3_50 = 63.2,
         type3_75 = 63.2,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [866] = {
@@ -29439,10 +29439,10 @@ return {
         type3_50 = 63.25,
         type3_75 = 63.25,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [867] = {
@@ -29473,10 +29473,10 @@ return {
         type3_50 = 63.3,
         type3_75 = 63.3,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [868] = {
@@ -29507,10 +29507,10 @@ return {
         type3_50 = 63.35,
         type3_75 = 63.35,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [869] = {
@@ -29541,10 +29541,10 @@ return {
         type3_50 = 63.4,
         type3_75 = 63.4,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [870] = {
@@ -29575,10 +29575,10 @@ return {
         type3_50 = 63.45,
         type3_75 = 63.45,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [871] = {
@@ -29609,10 +29609,10 @@ return {
         type3_50 = 63.5,
         type3_75 = 63.5,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [872] = {
@@ -29643,10 +29643,10 @@ return {
         type3_50 = 63.55,
         type3_75 = 63.55,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [873] = {
@@ -29677,10 +29677,10 @@ return {
         type3_50 = 63.6,
         type3_75 = 63.6,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [874] = {
@@ -29711,10 +29711,10 @@ return {
         type3_50 = 63.65,
         type3_75 = 63.65,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [875] = {
@@ -29745,10 +29745,10 @@ return {
         type3_50 = 63.7,
         type3_75 = 63.7,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [876] = {
@@ -29779,10 +29779,10 @@ return {
         type3_50 = 63.75,
         type3_75 = 63.75,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [877] = {
@@ -29813,10 +29813,10 @@ return {
         type3_50 = 63.8,
         type3_75 = 63.8,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [878] = {
@@ -29847,10 +29847,10 @@ return {
         type3_50 = 63.85,
         type3_75 = 63.85,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [879] = {
@@ -29881,10 +29881,10 @@ return {
         type3_50 = 63.9,
         type3_75 = 63.9,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [880] = {
@@ -29915,10 +29915,10 @@ return {
         type3_50 = 63.95,
         type3_75 = 63.95,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [881] = {
@@ -29949,10 +29949,10 @@ return {
         type3_50 = 64.0,
         type3_75 = 64.0,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [882] = {
@@ -29983,10 +29983,10 @@ return {
         type3_50 = 64.05,
         type3_75 = 64.05,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [883] = {
@@ -30017,10 +30017,10 @@ return {
         type3_50 = 64.1,
         type3_75 = 64.1,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [884] = {
@@ -30051,10 +30051,10 @@ return {
         type3_50 = 64.15,
         type3_75 = 64.15,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [885] = {
@@ -30085,10 +30085,10 @@ return {
         type3_50 = 64.2,
         type3_75 = 64.2,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [886] = {
@@ -30119,10 +30119,10 @@ return {
         type3_50 = 64.25,
         type3_75 = 64.25,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [887] = {
@@ -30153,10 +30153,10 @@ return {
         type3_50 = 64.3,
         type3_75 = 64.3,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [888] = {
@@ -30187,10 +30187,10 @@ return {
         type3_50 = 64.35,
         type3_75 = 64.35,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [889] = {
@@ -30221,10 +30221,10 @@ return {
         type3_50 = 64.4,
         type3_75 = 64.4,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [890] = {
@@ -30255,10 +30255,10 @@ return {
         type3_50 = 64.45,
         type3_75 = 64.45,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [891] = {
@@ -30289,10 +30289,10 @@ return {
         type3_50 = 64.5,
         type3_75 = 64.5,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [892] = {
@@ -30323,10 +30323,10 @@ return {
         type3_50 = 64.55,
         type3_75 = 64.55,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [893] = {
@@ -30357,10 +30357,10 @@ return {
         type3_50 = 64.6,
         type3_75 = 64.6,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [894] = {
@@ -30391,10 +30391,10 @@ return {
         type3_50 = 64.65,
         type3_75 = 64.65,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [895] = {
@@ -30425,10 +30425,10 @@ return {
         type3_50 = 64.7,
         type3_75 = 64.7,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [896] = {
@@ -30459,10 +30459,10 @@ return {
         type3_50 = 64.75,
         type3_75 = 64.75,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [897] = {
@@ -30493,10 +30493,10 @@ return {
         type3_50 = 64.8,
         type3_75 = 64.8,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [898] = {
@@ -30527,10 +30527,10 @@ return {
         type3_50 = 64.85,
         type3_75 = 64.85,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [899] = {
@@ -30561,10 +30561,10 @@ return {
         type3_50 = 64.9,
         type3_75 = 64.9,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [900] = {
@@ -30595,10 +30595,10 @@ return {
         type3_50 = 64.95,
         type3_75 = 64.95,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [901] = {
@@ -30629,10 +30629,10 @@ return {
         type3_50 = 65.0,
         type3_75 = 65.0,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [902] = {
@@ -30663,10 +30663,10 @@ return {
         type3_50 = 65.05,
         type3_75 = 65.05,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [903] = {
@@ -30697,10 +30697,10 @@ return {
         type3_50 = 65.1,
         type3_75 = 65.1,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [904] = {
@@ -30731,10 +30731,10 @@ return {
         type3_50 = 65.15,
         type3_75 = 65.15,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [905] = {
@@ -30765,10 +30765,10 @@ return {
         type3_50 = 65.2,
         type3_75 = 65.2,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [906] = {
@@ -30799,10 +30799,10 @@ return {
         type3_50 = 65.25,
         type3_75 = 65.25,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [907] = {
@@ -30833,10 +30833,10 @@ return {
         type3_50 = 65.3,
         type3_75 = 65.3,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [908] = {
@@ -30867,10 +30867,10 @@ return {
         type3_50 = 65.35,
         type3_75 = 65.35,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [909] = {
@@ -30901,10 +30901,10 @@ return {
         type3_50 = 65.4,
         type3_75 = 65.4,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [910] = {
@@ -30935,10 +30935,10 @@ return {
         type3_50 = 65.45,
         type3_75 = 65.45,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [911] = {
@@ -30969,10 +30969,10 @@ return {
         type3_50 = 65.5,
         type3_75 = 65.5,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [912] = {
@@ -31003,10 +31003,10 @@ return {
         type3_50 = 65.55,
         type3_75 = 65.55,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [913] = {
@@ -31037,10 +31037,10 @@ return {
         type3_50 = 65.6,
         type3_75 = 65.6,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [914] = {
@@ -31071,10 +31071,10 @@ return {
         type3_50 = 65.65,
         type3_75 = 65.65,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [915] = {
@@ -31105,10 +31105,10 @@ return {
         type3_50 = 65.7,
         type3_75 = 65.7,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [916] = {
@@ -31139,10 +31139,10 @@ return {
         type3_50 = 65.75,
         type3_75 = 65.75,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [917] = {
@@ -31173,10 +31173,10 @@ return {
         type3_50 = 65.8,
         type3_75 = 65.8,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [918] = {
@@ -31207,10 +31207,10 @@ return {
         type3_50 = 65.85,
         type3_75 = 65.85,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [919] = {
@@ -31241,10 +31241,10 @@ return {
         type3_50 = 65.9,
         type3_75 = 65.9,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [920] = {
@@ -31275,10 +31275,10 @@ return {
         type3_50 = 65.95,
         type3_75 = 65.95,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [921] = {
@@ -31309,10 +31309,10 @@ return {
         type3_50 = 66.0,
         type3_75 = 66.0,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [922] = {
@@ -31343,10 +31343,10 @@ return {
         type3_50 = 66.05,
         type3_75 = 66.05,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [923] = {
@@ -31377,10 +31377,10 @@ return {
         type3_50 = 66.1,
         type3_75 = 66.1,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [924] = {
@@ -31411,10 +31411,10 @@ return {
         type3_50 = 66.15,
         type3_75 = 66.15,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [925] = {
@@ -31445,10 +31445,10 @@ return {
         type3_50 = 66.2,
         type3_75 = 66.2,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [926] = {
@@ -31479,10 +31479,10 @@ return {
         type3_50 = 66.25,
         type3_75 = 66.25,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [927] = {
@@ -31513,10 +31513,10 @@ return {
         type3_50 = 66.3,
         type3_75 = 66.3,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [928] = {
@@ -31547,10 +31547,10 @@ return {
         type3_50 = 66.35,
         type3_75 = 66.35,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [929] = {
@@ -31581,10 +31581,10 @@ return {
         type3_50 = 66.4,
         type3_75 = 66.4,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [930] = {
@@ -31615,10 +31615,10 @@ return {
         type3_50 = 66.45,
         type3_75 = 66.45,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [931] = {
@@ -31649,10 +31649,10 @@ return {
         type3_50 = 66.5,
         type3_75 = 66.5,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [932] = {
@@ -31683,10 +31683,10 @@ return {
         type3_50 = 66.55,
         type3_75 = 66.55,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [933] = {
@@ -31717,10 +31717,10 @@ return {
         type3_50 = 66.6,
         type3_75 = 66.6,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [934] = {
@@ -31751,10 +31751,10 @@ return {
         type3_50 = 66.65,
         type3_75 = 66.65,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [935] = {
@@ -31785,10 +31785,10 @@ return {
         type3_50 = 66.7,
         type3_75 = 66.7,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [936] = {
@@ -31819,10 +31819,10 @@ return {
         type3_50 = 66.75,
         type3_75 = 66.75,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [937] = {
@@ -31853,10 +31853,10 @@ return {
         type3_50 = 66.8,
         type3_75 = 66.8,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [938] = {
@@ -31887,10 +31887,10 @@ return {
         type3_50 = 66.85,
         type3_75 = 66.85,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [939] = {
@@ -31921,10 +31921,10 @@ return {
         type3_50 = 66.9,
         type3_75 = 66.9,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [940] = {
@@ -31955,10 +31955,10 @@ return {
         type3_50 = 66.95,
         type3_75 = 66.95,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [941] = {
@@ -31989,10 +31989,10 @@ return {
         type3_50 = 67.0,
         type3_75 = 67.0,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [942] = {
@@ -32023,10 +32023,10 @@ return {
         type3_50 = 67.05,
         type3_75 = 67.05,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [943] = {
@@ -32057,10 +32057,10 @@ return {
         type3_50 = 67.1,
         type3_75 = 67.1,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [944] = {
@@ -32091,10 +32091,10 @@ return {
         type3_50 = 67.15,
         type3_75 = 67.15,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [945] = {
@@ -32125,10 +32125,10 @@ return {
         type3_50 = 67.2,
         type3_75 = 67.2,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [946] = {
@@ -32159,10 +32159,10 @@ return {
         type3_50 = 67.25,
         type3_75 = 67.25,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [947] = {
@@ -32193,10 +32193,10 @@ return {
         type3_50 = 67.3,
         type3_75 = 67.3,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [948] = {
@@ -32227,10 +32227,10 @@ return {
         type3_50 = 67.35,
         type3_75 = 67.35,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [949] = {
@@ -32261,10 +32261,10 @@ return {
         type3_50 = 67.4,
         type3_75 = 67.4,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [950] = {
@@ -32295,10 +32295,10 @@ return {
         type3_50 = 67.45,
         type3_75 = 67.45,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [951] = {
@@ -32329,10 +32329,10 @@ return {
         type3_50 = 67.5,
         type3_75 = 67.5,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [952] = {
@@ -32363,10 +32363,10 @@ return {
         type3_50 = 67.55,
         type3_75 = 67.55,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [953] = {
@@ -32397,10 +32397,10 @@ return {
         type3_50 = 67.6,
         type3_75 = 67.6,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [954] = {
@@ -32431,10 +32431,10 @@ return {
         type3_50 = 67.65,
         type3_75 = 67.65,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [955] = {
@@ -32465,10 +32465,10 @@ return {
         type3_50 = 67.7,
         type3_75 = 67.7,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [956] = {
@@ -32499,10 +32499,10 @@ return {
         type3_50 = 67.75,
         type3_75 = 67.75,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [957] = {
@@ -32533,10 +32533,10 @@ return {
         type3_50 = 67.8,
         type3_75 = 67.8,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [958] = {
@@ -32567,10 +32567,10 @@ return {
         type3_50 = 67.85,
         type3_75 = 67.85,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [959] = {
@@ -32601,10 +32601,10 @@ return {
         type3_50 = 67.9,
         type3_75 = 67.9,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [960] = {
@@ -32635,10 +32635,10 @@ return {
         type3_50 = 67.95,
         type3_75 = 67.95,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [961] = {
@@ -32669,10 +32669,10 @@ return {
         type3_50 = 68.0,
         type3_75 = 68.0,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [962] = {
@@ -32703,10 +32703,10 @@ return {
         type3_50 = 68.05,
         type3_75 = 68.05,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [963] = {
@@ -32737,10 +32737,10 @@ return {
         type3_50 = 68.1,
         type3_75 = 68.1,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [964] = {
@@ -32771,10 +32771,10 @@ return {
         type3_50 = 68.15,
         type3_75 = 68.15,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [965] = {
@@ -32805,10 +32805,10 @@ return {
         type3_50 = 68.2,
         type3_75 = 68.2,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [966] = {
@@ -32839,10 +32839,10 @@ return {
         type3_50 = 68.25,
         type3_75 = 68.25,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [967] = {
@@ -32873,10 +32873,10 @@ return {
         type3_50 = 68.3,
         type3_75 = 68.3,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [968] = {
@@ -32907,10 +32907,10 @@ return {
         type3_50 = 68.35,
         type3_75 = 68.35,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [969] = {
@@ -32941,10 +32941,10 @@ return {
         type3_50 = 68.4,
         type3_75 = 68.4,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [970] = {
@@ -32975,10 +32975,10 @@ return {
         type3_50 = 68.45,
         type3_75 = 68.45,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [971] = {
@@ -33009,10 +33009,10 @@ return {
         type3_50 = 68.5,
         type3_75 = 68.5,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [972] = {
@@ -33043,10 +33043,10 @@ return {
         type3_50 = 68.55,
         type3_75 = 68.55,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [973] = {
@@ -33077,10 +33077,10 @@ return {
         type3_50 = 68.6,
         type3_75 = 68.6,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [974] = {
@@ -33111,10 +33111,10 @@ return {
         type3_50 = 68.65,
         type3_75 = 68.65,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [975] = {
@@ -33145,10 +33145,10 @@ return {
         type3_50 = 68.7,
         type3_75 = 68.7,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [976] = {
@@ -33179,10 +33179,10 @@ return {
         type3_50 = 68.75,
         type3_75 = 68.75,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [977] = {
@@ -33213,10 +33213,10 @@ return {
         type3_50 = 68.8,
         type3_75 = 68.8,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [978] = {
@@ -33247,10 +33247,10 @@ return {
         type3_50 = 68.85,
         type3_75 = 68.85,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [979] = {
@@ -33281,10 +33281,10 @@ return {
         type3_50 = 68.9,
         type3_75 = 68.9,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [980] = {
@@ -33315,10 +33315,10 @@ return {
         type3_50 = 68.95,
         type3_75 = 68.95,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [981] = {
@@ -33349,10 +33349,10 @@ return {
         type3_50 = 69.0,
         type3_75 = 69.0,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [982] = {
@@ -33383,10 +33383,10 @@ return {
         type3_50 = 69.05,
         type3_75 = 69.05,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [983] = {
@@ -33417,10 +33417,10 @@ return {
         type3_50 = 69.1,
         type3_75 = 69.1,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [984] = {
@@ -33451,10 +33451,10 @@ return {
         type3_50 = 69.15,
         type3_75 = 69.15,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [985] = {
@@ -33485,10 +33485,10 @@ return {
         type3_50 = 69.2,
         type3_75 = 69.2,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [986] = {
@@ -33519,10 +33519,10 @@ return {
         type3_50 = 69.25,
         type3_75 = 69.25,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [987] = {
@@ -33553,10 +33553,10 @@ return {
         type3_50 = 69.3,
         type3_75 = 69.3,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [988] = {
@@ -33587,10 +33587,10 @@ return {
         type3_50 = 69.35,
         type3_75 = 69.35,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [989] = {
@@ -33621,10 +33621,10 @@ return {
         type3_50 = 69.4,
         type3_75 = 69.4,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [990] = {
@@ -33655,10 +33655,10 @@ return {
         type3_50 = 69.45,
         type3_75 = 69.45,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [991] = {
@@ -33689,10 +33689,10 @@ return {
         type3_50 = 69.5,
         type3_75 = 69.5,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [992] = {
@@ -33723,10 +33723,10 @@ return {
         type3_50 = 69.55,
         type3_75 = 69.55,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [993] = {
@@ -33757,10 +33757,10 @@ return {
         type3_50 = 69.6,
         type3_75 = 69.6,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [994] = {
@@ -33791,10 +33791,10 @@ return {
         type3_50 = 69.65,
         type3_75 = 69.65,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [995] = {
@@ -33825,10 +33825,10 @@ return {
         type3_50 = 69.7,
         type3_75 = 69.7,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [996] = {
@@ -33859,10 +33859,10 @@ return {
         type3_50 = 69.75,
         type3_75 = 69.75,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [997] = {
@@ -33893,10 +33893,10 @@ return {
         type3_50 = 69.8,
         type3_75 = 69.8,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [998] = {
@@ -33927,10 +33927,10 @@ return {
         type3_50 = 69.85,
         type3_75 = 69.85,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [999] = {
@@ -33961,10 +33961,10 @@ return {
         type3_50 = 69.9,
         type3_75 = 69.9,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1000] = {
@@ -33995,10 +33995,10 @@ return {
         type3_50 = 69.95,
         type3_75 = 69.95,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1001] = {
@@ -34029,10 +34029,10 @@ return {
         type3_50 = 70.0,
         type3_75 = 70.0,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1002] = {
@@ -34063,10 +34063,10 @@ return {
         type3_50 = 70.05,
         type3_75 = 70.05,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1003] = {
@@ -34097,10 +34097,10 @@ return {
         type3_50 = 70.1,
         type3_75 = 70.1,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1004] = {
@@ -34131,10 +34131,10 @@ return {
         type3_50 = 70.15,
         type3_75 = 70.15,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1005] = {
@@ -34165,10 +34165,10 @@ return {
         type3_50 = 70.2,
         type3_75 = 70.2,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1006] = {
@@ -34199,10 +34199,10 @@ return {
         type3_50 = 70.25,
         type3_75 = 70.25,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1007] = {
@@ -34233,10 +34233,10 @@ return {
         type3_50 = 70.3,
         type3_75 = 70.3,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1008] = {
@@ -34267,10 +34267,10 @@ return {
         type3_50 = 70.35,
         type3_75 = 70.35,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1009] = {
@@ -34301,10 +34301,10 @@ return {
         type3_50 = 70.4,
         type3_75 = 70.4,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1010] = {
@@ -34335,10 +34335,10 @@ return {
         type3_50 = 70.45,
         type3_75 = 70.45,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1011] = {
@@ -34369,10 +34369,10 @@ return {
         type3_50 = 70.5,
         type3_75 = 70.5,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1012] = {
@@ -34403,10 +34403,10 @@ return {
         type3_50 = 70.55,
         type3_75 = 70.55,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1013] = {
@@ -34437,10 +34437,10 @@ return {
         type3_50 = 70.6,
         type3_75 = 70.6,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1014] = {
@@ -34471,10 +34471,10 @@ return {
         type3_50 = 70.65,
         type3_75 = 70.65,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1015] = {
@@ -34505,10 +34505,10 @@ return {
         type3_50 = 70.7,
         type3_75 = 70.7,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1016] = {
@@ -34539,10 +34539,10 @@ return {
         type3_50 = 70.75,
         type3_75 = 70.75,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1017] = {
@@ -34573,10 +34573,10 @@ return {
         type3_50 = 70.8,
         type3_75 = 70.8,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1018] = {
@@ -34607,10 +34607,10 @@ return {
         type3_50 = 70.85,
         type3_75 = 70.85,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1019] = {
@@ -34641,10 +34641,10 @@ return {
         type3_50 = 70.9,
         type3_75 = 70.9,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1020] = {
@@ -34675,10 +34675,10 @@ return {
         type3_50 = 70.95,
         type3_75 = 70.95,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1021] = {
@@ -34709,10 +34709,10 @@ return {
         type3_50 = 71.0,
         type3_75 = 71.0,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1022] = {
@@ -34743,10 +34743,10 @@ return {
         type3_50 = 71.05,
         type3_75 = 71.05,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1023] = {
@@ -34777,10 +34777,10 @@ return {
         type3_50 = 71.1,
         type3_75 = 71.1,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1024] = {
@@ -34811,10 +34811,10 @@ return {
         type3_50 = 71.15,
         type3_75 = 71.15,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1025] = {
@@ -34845,10 +34845,10 @@ return {
         type3_50 = 71.2,
         type3_75 = 71.2,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1026] = {
@@ -34879,10 +34879,10 @@ return {
         type3_50 = 71.25,
         type3_75 = 71.25,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1027] = {
@@ -34913,10 +34913,10 @@ return {
         type3_50 = 71.3,
         type3_75 = 71.3,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1028] = {
@@ -34947,10 +34947,10 @@ return {
         type3_50 = 71.35,
         type3_75 = 71.35,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1029] = {
@@ -34981,10 +34981,10 @@ return {
         type3_50 = 71.4,
         type3_75 = 71.4,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1030] = {
@@ -35015,10 +35015,10 @@ return {
         type3_50 = 71.45,
         type3_75 = 71.45,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1031] = {
@@ -35049,10 +35049,10 @@ return {
         type3_50 = 71.5,
         type3_75 = 71.5,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1032] = {
@@ -35083,10 +35083,10 @@ return {
         type3_50 = 71.55,
         type3_75 = 71.55,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1033] = {
@@ -35117,10 +35117,10 @@ return {
         type3_50 = 71.6,
         type3_75 = 71.6,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1034] = {
@@ -35151,10 +35151,10 @@ return {
         type3_50 = 71.65,
         type3_75 = 71.65,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1035] = {
@@ -35185,10 +35185,10 @@ return {
         type3_50 = 71.7,
         type3_75 = 71.7,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1036] = {
@@ -35219,10 +35219,10 @@ return {
         type3_50 = 71.75,
         type3_75 = 71.75,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1037] = {
@@ -35253,10 +35253,10 @@ return {
         type3_50 = 71.8,
         type3_75 = 71.8,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1038] = {
@@ -35287,10 +35287,10 @@ return {
         type3_50 = 71.85,
         type3_75 = 71.85,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1039] = {
@@ -35321,10 +35321,10 @@ return {
         type3_50 = 71.9,
         type3_75 = 71.9,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1040] = {
@@ -35355,10 +35355,10 @@ return {
         type3_50 = 71.95,
         type3_75 = 71.95,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1041] = {
@@ -35389,10 +35389,10 @@ return {
         type3_50 = 72.0,
         type3_75 = 72.0,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1042] = {
@@ -35423,10 +35423,10 @@ return {
         type3_50 = 72.05,
         type3_75 = 72.05,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1043] = {
@@ -35457,10 +35457,10 @@ return {
         type3_50 = 72.1,
         type3_75 = 72.1,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1044] = {
@@ -35491,10 +35491,10 @@ return {
         type3_50 = 72.15,
         type3_75 = 72.15,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1045] = {
@@ -35525,10 +35525,10 @@ return {
         type3_50 = 72.2,
         type3_75 = 72.2,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1046] = {
@@ -35559,10 +35559,10 @@ return {
         type3_50 = 72.25,
         type3_75 = 72.25,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1047] = {
@@ -35593,10 +35593,10 @@ return {
         type3_50 = 72.3,
         type3_75 = 72.3,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1048] = {
@@ -35627,10 +35627,10 @@ return {
         type3_50 = 72.35,
         type3_75 = 72.35,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1049] = {
@@ -35661,10 +35661,10 @@ return {
         type3_50 = 72.4,
         type3_75 = 72.4,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1050] = {
@@ -35695,10 +35695,10 @@ return {
         type3_50 = 72.45,
         type3_75 = 72.45,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1051] = {
@@ -35729,10 +35729,10 @@ return {
         type3_50 = 72.5,
         type3_75 = 72.5,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1052] = {
@@ -35763,10 +35763,10 @@ return {
         type3_50 = 72.55,
         type3_75 = 72.55,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1053] = {
@@ -35797,10 +35797,10 @@ return {
         type3_50 = 72.6,
         type3_75 = 72.6,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1054] = {
@@ -35831,10 +35831,10 @@ return {
         type3_50 = 72.65,
         type3_75 = 72.65,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1055] = {
@@ -35865,10 +35865,10 @@ return {
         type3_50 = 72.7,
         type3_75 = 72.7,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1056] = {
@@ -35899,10 +35899,10 @@ return {
         type3_50 = 72.75,
         type3_75 = 72.75,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1057] = {
@@ -35933,10 +35933,10 @@ return {
         type3_50 = 72.8,
         type3_75 = 72.8,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1058] = {
@@ -35967,10 +35967,10 @@ return {
         type3_50 = 72.85,
         type3_75 = 72.85,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1059] = {
@@ -36001,10 +36001,10 @@ return {
         type3_50 = 72.9,
         type3_75 = 72.9,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1060] = {
@@ -36035,10 +36035,10 @@ return {
         type3_50 = 72.95,
         type3_75 = 72.95,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1061] = {
@@ -36069,10 +36069,10 @@ return {
         type3_50 = 73.0,
         type3_75 = 73.0,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1062] = {
@@ -36103,10 +36103,10 @@ return {
         type3_50 = 73.05,
         type3_75 = 73.05,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1063] = {
@@ -36137,10 +36137,10 @@ return {
         type3_50 = 73.1,
         type3_75 = 73.1,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1064] = {
@@ -36171,10 +36171,10 @@ return {
         type3_50 = 73.15,
         type3_75 = 73.15,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1065] = {
@@ -36205,10 +36205,10 @@ return {
         type3_50 = 73.2,
         type3_75 = 73.2,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1066] = {
@@ -36239,10 +36239,10 @@ return {
         type3_50 = 73.25,
         type3_75 = 73.25,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1067] = {
@@ -36273,10 +36273,10 @@ return {
         type3_50 = 73.3,
         type3_75 = 73.3,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1068] = {
@@ -36307,10 +36307,10 @@ return {
         type3_50 = 73.35,
         type3_75 = 73.35,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1069] = {
@@ -36341,10 +36341,10 @@ return {
         type3_50 = 73.4,
         type3_75 = 73.4,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1070] = {
@@ -36375,10 +36375,10 @@ return {
         type3_50 = 73.45,
         type3_75 = 73.45,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1071] = {
@@ -36409,10 +36409,10 @@ return {
         type3_50 = 73.5,
         type3_75 = 73.5,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1072] = {
@@ -36443,10 +36443,10 @@ return {
         type3_50 = 73.55,
         type3_75 = 73.55,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1073] = {
@@ -36477,10 +36477,10 @@ return {
         type3_50 = 73.6,
         type3_75 = 73.6,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1074] = {
@@ -36511,10 +36511,10 @@ return {
         type3_50 = 73.65,
         type3_75 = 73.65,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1075] = {
@@ -36545,10 +36545,10 @@ return {
         type3_50 = 73.7,
         type3_75 = 73.7,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1076] = {
@@ -36579,10 +36579,10 @@ return {
         type3_50 = 73.75,
         type3_75 = 73.75,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1077] = {
@@ -36613,10 +36613,10 @@ return {
         type3_50 = 73.8,
         type3_75 = 73.8,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1078] = {
@@ -36647,10 +36647,10 @@ return {
         type3_50 = 73.85,
         type3_75 = 73.85,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1079] = {
@@ -36681,10 +36681,10 @@ return {
         type3_50 = 73.9,
         type3_75 = 73.9,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1080] = {
@@ -36715,10 +36715,10 @@ return {
         type3_50 = 73.95,
         type3_75 = 73.95,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1081] = {
@@ -36749,10 +36749,10 @@ return {
         type3_50 = 74.0,
         type3_75 = 74.0,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1082] = {
@@ -36783,10 +36783,10 @@ return {
         type3_50 = 74.05,
         type3_75 = 74.05,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1083] = {
@@ -36817,10 +36817,10 @@ return {
         type3_50 = 74.1,
         type3_75 = 74.1,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1084] = {
@@ -36851,10 +36851,10 @@ return {
         type3_50 = 74.15,
         type3_75 = 74.15,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1085] = {
@@ -36885,10 +36885,10 @@ return {
         type3_50 = 74.2,
         type3_75 = 74.2,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1086] = {
@@ -36919,10 +36919,10 @@ return {
         type3_50 = 74.25,
         type3_75 = 74.25,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1087] = {
@@ -36953,10 +36953,10 @@ return {
         type3_50 = 74.3,
         type3_75 = 74.3,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1088] = {
@@ -36987,10 +36987,10 @@ return {
         type3_50 = 74.35,
         type3_75 = 74.35,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1089] = {
@@ -37021,10 +37021,10 @@ return {
         type3_50 = 74.4,
         type3_75 = 74.4,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1090] = {
@@ -37055,10 +37055,10 @@ return {
         type3_50 = 74.45,
         type3_75 = 74.45,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1091] = {
@@ -37089,10 +37089,10 @@ return {
         type3_50 = 74.5,
         type3_75 = 74.5,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1092] = {
@@ -37123,10 +37123,10 @@ return {
         type3_50 = 74.55,
         type3_75 = 74.55,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1093] = {
@@ -37157,10 +37157,10 @@ return {
         type3_50 = 74.6,
         type3_75 = 74.6,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1094] = {
@@ -37191,10 +37191,10 @@ return {
         type3_50 = 74.65,
         type3_75 = 74.65,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1095] = {
@@ -37225,10 +37225,10 @@ return {
         type3_50 = 74.7,
         type3_75 = 74.7,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1096] = {
@@ -37259,10 +37259,10 @@ return {
         type3_50 = 74.75,
         type3_75 = 74.75,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1097] = {
@@ -37293,10 +37293,10 @@ return {
         type3_50 = 74.8,
         type3_75 = 74.8,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1098] = {
@@ -37327,10 +37327,10 @@ return {
         type3_50 = 74.85,
         type3_75 = 74.85,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1099] = {
@@ -37361,10 +37361,10 @@ return {
         type3_50 = 74.9,
         type3_75 = 74.9,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1100] = {
@@ -37395,10 +37395,10 @@ return {
         type3_50 = 74.95,
         type3_75 = 74.95,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1101] = {
@@ -37429,10 +37429,10 @@ return {
         type3_50 = 75.0,
         type3_75 = 75.0,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1102] = {
@@ -37463,10 +37463,10 @@ return {
         type3_50 = 75.05,
         type3_75 = 75.05,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1103] = {
@@ -37497,10 +37497,10 @@ return {
         type3_50 = 75.1,
         type3_75 = 75.1,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1104] = {
@@ -37531,10 +37531,10 @@ return {
         type3_50 = 75.15,
         type3_75 = 75.15,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1105] = {
@@ -37565,10 +37565,10 @@ return {
         type3_50 = 75.2,
         type3_75 = 75.2,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1106] = {
@@ -37599,10 +37599,10 @@ return {
         type3_50 = 75.25,
         type3_75 = 75.25,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1107] = {
@@ -37633,10 +37633,10 @@ return {
         type3_50 = 75.3,
         type3_75 = 75.3,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1108] = {
@@ -37667,10 +37667,10 @@ return {
         type3_50 = 75.35,
         type3_75 = 75.35,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1109] = {
@@ -37701,10 +37701,10 @@ return {
         type3_50 = 75.4,
         type3_75 = 75.4,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1110] = {
@@ -37735,10 +37735,10 @@ return {
         type3_50 = 75.45,
         type3_75 = 75.45,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1111] = {
@@ -37769,10 +37769,10 @@ return {
         type3_50 = 75.5,
         type3_75 = 75.5,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1112] = {
@@ -37803,10 +37803,10 @@ return {
         type3_50 = 75.55,
         type3_75 = 75.55,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1113] = {
@@ -37837,10 +37837,10 @@ return {
         type3_50 = 75.6,
         type3_75 = 75.6,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1114] = {
@@ -37871,10 +37871,10 @@ return {
         type3_50 = 75.65,
         type3_75 = 75.65,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1115] = {
@@ -37905,10 +37905,10 @@ return {
         type3_50 = 75.7,
         type3_75 = 75.7,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1116] = {
@@ -37939,10 +37939,10 @@ return {
         type3_50 = 75.75,
         type3_75 = 75.75,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1117] = {
@@ -37973,10 +37973,10 @@ return {
         type3_50 = 75.8,
         type3_75 = 75.8,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1118] = {
@@ -38007,10 +38007,10 @@ return {
         type3_50 = 75.85,
         type3_75 = 75.85,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1119] = {
@@ -38041,10 +38041,10 @@ return {
         type3_50 = 75.9,
         type3_75 = 75.9,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1120] = {
@@ -38075,10 +38075,10 @@ return {
         type3_50 = 75.95,
         type3_75 = 75.95,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1121] = {
@@ -38109,10 +38109,10 @@ return {
         type3_50 = 76.0,
         type3_75 = 76.0,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1122] = {
@@ -38143,10 +38143,10 @@ return {
         type3_50 = 76.05,
         type3_75 = 76.05,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1123] = {
@@ -38177,10 +38177,10 @@ return {
         type3_50 = 76.1,
         type3_75 = 76.1,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1124] = {
@@ -38211,10 +38211,10 @@ return {
         type3_50 = 76.15,
         type3_75 = 76.15,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1125] = {
@@ -38245,10 +38245,10 @@ return {
         type3_50 = 76.2,
         type3_75 = 76.2,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1126] = {
@@ -38279,10 +38279,10 @@ return {
         type3_50 = 76.25,
         type3_75 = 76.25,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1127] = {
@@ -38313,10 +38313,10 @@ return {
         type3_50 = 76.3,
         type3_75 = 76.3,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1128] = {
@@ -38347,10 +38347,10 @@ return {
         type3_50 = 76.35,
         type3_75 = 76.35,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1129] = {
@@ -38381,10 +38381,10 @@ return {
         type3_50 = 76.4,
         type3_75 = 76.4,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1130] = {
@@ -38415,10 +38415,10 @@ return {
         type3_50 = 76.45,
         type3_75 = 76.45,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1131] = {
@@ -38449,10 +38449,10 @@ return {
         type3_50 = 76.5,
         type3_75 = 76.5,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1132] = {
@@ -38483,10 +38483,10 @@ return {
         type3_50 = 76.55,
         type3_75 = 76.55,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1133] = {
@@ -38517,10 +38517,10 @@ return {
         type3_50 = 76.6,
         type3_75 = 76.6,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1134] = {
@@ -38551,10 +38551,10 @@ return {
         type3_50 = 76.65,
         type3_75 = 76.65,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1135] = {
@@ -38585,10 +38585,10 @@ return {
         type3_50 = 76.7,
         type3_75 = 76.7,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1136] = {
@@ -38619,10 +38619,10 @@ return {
         type3_50 = 76.75,
         type3_75 = 76.75,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1137] = {
@@ -38653,10 +38653,10 @@ return {
         type3_50 = 76.8,
         type3_75 = 76.8,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1138] = {
@@ -38687,10 +38687,10 @@ return {
         type3_50 = 76.85,
         type3_75 = 76.85,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1139] = {
@@ -38721,10 +38721,10 @@ return {
         type3_50 = 76.9,
         type3_75 = 76.9,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1140] = {
@@ -38755,10 +38755,10 @@ return {
         type3_50 = 76.95,
         type3_75 = 76.95,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1141] = {
@@ -38789,10 +38789,10 @@ return {
         type3_50 = 77.0,
         type3_75 = 77.0,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1142] = {
@@ -38823,10 +38823,10 @@ return {
         type3_50 = 77.05,
         type3_75 = 77.05,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1143] = {
@@ -38857,10 +38857,10 @@ return {
         type3_50 = 77.1,
         type3_75 = 77.1,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1144] = {
@@ -38891,10 +38891,10 @@ return {
         type3_50 = 77.15,
         type3_75 = 77.15,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1145] = {
@@ -38925,10 +38925,10 @@ return {
         type3_50 = 77.2,
         type3_75 = 77.2,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1146] = {
@@ -38959,10 +38959,10 @@ return {
         type3_50 = 77.25,
         type3_75 = 77.25,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1147] = {
@@ -38993,10 +38993,10 @@ return {
         type3_50 = 77.3,
         type3_75 = 77.3,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1148] = {
@@ -39027,10 +39027,10 @@ return {
         type3_50 = 77.35,
         type3_75 = 77.35,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1149] = {
@@ -39061,10 +39061,10 @@ return {
         type3_50 = 77.4,
         type3_75 = 77.4,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1150] = {
@@ -39095,10 +39095,10 @@ return {
         type3_50 = 77.45,
         type3_75 = 77.45,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1151] = {
@@ -39129,10 +39129,10 @@ return {
         type3_50 = 77.5,
         type3_75 = 77.5,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1152] = {
@@ -39163,10 +39163,10 @@ return {
         type3_50 = 77.55,
         type3_75 = 77.55,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1153] = {
@@ -39197,10 +39197,10 @@ return {
         type3_50 = 77.6,
         type3_75 = 77.6,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1154] = {
@@ -39231,10 +39231,10 @@ return {
         type3_50 = 77.65,
         type3_75 = 77.65,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1155] = {
@@ -39265,10 +39265,10 @@ return {
         type3_50 = 77.7,
         type3_75 = 77.7,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1156] = {
@@ -39299,10 +39299,10 @@ return {
         type3_50 = 77.75,
         type3_75 = 77.75,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1157] = {
@@ -39333,10 +39333,10 @@ return {
         type3_50 = 77.8,
         type3_75 = 77.8,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1158] = {
@@ -39367,10 +39367,10 @@ return {
         type3_50 = 77.85,
         type3_75 = 77.85,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1159] = {
@@ -39401,10 +39401,10 @@ return {
         type3_50 = 77.9,
         type3_75 = 77.9,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1160] = {
@@ -39435,10 +39435,10 @@ return {
         type3_50 = 77.95,
         type3_75 = 77.95,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1161] = {
@@ -39469,10 +39469,10 @@ return {
         type3_50 = 78.0,
         type3_75 = 78.0,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1162] = {
@@ -39503,10 +39503,10 @@ return {
         type3_50 = 78.05,
         type3_75 = 78.05,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1163] = {
@@ -39537,10 +39537,10 @@ return {
         type3_50 = 78.1,
         type3_75 = 78.1,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1164] = {
@@ -39571,10 +39571,10 @@ return {
         type3_50 = 78.15,
         type3_75 = 78.15,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1165] = {
@@ -39605,10 +39605,10 @@ return {
         type3_50 = 78.2,
         type3_75 = 78.2,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1166] = {
@@ -39639,10 +39639,10 @@ return {
         type3_50 = 78.25,
         type3_75 = 78.25,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1167] = {
@@ -39673,10 +39673,10 @@ return {
         type3_50 = 78.3,
         type3_75 = 78.3,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1168] = {
@@ -39707,10 +39707,10 @@ return {
         type3_50 = 78.35,
         type3_75 = 78.35,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1169] = {
@@ -39741,10 +39741,10 @@ return {
         type3_50 = 78.4,
         type3_75 = 78.4,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1170] = {
@@ -39775,10 +39775,10 @@ return {
         type3_50 = 78.45,
         type3_75 = 78.45,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1171] = {
@@ -39809,10 +39809,10 @@ return {
         type3_50 = 78.5,
         type3_75 = 78.5,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1172] = {
@@ -39843,10 +39843,10 @@ return {
         type3_50 = 78.55,
         type3_75 = 78.55,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1173] = {
@@ -39877,10 +39877,10 @@ return {
         type3_50 = 78.6,
         type3_75 = 78.6,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1174] = {
@@ -39911,10 +39911,10 @@ return {
         type3_50 = 78.65,
         type3_75 = 78.65,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1175] = {
@@ -39945,10 +39945,10 @@ return {
         type3_50 = 78.7,
         type3_75 = 78.7,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1176] = {
@@ -39979,10 +39979,10 @@ return {
         type3_50 = 78.75,
         type3_75 = 78.75,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1177] = {
@@ -40013,10 +40013,10 @@ return {
         type3_50 = 78.8,
         type3_75 = 78.8,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1178] = {
@@ -40047,10 +40047,10 @@ return {
         type3_50 = 78.85,
         type3_75 = 78.85,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1179] = {
@@ -40081,10 +40081,10 @@ return {
         type3_50 = 78.9,
         type3_75 = 78.9,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1180] = {
@@ -40115,10 +40115,10 @@ return {
         type3_50 = 78.95,
         type3_75 = 78.95,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1181] = {
@@ -40149,10 +40149,10 @@ return {
         type3_50 = 79.0,
         type3_75 = 79.0,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1182] = {
@@ -40183,10 +40183,10 @@ return {
         type3_50 = 79.05,
         type3_75 = 79.05,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1183] = {
@@ -40217,10 +40217,10 @@ return {
         type3_50 = 79.1,
         type3_75 = 79.1,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1184] = {
@@ -40251,10 +40251,10 @@ return {
         type3_50 = 79.15,
         type3_75 = 79.15,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1185] = {
@@ -40285,10 +40285,10 @@ return {
         type3_50 = 79.2,
         type3_75 = 79.2,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1186] = {
@@ -40319,10 +40319,10 @@ return {
         type3_50 = 79.25,
         type3_75 = 79.25,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1187] = {
@@ -40353,10 +40353,10 @@ return {
         type3_50 = 79.3,
         type3_75 = 79.3,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1188] = {
@@ -40387,10 +40387,10 @@ return {
         type3_50 = 79.35,
         type3_75 = 79.35,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1189] = {
@@ -40421,10 +40421,10 @@ return {
         type3_50 = 79.4,
         type3_75 = 79.4,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1190] = {
@@ -40455,10 +40455,10 @@ return {
         type3_50 = 79.45,
         type3_75 = 79.45,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1191] = {
@@ -40489,10 +40489,10 @@ return {
         type3_50 = 79.5,
         type3_75 = 79.5,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1192] = {
@@ -40523,10 +40523,10 @@ return {
         type3_50 = 79.55,
         type3_75 = 79.55,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1193] = {
@@ -40557,10 +40557,10 @@ return {
         type3_50 = 79.6,
         type3_75 = 79.6,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1194] = {
@@ -40591,10 +40591,10 @@ return {
         type3_50 = 79.65,
         type3_75 = 79.65,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1195] = {
@@ -40625,10 +40625,10 @@ return {
         type3_50 = 79.7,
         type3_75 = 79.7,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1196] = {
@@ -40659,10 +40659,10 @@ return {
         type3_50 = 79.75,
         type3_75 = 79.75,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1197] = {
@@ -40693,10 +40693,10 @@ return {
         type3_50 = 79.8,
         type3_75 = 79.8,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1198] = {
@@ -40727,10 +40727,10 @@ return {
         type3_50 = 79.85,
         type3_75 = 79.85,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1199] = {
@@ -40761,10 +40761,10 @@ return {
         type3_50 = 79.9,
         type3_75 = 79.9,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1200] = {
@@ -40795,10 +40795,10 @@ return {
         type3_50 = 79.95,
         type3_75 = 79.95,
         type3_gailv100 = 800,
-        type3_gailv150 = 800,
+        type3_gailv150 = 50,
         type3_gailv200 = 800,
         type3_gailv50 = 800,
-        type3_gailv75 = 800,
+        type3_gailv75 = 0,
     },
 
     [1201] = {
