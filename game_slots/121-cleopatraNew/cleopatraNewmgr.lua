@@ -46,7 +46,7 @@ function CmdGameOprate(uid,msg)
             WithdrawCash.GetBetInfo(uid,Table,msg.gameType,res,true,GameId)
         end
         res.gameType = msg.gameType
-     --   dump(res,"cleopatraNewCmdGameOprate",10)
+       dump(res,"cleopatraNewCmdGameOprate",3)
         gamecommon.SendNet(uid, 'GameOprateGame_S', res)
         
     end
@@ -62,7 +62,7 @@ function CmdBuyFree(uid,msg)
         local res = BuyFree(msg.gameType,msg.betIndex,datainfo,uid)
          WithdrawCash.GetBetInfo(uid,Table,msg.gameType,res,true,GameId)
          res.gameType = msg.gameType
-     --    dump(res,"cleopatraNewCmdBuyFree",10)
+        dump(res,"cleopatraNewCmdBuyFree",3)
          gamecommon.SendNet(uid, 'GameOprateGame_S', res)
         -- for i = 1, 100000, 1 do
         --     local datainfo = Get(msg.gameType,uid)

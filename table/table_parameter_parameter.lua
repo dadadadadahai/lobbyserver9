@@ -9,7 +9,7 @@ return {
 
     [2] = {
         ID = 2,
-        Parameter = 3000,
+        Parameter = 0,
         desc = "账号初始金币数量-分",
     },
 
