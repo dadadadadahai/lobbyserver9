@@ -326,7 +326,7 @@ function QueryRebateRelation(uid)
         oneUnderNum = 0,    --下线人数
     }
     if table.empty(data)==false then
-        res.unclaimed = data.TodayBetFall or 0
+        res.unclaimed = data.todayBetFall or 0
         res.claimed = data.tomorrowFlowingChips or 0
         res.oneUnderNum = data.oneUnderNum or 0
     end
