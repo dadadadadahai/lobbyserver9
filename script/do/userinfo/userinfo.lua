@@ -443,7 +443,7 @@ function NewUserEvent(uid)
         freeValidinViteChips = 0,   --免费有效玩家可领取金额
         todayFlowingChips = 0,      --今日可领取金额
         tomorrowFlowingChips = 0,   --明日可领取金额
-        addFlowingTimes = 0,        --上次添加流水时间
+        addFlowingTimes = '0',        --上次添加流水时间
         tolBetAll = 0,              --累计团队下线金币下注
         tolBetFall = 0,             --累计团队下线金币总返利
         todayBetAll = 0,            --今日团队下线金币下注
