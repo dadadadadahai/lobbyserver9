@@ -326,10 +326,22 @@ function QueryRebateRelation(uid)
         oneUnderNum = 0,    --下线人数
     }
     if table.empty(data)==false then
-        res.unclaimed = data.todayBetFall or 0
-        res.claimed = data.tomorrowFlowingChips or 0
-        res.oneUnderNum = data.oneUnderNum or 0
-    end
+        local todayFlowingTimes = os.date("%Y-%m-%d", os.time())
+        if data.todayBetFall and data.todayBetFall > 0 and data.addFlowingTimes and data.addFlowingTimes ~=todayFlowingTimes then
+            data.addFlowingTimes =todayFlowingTimes
+            data.tomorrowFlowingChips = data.todayBetFall
+            data.todayBetFall = 0 
+            unilight.update('extension_relation',uid,data)
+            res.unclaimed = data.todayBetFall or 0
+            res.claimed = data.tomorrowFlowingChips or 0
+            res.oneUnderNum = data.oneUnderNum or 0
+
+        else 
+            res.unclaimed = data.todayBetFall or 0
+            res.claimed = data.tomorrowFlowingChips or 0
+            res.oneUnderNum = data.oneUnderNum or 0
+        end
+    end 
     return res
 
 end
