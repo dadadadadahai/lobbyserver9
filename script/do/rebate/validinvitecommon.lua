@@ -328,10 +328,12 @@ function QueryRebateRelation(uid)
     if table.empty(data)==false then
         local todayFlowingTimes = os.date("%Y-%m-%d", os.time())
         if data.todayBetFall and data.todayBetFall > 0 and data.addFlowingTimes and data.addFlowingTimes ~=todayFlowingTimes then
+            local changemoney =  data.todayBetFall
             data.addFlowingTimes =todayFlowingTimes
-            data.tomorrowFlowingChips = data.todayBetFall
+            data.tomorrowFlowingChips = changemoney
             data.todayBetFall = 0 
-            unilight.update('extension_relation',uid,data)
+            unilight.incdate('extension_relation', uid, {tomorrowFlowingChips=changemoney,todayBetFall = -changemoney })
+            unilight.update('extension_relation',uid,{addFlowingTimes= todayFlowingTimes})
             res.unclaimed = data.todayBetFall or 0
             res.claimed = data.tomorrowFlowingChips or 0
             res.oneUnderNum = data.oneUnderNum or 0
