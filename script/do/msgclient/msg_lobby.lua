@@ -89,17 +89,17 @@ Net.CmdUserInfoSynRequestLbyCmd_C = function(cmd, laccount)
 				-- 首次登陆下发奖励
 				if firstApkFlag == true then
 					--赠送金币
-					local addScore = (import "table/table_parameter_parameter")[37].Parameter
+					local addScore = (import "table/table_parameter_parameter")[33].Parameter --37
 					local mailInfo = {}
 					local tableMailConfig = import "table/table_mail_config"
 					local mailConfig = tableMailConfig[41]
 					userInfo.status.loginPlatReward = 1
-					if userInfo.status.experienceStatus == 1 then
-						addScore = (import "table/table_parameter_parameter")[33].Parameter
-						mailConfig = tableMailConfig[40]
-						WithdrawCash.AddBet(uid, addScore * 3)
-						userInfo.status.loginPlatReward = 2
-					end
+					-- if userInfo.status.experienceStatus == 1 then
+					-- 	addScore = (import "table/table_parameter_parameter")[33].Parameter
+					-- 	mailConfig = tableMailConfig[40]
+					-- 	WithdrawCash.AddBet(uid, addScore * 3)
+					-- 	userInfo.status.loginPlatReward = 2
+					-- end
 					mailInfo.charid = uid
 					mailInfo.subject = mailConfig.subject
 					mailInfo.content = string.format(mailConfig.content,addScore / 100,chessutil.FormatDateGet(nil,"%d/%m/%Y %H:%M:%S"))
