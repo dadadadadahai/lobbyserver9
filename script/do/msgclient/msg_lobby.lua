@@ -66,6 +66,7 @@ Net.CmdUserInfoSynRequestLbyCmd_C = function(cmd, laccount)
 		end
 		dump(userInfo.status.loginPlatIds,"loginPlatIds",10)
 		dump(againFlag,"againFlag",10)
+		dump(userInfo.status.loginPlatReward,"loginPlatReward",10)
 		-- 判断玩家是否登陆过APK
 		if table.empty(userInfo.status.loginPlatIds) or (not againFlag) then
 			-- 插入前判断是否是首次进入APK  首次进入需要下发奖励
