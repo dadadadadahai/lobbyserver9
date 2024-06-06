@@ -357,7 +357,7 @@ function RecvRebateRelation(uid)
     if claimed>0 then
         --加上金币
         data.tomorrowFlowingChips=data.tomorrowFlowingChips-claimed
-        unilight.savedata('extension_relation',data)
+        unilight.incdate('extension_relation', uid, {tomorrowFlowingChips=-claimed})
         local withdrawCashInfo = WithdrawCash.UserGameConstruct(uid)
         withdrawCashInfo.statement = withdrawCashInfo.statement + claimed
         BackpackMgr.GetRewardGood(uid, Const.GOODS_ID.GOLD,claimed , Const.GOODS_SOURCE_TYPE.RECVREBATE)
