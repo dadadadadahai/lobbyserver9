@@ -1,40 +1,30 @@
 -- 自动生成 ./excel/D-兑换.xlsx(table_withdrawcash_gold)
 return {
 
-    [1] = {
-        dinheiro = 3000,
-    },
 
-    [2] = {
+    [1] = {
         dinheiro = 5000,
     },
 
-    [3] = {
+    [2] = {
         dinheiro = 10000,
     },
 
-    [4] = {
+    [3] = {
         dinheiro = 20000,
     },
 
-    [5] = {
+    [4] = {
         dinheiro = 30000,
     },
 
-    [6] = {
+    [5] = {
         dinheiro = 50000,
     },
 
-    [7] = {
+    [6] = {
         dinheiro = 100000,
     },
 
-    [8] = {
-        dinheiro = 300000,
-    },
-
-    [9] = {
-        dinheiro = 500000,
-    },
 
 }
