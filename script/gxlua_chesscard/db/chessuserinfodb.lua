@@ -583,15 +583,10 @@ function WUserConstuct(uid, data)
         platInfo.platId = data.platid or 0
         platInfo.imei   = data.adid or ""
 		if data.clickLabel then
-			if data.clickLabel == "fb-br-ad001" then
-				--platInfo.adcode = "Unattributed"
+			if string.find(data.clickLabel,'facebook-')~=nil or string.find(data.clickLabel,'kwai-')~=nil or string.find(data.clickLabel,'tiktok-')~=nil then
 				platInfo.adcode =data.clickLabel
-			elseif  data.clickLabel == "kwai-br-ad001" then
-				--platInfo.adcode = "Kwai for Business"
-				platInfo.adcode =data.clickLabel
-			elseif  data.clickLabel == "tt-br-ad001" then
-				--platInfo.adcode = "Google Ads ACI"
-				platInfo.adcode =data.clickLabel
+			elseif  data.clickLabel == "androidApk" then
+				platInfo.isdnApk = data.clickLabel
 			else
 				platInfo.inviter = data.clickLabel
 			end
@@ -601,7 +596,7 @@ function WUserConstuct(uid, data)
 		platInfo.passwd = data.passwd 
         -- unilight.info(string.format("玩家:%d, 来自邀请码:%s", uid, platInfo.inviter))
         platInfo.campaign = data.campaign or ""
-        platInfo.adcode    = data.network or ""
+        --platInfo.adcode    = data.network or ""
         platInfo.adjustid  = data.adid or ""
 		if platInfo.adcode=="" then
 			platInfo.adcode='Organic'
@@ -704,6 +699,7 @@ function WUserConstuct(uid, data)
             inviteCode     = GetInviteCode(),           --我的邀请码
             campaign      = platInfo.campaign or "",    --广告账号相关
             adcode         = platInfo.adcode,           --广告码   
+			isdnApk 	   =platInfo.isdnApk or "",
             adjustId       = platInfo.adjustid,         --adjust设备 
             regFlag        = platInfo.regFlag,          --注册来源(1投放，0非投放)
             gpsAdid        = "",                        --gps adid
