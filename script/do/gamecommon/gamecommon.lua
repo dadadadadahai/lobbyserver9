@@ -222,6 +222,9 @@ end
 
 --获得游戏管理类
 function GetGameMgr(gameId)
+    if gameId == 777 or gameId ==888 then
+        return nil 
+    end 
     if allGameManagers[gameId] == nil then
         unilight.error("获得游戏管理失败："..gameId)
         return nil

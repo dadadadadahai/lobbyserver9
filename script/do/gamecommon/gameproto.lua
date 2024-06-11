@@ -13,7 +13,7 @@ function RegGameNetCommand()
 	'rockgame','Tiger','Tiger3','CandyTouch','FortuneGem','GoldCow','Rabbit','Mouse','Dragon',
 	'Seven','Elephant','dragon','dragontriger','moneyPig','ghost','luckstar','moneytree','marry',
 	'penguin','NewTiger','RedPanda','Leopard','NewGoldCow','NewRabbit','animal','Rabbit3','NewGoldCow3',
-	'sweetBonanza',	'GreatRhinoceros',	'fruitparty2',	'MasterJoker',
+	'sweetBonanza',	'GreatRhinoceros',	'fruitparty2','diamond',	'MasterJoker',
   }
   if unilight.getdebuglevel() > 0 then
     for _,value in ipairs(gameArrayOj) do
