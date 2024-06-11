@@ -582,7 +582,22 @@ function WUserConstuct(uid, data)
 		-- platInfo.subPlatId = laccount.JsMessage.GetSubplatid()
         platInfo.platId = data.platid or 0
         platInfo.imei   = data.adid or ""
-        platInfo.inviter = data.clickLabel or ""
+		if data.clickLabel then
+			if data.clickLabel == "fb-br-ad001" then
+				--platInfo.adcode = "Unattributed"
+				platInfo.adcode =data.clickLabel
+			elseif  data.clickLabel == "kwai-br-ad001" then
+				--platInfo.adcode = "Kwai for Business"
+				platInfo.adcode =data.clickLabel
+			elseif  data.clickLabel == "tt-br-ad001" then
+				--platInfo.adcode = "Google Ads ACI"
+				platInfo.adcode =data.clickLabel
+			else
+				platInfo.inviter = data.clickLabel
+			end
+		else
+			platInfo.inviter = ""
+		end  
 		platInfo.passwd = data.passwd 
         -- unilight.info(string.format("玩家:%d, 来自邀请码:%s", uid, platInfo.inviter))
         platInfo.campaign = data.campaign or ""
@@ -592,35 +607,29 @@ function WUserConstuct(uid, data)
 			platInfo.adcode='Organic'
 		end
         --facebook专有信息
-		if data.fbInstallReferrer ~= nil and data.fbInstallReferrer ~= "" then
-			local jsondata = json2table(data.fbInstallReferrer)
-			if jsondata.fb_install_referrer_campaign_group_name ~= nill then
-				platInfo.campaign = jsondata.fb_install_referrer_campaign_group_name
-				--强制改下广告码
-				platInfo.adcode = "Unattributed"
-			end
-		end
-        --快手玩家特殊处理下信息
-        if platInfo.adcode == "Kwai for Business" then
-            local bIndex, eIndex, campaign = string.find(data.campaign, "(%a+ )")
-            if bIndex ~= nil then
-                campaign = string.gsub(campaign, "%s+", "")
-                platInfo.campaign = campaign
-            end
-        end
-		if string.find(platInfo.adcode,'Kwai')~=nil then
-			platInfo.adcode = 'Kwai for Business'
-		end
-        --谷歌玩家信息特殊处理
-        if platInfo.adcode == "Google Ads ACI" then
-            -- local bIndex, eIndex, campaign = string.find(data.campaign, "(%a+ )")
-            -- print(bIndex, eIndex, campaign)
-            -- if bIndex ~= nil then
-                -- campaign = string.gsub(campaign, "%s+", "")
-                -- platInfo.campaign = campaign
-            -- end
-            platInfo.campaign = string.split(data.campaign, " ")[1]
-        end
+		-- if data.fbInstallReferrer ~= nil and data.fbInstallReferrer ~= "" then
+		-- 	local jsondata = json2table(data.fbInstallReferrer)
+		-- 	if jsondata.fb_install_referrer_campaign_group_name ~= nill then
+		-- 		platInfo.campaign = jsondata.fb_install_referrer_campaign_group_name
+		-- 		--强制改下广告码
+		-- 		platInfo.adcode = "Unattributed"
+		-- 	end
+		-- end
+        -- --快手玩家特殊处理下信息
+        -- if platInfo.adcode == "Kwai for Business" then
+        --     local bIndex, eIndex, campaign = string.find(data.campaign, "(%a+ )")
+        --     if bIndex ~= nil then
+        --         campaign = string.gsub(campaign, "%s+", "")
+        --         platInfo.campaign = campaign
+        --     end
+        -- end
+		-- if string.find(platInfo.adcode,'Kwai')~=nil then
+		-- 	platInfo.adcode = 'Kwai for Business'
+		-- end
+        -- --谷歌玩家信息特殊处理
+        -- if platInfo.adcode == "Google Ads ACI" then
+        --     platInfo.campaign = string.split(data.campaign, " ")[1]
+        -- end
 
 		-- unilight.info("玩家campaign:"..platInfo.campaign)
 		if laccount.Imei ~= nil then --这里暂时先兼容下,否则还得要求lua跟unilight同时更新
