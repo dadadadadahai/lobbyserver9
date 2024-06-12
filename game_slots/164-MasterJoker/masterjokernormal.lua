@@ -42,6 +42,8 @@ function PlayNormalGame(masterjokerInfo,uid,betIndex,gameType)
     local res = GetResInfo(uid, masterjokerInfo, gameType)
     res.winScore = resultGame.winScore
     res.winlines = resultGame.winlines
+    res.specialmul = resultGame.specialmul
+    res.isSpecial = imageType
     gameDetaillog.SaveDetailGameLog(
         uid,
         sTime,
