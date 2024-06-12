@@ -123,14 +123,13 @@ function Normal(gameType, betindex, datainfo, uid)
             reschip,
             chessuserinfodb.RUserChipsGet(uid),
             0,
-            {type='normal',chessdata = resultGame.boards},
+            {type='normal',chessdata = resultGame.boards}
             
         )
-     
         -- 保存数据库信息
         SaveGameInfo(uid,gameType,datainfo)
         return res
-      end 
+    end 
 end
 
 
@@ -237,7 +236,7 @@ function NormalDemo(gameType, betindex, datainfo, uid)
             reschip,
             chessuserinfodb.RUserChipsGet(uid),
             0,
-            {type='normal',chessdata = resultGame.boards},
+            {type='normal',chessdata = resultGame.boards}
             
         )
      
