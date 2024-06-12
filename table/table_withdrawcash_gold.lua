@@ -3,27 +3,27 @@ return {
 
 
     [1] = {
+        dinheiro = 3000,
+    },
+	
+	[2] = {
         dinheiro = 5000,
     },
 
-    [2] = {
+    [3] = {
         dinheiro = 10000,
     },
 
-    [3] = {
+    [4] = {
         dinheiro = 20000,
     },
 
-    [4] = {
+    [5] = {
         dinheiro = 30000,
     },
 
-    [5] = {
-        dinheiro = 50000,
-    },
-
     [6] = {
-        dinheiro = 100000,
+        dinheiro = 50000,
     },
 
 

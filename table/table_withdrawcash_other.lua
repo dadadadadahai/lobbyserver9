@@ -5,10 +5,10 @@ return {
         MaxCpfNum = 5,
         addServiceCharge = 0,
         betMul = 1,
-        firstMinDinheiro = 5000,
+        firstMinDinheiro = 3000,
         firstServiceCharge = 0,
         intervalMinutes = 0,
-        minDinheiro = 5000,
+        minDinheiro = 3000,
     },
 
 }
