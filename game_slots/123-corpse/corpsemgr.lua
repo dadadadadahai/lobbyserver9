@@ -28,7 +28,7 @@ function CmdGameOprate(uid,msg)
     local res={}
     if datainfo.normalScore>0 and table.empty(datainfo.bonus) then
         BackpackMgr.GetRewardGood(datainfos._id, Const.GOODS_ID.GOLD, datainfo.normalScore,Const.GOODS_SOURCE_TYPE.CORPSE)
-        WithdrawCash.AddBet(uid,datainfo.normalScore-datainfo.normalChip,0)
+        -- WithdrawCash.AddBet(uid,datainfo.normalScore-datainfo.normalChip,0)
         datainfo.normalScore = 0
         datainfo.normalChip = 0
         datainfo.addMulNum = 0
@@ -166,7 +166,7 @@ function CmdCorpseRecvNormalScore(uid,msg)
         }
      
         BackpackMgr.GetRewardGood(datainfos._id, Const.GOODS_ID.GOLD, datainfo.normalScore,Const.GOODS_SOURCE_TYPE.CORPSE)
-        WithdrawCash.AddBet(uid,datainfo.normalScore-datainfo.normalChip,0)
+        -- WithdrawCash.AddBet(uid,datainfo.normalScore-datainfo.normalChip,0)
         -- if datainfo.addMulNum>0 and datainfo.baseWin~=nil then
         --     local userinfo = unilight.getdata('userinfo', uid)
         --     print('datainfo.baseWin2',datainfo.normalScore,datainfo.baseWin)

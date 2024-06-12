@@ -239,7 +239,7 @@ function Settle(gameType, uid)
     BackpackMgr.GetRewardGood(uid, Const.GOODS_ID.GOLD, winScore,Const.GOODS_SOURCE_TYPE.Miner)
     if winScore-datainfo.betMoney>0 then
         -- cofrinho.AddCofrinho(uid,winScore-datainfo.betMoney)
-        WithdrawCash.AddBet(uid,winScore-datainfo.betMoney)
+        -- WithdrawCash.AddBet(uid,winScore-datainfo.betMoney)
     end
     gamecommon.AddGamesCount(GameId,gameType)
     --记录日志

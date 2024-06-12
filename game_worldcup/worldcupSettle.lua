@@ -138,7 +138,7 @@ function SellteResult(result,Table)
             if v.IsRobot==false then
                 local rtchip = winScore - betChip
                 if rtchip>0 then
-                    WithdrawCash.AddBet(k,rtchip)
+                    -- WithdrawCash.AddBet(k,rtchip)
                 elseif rtchip<0 then
                     rtchip = math.abs(rtchip)
                     cofrinho.AddCofrinho(k,rtchip)

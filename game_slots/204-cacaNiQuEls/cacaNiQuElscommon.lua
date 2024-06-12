@@ -120,7 +120,7 @@ function Normal(gameType, bets, uid)
     end
     local rchip = result.WinScore+jackpotChips - betChip
     if rchip>0 then
-        WithdrawCash.AddBet(uid,rchip)
+        -- WithdrawCash.AddBet(uid,rchip)
     elseif rchip<0 then
         rchip = math.abs(rchip)
         cofrinho.AddCofrinho(uid,rchip)

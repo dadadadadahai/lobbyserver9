@@ -84,11 +84,11 @@ function Free(gameType, datainfo,uid)
     }
     if datainfo.free.isBuy==0 then
         WithdrawCash.GetBetInfo(uid,Table,gameType,res,false)
-    else
-        if datainfo.free.lackTimes<=0 then
-            local c = table_121_buyfree[1].price * datainfo.betMoney
-            WithdrawCash.AddBet(uid,datainfo.free.tWinScore,c)
-        end
+    -- else
+    --     if datainfo.free.lackTimes<=0 then
+    --         local c = table_121_buyfree[1].price * datainfo.betMoney
+    --         WithdrawCash.AddBet(uid,datainfo.free.tWinScore,c)
+    --     end
     end
     if datainfo.free.lackTimes<=0 then
         if datainfo.free.isBuy==1 then
