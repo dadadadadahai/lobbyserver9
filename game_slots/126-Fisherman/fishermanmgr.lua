@@ -1,49 +1,90 @@
--- 渔夫游戏模块
-module('Fisherman', package.seeall)
-
--- 获取渔夫模块信息
-function CmdEnterGame(uid, msg)
-    -- 获取玩家信息
-    local userInfo = unilight.getdata("userinfo",uid)
-    -- 获取游戏类型
+module('Fisherman',package.seeall)
+--进入游戏场景消息
+function CmdEnterGame(uid,msg)
+    SetGameMold(uid,msg.demo)
     local gameType = msg.gameType
-    -- 获取数据库信息
-    local fishermanInfo = Get(gameType, uid)
-    local res = GetResInfo(uid, fishermanInfo, gameType)
-    print(table2json(res))
-    -- 发送消息
+    local datainfo = Get(gameType,uid)
+    local res={
+        errno = 0,
+        betConfig = gamecommon.GetBetConfig(gameType,LineNum), 
+        betIndex = datainfo.betindex,
+        bAllLine=LineNum,
+        gameType = gameType,
+        features={
+            free = packFree(datainfo),      --是否存在免费  存在的话 就是刚才的数据
+        },
+        extraData={
+            isInHight = datainfo.isInHight,         --无用
+            freePrice = table_126_buyfree[1].price, --购买免费的钱
+            betChange = table_126_buygailv[1].betChange, --无用
+        }
+    }
     gamecommon.SendNet(uid,'EnterSceneGame_S',res)
+    if IsDemo(uid) then
+        chessuserinfodb.DemoInitPoint(uid)
+    end 
 end
-
---拉动游戏过程
-function CmdGameOprate(uid, msg)
-    local res={}
-    -- 获取数据库信息
-    local fishermanInfo = Get(msg.gameType, uid)
-    if not table.empty(fishermanInfo.free) then
-        --进入免费游戏逻辑
-        local res = PlayFreeGame(fishermanInfo,uid,msg.gameType)
-        WithdrawCash.GetBetInfo(uid,DB_Name,msg.gameType,res,false,GameId)
-        gamecommon.SendNet(uid,'GameOprateGame_S',res)
+function CmdGameOprate(uid,msg)
+    if   IsDemo(uid) then
+        local datainfo = Get(msg.gameType,uid)
+        local res={}
+        if table.empty(datainfo.free)==false then
+            res = FreeDemo(msg.gameType,datainfo,uid)
+        else
+            res = NormalDemo(msg.gameType,msg.betIndex,datainfo,uid)
+            AddDemoNums(uid)
+        end
+         res.gameType = msg.gameType
+        gamecommon.SendNet(uid, 'GameOprateGame_S', res)
     else
-        --进入普通游戏逻辑
-        local res = PlayNormalGame(fishermanInfo,uid,msg.betIndex,msg.gameType)
-        WithdrawCash.GetBetInfo(uid,DB_Name,msg.gameType,res,true,GameId)
-        gamecommon.SendNet(uid,'GameOprateGame_S',res)
+        local datainfo = Get(msg.gameType,uid)
+        local res={}
+        if table.empty(datainfo.free)==false then
+            res = Free(msg.gameType,datainfo,uid)
+        else
+            res = Normal(msg.gameType,msg.betIndex,datainfo,uid)
+            WithdrawCash.GetBetInfo(uid,Table,msg.gameType,res,true,GameId)
+        end
+        res.gameType = msg.gameType
+     --   dump(res,"FishermanCmdGameOprate",10)
+        gamecommon.SendNet(uid, 'GameOprateGame_S', res)
+        
     end
-
 end
-
--- 渔夫购买免费次数
 function CmdBuyFree(uid,msg)
-    -- 获取数据库信息
-    local fishermanInfo = Get(msg.gameType, uid)
-    local buyRes = BuyFree(fishermanInfo,uid,msg.betIndex,msg.gameType)
-    gamecommon.SendNet(uid,'FishermanBuyFreeCmd_S',buyRes)
+    if   IsDemo(uid) then
+        local datainfo = Get(msg.gameType,uid)
+        local res = BuyFreeDemo(msg.gameType,msg.betIndex,datainfo,uid)
+        res.gameType = msg.gameType
+        gamecommon.SendNet(uid, 'GameOprateGame_S', res)
+    else 
+        local datainfo = Get(msg.gameType,uid)
+        local res = BuyFree(msg.gameType,msg.betIndex,datainfo,uid)
+         WithdrawCash.GetBetInfo(uid,Table,msg.gameType,res,true,GameId)
+         res.gameType = msg.gameType
+     --    dump(res,"FishermanCmdBuyFree",10)
+         gamecommon.SendNet(uid, 'GameOprateGame_S', res)
+        -- for i = 1, 100000, 1 do
+        --     local datainfo = Get(msg.gameType,uid)
+        --     if table.empty(datainfo.free) ==false then
+        --         res = Free(msg.gameType,datainfo,uid)
+        --     else
+        --         local res = BuyFree(msg.gameType,msg.betIndex,datainfo,uid)
+        --     end 
+        -- end
+ 
+    end 
 end
-
--- 注册消息解析
+function CmdBuyHighBet(uid,msg)
+    local datainfo = Get(msg.gameType,uid)
+    local res = BuyHighBet(msg.highLevel,datainfo,msg.gameType,uid)
+    res.gameType = msg.gameType
+    gamecommon.SendNet(uid, 'HighBetCmd_S', res)
+end
+--注册消息解析
 function RegisterProto()
     gamecommon.RegGame(GameId, Fisherman)
+
     gamecommon.GetModuleCfg(GameId,Fisherman)
+    gameImagePool.loadPool(GameId)
 end

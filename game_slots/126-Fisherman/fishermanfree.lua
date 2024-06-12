@@ -1,68 +1,197 @@
---渔夫模块
-module('Fisherman',package.seeall)
+module('Fisherman', package.seeall)
+Table = 'game126fisherman'
+LineNum = 1
+GameId = 126
 
---渔夫免费游戏
-function PlayFreeGame(fishermanInfo,uid,gameType)
-    -- 游戏后台记录所需初始信息
-    local sTime = os.time()
-    local reschip = chessuserinfodb.RUserChipsGet(uid)
-    -- 清理棋盘信息
-    fishermanInfo.boards = {}
-    -- 增加免费游戏次数
-    fishermanInfo.free.lackTimes = fishermanInfo.free.lackTimes - 1
-    -- jackpot发送客户端的数据表
-    local jackpot = {}
-    -- 生成免费棋盘和结果
-    local resultGame,fishermanInfo = gamecontrol.RealCommonRotate(uid,GameId,gameType,true,fishermanInfo,fishermanInfo.betMoney,GetBoards)
-    fishermanInfo.free.tWinScore = fishermanInfo.free.tWinScore + resultGame.winScore
-    -- 返回数据前判断是否结算  结算的时候判断收集进度
-    if fishermanInfo.free.lackTimes <= 0 then
-        -- 缓存以前的收集档次进度
-        local oldCollectIndex = fishermanInfo.free.collect.collectIndex or 0
-        -- 判断是否收集满 收集满需要增加免费次数
-        for index, value in ipairs(table_126_collect) do
-            -- 如果与配置表次数相同  则增加次数(次数相同代表第一次触发到这个收集进度)
-            if fishermanInfo.free.collect.collectIndex < index and fishermanInfo.free.collect.collectNum >= value.collectNum then
-                fishermanInfo.free.collect.collectIndex = index
+
+J = 100
+S = 70
+
+
+function Free(gameType, datainfo,uid)
+    local chip = datainfo.betMoney * LineNum
+    local disInfo =   table.remove(datainfo.free.resdata,1)
+    local disInfos,tmul ,bombdataMap,ssum= parseData(datainfo.betMoney,disInfo)
+    local boommuls = table.sum(bombdataMap,function (v)
+        return v.mul 
+    end)
+
+    local boards= table.clone(disInfos[1].chessdata)
+
+    local iconsAttachData = disInfos[1].iconsAttachData
+    if tmul>0 then
+        for _,value in ipairs(iconsAttachData) do
+            table.insert(datainfo.free.mulInfoList,value.data.mul)
+        end
+        datainfo.free.tMul = tmul 
+        datainfo.free.sMul =  datainfo.free.sMul +boommuls
+    end
+   
+    for i=1,#disInfos-1 do
+        disInfos[i].chessdata = disInfos[i+1].chessdata
+        disInfos[i].iconsAttachData = disInfos[i+1].iconsAttachData
+    end
+    local lastDis = disInfos[#disInfos]
+    local sNum = 0
+    for col=1,#lastDis.chessdata do
+        for row=1,#lastDis.chessdata[col] do
+            if lastDis.chessdata[col][row]==70 then
+                sNum = sNum +1 
             end
         end
-        -- 如果收集档次有新增则增加数据
-        if oldCollectIndex < fishermanInfo.free.collect.collectIndex then
-            -- 收集进度每次只能上涨一个挡位
-            fishermanInfo.free.collect.collectIndex = oldCollectIndex + 1
-            fishermanInfo.free.totalTimes = fishermanInfo.free.totalTimes + table_126_collect[fishermanInfo.free.collect.collectIndex].freeNum
-            fishermanInfo.free.lackTimes = fishermanInfo.free.lackTimes + table_126_collect[fishermanInfo.free.collect.collectIndex].freeNum
-            fishermanInfo.free.collect.mul = table_126_collect[fishermanInfo.free.collect.collectIndex].mul
+    end
+    dump(string.format("sNum%d  sum%d ",sNum,ssum))
+    if sNum >= 3 then
+        datainfo.free.lackTimes = datainfo.free.lackTimes + 5
+        datainfo.free.totalTimes = datainfo.free.totalTimes + 5
+    end
+    table.remove(disInfos,#disInfos)
+    local  Smul =  calcSMul(ssum)
+    local winScore = 0
+    dump(string.format("%f %f %f %f",chip,tmul,Smul,datainfo.free.sMul))
+    if boommuls >0 then 
+        winScore=  chip*(tmul+Smul) *  (datainfo.free.sMul == 0 and 1 or  datainfo.free.sMul)
+    else 
+        winScore=  chip*(tmul+Smul) 
+    end 
+    dump(string.format("cur win %f ",winScore))
+    datainfo.free.lackTimes = datainfo.free.lackTimes  -1
+    datainfo.free.tWinScore = datainfo.free.tWinScore + winScore
+    local achip = chessuserinfodb.RUserChipsGet(uid)
+    if datainfo.free.lackTimes<=0 then
+        local curnwins =  datainfo.free.allmul * chip
+       -- dump(string.format("#########  %d %d",curnwins,datainfo.free.tWinScore))
+        dump(string.format("#########  %d %d",curnwins,datainfo.free.tWinScore+datainfo.free.normalwinScore))
+        BackpackMgr.GetRewardGood(uid, Const.GOODS_ID.GOLD,datainfo.free.tWinScore, Const.GOODS_SOURCE_TYPE.FISHERMAN)
+    end
+    local res = {
+        errno = 0,
+        betIndex = datainfo.betindex,
+        bAllLine = LineNum,
+        payScore = datainfo.betMoney * LineNum,
+        winScore = winScore,
+        winLines = {},
+        boards = boards,
+        iconsAttachData = iconsAttachData,
+        features={
+            free=packFree(datainfo),
+        },
+        extraData = {
+            disInfo = disInfos,
+        },
+     
+        bombdataMap = bombdataMap
+    }
+    if datainfo.free.isBuy==0 then
+        WithdrawCash.GetBetInfo(uid,Table,gameType,res,false)
+    else
+        if datainfo.free.lackTimes<=0 then
+            local c = table_126_buyfree[1].price * datainfo.betMoney
+            -- WithdrawCash.AddBet(uid,datainfo.free.tWinScore,c)
         end
     end
-    -- 返回数据
-    local res = GetResInfo(uid, fishermanInfo, gameType, resultGame.tringerPoints)
-    -- 判断是否结算
-    if fishermanInfo.free.lackTimes <= 0 then
-        if fishermanInfo.free.tWinScore > 0 then
-            -- 获取奖励
-            BackpackMgr.GetRewardGood(uid, Const.GOODS_ID.GOLD_BASE, fishermanInfo.free.tWinScore, Const.GOODS_SOURCE_TYPE.FISHERMAN)
+    if datainfo.free.lackTimes<=0 then
+        if datainfo.free.isBuy==1 then
+            --加流水
+            local userinfo = unilight.getdata('userinfo',uid)
+            userinfo.gameData.slotsBet = userinfo.gameData.slotsBet + table_126_buyfree[1].price * datainfo.betMoney
+            userinfo.property.isInPresentChips = 0
         end
+        datainfo.free={}
     end
-    res.winScore = resultGame.winScore
-    res.winlines = resultGame.winlines
-    -- 增加后台历史记录
     gameDetaillog.SaveDetailGameLog(
         uid,
-        sTime,
+        os.time(),
         GameId,
         gameType,
-        fishermanInfo.betMoney,
-        reschip,
+        0,
+        achip,
         chessuserinfodb.RUserChipsGet(uid),
         0,
-        {type='free',chessdata = resultGame.boards,totalTimes=fishermanInfo.free.totalTimes,lackTimes=fishermanInfo.free.lackTimes,tWinScore=fishermanInfo.free.tWinScore},
-        jackpot
+        {type='free'},
+        {},
+        {}
     )
-    if fishermanInfo.free.lackTimes <= 0 and table.empty(fishermanInfo.respin) then
-        fishermanInfo.free = {}
+    SaveGameInfo(uid,gameType,datainfo)
+    return res
+end
+
+function FreeDemo(gameType, datainfo,uid)
+    local chip = datainfo.betMoney 
+    local disInfo =   table.remove(datainfo.free.resdata,1)
+    local disInfos,tmul ,bombdataMap,ssum= parseData(datainfo.betMoney,disInfo)
+    local boommuls = table.sum(bombdataMap,function (v)
+        return v.mul 
+    end)
+
+    local boards= table.clone(disInfos[1].chessdata)
+
+    local iconsAttachData = disInfos[1].iconsAttachData
+    if tmul>0 then
+        for _,value in ipairs(iconsAttachData) do
+            table.insert(datainfo.free.mulInfoList,value.data.mul)
+        end
+        datainfo.free.tMul =  tmul 
+        datainfo.free.sMul =  datainfo.free.sMul +boommuls
     end
-    -- 保存数据库信息
-    SaveGameInfo(uid,gameType,fishermanInfo)
+   
+    for i=1,#disInfos-1 do
+        disInfos[i].chessdata = disInfos[i+1].chessdata
+        disInfos[i].iconsAttachData = disInfos[i+1].iconsAttachData
+    end
+    local lastDis = disInfos[#disInfos]
+    local sNum = 0
+    for col=1,#lastDis.chessdata do
+        for row=1,#lastDis.chessdata[col] do
+            if lastDis.chessdata[col][row]==70 then
+                sNum = sNum +1 
+            end
+        end
+    end
+    if sNum >= 3 then
+        datainfo.free.lackTimes = datainfo.free.lackTimes + 5
+        datainfo.free.totalTimes = datainfo.free.totalTimes + 5
+    end
+    table.remove(disInfos,#disInfos)
+    local  Smul =  calcSMul(ssum)
+    local winScore = 0
+    if boommuls >0 then 
+        winScore=  chip*(tmul+Smul) *  (datainfo.free.sMul == 0 and 1 or  datainfo.free.sMul)
+    else 
+        winScore=  chip*(tmul+Smul) 
+    end 
+      
+    datainfo.free.lackTimes = datainfo.free.lackTimes  -1
+    datainfo.free.tWinScore = datainfo.free.tWinScore + winScore
+    if datainfo.free.lackTimes<=0 then
+        local curnwins =  datainfo.free.allmul * chip
+        dump(string.format("#########  %d %d",curnwins,datainfo.free.tWinScore+datainfo.free.normalwinScore))
+        BackpackMgr.GetRewardGood(uid, Const.GOODS_ID.POINT,datainfo.free.tWinScore, Const.GOODS_SOURCE_TYPE.FISHERMAN)
+    end
+    local res = {
+        errno = 0,
+        betIndex = datainfo.betindex,
+        bAllLine = LineNum,
+        payScore = datainfo.betMoney * LineNum,
+        winScore = winScore,
+        winLines = {},
+        boards = boards,
+        iconsAttachData = iconsAttachData,
+        features={
+            free=packFree(datainfo),
+        },
+        extraData = {
+            disInfo = disInfos,
+        },
+     
+        bombdataMap = bombdataMap
+    }
+
+    if datainfo.free.lackTimes<=0 then
+
+        datainfo.free={}
+    end
+    
+    SaveGameInfo(uid,gameType,datainfo)
     return res
 end
