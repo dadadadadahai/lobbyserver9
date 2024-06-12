@@ -127,9 +127,9 @@ function RealCommonRotate(_id,gameId,gameType,imageType,gameObj,param)
     if not demo  then 
         userinfo.gameData.slotsBet = userinfo.gameData.slotsBet + betchip
         if gameId == 137 then 
-            userinfo.gameData.slotsWin = userinfo.gameData.slotsWin + math.floor(realMul * betchip)
-        else
             userinfo.gameData.slotsWin = userinfo.gameData.slotsWin + math.floor(realMul * betchip*gameObj.LineNum)
+        else
+            userinfo.gameData.slotsWin = userinfo.gameData.slotsWin + math.floor(realMul * betchip)
         end 
     end 
     return jsonobj,realMul,imageType
