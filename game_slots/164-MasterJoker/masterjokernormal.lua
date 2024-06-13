@@ -97,10 +97,11 @@ function PlayNormalGameDemo(masterjokerInfo,uid,betIndex,gameType)
     end 
     -- 返回数据
     local res = GetResInfo(uid, masterjokerInfo, gameType)
-    res.boards = {resultGame.boards}
+    res.boards = resultGame.boards
     res.winScore = resultGame.winScore
     res.winlines = resultGame.winlines
-
+    res.specialmul = resultGame.specialmul
+    res.isSpecial = imageType
     -- 保存数据库信息
     SaveGameInfo(uid,gameType,masterjokerInfo)
     return res
