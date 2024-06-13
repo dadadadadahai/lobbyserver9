@@ -229,10 +229,10 @@ WithdrawCash.AmountExchange = function(uid, dinheiro, type)
         local mailConfig = tableMailConfig[44]
         mailInfo.charid = uid
         mailInfo.subject = mailConfig.subject
-        mailInfo.content = mailConfig.content
         mailInfo.type = 0
         mailInfo.attachment = {}
         mailInfo.extData = {}
+        mailInfo.content = string.format(mailConfig.content,orderId,moedas/100)
         ChessGmMailMgr.AddGlobalMail(mailInfo)
         -- -- 如果提现金额小于配置表的直接提现  那么直接同意不需要后台
         -- if moedas <= parameterConfig[35].Parameter then
@@ -281,7 +281,7 @@ WithdrawCash.AmountExchange = function(uid, dinheiro, type)
         local mailConfig = tableMailConfig[44]
         mailInfo.charid = uid
         mailInfo.subject = mailConfig.subject
-        mailInfo.content = mailConfig.content
+        mailInfo.content = string.format(mailConfig.content,orderId,moedas/100)
         mailInfo.type = 0
         mailInfo.attachment = {}
         mailInfo.extData = {}

@@ -397,7 +397,7 @@ Sua solicitação de saque de R$%s falhou e o valor foi reembolsado. Por favor, 
 
     [44] = {
         ID = 44,
-        content = "Número do pedido de saque: %s. Seu pedido de saque está em processamento e o valor de R$%s que você solicitou será creditado em sua conta dentro de 1 a 60 minutos.",
+        content = "Número da solicitação de saque: %s. Sua solicitação de saque está em processamento e o valor de R$%s solicitado será creditado em sua conta em até 12 horas.",
         desc = [=[提现订单号：54589789448。
 您的提现请求正在处理中，您提取的R$5将在1~60分钟内发放到你的账户。]=],
         icon = "",
