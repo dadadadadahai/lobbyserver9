@@ -11,7 +11,7 @@ end
 -- 用户兑换操作
 Net.CmdUserWithdrawCashRequestSgnCmd_C = function(cmd, laccount)
 	local res = {}
-	res["do"] = "Cmd.UserWithdrawCashInfoReturnSgnCmd_S"
+	res["do"] = "Cmd.UserWithdrawCashRequestSgnCmd_S"
 	local uid = laccount.Id
 	local dinheiro = cmd.data.dinheiro
 	local type = cmd.data.type
