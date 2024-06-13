@@ -36,6 +36,7 @@ function CmdGameOprate(uid,msg)
         end
          res.gameType = msg.gameType
         gamecommon.SendNet(uid, 'GameOprateGame_S', res)
+        dump(res,"Fisherman",5)
     else
         local datainfo = Get(msg.gameType,uid)
         local res={}
@@ -48,7 +49,7 @@ function CmdGameOprate(uid,msg)
         res.gameType = msg.gameType
      --   dump(res,"FishermanCmdGameOprate",10)
         gamecommon.SendNet(uid, 'GameOprateGame_S', res)
-        
+        dump(res,"Fisherman",5)
     end
 end
 function CmdBuyFree(uid,msg)

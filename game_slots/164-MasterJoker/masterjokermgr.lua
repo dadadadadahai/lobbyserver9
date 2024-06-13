@@ -27,6 +27,7 @@ function CmdGameOprate(uid, msg)
        res = PlayNormalGameDemo(tigerInfo,uid,msg.betIndex,msg.gameType)
        gamecommon.SendNet(uid,'GameOprateGame_S',res)
        AddDemoNums(uid)
+       dump(res,"MasterJoker",5)
     else
         local res={}
         -- 获取数据库信息
@@ -34,6 +35,7 @@ function CmdGameOprate(uid, msg)
         res = PlayNormalGame(tigerInfo,uid,msg.betIndex,msg.gameType)
         WithdrawCash.GetBetInfo(uid,DB_Name,msg.gameType,res,true,GameId)
         gamecommon.SendNet(uid,'GameOprateGame_S',res)
+        dump(res,"MasterJoker",5)
     end 
 
 end

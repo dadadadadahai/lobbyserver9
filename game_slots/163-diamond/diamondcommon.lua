@@ -98,7 +98,7 @@ function GetResInfo(uid, diamondInfo, gameType)
     -- 模块信息
     local boards = {}
     if table.empty(diamondInfo.boards) == false then
-        boards = {diamondInfo.boards}
+        boards = diamondInfo.boards
     end
     local res = {
         errno = 0,

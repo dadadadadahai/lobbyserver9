@@ -95,7 +95,6 @@ function PlayNormalGameDemo(diamondInfo,uid,betIndex,gameType)
     end 
     -- 返回数据
     local res = GetResInfo(uid, diamondInfo, gameType)
-    res.boards = {resultGame.boards}
     res.winScore = resultGame.winScore
     res.winlines = resultGame.winlines
 

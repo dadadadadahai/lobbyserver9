@@ -104,7 +104,7 @@ function GetResInfo(uid, masterjokerInfo, gameType)
     -- 模块信息
     local boards = {}
     if table.empty(masterjokerInfo.boards) == false then
-        boards = {masterjokerInfo.boards}
+        boards = masterjokerInfo.boards
     end
     local res = {
         errno = 0,
