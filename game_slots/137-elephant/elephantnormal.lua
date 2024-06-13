@@ -29,7 +29,7 @@ function PlayNormalGame(elephantInfo,uid,betIndex,gameType)
     -- if GmProcess() then
     --     imageType = 2
     -- end
-    local resultGame,realMul,imageType = gameImagePool.RealCommonRotate(uid,GameId,gameType,nil,Elephant,{betchip=payScore / LineNum,betIndex=betIndex,gameId=GameId,gameType=gameType,betchips=payScore})
+    local resultGame,realMul,imageType = gameImagePool.RealCommonRotate(uid,GameId,gameType,nil,Elephant,{betchip=betgold,betIndex=betIndex,gameId=GameId,gameType=gameType,betchips=payScore})
     local winScore = betgold * resultGame.normalMul
     
     -- 判断免费生成
