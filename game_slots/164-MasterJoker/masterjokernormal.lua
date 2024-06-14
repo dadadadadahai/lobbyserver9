@@ -1,6 +1,6 @@
 -- 老虎游戏模块
 module('MasterJoker', package.seeall)
-
+local cindex = 1
 function PlayNormalGame(masterjokerInfo,uid,betIndex,gameType)
     -- 游戏后台记录所需初始信息
     local sTime = os.time()
@@ -82,8 +82,9 @@ function PlayNormalGameDemo(masterjokerInfo,uid,betIndex,gameType)
     masterjokerInfo.betMoney = payScore
     -- 生成普通棋盘和结果
 
-
-    local resultGame,realMul,imageType = gameImagePool.RealCommonRotate(uid,GameId,gameType,1,MasterJoker,{betchip=betgold,demo = IsDemo(uid),betIndex=betIndex,gameId=GameId,gameType=gameType,betchips=payScore})
+    cindex = cindex + 1 
+    local cimageType = cindex%2 == 0 and 1 or 2
+    local resultGame,realMul,imageType = gameImagePool.RealCommonRotate(uid,GameId,gameType,cimageType,MasterJoker,{betchip=betgold,demo = IsDemo(uid),betIndex=betIndex,gameId=GameId,gameType=gameType,betchips=payScore})
     resultGame.winScore = realMul *  payScore
     -- 保存棋盘数据
     masterjokerInfo.boards = resultGame.boards

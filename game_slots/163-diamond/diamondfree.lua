@@ -45,7 +45,7 @@ function PlayFreeGame(diamondInfo,uid,gameType)
     )
   
     local res = GetResInfo(uid, diamondInfo, gameType)
-    res.winScore = data.winScore
+    res.winScore = winscore
     res.winlines = data.winlines
     res.bonus = data.bonus
     res.free = packFree(diamondInfo)
@@ -85,7 +85,7 @@ function PlayFreeGameDemo(diamondInfo,uid,gameType)
         end
     end
     local res = GetResInfo(uid, diamondInfo, gameType)
-    res.winScore = data.winScore
+    res.winScore = winscore
     res.winlines = data.winlines
     res.bonus = data.bonus
     res.free = packFree(diamondInfo)

@@ -113,7 +113,7 @@ function Normal(gameType, betindex, datainfo, uid)
         -- 返回数据
         local res = GetResInfo(uid, datainfo, gameType)
         res.winScore = resultGame.winScore
-        res.winlines = resultGame.winlines
+        res.winlines = resultGame.winLines
         res.iconsAttachData = resultGame.iconsAttachData
         gameDetaillog.SaveDetailGameLog(
             uid,
@@ -227,7 +227,7 @@ function NormalDemo(gameType, betindex, datainfo, uid)
         -- 返回数据
         local res = GetResInfo(uid, datainfo, gameType)
         res.winScore = resultGame.winScore
-        res.winlines = resultGame.winlines
+        res.winlines = resultGame.winLines
         res.iconsAttachData = resultGame.iconsAttachData
         gameDetaillog.SaveDetailGameLog(
             uid,
