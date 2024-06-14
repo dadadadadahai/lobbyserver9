@@ -39,6 +39,8 @@ function RealCommonRotate(_id,gameId,gameType,imageType,gameObj,param)
         local betrtptable = gameObj['table_'..gameId..'_betrtp']
         rtp =  betrtptable[gamecommon.CommRandInt(betrtptable,'bet'..betIndex)].bet_level
         unilight.info('@@@@betrtptablertp', rtp) 
+        imageType,  userinfo.point.maxMul =  getPlayertypeandMaxMul(userinfo,betchip,imageType)
+ 
         --local rtptable = gameObj['table_'..gameId..'_rtpswitch']
        -- local rtp = 200 --没充值的直接走200
        -- if totalRechargeChips >0 then 
@@ -47,6 +49,7 @@ function RealCommonRotate(_id,gameId,gameType,imageType,gameObj,param)
    else
         rtp = 200 
    end
+    
     local imagePro = string.format("table_%d_imagePro",gameId)
     if imageType==nil then
         imageType = gameObj[imagePro][gamecommon.CommRandInt(gameObj[imagePro],'gailv'..rtp)].type
@@ -58,6 +61,7 @@ function RealCommonRotate(_id,gameId,gameType,imageType,gameObj,param)
 
     --就计算玩家当前允许的最大倍数 改变了userinfo.point.maxMul的值
     -- getPlayerMaxMul(userinfo,betchip,totalRechargeChips,gameType,gameObj)
+  
     --开始拼装配置表
     local tmpPoolConfig = {}
     local tableconfig = string.format('table_%d_rtp',gameId)
@@ -178,4 +182,30 @@ function getPlayerMaxMul(userinfo,betchip,totalRechargeChips,gameType,gameObj)
         mul = chargeMaxMul
     end
     userinfo.point.maxMul = mul
+end
+
+function getPlayertypeandMaxMul(userinfo,betchip,imageType)
+    local totalRechargeChips = userinfo.property.totalRechargeChips --总充值
+    local totalcashChips = userinfo.status.chipsWithdraw --总体现
+    local Chips = userinfo.property.chips --身上的钱
+    unilight.info('totalRechargeChips',totalRechargeChips,totalcashChips,Chips)
+    if totalRechargeChips >100000 then
+        totalRechargeChips = totalRechargeChips * 1.2
+        local DiffChips = totalRechargeChips - totalcashChips - Chips
+        if DiffChips >=0 then
+            return (not imageType) and 1 or imageType ,400000
+        else
+            local maxmul =  math.floor(math.abs(DiffChips)/betchip)
+            return  imageType ,maxmul
+        end 
+    else
+        local DiffChips = totalRechargeChips - totalcashChips - Chips
+        if DiffChips >=0 then
+            return (not imageType) and 1 or imageType ,400000
+        else
+            local maxmul =  math.floor(math.abs(DiffChips)/betchip)
+            return  imageType ,maxmul
+        end 
+    end
+    return imageType,400000
 end
