@@ -63,39 +63,35 @@ function UpdateUserPlatInfo(userInfo, data, bUpdate)
     platInfo.campaign = data.campaign or ""
     platInfo.adcode    = data.network or ""
     --facebook专有信息
-    if data.fbInstallReferrer ~= nil and data.fbInstallReferrer ~= "" then
-		local jsondata = json2table(data.fbInstallReferrer)
-		if jsondata.fb_install_referrer_campaign_group_name ~= nill then
-        	platInfo.campaign = jsondata.fb_install_referrer_campaign_group_name
-			--强制改下广告码
-			platInfo.adcode = "Unattributed"
-		end
-    end
-    --快手玩家特殊处理下信息
-    if platInfo.adcode == "Kwai for Business" then
-        local bIndex, eIndex, campaign = string.find(platInfo.campaign, "(%a+ )")
-        if bIndex ~= nil then
-            campaign = string.gsub(campaign, "%s+", "")
-            platInfo.campaign = campaign
-        end
-    end
-	if string.find(platInfo.adcode,'Kwai')~=nil then
-		platInfo.adcode = 'Kwai for Business'
-	end
+    -- if data.fbInstallReferrer ~= nil and data.fbInstallReferrer ~= "" then
+	-- 	local jsondata = json2table(data.fbInstallReferrer)
+	-- 	if jsondata.fb_install_referrer_campaign_group_name ~= nil then
+    --     	platInfo.campaign = jsondata.fb_install_referrer_campaign_group_name
+	-- 		--强制改下广告码
+	-- 		platInfo.adcode = "Unattributed"
+	-- 	end
+    -- end
+    -- --快手玩家特殊处理下信息
+    -- if platInfo.adcode == "Kwai for Business" then
+    --     local bIndex, eIndex, campaign = string.find(platInfo.campaign, "(%a+ )")
+    --     if bIndex ~= nil then
+    --         campaign = string.gsub(campaign, "%s+", "")
+    --         platInfo.campaign = campaign
+    --     end
+    -- end
+	-- if string.find(platInfo.adcode,'Kwai')~=nil then
+	-- 	platInfo.adcode = 'Kwai for Business'
+	-- end
     --谷歌玩家信息特殊处理
-    if platInfo.adcode == "Google Ads ACI" then
-        platInfo.campaign = string.split(data.campaign, " ")[1]
-    end
-    userInfo.base.campaign      = platInfo.campaign or ""    --广告账号相关
-    -- unilight.info("玩家campaign:"..userInfo.base.campaign)
-	if userInfo.base.adcode==nil or userInfo.base.adcode=='' then
-		userInfo.base.adcode        = platInfo.adcode           --广告码		
-	end
-
-	if laccount.Imei ~= nil and laccount.Imei ~= "" and userInfo.base.imei ~= laccount.Imei then --这里暂时先兼容下,否则还得要求lua跟unilight同时更新
-		userInfo.base.imei = laccount.Imei	
-		userInfo.base.osname = laccount.Osname
-	end
+    -- if platInfo.adcode == "Google Ads ACI" then
+    --     platInfo.campaign = string.split(data.campaign, " ")[1]
+    -- end
+    -- userInfo.base.campaign      = platInfo.campaign or ""    --广告账号相关
+    -- -- unilight.info("玩家campaign:"..userInfo.base.campaign)
+	-- if laccount.Imei ~= nil and laccount.Imei ~= "" and userInfo.base.imei ~= laccount.Imei then --这里暂时先兼容下,否则还得要求lua跟unilight同时更新
+	-- 	userInfo.base.imei = laccount.Imei	
+	-- 	userInfo.base.osname = laccount.Osname
+	-- end
 	-- 性别获取
 	local gender = nil
 	if go.version and go.version > "v0.11.38"then
@@ -113,15 +109,15 @@ function UpdateUserPlatInfo(userInfo, data, bUpdate)
 			end
 		end
 	end	
-	if gender ~= nil and userInfo.base.gender ~= gender then
-		userInfo.base.gender = gender
-		laccount.Info("数据更新 玩家性别更新成功")
- 	end
-    if userInfo.base.phoneNbr == "" and laccount.JsMessage.GetMobilenum() ~= "" then
-        userInfo.base.phoneNbr = laccount.JsMessage.GetMobilenum()
-		laccount.Info("玩家更新手机:"..userInfo.base.phoneNbr)
-        userInfo.property.chips = userInfo.property.chips + BIND_CHIPS
-    end
+	-- if gender ~= nil and userInfo.base.gender ~= gender then
+	-- 	userInfo.base.gender = gender
+	-- 	laccount.Info("数据更新 玩家性别更新成功")
+ 	-- end
+    -- if userInfo.base.phoneNbr == "" and laccount.JsMessage.GetMobilenum() ~= "" then
+    --     userInfo.base.phoneNbr = laccount.JsMessage.GetMobilenum()
+	-- 	laccount.Info("玩家更新手机:"..userInfo.base.phoneNbr)
+    --     userInfo.property.chips = userInfo.property.chips + BIND_CHIPS
+    -- end
 
     if userInfo.base.regFlag == nil then
         platInfo.regFlag = 1
@@ -582,11 +578,14 @@ function WUserConstuct(uid, data)
 		-- platInfo.subPlatId = laccount.JsMessage.GetSubplatid()
         platInfo.platId = data.platid or 0
         platInfo.imei   = data.adid or ""
+		platInfo.loginPlatId =1
 		if data.clickLabel then
-			if string.find(data.clickLabel,'facebook-')~=nil or string.find(data.clickLabel,'kwai-')~=nil or string.find(data.clickLabel,'tiktok-')~=nil then
-				platInfo.adcode =data.clickLabel
+			if string.find(data.clickLabel,'facebook-')~=nil  then
+				if platInfo.adcode=='' then
+					platInfo.adcode ='Unattributed'
+				end
 			elseif  data.clickLabel == "androidApk" then
-				platInfo.isdnApk = data.clickLabel
+				platInfo.loginPlatId = 3
 			else
 				platInfo.inviter = data.clickLabel
 			end
@@ -601,31 +600,6 @@ function WUserConstuct(uid, data)
 		if platInfo.adcode=="" then
 			platInfo.adcode='Organic'
 		end
-        --facebook专有信息
-		-- if data.fbInstallReferrer ~= nil and data.fbInstallReferrer ~= "" then
-		-- 	local jsondata = json2table(data.fbInstallReferrer)
-		-- 	if jsondata.fb_install_referrer_campaign_group_name ~= nill then
-		-- 		platInfo.campaign = jsondata.fb_install_referrer_campaign_group_name
-		-- 		--强制改下广告码
-		-- 		platInfo.adcode = "Unattributed"
-		-- 	end
-		-- end
-        -- --快手玩家特殊处理下信息
-        -- if platInfo.adcode == "Kwai for Business" then
-        --     local bIndex, eIndex, campaign = string.find(data.campaign, "(%a+ )")
-        --     if bIndex ~= nil then
-        --         campaign = string.gsub(campaign, "%s+", "")
-        --         platInfo.campaign = campaign
-        --     end
-        -- end
-		-- if string.find(platInfo.adcode,'Kwai')~=nil then
-		-- 	platInfo.adcode = 'Kwai for Business'
-		-- end
-        -- --谷歌玩家信息特殊处理
-        -- if platInfo.adcode == "Google Ads ACI" then
-        --     platInfo.campaign = string.split(data.campaign, " ")[1]
-        -- end
-
 		-- unilight.info("玩家campaign:"..platInfo.campaign)
 		if laccount.Imei ~= nil then --这里暂时先兼容下,否则还得要求lua跟unilight同时更新
 			imei = laccount.Imei	
@@ -699,7 +673,6 @@ function WUserConstuct(uid, data)
             inviteCode     = GetInviteCode(),           --我的邀请码
             campaign      = platInfo.campaign or "",    --广告账号相关
             adcode         = platInfo.adcode,           --广告码   
-			isdnApk 	   =platInfo.isdnApk or "",
             adjustId       = platInfo.adjustid,         --adjust设备 
             regFlag        = platInfo.regFlag,          --注册来源(1投放，0非投放)
             gpsAdid        = "",                        --gps adid
@@ -737,7 +710,7 @@ function WUserConstuct(uid, data)
 			onlyRegister = 0,							-- 是否提供给上级过有效充值玩家金钱  （需求更改 但是因为发出去过钱所以字段名不能修改了QAQ） 0 未提供  2 提供过
 			onlyPlayerRegister = 0,						-- 注册(注册时候的IP和设备ID)是否唯一  0 不唯一 1 唯一 2 唯一并且已经给上级提供过奖励
             bindFailFlag      = 0,                      --绑定失败标记，失败的话登陆会再次请求
-			loginPlatId 	  = 0,						-- 更新玩家渠道	1 安卓网页 2 苹果网页 3 安卓客户端 4 苹果客户端
+			loginPlatId 	  = platInfo.loginPlatId,						-- 更新玩家渠道	1 安卓网页 2 苹果网页 3 安卓客户端 4 苹果客户端
 			loginPlatIds 	  = {},						-- 更新玩家渠道列表(登陆过的全部保存)	1 安卓网页 2 苹果网页 3 安卓客户端 4 苹果客户端
 			loginPlatReward   = 0,						-- 玩家渠道奖励是否下发
             badgeGetDays	  = {},               		-- 徽章领取记录
