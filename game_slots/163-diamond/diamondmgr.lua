@@ -19,25 +19,34 @@ end
 
 --拉动游戏过程
 function CmdGameOprate(uid, msg)
-
+        -- 获取数据库信息
     if   IsDemo(uid) then
-        local res={}
-        -- 获取数据库信息
-        local tigerInfo = Get(msg.gameType, uid)
-       res = PlayNormalGameDemo(tigerInfo,uid,msg.betIndex,msg.gameType)
-       gamecommon.SendNet(uid,'GameOprateGame_S',res)
-       AddDemoNums(uid)
-       dump(res,"diamondCmdGameOprate",5)
+        local diamonInfo = Get(msg.gameType, uid)
+            --金龙有免费
+            if not table.empty(diamonInfo.free) then 
+            --进入免费游戏逻辑
+            local res = PlayFreeGameDemo(diamonInfo,uid,msg.gameType)
+            gamecommon.SendNet(uid,'GameOprateGame_S',res)
+        else
+            --进入普通游戏逻辑
+            local  res = PlayNormalGameDemo(diamonInfo,uid,msg.betIndex,msg.gameType)
+            gamecommon.SendNet(uid,'GameOprateGame_S',res)
+            AddDemoNums(uid)
+        end
     else
-        local res={}
-        -- 获取数据库信息
-        local tigerInfo = Get(msg.gameType, uid)
-        res = PlayNormalGame(tigerInfo,uid,msg.betIndex,msg.gameType)
-        WithdrawCash.GetBetInfo(uid,DB_Name,msg.gameType,res,true,GameId)
-        gamecommon.SendNet(uid,'GameOprateGame_S',res)
-        dump(res,"diamondCmdGameOprate",5)
+        local diamonInfo = Get(msg.gameType, uid)
+        if not table.empty(diamonInfo.free) then 
+            --进入免费游戏逻辑
+            local res = PlayFreeGame(diamonInfo,uid,msg.gameType)
+            -- WithdrawCash.GetBetInfo(uid,DB_Name,msg.gameType,res,false,GameId)
+            gamecommon.SendNet(uid,'GameOprateGame_S',res)
+        else
+            --进入普通游戏逻辑
+            local    res = PlayNormalGame(diamonInfo,uid,msg.betIndex,msg.gameType)
+            WithdrawCash.GetBetInfo(uid,DB_Name,msg.gameType,res,true,GameId)
+            gamecommon.SendNet(uid,'GameOprateGame_S',res)
+        end
     end 
-
 end
 
 -- 注册消息解析

@@ -115,6 +115,30 @@ function GetResInfo(uid, diamondInfo, gameType)
         winlines = diamondInfo.winlines,
         -- 面板格子数据
         boards = boards,
+        free = packFree(diamondInfo)
     }
     return res
 end
+function packFree(datainfo)
+    if table.empty(datainfo.free) then
+        return {}
+    end
+    return{
+        totalTimes=8,
+        lackTimes=datainfo.free.lackTimes,
+        tWinScore = datainfo.free.tWinScore,
+    }
+end
+function calc_S(boards)
+	local sNum = 0
+	for col = 1,5 do
+		for row = 1,3 do
+			local val = boards[col][row]
+			if val == S then
+				sNum = sNum + 1
+			end
+		end
+	end
+	return  sNum 
+      
+end 
