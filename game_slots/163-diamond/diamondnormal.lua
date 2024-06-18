@@ -49,10 +49,15 @@ function PlayNormalGame(diamondInfo,uid,betIndex,gameType)
         for _, winline in ipairs(ntfres.winlines) do
             winline[3] = winline[3] * betgold
         end
+        if not table.empty(ntfres.bonus) then
+            ntfres.bonus.winScore =   ntfres.bonus.mul   * betgold
+        end
         if winScore >0 then 
             BackpackMgr.GetRewardGood(uid, Const.GOODS_ID.GOLD, winScore, Const.GOODS_SOURCE_TYPE.DIAMOND)
         end 
         -- 返回数据
+        
+       
         local res = GetResInfo(uid, diamondInfo, gameType)
         res.winScore = winScore
         res.winlines = ntfres.winlines
@@ -82,6 +87,10 @@ function PlayNormalGame(diamondInfo,uid,betIndex,gameType)
         for _, winline in ipairs(resultGame.winlines) do
             winline[3] = winline[3] * betgold
         end
+        if not table.empty(resultGame.bonus) then
+            resultGame.bonus.winScore =   resultGame.bonus.mul   * betgold
+        end
+       
         if resultGame.winScore >0 then 
           BackpackMgr.GetRewardGood(uid, Const.GOODS_ID.GOLD, resultGame.winScore, Const.GOODS_SOURCE_TYPE.DIAMOND)
         end 
@@ -156,6 +165,9 @@ function PlayNormalGameDemo(diamondInfo,uid,betIndex,gameType)
         for _, winline in ipairs(ntfres.winlines) do
             winline[3] = winline[3] * betgold
         end
+        if not table.empty(ntfres.bonus) then
+            ntfres.bonus.winScore =   ntfres.bonus.mul   * betgold
+        end
         if winScore >0 then 
             BackpackMgr.GetRewardGood(uid, Const.GOODS_ID.POINT, winScore, Const.GOODS_SOURCE_TYPE.DIAMOND)
         end 
@@ -176,6 +188,9 @@ function PlayNormalGameDemo(diamondInfo,uid,betIndex,gameType)
         -- 整理中奖线数据
         for _, winline in ipairs(resultGame.winlines) do
             winline[3] = winline[3] * betgold
+        end
+        if not table.empty(resultGame.bonus) then
+            resultGame.bonus.winScore =   resultGame.bonus.mul   * betgold
         end
         if resultGame.winScore >0 then 
             BackpackMgr.GetRewardGood(uid, Const.GOODS_ID.POINT, resultGame.winScore, Const.GOODS_SOURCE_TYPE.DIAMOND)

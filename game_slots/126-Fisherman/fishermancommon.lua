@@ -98,13 +98,13 @@ end
 
 
 -- 包装返回信息
-function GetResInfo(uid, masterjokerInfo, gameType)
+function GetResInfo(uid, datainfo, gameType)
     -- 克隆数据表
-    masterjokerInfo = table.clone(masterjokerInfo)
+    datainfo = table.clone(datainfo)
     -- 模块信息
     local boards = {}
-    if table.empty(masterjokerInfo.boards) == false then
-        boards = masterjokerInfo.boards
+    if table.empty(datainfo.boards) == false then
+        boards = datainfo.boards
     end
     local res = {
         errno = 0,
@@ -113,14 +113,81 @@ function GetResInfo(uid, masterjokerInfo, gameType)
         -- 获取玩家下注金额范围 下注配置
         betConfig = gamecommon.GetBetConfig(gameType,table_126_hanglie[1].linenum),
         -- 下注索引
-        betIndex = masterjokerInfo.betIndex,
+        betIndex = datainfo.betIndex,
         -- 全部下注金额
-        payScore = masterjokerInfo.betMoney,
+        payScore = datainfo.betMoney,
         -- 已赢的钱
-        -- winScore = masterjokerInfo.winScore,
-        winlines = masterjokerInfo.winlines,
+        -- winScore = datainfo.winScore,
+        winlines = datainfo.winlines,
         -- 面板格子数据
         boards = boards,
+        free = packFree(datainfo)
     }
     return res
+end
+function packFree(datainfo)
+    if table.empty(datainfo.free) then
+        return {}
+    end
+    return{
+        totalTimes=datainfo.free.totalTimes,
+        lackTimes=datainfo.free.lackTimes,
+        tWinScore = datainfo.free.tWinScore,
+        FreeInfo = datainfo.free.FreeInfo,
+    }
+end
+
+function GetLevelmul(Level)
+	if Level == 4 then 
+		return 10
+	elseif Level ==3 then 
+		return 3
+	elseif Level == 2 then 
+		return 2
+	else 
+		return 1
+	end 
+end 
+function calc_S(boards)
+	local sNum = 0
+	for col = 1,5 do
+		for row = 1,3 do
+			local val = boards[col][row]
+			if val == S then
+				sNum = sNum + 1
+			end
+		end
+	end
+	return  sNum 
+      
+end 
+
+function calc_W(boards)
+	local sNum = 0
+	for col = 1,5 do
+		for row = 1,3 do
+			local val = boards[col][row]
+			if val == W then
+				sNum = sNum + 1
+			end
+		end
+	end
+	return  sNum 
+      
+end 
+
+function check_is_to_free(boards)
+	local sNum = calc_S(boards)
+	return  sNum >= 3
+end 
+
+function calc_free_nums(sNum)
+    if sNum==3 then
+        return 10
+    elseif sNum==4 then
+        return 15
+    elseif sNum==5 then
+        return 20
+    end
+    return 0
 end

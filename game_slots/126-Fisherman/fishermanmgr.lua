@@ -58,12 +58,13 @@ function CmdBuyFree(uid,msg)
         local res = BuyFreeDemo(msg.gameType,msg.betIndex,datainfo,uid)
         res.gameType = msg.gameType
         gamecommon.SendNet(uid, 'GameOprateGame_S', res)
+        dump(res,"FishermanCmdBuyFree",10)
     else 
         local datainfo = Get(msg.gameType,uid)
         local res = BuyFree(msg.gameType,msg.betIndex,datainfo,uid)
          WithdrawCash.GetBetInfo(uid,Table,msg.gameType,res,true,GameId)
          res.gameType = msg.gameType
-     --    dump(res,"FishermanCmdBuyFree",10)
+        dump(res,"FishermanCmdBuyFree",10)
          gamecommon.SendNet(uid, 'GameOprateGame_S', res)
         -- for i = 1, 100000, 1 do
         --     local datainfo = Get(msg.gameType,uid)

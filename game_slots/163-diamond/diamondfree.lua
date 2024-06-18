@@ -30,6 +30,13 @@ function PlayFreeGame(diamondInfo,uid,gameType)
             BackpackMgr.GetRewardGood(uid, Const.GOODS_ID.GOLD, diamondInfo.free.tWinScore, Const.GOODS_SOURCE_TYPE.DIAMOND)
         end
     end
+    for _, winline in ipairs(data.winlines) do
+        winline[3] = winline[3] * diamondInfo.betgold
+    end
+
+    if not table.empty(data.bonus) then
+        data.bonus.winScore =   data.bonus.mul   * diamondInfo.betgold
+    end
     -- 增加后台历史记录
     gameDetaillog.SaveDetailGameLog(
         uid,
@@ -77,6 +84,13 @@ function PlayFreeGameDemo(diamondInfo,uid,gameType)
     if  calc_S(boards) >=3 then
         diamondInfo.free.lackTimes = diamondInfo.free.lackTimes+8
     end 
+    for _, winline in ipairs(data.winlines) do
+        winline[3] = winline[3] * diamondInfo.betgold
+    end
+
+    if not table.empty(data.bonus) then
+        data.bonus.winScore =   data.bonus.mul   * diamondInfo.betgold
+    end
     -- 判断是否结算
     if diamondInfo.free.lackTimes <= 0 then
         if diamondInfo.free.tWinScore > 0 then
