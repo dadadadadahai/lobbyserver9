@@ -3,20 +3,20 @@ return {
 
     [1] = {
         ID = 1,
-        gailv100 = 9525,
+        gailv100 = 9740,
         gailv150 = 9750,
-        gailv200 = 9475,
-        gailv50 = 9200,
+        gailv200 = 9600,
+        gailv50 = 9700,
         gailv75 = 9835,
         type = 1,
     },
 
     [2] = {
         ID = 2,
-        gailv100 = 475,
+        gailv100 = 260,
         gailv150 = 250,
-        gailv200 = 525,
-        gailv50 = 800,
+        gailv200 = 400,
+        gailv50 = 300,
         gailv75 = 165,
         type = 2,
     },
