@@ -124,7 +124,7 @@ function packFree(datainfo)
         return {}
     end
     return{
-        totalTimes=8,
+        totalTimes=datainfo.free.totalTimes,
         lackTimes=datainfo.free.lackTimes,
         tWinScore = datainfo.free.tWinScore,
     }

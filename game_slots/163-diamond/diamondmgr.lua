@@ -27,11 +27,13 @@ function CmdGameOprate(uid, msg)
             --进入免费游戏逻辑
             local res = PlayFreeGameDemo(diamonInfo,uid,msg.gameType)
             gamecommon.SendNet(uid,'GameOprateGame_S',res)
+            dump(res,"MasterJoker",5)
         else
             --进入普通游戏逻辑
             local  res = PlayNormalGameDemo(diamonInfo,uid,msg.betIndex,msg.gameType)
             gamecommon.SendNet(uid,'GameOprateGame_S',res)
             AddDemoNums(uid)
+            dump(res,"MasterJoker",5)
         end
     else
         local diamonInfo = Get(msg.gameType, uid)
@@ -40,11 +42,13 @@ function CmdGameOprate(uid, msg)
             local res = PlayFreeGame(diamonInfo,uid,msg.gameType)
             -- WithdrawCash.GetBetInfo(uid,DB_Name,msg.gameType,res,false,GameId)
             gamecommon.SendNet(uid,'GameOprateGame_S',res)
+            dump(res,"MasterJoker",5)
         else
             --进入普通游戏逻辑
             local    res = PlayNormalGame(diamonInfo,uid,msg.betIndex,msg.gameType)
             WithdrawCash.GetBetInfo(uid,DB_Name,msg.gameType,res,true,GameId)
             gamecommon.SendNet(uid,'GameOprateGame_S',res)
+            dump(res,"MasterJoker",5)
         end
     end 
 end

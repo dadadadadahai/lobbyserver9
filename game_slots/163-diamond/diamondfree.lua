@@ -21,7 +21,8 @@ function PlayFreeGame(diamondInfo,uid,gameType)
 
     diamondInfo.free.tWinScore = diamondInfo.free.tWinScore +winscore
     if  calc_S(boards) >=3 then
-        diamondInfo.free.lackTimes = diamondInfo.free.lackTimes+8
+        diamondInfo.free.lackTimes = diamondInfo.free.lackTimes+5
+        diamondInfo.free.totalTimes = diamondInfo.free.totalTimes+5
     end 
     -- 判断是否结算
     if diamondInfo.free.lackTimes <= 0 then
@@ -82,7 +83,8 @@ function PlayFreeGameDemo(diamondInfo,uid,gameType)
 
     diamondInfo.free.tWinScore = diamondInfo.free.tWinScore +winscore
     if  calc_S(boards) >=3 then
-        diamondInfo.free.lackTimes = diamondInfo.free.lackTimes+8
+        diamondInfo.free.lackTimes = diamondInfo.free.lackTimes+5
+        diamondInfo.free.totalTimes = diamondInfo.free.totalTimes+5
     end 
     for _, winline in ipairs(data.winlines) do
         winline[3] = winline[3] * diamondInfo.betgold
