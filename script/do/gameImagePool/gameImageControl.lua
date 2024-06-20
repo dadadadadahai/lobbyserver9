@@ -189,7 +189,7 @@ function getPlayertypeandMaxMul(userinfo,betchip,imageType)
     local totalcashChips = userinfo.status.chipsWithdraw --总体现
     local Chips = userinfo.property.chips --身上的钱
     unilight.info('totalRechargeChips',totalRechargeChips,totalcashChips,Chips)
-    if totalRechargeChips >100000 then
+    if totalRechargeChips >5000 then
         totalRechargeChips = totalRechargeChips * 1.1
         local DiffChips = totalRechargeChips - totalcashChips - Chips
         if DiffChips >=0 then
