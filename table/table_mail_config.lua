@@ -165,8 +165,8 @@ return {
 
     [19] = {
         ID = 19,
-        content = "Depósito R$%s sucesso",
-        desc = "成功充值R$%s",
+        content = "deposit RM%s successful",
+        desc = "成功充值RM%s",
         icon = "",
         limitTime = 7776000,
         subject = "",
@@ -174,8 +174,7 @@ return {
 
     [20] = {
         ID = 20,
-        content = "Algo deu errado com sua solicitação de retirada, confirme as informações da sua conta e tente sacar novamente. As moedas de ouro de R$%s que você retirou foram devolvidas à sua conta em %s.",
-        desc = "提现出错的提示：您的提现申请发生某些错误，请确认您的账户信息并再次尝试提现。您提取的R$%s金币已于2023-2-16 10:41退还至您的账号。",
+        content = "Something went wrong with your withdrawal request, as per your account information, please try withdrawing again. The RM%s gold coins you withdrew were returned to your account in %s.",        desc = "提现出错的提示：您的提现申请发生某些错误，请确认您的账户信息并再次尝试提现。您提取的RM%s金币已于2023-2-16 10:41退还至您的账号。",
         icon = "",
         limitTime = 604800,
         subject = "Erro de retirada",
@@ -183,10 +182,10 @@ return {
 
     [21] = {
         ID = 21,
-        content = [=[Número do pedido: %s.
-Seu saque de R$%s foi realizado com sucesso.]=],
+        content = [=[Order number: %s.
+        Your RM%s withdrawal was successful.]=],
         desc = [=[订单号：342343423434。
-您提取的R$%s成功。]=],
+    您提取的RM%s成功。]=],
         icon = "",
         limitTime = 7776000,
         subject = "",
@@ -194,10 +193,10 @@ Seu saque de R$%s foi realizado com sucesso.]=],
 
     [22] = {
         ID = 22,
-        content = [=[Número do pedido: %s.
-Sua solicitação de saque de R$%s falhou e o valor foi reembolsado. Por favor, verifique se a conta de recebimento está correta.]=],
+        content = [=[Order number: %s.
+        Your RM%s withdrawal request failed and the amount has been refunded. Please check whether the receiving account is correct.]=],
         desc = [=[订单号：342343423434。
-您提取的R$%s失败，金额已退回，请检查收款账户是否正确。]=],
+您提取的RM%s失败，金额已退回，请检查收款账户是否正确。]=],
         icon = "",
         limitTime = 604800,
         subject = "",
@@ -205,8 +204,8 @@ Sua solicitação de saque de R$%s falhou e o valor foi reembolsado. Por favor, 
 
     [23] = {
         ID = 23,
-        content = "Retirar comissão (R$%s) com sucesso",
-        desc = "领取R$%s邀请佣金成功",
+        content = "Withdraw commission (RM%s) successfully",
+        desc = "领取RM%s邀请佣金成功",
         icon = "",
         limitTime = 7776000,
         subject = "",
@@ -214,8 +213,8 @@ Sua solicitação de saque de R$%s falhou e o valor foi reembolsado. Por favor, 
 
     [24] = {
         ID = 24,
-        content = "Parabéns, seu bônus VIP especial esta semana é de R$%s, resgate o quanto antes.",
-        desc = "VIP特殊奖励发放：恭喜您，您本周的VIP特别奖励为R$4。请尽快进行领取。",
+        content = "Congratulations, your special VIP bonus this week is RM%s, claim it as soon as possible.",
+        desc = "VIP特殊奖励发放：恭喜您，您本周的VIP特别奖励为RM4。请尽快进行领取。",
         icon = "",
         limitTime = 604800,
         subject = "Recompensas VIP especiais",
@@ -223,7 +222,7 @@ Sua solicitação de saque de R$%s falhou e o valor foi reembolsado. Por favor, 
 
     [25] = {
         ID = 25,
-        content = "Você recarregou com sucesso R$%s no Oferta Premium em %s. Este é o seu bônus grátis.",
+        content = "You have successfully recharged RM%s on Premium Offer in %s. This is your free bonus.",
         desc = "您于2023-01-01 10:14成功充值了Oferta Premium 200巴西雷亚尔。 这是您的免费奖金",
         icon = "",
         limitTime = 2592000,
@@ -232,8 +231,8 @@ Sua solicitação de saque de R$%s falhou e o valor foi reembolsado. Por favor, 
 
     [26] = {
         ID = 26,
-        content = "Algo deu errado com sua solicitaçào de retirada, confirme as informações da sua conta e tente sacar novamente. Os seus R$%s em moedas foram reembolsados para o seu e-mail em %s. Por favor, faça o resgate o mais breve possível.",
-        desc = "提现出错的提示：您的提现申请发生某些错误，请确认您的账户信息并再次尝试提现。您提取的R$%s金币已于2023-2-16 10:41退还至您的邮箱，请及时领取。",
+        content = "Something went wrong with your withdrawal request, please confirm your account information and try again. Your RM%s in coins have been refunded to your email in %s. Please make the redemption as soon as possible.",
+        desc = "提现出错的提示：您的提现申请发生某些错误，请确认您的账户信息并再次尝试提现。您提取的RM%s金币已于2023-2-16 10:41退还至您的邮箱，请及时领取。",
         icon = "",
         limitTime = 2592000,
         subject = "Erro de retirada",
@@ -241,7 +240,7 @@ Sua solicitação de saque de R$%s falhou e o valor foi reembolsado. Por favor, 
 
     [27] = {
         ID = 27,
-        content = "Você recarregou com sucesso R$%s no Oferta Premium em %s. Este é o seu presente extra.",
+        content = "You have successfully recharged RM%s on Premium Offer in %s. This is your extra gift.",
         desc = "您于2023-01-01 10:14成功充值了Oferta Premium 200巴西雷亚尔。 这是您的额外奖励",
         icon = "",
         limitTime = 2592000,
@@ -250,8 +249,7 @@ Sua solicitação de saque de R$%s falhou e o valor foi reembolsado. Por favor, 
 
     [28] = {
         ID = 28,
-        content = [=[Caros jogador, Aqui estão as suas recompensas pelo seu elogio de cinco estrelas. Por favor, verifique o seu recebimento e aproveite o jogo!
-]=],
+        content = [=[Dear player, Here are your rewards for your five-star compliment. Please check your receipt and enjoy the game!]=],
         desc = "亲爱的玩家，以下是您五星级好评的奖励。请注意查收，祝您游戏愉快",
         icon = "",
         limitTime = 2592000,
@@ -260,8 +258,7 @@ Sua solicitação de saque de R$%s falhou e o valor foi reembolsado. Por favor, 
 
     [29] = {
         ID = 29,
-        content = [=[Caro jogador, a captura de tela da sua avaliação de cinco estrelas enviada não está em conformidade. Por favor, clique no link abaixo para fazer o upload novamente.%s
-]=],
+        content = [=[Dear player, the screenshot of your five-star review submitted is not in compliance. Please click the link below to upload again.%s]=],
         desc = [=[亲爱的玩家，你提交的五星级评分截图不合格。 请点击以下链接重新上传。
 ]=],
         icon = "",
@@ -271,7 +268,7 @@ Sua solicitação de saque de R$%s falhou e o valor foi reembolsado. Por favor, 
 
     [30] = {
         ID = 30,
-        content = "Caro jogador, aqui estão as recompensas que você recebeu ao baixar o nosso jogo. Desejamos-lhe uma ótima experiência de jogo.",
+        content = "Dear player, here are the rewards you received by downloading our game. We wish you a great gaming experience.",
         desc = "尊敬的玩家，以下是您下载我们的游戏获得的奖励，祝您游戏愉快。",
         icon = "",
         limitTime = 2592000,
@@ -280,7 +277,7 @@ Sua solicitação de saque de R$%s falhou e o valor foi reembolsado. Por favor, 
 
     [31] = {
         ID = 31,
-        content = "Caro jogador, aqui estão as recompensas que você recebe ao salvar o nosso atalho de jogo. Desejamos que você aproveite o jogo.",
+        content = "Dear player, here are the rewards you get when you save our game shortcut. We wish you enjoy the game.",
         desc = "尊敬的玩家，以下是您保存我们的游戏快捷方式获得的奖励，祝您游戏愉快。",
         icon = "",
         limitTime = 2592000,
@@ -289,7 +286,7 @@ Sua solicitação de saque de R$%s falhou e o valor foi reembolsado. Por favor, 
 
     [32] = {
         ID = 32,
-        content = "Caro jogador, a captura de tela do atalho de jogo que você enviou não está em conformidade. Por favor, envie novamente.",
+        content = "Dear player, the screenshot of the game shortcut you sent is not compliant. Please submit again.",
         desc = "尊敬的玩家，您提交的游戏快捷方式截图不合格。请重新提交。",
         icon = "",
         limitTime = 2592000,
@@ -298,7 +295,7 @@ Sua solicitação de saque de R$%s falhou e o valor foi reembolsado. Por favor, 
 
     [33] = {
         ID = 33,
-        content = "Você recarregou com sucesso R$%s no Primeira Oferta em %s. Este é o seu presente extra.",
+        content = "You have successfully topped up RM%s at First Offer in %s. This is your extra gift.",
         desc = "您于2023-01-01 10:14成功充值了Primeira Oferta 200巴西雷亚尔。 这是您的额外奖励",
         icon = "",
         limitTime = 2592000,
@@ -307,7 +304,7 @@ Sua solicitação de saque de R$%s falhou e o valor foi reembolsado. Por favor, 
 
     [34] = {
         ID = 34,
-        content = "Você foi transferido para a conta real e o saldo está disponível para saque",
+        content = "You have been transferred to the real account and the balance is available for withdrawal",
         desc = "您已转入真实账户，余额可以提现。",
         icon = "",
         limitTime = 7776000,
@@ -316,8 +313,8 @@ Sua solicitação de saque de R$%s falhou e o valor foi reembolsado. Por favor, 
 
     [35] = {
         ID = 35,
-        content = "Receber fundos de resgate R$%s",
-        desc = "成功领取R$%s损失返利",
+        content = "Receive redemption funds RM%s",
+        desc = "成功领取RM%s损失返利",
         icon = "",
         limitTime = 7776000,
         subject = "",
@@ -325,8 +322,8 @@ Sua solicitação de saque de R$%s falhou e o valor foi reembolsado. Por favor, 
 
     [36] = {
         ID = 36,
-        content = "Receba recompensa de primeiro depósito R$%s",
-        desc = "成功领取R$%s的首次充值额外奖励",
+        content = "Receive first deposit reward RM%s",
+        desc = "成功领取RM%s的首次充值额外奖励",
         icon = "",
         limitTime = 7776000,
         subject = "",
@@ -334,8 +331,8 @@ Sua solicitação de saque de R$%s falhou e o valor foi reembolsado. Por favor, 
 
     [37] = {
         ID = 37,
-        content = "Receba recompensa de nível de R$%s",
-        desc = "成功领取R$%s的等级奖励",
+        content = "Receive RM%s level reward",
+        desc = "成功领取RM%s的等级奖励",
         icon = "",
         limitTime = 7776000,
         subject = "",
@@ -343,8 +340,8 @@ Sua solicitação de saque de R$%s falhou e o valor foi reembolsado. Por favor, 
 
     [38] = {
         ID = 38,
-        content = "Recebeu um Recebeu um bônus VIP de R$%s",
-        desc = "收到 R$ %s 的 VIP 奖金",
+        content = "Received a Received a VIP bonus of RM%s",
+        desc = "收到 RM %s 的 VIP 奖金",
         icon = "",
         limitTime = 7776000,
         subject = "",
@@ -352,8 +349,8 @@ Sua solicitação de saque de R$%s falhou e o valor foi reembolsado. Por favor, 
 
     [39] = {
         ID = 39,
-        content = "%s, você teve %s vitórias em dinheiro e recebeu um total de R$%s",
-        desc = "在%s成功获得了%s个红包，共获得R$%s",
+        content = "%s, you had %s cash wins and received a total of RM%s",
+        desc = "在%s成功获得了%s个红包，共获得RM%s",
         icon = "",
         limitTime = 7776000,
         subject = "",
@@ -361,8 +358,8 @@ Sua solicitação de saque de R$%s falhou e o valor foi reembolsado. Por favor, 
 
     [40] = {
         ID = 40,
-        content = "Atualizado com sucesso para a nova versão e obtido R$%s",
-        desc = "成功下载app并获得R$1.00（真金玩家）",
+        content = "Successfully updated to new version and got RM%s",
+        desc = "成功下载app并获得RM1.00（真金玩家）",
         icon = "",
         limitTime = 7776000,
         subject = "",
@@ -370,8 +367,8 @@ Sua solicitação de saque de R$%s falhou e o valor foi reembolsado. Por favor, 
 
     [41] = {
         ID = 41,
-        content = "Atualizado com sucesso para a nova versão e obtido R$%s em moedas de experiência",
-        desc = "成功下载app并获得R$100体验币（体验玩家）",
+        content = "Successfully updated to the new version and got RM%s in experience coins",
+        desc = "成功下载app并获得RM100体验币（体验玩家）",
         icon = "",
         limitTime = 7776000,
         subject = "",
@@ -379,8 +376,8 @@ Sua solicitação de saque de R$%s falhou e o valor foi reembolsado. Por favor, 
 
     [42] = {
         ID = 42,
-        content = "Receba uma recompensa de R$%s na Atividade de recompensa",
-        desc = "在奖励活动中获得 R$%s 奖励",
+        content = "Receive a reward of RM%s in Reward Activity",
+        desc = "在奖励活动中获得 RM%s 奖励",
         icon = "",
         limitTime = 7776000,
         subject = "",
@@ -388,8 +385,8 @@ Sua solicitação de saque de R$%s falhou e o valor foi reembolsado. Por favor, 
 
     [43] = {
         ID = 43,
-        content = "Receba R$%s em Bónus",
-        desc = "在累计充值活动中获得R$%s奖励",
+        content = "Receive RM%s in Bonuses",
+        desc = "在累计充值活动中获得RM%s奖励",
         icon = "",
         limitTime = 7776000,
         subject = "",
@@ -397,9 +394,9 @@ Sua solicitação de saque de R$%s falhou e o valor foi reembolsado. Por favor, 
 
     [44] = {
         ID = 44,
-        content = "Número da solicitação de saque: %s. Sua solicitação de saque está em processamento e o valor de R$%s solicitado será creditado em sua conta em até 12 horas.",
+        content = "Withdrawal request number: %s. Your withdrawal request is currently being processed and the requested RM%s amount will be credited to your account within 12 hours.",
         desc = [=[提现订单号：54589789448。
-您的提现请求正在处理中，您提取的R$5将在1~60分钟内发放到你的账户。]=],
+您的提现请求正在处理中，您提取的RM5将在1~60分钟内发放到你的账户。]=],
         icon = "",
         limitTime = 7776000,
         subject = "",
@@ -407,8 +404,8 @@ Sua solicitação de saque de R$%s falhou e o valor foi reembolsado. Por favor, 
 
     [45] = {
         ID = 45,
-        content = "Parabéns! Você recebeu um prêmio de jogador sortudo no valor de R$%s!",
-        desc = "恭喜你获得了R$%s的幸运玩家的奖励！",
+        content = "Congratulations! You have received a lucky player prize worth RM%s!",
+        desc = "恭喜你获得了RM%s的幸运玩家的奖励！",
         icon = "",
         limitTime = 7776000,
         subject = "",
@@ -416,8 +413,8 @@ Sua solicitação de saque de R$%s falhou e o valor foi reembolsado. Por favor, 
 
     [46] = {
         ID = 46,
-        content = "Ganhe R$%s resgatando o código",
-        desc = "通过兑换码获得R$%s.",
+        content = "Earn RM%s by redeeming the code",
+        desc = "通过兑换码获得RM%s.",
         icon = "",
         limitTime = 7776000,
         subject = "",
@@ -425,8 +422,8 @@ Sua solicitação de saque de R$%s falhou e o valor foi reembolsado. Por favor, 
 
     [47] = {
         ID = 47,
-        content = "Ganhe R$%s via Sorteio",
-        desc = "通过Sorteio领取R$5",
+        content = "Win RM%s via Raffle",
+        desc = "通过Sorteio领取RM5",
         icon = "",
         limitTime = 7776000,
         subject = "",
@@ -434,8 +431,8 @@ Sua solicitação de saque de R$%s falhou e o valor foi reembolsado. Por favor, 
 
     [48] = {
         ID = 48,
-        content = "Parabéns por ganhar R$%s",
-        desc = "恭喜你获得了R$%s",
+        content = "Congratulations on winning RM%s",
+        desc = "恭喜你获得了RM%s",
         icon = "",
         limitTime = 7776000,
         subject = "",
@@ -443,8 +440,8 @@ Sua solicitação de saque de R$%s falhou e o valor foi reembolsado. Por favor, 
 
     [49] = {
         ID = 49,
-        content = "Parabéns! Você recebeu um prêmio de agente sortudo no valor de R$%s!",
-        desc = "恭喜你获得了R$%s的幸运代理的奖励！",
+        content = "Congratulations! You have received a lucky agent prize worth RM%s!",
+        desc = "恭喜你获得了RM%s的幸运代理的奖励！",
         icon = "",
         limitTime = 7776000,
         subject = "",
