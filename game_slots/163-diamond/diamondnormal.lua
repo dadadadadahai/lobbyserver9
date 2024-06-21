@@ -1,9 +1,8 @@
 -- 老虎游戏模块
 module('diamond', package.seeall)
-local cindex = -1
 function PlayNormalGame(diamondInfo,uid,betIndex,gameType)
     -- 游戏后台记录所需初始信息
-    cindex = cindex + 1
+
     local sTime = os.time()
     local reschip = chessuserinfodb.RUserChipsGet(uid)
     -- 清理棋盘附加信息
@@ -25,14 +24,7 @@ function PlayNormalGame(diamondInfo,uid,betIndex,gameType)
     end
     diamondInfo.betMoney = payScore
     diamondInfo.betgold = betgold
-
-     local ximageType =  1
-     if cindex%3== 1 then 
-        ximageType =2
-     elseif cindex %3 == 2 then 
-        ximageType = 3
-     end 
-    local resultGame,realMul,imageType = gameImagePool.RealCommonRotate(uid,GameId,gameType,ximageType,diamond,{betchip=betgold,betIndex=betIndex,gameId=GameId,gameType=gameType,betchips=payScore})
+    local resultGame,realMul,imageType = gameImagePool.RealCommonRotate(uid,GameId,gameType,nil,diamond,{betchip=betgold,betIndex=betIndex,gameId=GameId,gameType=gameType,betchips=payScore})
     if imageType == 2 then
         local ntfres = table.remove(resultGame,1)
         diamondInfo.free={
@@ -120,7 +112,7 @@ function PlayNormalGame(diamondInfo,uid,betIndex,gameType)
 end
 
 function PlayNormalGameDemo(diamondInfo,uid,betIndex,gameType)
-    cindex = cindex + 1
+  
     -- 清理棋盘附加信息
     diamondInfo.iconsAttachData = {}
     -- 保存下注档次
@@ -141,14 +133,14 @@ function PlayNormalGameDemo(diamondInfo,uid,betIndex,gameType)
     diamondInfo.betMoney = payScore
     -- 生成普通棋盘和结果
     
-    local ximageType =  1
-    if cindex%3== 1 then 
-       ximageType =2
-    elseif cindex %3 == 2 then 
-       ximageType = 3
-    end 
+    -- local ximageType =  1
+    -- if cindex%3== 1 then 
+    --    ximageType =2
+    -- elseif cindex %3 == 2 then 
+    --    ximageType = 3
+    -- end 
 
-    local resultGame,realMul,imageType = gameImagePool.RealCommonRotate(uid,GameId,gameType,ximageType,diamond,{betchip=betgold,demo = IsDemo(uid),betIndex=betIndex,gameId=GameId,gameType=gameType,betchips=payScore})
+    local resultGame,realMul,imageType = gameImagePool.RealCommonRotate(uid,GameId,gameType,nil,diamond,{betchip=betgold,demo = IsDemo(uid),betIndex=betIndex,gameId=GameId,gameType=gameType,betchips=payScore})
     if imageType == 2 then
         local ntfres = table.remove(resultGame,1)
         diamondInfo.free={
