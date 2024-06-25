@@ -1,6 +1,6 @@
 module('Fisherman', package.seeall)
 Table = 'game126fisherman'
-LineNum = 1
+LineNum = 10
 GameId = 126
 
 W = 90
