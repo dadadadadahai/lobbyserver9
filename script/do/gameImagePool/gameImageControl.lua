@@ -87,7 +87,7 @@ function RealCommonRotate(_id,gameId,gameType,imageType,gameObj,param)
           realMul =curealmul[math.random(#curealmul)]
         end 
         if imageType == 2 then 
-           local curealmul ={8}      
+           local curealmul ={425.1}      
             realMul =curealmul[math.random(#curealmul)]
         end
     end
@@ -98,7 +98,7 @@ function RealCommonRotate(_id,gameId,gameType,imageType,gameObj,param)
            realMul =curealmul[math.random(#curealmul)]
         end 
         if imageType == 2 then 
-           local curealmul ={49}      
+           local curealmul ={6}      
             realMul =curealmul[math.random(#curealmul)]
         end
     end

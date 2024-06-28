@@ -24,16 +24,18 @@ function PlayNormalGame(GRInfo,uid,betIndex,gameType)
     end
     GRInfo.betMoney = payScore
     GRInfo.betgold = betgold
-    local resultGame,realMul,imageType = gameImagePool.RealCommonRotate(uid,GameId,gameType,nil,GreatRhinoceros,{betchip=betgold,betIndex=betIndex,gameId=GameId,gameType=gameType,betchips=payScore})
+    local resultGame,realMul,imageType = gameImagePool.RealCommonRotate(uid,GameId,gameType,2,GreatRhinoceros,{betchip=betgold,betIndex=betIndex,gameId=GameId,gameType=gameType,betchips=payScore})
     if imageType == 2 then
         local ntfres = table.remove(resultGame,1)
         GRInfo.free={
-            totalTimes=8,
-            lackTimes=8,
+            totalTimes=10,
+            lackTimes=10,
             tWinScore = 0,
             resdata=resultGame
         }
         local winScore = ntfres.winMul *  betgold
+        local SwinScore =  ntfres.SMul *  betgold 
+        winScore = winScore + SwinScore
         -- 保存棋盘数据
         GRInfo.boards = ntfres.boards
 
@@ -55,6 +57,7 @@ function PlayNormalGame(GRInfo,uid,betIndex,gameType)
         res.winlines = ntfres.winlines
         res.bonus = ntfres.bonus
         res.imageType = imageType 
+        res.SwinScore = SwinScore
         res.free = packFree(GRInfo)
         gameDetaillog.SaveDetailGameLog(
             uid,
@@ -91,6 +94,7 @@ function PlayNormalGame(GRInfo,uid,betIndex,gameType)
         res.winScore = resultGame.winScore
         res.winlines = resultGame.winlines
         res.bonus = resultGame.bonus
+  
         res.imageType = imageType 
         gameDetaillog.SaveDetailGameLog(
             uid,
@@ -110,9 +114,9 @@ function PlayNormalGame(GRInfo,uid,betIndex,gameType)
     end 
 
 end
-
+local cindex = 0 
 function PlayNormalGameDemo(GRInfo,uid,betIndex,gameType)
-  
+    cindex = cindex + 1
     -- 清理棋盘附加信息
     GRInfo.iconsAttachData = {}
     -- 保存下注档次
@@ -133,23 +137,25 @@ function PlayNormalGameDemo(GRInfo,uid,betIndex,gameType)
     GRInfo.betMoney = payScore
     -- 生成普通棋盘和结果
     
-    -- local ximageType =  1
-    -- if cindex%3== 1 then 
-    --    ximageType =2
-    -- elseif cindex %3 == 2 then 
-    --    ximageType = 3
-    -- end 
+     local ximageType =  1
+     if cindex%2== 1 then 
+        ximageType =2
+     --elseif cindex %3 == 2 then 
+       -- ximageType = 3
+     end 
 
-    local resultGame,realMul,imageType = gameImagePool.RealCommonRotate(uid,GameId,gameType,nil,GreatRhinoceros,{betchip=betgold,demo = IsDemo(uid),betIndex=betIndex,gameId=GameId,gameType=gameType,betchips=payScore})
+    local resultGame,realMul,imageType = gameImagePool.RealCommonRotate(uid,GameId,gameType,ximageType,GreatRhinoceros,{betchip=betgold,demo = IsDemo(uid),betIndex=betIndex,gameId=GameId,gameType=gameType,betchips=payScore})
     if imageType == 2 then
         local ntfres = table.remove(resultGame,1)
         GRInfo.free={
-            totalTimes=8,
-            lackTimes=8,
+            totalTimes=10,
+            lackTimes=10,
             tWinScore = 0,
             resdata=resultGame
         }
-        local winScore = ntfres.winMul *  betgold
+        local winScore = ntfres.winMul *  betgold 
+        local SwinScore =  ntfres.SMul *  betgold 
+        winScore = winScore + SwinScore
         -- 保存棋盘数据
         GRInfo.boards = ntfres.boards
 
@@ -157,15 +163,14 @@ function PlayNormalGameDemo(GRInfo,uid,betIndex,gameType)
         for _, winline in ipairs(ntfres.winlines) do
             winline[3] = winline[3] * betgold
         end
-        if not table.empty(ntfres.bonus) then
-            ntfres.bonus.winScore =   ntfres.bonus.mul   * betgold
-        end
+
         if winScore >0 then 
             BackpackMgr.GetRewardGood(uid, Const.GOODS_ID.POINT, winScore, Const.GOODS_SOURCE_TYPE.GREATRHINOCEROS)
         end 
         -- 返回数据
         local res = GetResInfo(uid, GRInfo, gameType)
         res.winScore = winScore
+        res.SwinScore = SwinScore
         res.winlines = ntfres.winlines
         res.bonus = ntfres.bonus
         res.imageType = imageType 

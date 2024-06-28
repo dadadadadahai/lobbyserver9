@@ -20,24 +20,35 @@ function PlayFreeGame(GRInfo,uid,gameType)
     local  winscore = GRInfo.betgold * data.winMul
 
     GRInfo.free.tWinScore = GRInfo.free.tWinScore +winscore
-    if  calc_S(boards) >=3 then
-        GRInfo.free.lackTimes = GRInfo.free.lackTimes+8
-        GRInfo.free.totalTimes = GRInfo.free.totalTimes+8
-    end 
+
     -- 判断是否结算
+    for _, winline in ipairs(data.winlines) do
+        winline[3] = winline[3] * GRInfo.betgold
+    end
+
+    local res = GetResInfo(uid, GRInfo, gameType)
+    res.winScore = winscore
+    res.winlines = data.winlines
+    res.bonus = data.bonus
+    res.UInfos = data.UInfos
+    res.free = packFree(GRInfo)
+
     if GRInfo.free.lackTimes <= 0 then
+        if not table.empty(data.sepres) then 
+            res.sepres = data.sepres
+            for _, winline in ipairs(res.sepres.winlines) do
+                winline[3] = winline[3] * GRInfo.betgold
+            end
+            local  sepwinscore = GRInfo.betgold * res.sepres.winMul
+            GRInfo.free.tWinScore = GRInfo.free.tWinScore +sepwinscore
+            res.sepres.WinScore = GRInfo.free.tWinScore
+        end
         if GRInfo.free.tWinScore > 0 then
             -- 获取奖励
             BackpackMgr.GetRewardGood(uid, Const.GOODS_ID.GOLD, GRInfo.free.tWinScore, Const.GOODS_SOURCE_TYPE.GREATRHINOCEROS)
         end
     end
-    for _, winline in ipairs(data.winlines) do
-        winline[3] = winline[3] * GRInfo.betgold
-    end
 
-    if not table.empty(data.bonus) then
-        data.bonus.winScore =   data.bonus.mul   * GRInfo.betgold
-    end
     -- 增加后台历史记录
     gameDetaillog.SaveDetailGameLog(
         uid,
@@ -52,11 +63,6 @@ function PlayFreeGame(GRInfo,uid,gameType)
         {}
     )
   
-    local res = GetResInfo(uid, GRInfo, gameType)
-    res.winScore = winscore
-    res.winlines = data.winlines
-    res.bonus = data.bonus
-    res.free = packFree(GRInfo)
     if GRInfo.free.lackTimes <= 0 then
         GRInfo.free = {}
     end
@@ -82,29 +88,34 @@ function PlayFreeGameDemo(GRInfo,uid,gameType)
     local  winscore = GRInfo.betgold * data.winMul
 
     GRInfo.free.tWinScore = GRInfo.free.tWinScore +winscore
-    if  calc_S(boards) >=3 then
-        GRInfo.free.lackTimes = GRInfo.free.lackTimes+8
-        GRInfo.free.totalTimes = GRInfo.free.totalTimes+8
-    end 
+
     for _, winline in ipairs(data.winlines) do
         winline[3] = winline[3] * GRInfo.betgold
     end
 
-    if not table.empty(data.bonus) then
-        data.bonus.winScore =   data.bonus.mul   * GRInfo.betgold
-    end
+    local res = GetResInfo(uid, GRInfo, gameType)
+    res.winScore = winscore
+    res.winlines = data.winlines
+    res.bonus = data.bonus
+    res.UInfos = data.UInfos
+    res.free = packFree(GRInfo)
     -- 判断是否结算
     if GRInfo.free.lackTimes <= 0 then
+        if not table.empty(data.sepres) then 
+            res.sepres = data.sepres
+            for _, winline in ipairs(res.sepres.winlines) do
+                winline[3] = winline[3] * GRInfo.betgold
+            end
+            local  sepwinscore = GRInfo.betgold * res.sepres.winMul
+            GRInfo.free.tWinScore = GRInfo.free.tWinScore +sepwinscore
+            res.sepres.WinScore = GRInfo.free.tWinScore
+        end
         if GRInfo.free.tWinScore > 0 then
             -- 获取奖励
             BackpackMgr.GetRewardGood(uid, Const.GOODS_ID.POINT, GRInfo.free.tWinScore, Const.GOODS_SOURCE_TYPE.GREATRHINOCEROS)
         end
     end
-    local res = GetResInfo(uid, GRInfo, gameType)
-    res.winScore = winscore
-    res.winlines = data.winlines
-    res.bonus = data.bonus
-    res.free = packFree(GRInfo)
+
     if GRInfo.free.lackTimes <= 0 then
         GRInfo.free = {}
     end

@@ -23,6 +23,7 @@ function Free(gameType, datainfo,uid)
     for _, winline in ipairs(resultGame.winLines) do
         winline[3] = winline[3] * datainfo.betGold
     end
+    local isinc
     if datainfo.free.lackTimes<=0 then
         local curFreeInfoWnums = datainfo.free.FreeInfo.Wnums >12 and 12 or datainfo.free.FreeInfo.Wnums
         local curlevel = math.floor(curFreeInfoWnums/4) +1
@@ -30,6 +31,7 @@ function Free(gameType, datainfo,uid)
             datainfo.free.lackTimes =  datainfo.free.lackTimes + 10 * (curlevel -datainfo.free.FreeInfo.Level )
             datainfo.free.totalTimes =  datainfo.free.totalTimes +  datainfo.free.lackTimes
             datainfo.free.FreeInfo.Level = curlevel
+            isinc = true 
         else 
             BackpackMgr.GetRewardGood(uid, Const.GOODS_ID.GOLD,datainfo.free.tWinScore, Const.GOODS_SOURCE_TYPE.FISHERMAN)
             if datainfo.free.isBuy==1 then
@@ -48,6 +50,7 @@ function Free(gameType, datainfo,uid)
     res.iconsAttachData = resultGame.iconsAttachData
     res.disInfo = resultGame.disInfo
     res.isfake = resultGame.isfake or 0 
+    res.isinc = isinc
     SaveGameInfo(uid,gameType,datainfo)
     gameDetaillog.SaveDetailGameLog(
         uid,
@@ -78,6 +81,7 @@ function FreeDemo(gameType, datainfo,uid)
     for _, winline in ipairs(resultGame.winLines) do
         winline[3] = winline[3] * datainfo.betGold
     end
+    local isinc
     if datainfo.free.lackTimes<=0 then
         local curFreeInfoWnums = datainfo.free.FreeInfo.Wnums >12 and 12 or datainfo.free.FreeInfo.Wnums
         local curlevel = math.floor(curFreeInfoWnums/4) +1
@@ -85,6 +89,7 @@ function FreeDemo(gameType, datainfo,uid)
             datainfo.free.lackTimes =  datainfo.free.lackTimes + 10 * (curlevel -datainfo.free.FreeInfo.Level )
             datainfo.free.totalTimes =  datainfo.free.totalTimes +  datainfo.free.lackTimes
             datainfo.free.FreeInfo.Level = curlevel
+            isinc = true 
         else 
             BackpackMgr.GetRewardGood(uid, Const.GOODS_ID.POINT,datainfo.free.tWinScore, Const.GOODS_SOURCE_TYPE.FISHERMAN)
             datainfo.free={}
@@ -97,6 +102,7 @@ function FreeDemo(gameType, datainfo,uid)
     res.iconsAttachData = resultGame.iconsAttachData
     res.disInfo = resultGame.disInfo
     res.isfake = resultGame.isfake or 0 
+    res.isinc = isinc
     SaveGameInfo(uid,gameType,datainfo)
     return res
 end
