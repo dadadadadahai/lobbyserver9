@@ -34,13 +34,6 @@ function Free(gameType, datainfo,uid)
             isinc = true 
         else 
             BackpackMgr.GetRewardGood(uid, Const.GOODS_ID.GOLD,datainfo.free.tWinScore, Const.GOODS_SOURCE_TYPE.FISHERMAN)
-            if datainfo.free.isBuy==1 then
-                --加流水
-                local userinfo = unilight.getdata('userinfo',uid)
-                userinfo.gameData.slotsBet = userinfo.gameData.slotsBet + table_126_buyfree[1].price * datainfo.betMoney
-                userinfo.property.isInPresentChips = 0
-            end
-            datainfo.free={}
         end
     end
     -- 返回数据
@@ -51,6 +44,9 @@ function Free(gameType, datainfo,uid)
     res.disInfo = resultGame.disInfo
     res.isfake = resultGame.isfake or 0 
     res.isinc = isinc
+    if datainfo.free.lackTimes<=0 then
+        datainfo.free={}
+    end 
     SaveGameInfo(uid,gameType,datainfo)
     gameDetaillog.SaveDetailGameLog(
         uid,
@@ -92,7 +88,7 @@ function FreeDemo(gameType, datainfo,uid)
             isinc = true 
         else 
             BackpackMgr.GetRewardGood(uid, Const.GOODS_ID.POINT,datainfo.free.tWinScore, Const.GOODS_SOURCE_TYPE.FISHERMAN)
-            datainfo.free={}
+           
         end
     end
     -- 返回数据
@@ -103,6 +99,9 @@ function FreeDemo(gameType, datainfo,uid)
     res.disInfo = resultGame.disInfo
     res.isfake = resultGame.isfake or 0 
     res.isinc = isinc
+    if datainfo.free.lackTimes<=0 then
+        datainfo.free={}
+    end 
     SaveGameInfo(uid,gameType,datainfo)
     return res
 end

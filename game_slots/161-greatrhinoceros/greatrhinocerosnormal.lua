@@ -24,7 +24,7 @@ function PlayNormalGame(GRInfo,uid,betIndex,gameType)
     end
     GRInfo.betMoney = payScore
     GRInfo.betgold = betgold
-    local resultGame,realMul,imageType = gameImagePool.RealCommonRotate(uid,GameId,gameType,2,GreatRhinoceros,{betchip=betgold,betIndex=betIndex,gameId=GameId,gameType=gameType,betchips=payScore})
+    local resultGame,realMul,imageType = gameImagePool.RealCommonRotate(uid,GameId,gameType,3,GreatRhinoceros,{betchip=betgold,betIndex=betIndex,gameId=GameId,gameType=gameType,betchips=payScore})
     if imageType == 2 then
         local ntfres = table.remove(resultGame,1)
         GRInfo.free={
@@ -74,6 +74,37 @@ function PlayNormalGame(GRInfo,uid,betIndex,gameType)
             -- 保存数据库信息
             SaveGameInfo(uid,gameType,GRInfo)
             return res
+    elseif    imageType == 3 then
+        resultGame.winScore = resultGame.winMul *  betgold
+        -- 保存棋盘数据
+        GRInfo.boards = resultGame.boards
+        local winscore =  resultGame.winScore
+        -- 整理中奖线数据
+        for _, winline in ipairs(resultGame.winlines) do
+            winline[3] = winline[3] * betgold
+        end
+        
+        for _, winline in ipairs(resultGame.allInfos[#resultGame.allInfos].winlines) do
+            winline[3] = winline[3] * betgold
+        end
+        for _, Infos in ipairs(resultGame.allInfos) do
+            Infos.winScore = resultGame.winScore
+        end
+        resultGame.allInfos[#resultGame.allInfos].winScore = resultGame.allInfos[#resultGame.allInfos].winScore + resultGame.allInfos[#resultGame.allInfos].winMul * betgold
+        winscore = winscore +  resultGame.allInfos[#resultGame.allInfos].winScore
+        if winscore >0 then 
+            BackpackMgr.GetRewardGood(uid, Const.GOODS_ID.GOLD, resultGame.winScore, Const.GOODS_SOURCE_TYPE.GREATRHINOCEROS)
+        end 
+        -- 返回数据
+        local res = GetResInfo(uid, GRInfo, gameType)
+        res.winScore = resultGame.winScore
+        res.winlines = resultGame.winlines
+        res.allInfos = resultGame.allInfos
+        res.cols = resultGame.cols
+        res.imageType = imageType 
+        -- 保存数据库信息
+        SaveGameInfo(uid,gameType,GRInfo)
+        return res
     else
         resultGame.winScore = realMul *  payScore
         -- 保存棋盘数据
@@ -93,8 +124,6 @@ function PlayNormalGame(GRInfo,uid,betIndex,gameType)
         local res = GetResInfo(uid, GRInfo, gameType)
         res.winScore = resultGame.winScore
         res.winlines = resultGame.winlines
-        res.bonus = resultGame.bonus
-  
         res.imageType = imageType 
         gameDetaillog.SaveDetailGameLog(
             uid,
@@ -139,9 +168,9 @@ function PlayNormalGameDemo(GRInfo,uid,betIndex,gameType)
     
      local ximageType =  1
      if cindex%2== 1 then 
-        ximageType =2
+        ximageType =3
      --elseif cindex %3 == 2 then 
-       -- ximageType = 3
+     --  ximageType = 3
      end 
 
     local resultGame,realMul,imageType = gameImagePool.RealCommonRotate(uid,GameId,gameType,ximageType,GreatRhinoceros,{betchip=betgold,demo = IsDemo(uid),betIndex=betIndex,gameId=GameId,gameType=gameType,betchips=payScore})
@@ -177,6 +206,37 @@ function PlayNormalGameDemo(GRInfo,uid,betIndex,gameType)
         res.free = packFree(GRInfo)
         SaveGameInfo(uid,gameType,GRInfo)
         return res
+    elseif    imageType == 3 then
+        resultGame.winScore = resultGame.winMul *  betgold
+        -- 保存棋盘数据
+        GRInfo.boards = resultGame.boards
+        local winscore =  resultGame.winScore
+        -- 整理中奖线数据
+        for _, winline in ipairs(resultGame.winlines) do
+            winline[3] = winline[3] * betgold
+        end
+     
+        for _, winline in ipairs(resultGame.allInfos[#resultGame.allInfos].winlines) do
+            winline[3] = winline[3] * betgold
+        end
+        for _, Infos in ipairs(resultGame.allInfos) do
+            Infos.winScore = resultGame.winScore
+        end
+       resultGame.allInfos[#resultGame.allInfos].winScore = resultGame.allInfos[#resultGame.allInfos].winScore + resultGame.allInfos[#resultGame.allInfos].winMul * betgold
+       winscore = winscore +  resultGame.allInfos[#resultGame.allInfos].winScore
+        if winscore >0 then 
+            BackpackMgr.GetRewardGood(uid, Const.GOODS_ID.POINT, resultGame.winScore, Const.GOODS_SOURCE_TYPE.GREATRHINOCEROS)
+        end 
+        -- 返回数据
+        local res = GetResInfo(uid, GRInfo, gameType)
+        res.winScore = resultGame.winScore
+        res.winlines = resultGame.winlines
+        res.allInfos = resultGame.allInfos
+        res.cols = resultGame.cols
+        res.imageType = imageType 
+        -- 保存数据库信息
+        SaveGameInfo(uid,gameType,GRInfo)
+        return res
     else
         resultGame.winScore = realMul *  payScore
         -- 保存棋盘数据
@@ -186,9 +246,7 @@ function PlayNormalGameDemo(GRInfo,uid,betIndex,gameType)
         for _, winline in ipairs(resultGame.winlines) do
             winline[3] = winline[3] * betgold
         end
-        if not table.empty(resultGame.bonus) then
-            resultGame.bonus.winScore =   resultGame.bonus.mul   * betgold
-        end
+       
         if resultGame.winScore >0 then 
             BackpackMgr.GetRewardGood(uid, Const.GOODS_ID.POINT, resultGame.winScore, Const.GOODS_SOURCE_TYPE.GREATRHINOCEROS)
         end 
@@ -196,7 +254,6 @@ function PlayNormalGameDemo(GRInfo,uid,betIndex,gameType)
         local res = GetResInfo(uid, GRInfo, gameType)
         res.winScore = resultGame.winScore
         res.winlines = resultGame.winlines
-        res.bonus = resultGame.bonus
         res.imageType = imageType 
         -- 保存数据库信息
         SaveGameInfo(uid,gameType,GRInfo)

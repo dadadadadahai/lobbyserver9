@@ -87,7 +87,7 @@ function RealCommonRotate(_id,gameId,gameType,imageType,gameObj,param)
           realMul =curealmul[math.random(#curealmul)]
         end 
         if imageType == 2 then 
-           local curealmul ={425.1}      
+           local curealmul ={26.4}      
             realMul =curealmul[math.random(#curealmul)]
         end
     end
@@ -101,6 +101,11 @@ function RealCommonRotate(_id,gameId,gameType,imageType,gameObj,param)
            local curealmul ={6}      
             realMul =curealmul[math.random(#curealmul)]
         end
+        if imageType == 3 then 
+            local curealmul ={80.25}      
+             realMul =curealmul[math.random(#curealmul)]
+        end
+        
     end
     unilight.info('gameId.imageType.realMul',gameId,imageType,realMul)
     
