@@ -24,6 +24,7 @@ function Free(gameType, datainfo,uid)
         winline[3] = winline[3] * datainfo.betGold
     end
     local isinc
+    local curWmul  = GetLevelmul(datainfo.free.FreeInfo.Level)
     if datainfo.free.lackTimes<=0 then
         local curFreeInfoWnums = datainfo.free.FreeInfo.Wnums >12 and 12 or datainfo.free.FreeInfo.Wnums
         local curlevel = math.floor(curFreeInfoWnums/4) +1
@@ -44,6 +45,7 @@ function Free(gameType, datainfo,uid)
     res.disInfo = resultGame.disInfo
     res.isfake = resultGame.isfake or 0 
     res.isinc = isinc
+    res.Wmul = curWmul
     if datainfo.free.lackTimes<=0 then
         datainfo.free={}
     end 
@@ -78,6 +80,7 @@ function FreeDemo(gameType, datainfo,uid)
         winline[3] = winline[3] * datainfo.betGold
     end
     local isinc
+    local curWmul  = GetLevelmul(datainfo.free.FreeInfo.Level)
     if datainfo.free.lackTimes<=0 then
         local curFreeInfoWnums = datainfo.free.FreeInfo.Wnums >12 and 12 or datainfo.free.FreeInfo.Wnums
         local curlevel = math.floor(curFreeInfoWnums/4) +1
@@ -99,6 +102,7 @@ function FreeDemo(gameType, datainfo,uid)
     res.disInfo = resultGame.disInfo
     res.isfake = resultGame.isfake or 0 
     res.isinc = isinc
+    res.Wmul = curWmul
     if datainfo.free.lackTimes<=0 then
         datainfo.free={}
     end 

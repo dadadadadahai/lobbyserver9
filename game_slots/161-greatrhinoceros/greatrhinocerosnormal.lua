@@ -24,7 +24,7 @@ function PlayNormalGame(GRInfo,uid,betIndex,gameType)
     end
     GRInfo.betMoney = payScore
     GRInfo.betgold = betgold
-    local resultGame,realMul,imageType = gameImagePool.RealCommonRotate(uid,GameId,gameType,3,GreatRhinoceros,{betchip=betgold,betIndex=betIndex,gameId=GameId,gameType=gameType,betchips=payScore})
+    local resultGame,realMul,imageType = gameImagePool.RealCommonRotate(uid,GameId,gameType,nil,GreatRhinoceros,{betchip=betgold,betIndex=betIndex,gameId=GameId,gameType=gameType,betchips=payScore})
     if imageType == 2 then
         local ntfres = table.remove(resultGame,1)
         GRInfo.free={
@@ -167,10 +167,10 @@ function PlayNormalGameDemo(GRInfo,uid,betIndex,gameType)
     -- 生成普通棋盘和结果
     
      local ximageType =  1
-     if cindex%2== 1 then 
-        ximageType =3
-     --elseif cindex %3 == 2 then 
-     --  ximageType = 3
+     if cindex%3== 1 then 
+        ximageType =2
+     elseif cindex %3 == 2 then 
+       ximageType = 3
      end 
 
     local resultGame,realMul,imageType = gameImagePool.RealCommonRotate(uid,GameId,gameType,ximageType,GreatRhinoceros,{betchip=betgold,demo = IsDemo(uid),betIndex=betIndex,gameId=GameId,gameType=gameType,betchips=payScore})

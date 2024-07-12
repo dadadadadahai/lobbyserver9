@@ -35,86 +35,68 @@ function Normal(gameType, betindex, datainfo, uid)
     datainfo.betGold = betGold
     datainfo.betindex = betindex
     --启用图库模式
-    local resultGame,realMul ,imageType= gameImagePool.RealCommonRotate(uid,GameId,gameType,nil,Fisherman,{betchip=betMoney,betIndex=betindex,gameId=GameId,gameType=gameType,betchips=betGold})
+    local resultGames,realMul ,imageType= gameImagePool.RealCommonRotate(uid,GameId,gameType,nil,Fisherman,{betchip=betMoney,betIndex=betindex,gameId=GameId,gameType=gameType,betchips=betGold})
     if  imageType == 3 then 
+        local resultGame =  table.remove(resultGames,1)
 
-        -- local disInfo =  table.remove(alldisInfo,1)
-        -- local betchip = chip 
-        -- local disInfos,realMul2,bombdataMap,ssum = parseData(betMoney,disInfo)
-        -- dump(string.format("realMul%d  realMul2%d ssum%d",realMul,realMul2,ssum))
-        -- local  Smul =  calcSMul(ssum)
-        -- local winScore = (realMul2+Smul)*betchip
-        -- if winScore > 0 then 
-        --     BackpackMgr.GetRewardGood(uid, Const.GOODS_ID.GOLD,winScore, Const.GOODS_SOURCE_TYPE.FISHERMAN)
-        -- end 
-        -- local boards= table.clone(disInfos[1].chessdata)
-        -- local iconsAttachData = disInfos[1].iconsAttachData
-        -- for i=1,#disInfos-1 do
-        --     disInfos[i].chessdata = disInfos[i+1].chessdata
-        --     disInfos[i].iconsAttachData = disInfos[i+1].iconsAttachData
-        -- end
-        -- table.remove(disInfos,#disInfos)
-    
-        -- datainfo.free={
-        --     totalTimes=15,
-        --     lackTimes=15,
-        --     tWinScore = 0,
-        --     tMul = 0,
-        --     sMul = 0 ,
-        --     allmul = realMul,
-        --     normalwinScore = winScore,
-        --     mulInfoList={},
-        --     isBuy = 0,
-        --     resdata=alldisInfo
-        -- }
-        -- local res = {
-        --     errno = 0,
-        --     betIndex = datainfo.betindex,
-        --     bAllLine = LineNum,
-        --     payScore = datainfo.betMoney * LineNum,
-        --     winScore = winScore,
-        --     winLines = {},
-        --     boards = boards,
-        --     iconsAttachData = iconsAttachData,
-        --     features={
-        --         free = packFree(datainfo),
-
-        --     },
-        --     extraData = {
-        --         disInfo = disInfos
-        --     }
-        -- }
-        --   -- 增加后台历史记录
-        --   gameDetaillog.SaveDetailGameLog(
-        --     uid,
-        --     sTime,
-        --     GameId,
-        --     gameType,
-        --     datainfo.betMoney,
-        --     reschip,
-        --     chessuserinfodb.RUserChipsGet(uid),
-        --     0,
-        --     {type='normal',chessdata = boards},
-        --     {}
-        -- )
-        -- SaveGameInfo(uid,gameType,datainfo)
-        return res
-    else
-        resultGame.winScore = realMul *  betMoney
-        -- 保存棋盘数据
+        local winScore = resultGame.sumMul *betGold
+        if winScore > 0 then 
+            BackpackMgr.GetRewardGood(uid, Const.GOODS_ID.GOLD,winScore, Const.GOODS_SOURCE_TYPE.Fisherman)
+        end 
+        dump(resultGame,"resultGame",10)
         datainfo.boards = resultGame.boards
+        datainfo.free={
+            totalTimes=resultGame.FreeInfo.FreeNum,
+            lackTimes=resultGame.FreeInfo.FreeNum,
+            tWinScore = 0,
+            isBuy = 1,
+            realMulall = realMulall,
+            FreeInfo = resultGame.FreeInfo,
+            resdata=resultGames
+        }
+        -- 增加后台历史记录
+        gameDetaillog.SaveDetailGameLog(
+            uid,
+            sTime,
+            GameId,
+            gameType,
+            chip,
+            reschip,
+            chessuserinfodb.RUserChipsGet(uid),
+            0,
+            {type='normal',chessdata = boards},
+            {}
+        )
         -- 整理中奖线数据
         for _, winline in ipairs(resultGame.winLines) do
             winline[3] = winline[3] * betGold
         end
-        if resultGame.winScore >0 then 
-          BackpackMgr.GetRewardGood(uid, Const.GOODS_ID.GOLD, resultGame.winScore, Const.GOODS_SOURCE_TYPE.MASTERJOKER)
+    
+        -- 返回数据
+        local res = GetResInfo(uid, datainfo, gameType)
+        res.winScore = winScore
+        res.winlines = resultGame.winLines
+        res.iconsAttachData = resultGame.iconsAttachData
+        res.disInfo = resultGame.disInfo
+        res.isfake = resultGame.isfake or 0 
+        SaveGameInfo(uid,gameType,datainfo)
+        return res
+    else
+        resultGames.winScore = realMul *  betMoney
+        -- 保存棋盘数据
+        datainfo.boards = resultGames.boards
+        -- 整理中奖线数据
+        for _, winline in ipairs(resultGames.winLines) do
+            winline[3] = winline[3] * betGold
+        end
+        if resultGames.winScore >0 then 
+          BackpackMgr.GetRewardGood(uid, Const.GOODS_ID.GOLD, resultGames.winScore, Const.GOODS_SOURCE_TYPE.MASTERJOKER)
         end 
         -- 返回数据
         local res = GetResInfo(uid, datainfo, gameType)
-        res.winScore = resultGame.winScore
-        res.winlines = resultGame.winLines
-        res.iconsAttachData = resultGame.iconsAttachData
+        res.winScore = resultGames.winScore
+        res.winlines = resultGames.winLines
+        res.iconsAttachData = resultGames.iconsAttachData
         gameDetaillog.SaveDetailGameLog(
             uid,
             sTime,
@@ -124,7 +106,7 @@ function Normal(gameType, betindex, datainfo, uid)
             reschip,
             chessuserinfodb.RUserChipsGet(uid),
             0,
-            {type='normal',chessdata = resultGame.boards}
+            {type='normal',chessdata = resultGames.boards}
             
         )
         -- 保存数据库信息
@@ -162,73 +144,53 @@ function NormalDemo(gameType, betindex, datainfo, uid)
     datainfo.betGold = betGold
     datainfo.betindex = betindex
     --启用图库模式
-    local resultGame,realMul ,imageType= gameImagePool.RealCommonRotate(uid,GameId,gameType,nil,Fisherman,{betchip=betMoney, demo = IsDemo(uid),betIndex=betindex,gameId=GameId,gameType=gameType,betchips=betGold})
+    local resultGames,realMul ,imageType= gameImagePool.RealCommonRotate(uid,GameId,gameType,nil,Fisherman,{betchip=betMoney, demo = IsDemo(uid),betIndex=betindex,gameId=GameId,gameType=gameType,betchips=betGold})
     if  imageType == 3 then 
-
-        -- local disInfo =  table.remove(alldisInfo,1)
-        -- local betchip = chip 
-        -- local disInfos,realMul2,bombdataMap,ssum = parseData(betMoney,disInfo)
-        -- local  Smul =  calcSMul(ssum)
-        -- local winScore = (realMul2+Smul)*betchip
-        -- if winScore > 0 then 
-        --     BackpackMgr.GetRewardGood(uid, Const.GOODS_ID.POINT,winScore, Const.GOODS_SOURCE_TYPE.FISHERMAN)
-        -- end 
-        -- local boards= table.clone(disInfos[1].chessdata)
-        -- local iconsAttachData = disInfos[1].iconsAttachData
-        -- for i=1,#disInfos-1 do
-        --     disInfos[i].chessdata = disInfos[i+1].chessdata
-        --     disInfos[i].iconsAttachData = disInfos[i+1].iconsAttachData
-        -- end
-        -- table.remove(disInfos,#disInfos)
-    
-        -- datainfo.free={
-        --     totalTimes=15,
-        --     lackTimes=15,
-        --     tWinScore = 0,
-        --     tMul = 0,
-        --     sMul = 0 ,
-        --     allmul = realMul,
-        --     normalwinScore = winScore,
-        --     mulInfoList={},
-        --     isBuy = 0,
-        --     resdata=alldisInfo
-        -- }
-        -- local res = {
-        --     errno = 0,
-        --     betIndex = datainfo.betindex,
-        --     bAllLine = LineNum,
-        --     payScore = datainfo.betMoney * LineNum,
-        --     winScore = winScore,
-        --     winLines = {},
-        --     boards = boards,
-        --     iconsAttachData = iconsAttachData,
-        --     features={
-        --         free = packFree(datainfo),
-
-        --     },
-        --     extraData = {
-        --         disInfo = disInfos
-        --     }
-        -- }
-       
-        -- SaveGameInfo(uid,gameType,datainfo)
-        return res
-    else
-        resultGame.winScore = realMul *  betMoney
-        -- 保存棋盘数据
+        local resultGame =  table.remove(resultGames,1)
+        local winScore = resultGame.sumMul *betGold
+        if winScore > 0 then 
+            BackpackMgr.GetRewardGood(uid, Const.GOODS_ID.POINT,winScore, Const.GOODS_SOURCE_TYPE.Fisherman)
+        end 
         datainfo.boards = resultGame.boards
+        datainfo.free={
+            totalTimes=resultGame.FreeInfo.FreeNum,
+            lackTimes=resultGame.FreeInfo.FreeNum,
+            tWinScore = 0,
+            isBuy = 0,
+            realMulall = realMulall,
+            FreeInfo = resultGame.FreeInfo,
+            resdata=resultGames
+        }
         -- 整理中奖线数据
         for _, winline in ipairs(resultGame.winLines) do
             winline[3] = winline[3] * betGold
         end
-        if resultGame.winScore >0 then 
-          BackpackMgr.GetRewardGood(uid, Const.GOODS_ID.GOLD, resultGame.winScore, Const.GOODS_SOURCE_TYPE.MASTERJOKER)
+
+        -- 返回数据
+        local res = GetResInfo(uid, datainfo, gameType)
+        res.winScore = winScore
+        res.winlines = resultGame.winLines
+        res.iconsAttachData = resultGame.iconsAttachData
+        res.disInfo = resultGame.disInfo
+        res.isfake = resultGame.isfake or 0 
+        SaveGameInfo(uid,gameType,datainfo)
+        return res
+    else
+        resultGames.winScore = realMul *  betMoney
+        -- 保存棋盘数据
+        datainfo.boards = resultGames.boards
+        -- 整理中奖线数据
+        for _, winline in ipairs(resultGames.winLines) do
+            winline[3] = winline[3] * betGold
+        end
+        if resultGames.winScore >0 then 
+          BackpackMgr.GetRewardGood(uid, Const.GOODS_ID.POINT, resultGames.winScore, Const.GOODS_SOURCE_TYPE.MASTERJOKER)
         end 
         -- 返回数据
         local res = GetResInfo(uid, datainfo, gameType)
-        res.winScore = resultGame.winScore
-        res.winlines = resultGame.winLines
-        res.iconsAttachData = resultGame.iconsAttachData
+        res.winScore = resultGames.winScore
+        res.winlines = resultGames.winLines
+        res.iconsAttachData = resultGames.iconsAttachData
         gameDetaillog.SaveDetailGameLog(
             uid,
             sTime,
@@ -238,7 +200,7 @@ function NormalDemo(gameType, betindex, datainfo, uid)
             reschip,
             chessuserinfodb.RUserChipsGet(uid),
             0,
-            {type='normal',chessdata = resultGame.boards}
+            {type='normal',chessdata = resultGames.boards}
             
         )
      

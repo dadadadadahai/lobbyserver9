@@ -1,4 +1,4 @@
--- 自动生成 ./excel/game/121/RTP100.xlsx(table_121_betrtp)
+-- 自动生成 ./excel/game/126/RTP100.xlsx(table_126_betrtp)
 return {
 
     [1] = {
