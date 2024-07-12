@@ -93,7 +93,7 @@ function PlayNormalGame(GRInfo,uid,betIndex,gameType)
         resultGame.allInfos[#resultGame.allInfos].winScore = resultGame.allInfos[#resultGame.allInfos].winScore + resultGame.allInfos[#resultGame.allInfos].winMul * betgold
         winscore = winscore +  resultGame.allInfos[#resultGame.allInfos].winScore
         if winscore >0 then 
-            BackpackMgr.GetRewardGood(uid, Const.GOODS_ID.GOLD, resultGame.winScore, Const.GOODS_SOURCE_TYPE.GREATRHINOCEROS)
+            BackpackMgr.GetRewardGood(uid, Const.GOODS_ID.GOLD, winscore, Const.GOODS_SOURCE_TYPE.GREATRHINOCEROS)
         end 
         -- 返回数据
         local res = GetResInfo(uid, GRInfo, gameType)
@@ -225,7 +225,7 @@ function PlayNormalGameDemo(GRInfo,uid,betIndex,gameType)
        resultGame.allInfos[#resultGame.allInfos].winScore = resultGame.allInfos[#resultGame.allInfos].winScore + resultGame.allInfos[#resultGame.allInfos].winMul * betgold
        winscore = winscore +  resultGame.allInfos[#resultGame.allInfos].winScore
         if winscore >0 then 
-            BackpackMgr.GetRewardGood(uid, Const.GOODS_ID.POINT, resultGame.winScore, Const.GOODS_SOURCE_TYPE.GREATRHINOCEROS)
+            BackpackMgr.GetRewardGood(uid, Const.GOODS_ID.POINT, winscore, Const.GOODS_SOURCE_TYPE.GREATRHINOCEROS)
         end 
         -- 返回数据
         local res = GetResInfo(uid, GRInfo, gameType)
