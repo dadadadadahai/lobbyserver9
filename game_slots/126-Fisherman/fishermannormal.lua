@@ -60,7 +60,7 @@ function Normal(gameType, betindex, datainfo, uid)
             sTime,
             GameId,
             gameType,
-            chip,
+            datainfo.betMoney,
             reschip,
             chessuserinfodb.RUserChipsGet(uid),
             0,
