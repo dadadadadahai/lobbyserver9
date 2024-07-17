@@ -39,7 +39,9 @@ function RealCommonRotate(_id,gameId,gameType,imageType,gameObj,param)
         local betrtptable = gameObj['table_'..gameId..'_betrtp']
         rtp =  betrtptable[gamecommon.CommRandInt(betrtptable,'bet'..betIndex)].bet_level
         unilight.info('@@@@betrtptablertp', rtp) 
-        imageType,  userinfo.point.maxMul =  getPlayertypeandMaxMul(userinfo,betchip,imageType)
+        if rtp <=200 then 
+             imageType,  userinfo.point.maxMul =  getPlayertypeandMaxMul(userinfo,betchip,imageType)
+        end 
         unilight.info('getPlayertypeandMaxMul',imageType,userinfo.point.maxMul)
         --local rtptable = gameObj['table_'..gameId..'_rtpswitch']
        -- local rtp = 200 --没充值的直接走200
